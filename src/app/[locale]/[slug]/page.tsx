@@ -62,7 +62,9 @@ export default async function ArticlePage({ params }: Props) {
       </header>
 
       {article.image_hero && (
-        <div className="relative aspect-[21/9] w-full">
+        // Hauteur fixe : tous les articles ont un en-tete de meme dimension,
+        // quel que soit le format du fichier d'origine.
+        <div className="relative h-[300px] w-full md:h-[500px] lg:h-[600px]">
           <Image
             src={article.image_hero}
             alt={article.titre}
