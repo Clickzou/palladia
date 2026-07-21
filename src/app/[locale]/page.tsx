@@ -161,41 +161,58 @@ export default async function HomePage({
         tinted
       />
 
-      {/* Bandeau spectacles */}
-      <section className="bg-ink px-6 py-16 text-center text-white">
-        <p className="font-display text-2xl tracking-wide uppercase md:text-3xl">
-          {t("bandeauSpectacles")}
-        </p>
+      {/* Chambres & Suite */}
+      <section className="px-6 py-20 text-center">
+        <h2 className="section-title">{t("suitesTitle")}</h2>
+        <div className="mx-auto mt-5 h-px w-20 bg-gold" />
         <Link
-          href="/spectacle-toulouse"
-          className="mt-8 inline-block bg-gold px-10 py-4 text-sm font-semibold tracking-wider uppercase transition-colors hover:bg-gold-dark"
+          href="/chambres"
+          className="mt-10 inline-block rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
         >
-          {t("bandeauSpectaclesCta")}
+          {t("suitesCta")}
         </Link>
       </section>
 
-      {/* Coffrets cadeaux */}
-      <section className="grid items-stretch md:grid-cols-2">
-        <div className="relative min-h-[300px] md:min-h-[460px]">
+      {/* Presentation en video */}
+      <section className="grid items-stretch bg-cream md:grid-cols-2">
+        <div className="flex flex-col justify-center px-8 py-16 lg:px-20">
+          <h2 className="font-display text-3xl text-ink lg:text-4xl">{t("videoTitle")}</h2>
+          <p className="mt-6 leading-relaxed text-body">{t("videoText")}</p>
+        </div>
+        <div className="relative min-h-[320px] md:min-h-[520px]">
+          {/* TODO : remplacer par le lecteur video une fois l'hebergement choisi */}
           <Image
-            src="/images/coffrets.jpg"
-            alt="Coffrets cadeaux de l'Hôtel Palladia"
+            src="/images/restaurant.jpg"
+            alt="L’Hôtel Palladia en vidéo"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
         </div>
-        <div className="flex flex-col justify-center bg-cream px-8 py-16 lg:px-20">
-          <h2 className="font-display text-3xl tracking-wide text-gold uppercase lg:text-4xl">
-            {t("coffretsTitle")}
-          </h2>
-          <div className="mt-5 h-px w-16 bg-gold" />
-          <p className="mt-6 leading-relaxed text-body">{t("coffretsText")}</p>
+      </section>
+
+      {/* Coffrets cadeaux */}
+      <section className="px-6 py-20 text-center">
+        <h2 className="section-title">{t("coffretsTitle")}</h2>
+        <div className="mx-auto mt-5 h-px w-20 bg-gold" />
+        <p className="mx-auto mt-8 max-w-2xl leading-relaxed text-body">{t("coffretsText")}</p>
+        <Link
+          href="/coffret-cadeau-hotel-restaurant-toulouse"
+          className="mt-10 inline-block rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
+        >
+          {t("coffretsCta")}
+        </Link>
+      </section>
+
+      {/* Bandeau spectacles */}
+      <section className="bg-gold px-6 py-14">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-8 text-center md:flex-row md:justify-between md:text-left">
+          <p className="text-xl text-white md:text-2xl">{t("bandeauSpectacles")}</p>
           <Link
-            href="/coffret-cadeau-hotel-restaurant-toulouse"
-            className="mt-8 self-start bg-gold px-8 py-3 text-sm font-semibold tracking-wider text-white uppercase transition-colors hover:bg-gold-dark"
+            href="/spectacle-toulouse"
+            className="shrink-0 rounded-full border-2 border-white px-8 py-3.5 font-medium text-white transition-colors hover:bg-white hover:text-gold"
           >
-            {t("coffretsCta")}
+            {t("bandeauSpectaclesCta")}
           </Link>
         </div>
       </section>
