@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { booking } from "@/config/site";
 import HeroCarousel from "@/components/HeroCarousel";
 import SplitSection from "@/components/SplitSection";
+import { IconPin, IconValise } from "@/components/icons";
 
 export async function generateMetadata({
   params,
@@ -81,6 +82,20 @@ export default async function HomePage({
             />
           </div>
         ))}
+      </section>
+
+      {/* Nous trouver / Votre séjour */}
+      <section className="mx-auto grid max-w-5xl gap-14 px-6 py-24 text-center md:grid-cols-2">
+        <div>
+          <IconPin className="mx-auto size-12 fill-gold" />
+          <h2 className="mt-6 font-display text-2xl text-ink">{t("trouverTitle")}</h2>
+          <p className="mt-5 leading-relaxed text-body">{t("trouverText")}</p>
+        </div>
+        <div>
+          <IconValise className="mx-auto size-12 fill-gold" />
+          <h2 className="mt-6 font-display text-2xl text-ink">{t("sejourTitle")}</h2>
+          <p className="mt-5 leading-relaxed text-body">{t("sejourText")}</p>
+        </div>
       </section>
 
       <SplitSection
