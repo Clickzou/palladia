@@ -49,7 +49,7 @@ const blocs = [
       titre: "Les critères essentiels pour réussir un séminaire à Toulouse",
       cartes: [
         {
-          titre: "Choisir un lieu facilement accessible",
+          titre: "Choisir un lieu\nfacilement accessible",
           image: "/images/bandeau-exterieur.jpg",
           alt: "Entrée de l’Hôtel Palladia avec tapis rouge",
           paragraphes: [
@@ -60,7 +60,7 @@ const blocs = [
           liste: ["de l’aéroport,", "du périphérique,", "du centre-ville,", "ou de la gare,"],
         },
         {
-          titre: "Disposer de salles adaptées à chaque format",
+          titre: "Disposer de salles\nadaptées à chaque format",
           image: "/images/salons/saint-georges.png",
           alt: "Salle de réunion équipée d’un écran",
           paragraphes: [
@@ -77,7 +77,7 @@ const blocs = [
           ],
         },
         {
-          titre: "Proposer un hébergement sur place",
+          titre: "Proposer un hébergement\nsur place",
           image: "/images/chambres/confort-hero.jpg",
           alt: "Chambre de l’Hôtel Palladia",
           paragraphes: [
@@ -87,7 +87,7 @@ const blocs = [
           ],
         },
         {
-          titre: "Offrir une restauration de qualité",
+          titre: "Offrir une restauration\nde qualité",
           image: "/images/mariages.jpg",
           alt: "Salle dressée pour un banquet",
           paragraphes: [

@@ -125,13 +125,15 @@ function BlocCartes({ c }: { c: BlocContenu["cartes"] }) {
   const cols =
     c.cartes.length >= 4 ? "lg:grid-cols-4" : c.cartes.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2";
   const titre = (carte: (typeof c.cartes)[number]) => (
-    <h3 className="text-center font-display text-xl text-ink">{carte.titre}</h3>
+    <h3 className="text-center font-display text-xl font-bold whitespace-pre-line text-ink">
+      {carte.titre}
+    </h3>
   );
 
   return (
     // Bande grise pleine largeur, contenu presque pleine largeur
     <section className={c.fond_gris === false ? "py-10" : "bg-cream py-14"}>
-      <div className="mx-auto max-w-[1700px] px-6">
+      <div className="px-6 lg:px-[100px]">
         {c.titre && <TitreSection>{c.titre}</TitreSection>}
         <div className={`grid gap-6 sm:grid-cols-2 ${cols}`}>
           {c.cartes.map((carte) => (
