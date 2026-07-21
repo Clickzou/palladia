@@ -157,7 +157,7 @@ const blocs = [
       cartes: [
         {
           titre: "L’Hôtel Palladia dispose notamment :",
-          image: "/images/salons/amphitheatre.jpg",
+          image: "/images/blog/infrastructures/amphitheatre.jpg",
           alt: "Amphithéâtre de 285 places",
           paragraphes: [],
           liste: [
@@ -170,7 +170,7 @@ const blocs = [
         },
         {
           titre: "Cette diversité permet d’organiser :",
-          image: "/images/salons/perchepinte.jpg",
+          image: "/images/blog/infrastructures/salon-perchepinte.jpg",
           alt: "Salon Perchepinte en configuration réunion",
           paragraphes: [],
           liste: [
@@ -184,8 +184,8 @@ const blocs = [
         },
         {
           titre: "Un accompagnement sur mesure",
-          image: "/images/salons/opera.jpg",
-          alt: "Salon Opéra en configuration événementielle",
+          image: "/images/blog/infrastructures/soiree-privee.jpg",
+          alt: "Soirée privée à l’Hôtel Palladia",
           paragraphes: [
             "L’équipe commerciale accompagne les entreprises dans la préparation de leur projet afin de proposer une solution adaptée aux objectifs, au nombre de participants et au budget.",
             "Cette approche personnalisée constitue un véritable atout pour garantir la réussite de chaque manifestation professionnelle.",

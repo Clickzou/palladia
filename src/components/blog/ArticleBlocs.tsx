@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import RoomGallery from "@/components/RoomGallery";
+import CarrouselLarge from "@/components/CarrouselLarge";
 import { IconBed, IconCheck, IconExpand, IconGift, IconLock, IconTv, IconWifi } from "@/components/icons";
 import type { Bloc, BlocContenu } from "@/lib/supabase/types";
 
@@ -144,7 +144,7 @@ function BlocCartes({ c }: { c: BlocContenu["cartes"] }) {
               {!c.titre_sous_image && <div className="mb-5">{titre(carte)}</div>}
 
               {carte.image && (
-                <div className="relative aspect-[4/3]">
+                <div className="relative h-[350px]">
                   <Image
                     src={carte.image}
                     alt={carte.alt ?? ""}
@@ -227,7 +227,7 @@ function BlocBandeauImage({ c }: { c: BlocContenu["bandeau_image"] }) {
 function BlocCarrousel({ c }: { c: BlocContenu["carrousel"] }) {
   return (
     <section className="py-10">
-      <RoomGallery images={c.images} />
+      <CarrouselLarge images={c.images} />
     </section>
   );
 }
