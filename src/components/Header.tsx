@@ -114,7 +114,7 @@ export default function Header() {
               <IconGift />
             </Link>
             <a
-              href={booking.rooms}
+              href={booking.premium}
               target="_blank"
               rel="noopener"
               className="hidden bg-gold px-8 py-3 text-sm font-semibold tracking-wide text-white uppercase transition-colors hover:bg-gold-dark md:block"
@@ -161,7 +161,7 @@ export default function Header() {
               </div>
             ))}
             <a
-              href={booking.rooms}
+              href={booking.premium}
               target="_blank"
               rel="noopener"
               className="m-6 block bg-gold px-6 py-3 text-center text-sm font-semibold uppercase"
