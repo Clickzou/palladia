@@ -40,18 +40,74 @@ export const politiqueCookies = {
       ],
     },
     {
-      titre: "5. Cookies",
+      titre: "5.1 Cookies techniques ou fonctionnels",
       paragraphes: [
-        "5.1 Cookies techniques ou fonctionnels — Certains cookies assurent le fonctionnement correct de certaines parties du site web et la prise en compte de vos préférences en tant qu’internaute. En plaçant des cookies fonctionnels, nous vous facilitons la visite de notre site web. Ainsi, vous n’avez pas besoin de saisir à plusieurs reprises les mêmes informations lors de la visite de notre site web. Nous pouvons déposer ces cookies sans votre consentement.",
-        "5.2 Cookies statistiques — Nous utilisons des cookies statistiques afin d’optimiser l’expérience des internautes sur notre site web. Avec ces cookies statistiques, nous obtenons des informations sur l’utilisation de notre site web. Nous demandons votre permission pour placer des cookies statistiques.",
-        "5.3 Cookies de marketing/suivi — Les cookies de marketing/suivi sont des cookies ou toute autre forme de stockage local, utilisés pour créer des profils d’utilisateurs afin d’afficher de la publicité ou de suivre l’utilisateur sur ce site web ou sur plusieurs sites web dans des finalités marketing similaires.",
-        "5.4 Réseaux sociaux — Sur notre site web, nous avons inclus du contenu provenant d’Instagram pour promouvoir des pages web ou les partager sur des réseaux sociaux. Ce contenu est intégré grâce à un code obtenu d’Instagram et place des cookies. Ce contenu peut stocker et traiter certaines informations à des fins de publicité personnalisée. Veuillez lire la déclaration de confidentialité de ces réseaux sociaux afin de savoir ce qu’ils font de vos données personnelles. Les données récupérées sont anonymisées autant que possible. Instagram se trouve aux États-Unis.",
+        "Certains cookies assurent le fonctionnement correct de certaines parties du site web et la prise en compte de vos préférences en tant qu’internaute. En plaçant des cookies fonctionnels, nous vous facilitons la visite de notre site web. Ainsi, vous n’avez pas besoin de saisir à plusieurs reprises les mêmes informations lors de la visite de notre site web et, par exemple, les éléments restent dans votre panier jusqu’à votre paiement. Nous pouvons déposer ces cookies sans votre consentement.",
+      ],
+    },
+    {
+      titre: "5.2 Cookies statistiques",
+      paragraphes: [
+        "Nous utilisons des cookies statistiques afin d’optimiser l’expérience des internautes sur notre site web. Avec ces cookies statistiques, nous obtenons des informations sur l’utilisation de notre site web. Nous demandons votre permission pour placer des cookies statistiques.",
+      ],
+    },
+    {
+      titre: "5.3 Cookies de marketing/suivi",
+      paragraphes: [
+        "Les cookies de marketing/suivi sont des cookies ou toute autre forme de stockage local, utilisés pour créer des profils d’utilisateurs afin d’afficher de la publicité ou de suivre l’utilisateur sur ce site web ou sur plusieurs sites web dans des finalités marketing similaires.",
+      ],
+    },
+    {
+      titre: "5.4 Réseaux sociaux",
+      paragraphes: [
+        "Sur notre site web, nous avons inclus du contenu provenant de Instagram pour promouvoir des pages web (par exemple, « like », « pin ») ou les partager (par exemple, « tweet ») sur des réseaux sociaux comme Instagram. Ce contenu est intégré grâce un code obtenu de Instagram et place des cookies. Ce contenu peut stocker et traiter certaines informations à des fins de publicité personnalisée.",
+        "Veuillez lire la déclaration de confidentialité de ces réseaux sociaux (qui peut être modifiée régulièrement) afin de savoir ce qu’ils font de vos données (personnelles) traitées en utilisant ces cookies. Les données récupérées sont anonymisées autant que possible. Instagram se trouve aux États-Unis.",
+      ],
+    },
+    {
+      titre: "6. Cookies placés",
+      paragraphes: [
+        "Elementor",
+        "Statistics (anonymous)",
+        "Nous utilisons Elementor pour la création de contenu. En savoir plus sur Elementor",
+        "Ces données ne sont pas partagées avec des tierces parties.",
+        "WordPress",
+        "Fonctionnel",
+        "Nous utilisons WordPress pour le développement du site web. En savoir plus sur WordPress",
+        "Ces données ne sont pas partagées avec des tierces parties.",
+        "Google Analytics",
+        "Statistiques",
+        "Nous utilisons Google Analytics pour les statistiques du site web. En savoir plus sur Google Analytics",
+        "Pour plus d’informations, veuillez lire la déclaration de confidentialité Google Analytics .",
+        "Wistia",
+        "Statistiques, Marketing",
+        "Nous utilisons Wistia pour l’affichage de vidéos. En savoir plus sur Wistia",
+        "Pour plus d’informations, veuillez lire la déclaration de confidentialité Wistia .",
+        "Complianz",
+        "Fonctionnel",
+        "Nous utilisons Complianz pour la gestion du consentement aux cookies. En savoir plus sur Complianz",
+        "Ces données ne sont pas partagées avec des tierces parties. Pour plus d’informations, veuillez lire la déclaration de confidentialité Complianz .",
+        "Google Fonts",
+        "Finalité en attente d’enquête",
+        "Nous utilisons Google Fonts pour l’affichage des polices web. En savoir plus sur Google Fonts",
+        "Pour plus d’informations, veuillez lire la déclaration de confidentialité Google Fonts .",
+        "Google reCAPTCHA",
+        "Finalité en attente d’enquête",
+        "Nous utilisons Google reCAPTCHA pour le blocage des indésirables. En savoir plus sur Google reCAPTCHA",
+        "Pour plus d’informations, veuillez lire la déclaration de confidentialité Google reCAPTCHA .",
+        "YouTube",
+        "Finalité en attente d’enquête",
+        "Nous utilisons YouTube pour l’affichage de vidéos. En savoir plus sur YouTube",
+        "Pour plus d’informations, veuillez lire la déclaration de confidentialité YouTube .",
+        "Divers",
+        "Finalité en attente d’enquête",
+        "Le partage des données est en cours d’enquête",
       ],
     },
     {
       titre: "7. Consentement",
       paragraphes: [
-        "Lorsque vous visitez notre site web pour la première fois, nous vous montrerons une fenêtre contextuelle avec une explication sur les cookies. Dès que vous cliquez sur « Enregistrer les préférences », vous nous autorisez à utiliser les catégories de cookies et d’extensions que vous avez sélectionnées dans la fenêtre contextuelle, comme décrit dans la présente politique de cookies. Vous pouvez désactiver l’utilisation des cookies via votre navigateur, mais veuillez noter que notre site web pourrait ne plus fonctionner correctement.",
+        "Lorsque vous visitez notre site web pour la première fois, nous vous montrerons une fenêtre contextuelle avec une explication sur les cookies. Dès que vous cliquez sur « Enregistrer les préférences » vous nous autorisez à utiliser les catégories de cookies et d’extensions que vous avez sélectionnés dans la fenêtre contextuelle, comme décrit dans la présente politique de cookies. Vous pouvez désactiver l’utilisation des cookies via votre navigateur, mais veuillez noter que notre site web pourrait ne plus fonctionner correctement.",
       ],
     },
     {
@@ -64,24 +120,22 @@ export const politiqueCookies = {
     {
       titre: "9. Vos droits concernant les données personnelles",
       paragraphes: [
-        "Vous avez le droit de savoir pourquoi vos données personnelles sont nécessaires, ce qui leur arrivera et combien de temps elles seront conservées.",
-        "Droit d’accès : vous avez le droit d’accéder à vos données personnelles que nous connaissons.",
-        "Droit de rectification : vous avez le droit à tout moment de compléter, corriger, faire supprimer ou bloquer vos données personnelles.",
-        "Si vous nous donnez votre consentement pour le traitement de vos données, vous avez le droit de révoquer ce consentement et de faire supprimer vos données personnelles.",
-        "Droit de transférer vos données : vous avez le droit de demander toutes vos données personnelles au responsable du traitement et de les transférer dans leur intégralité à un autre responsable du traitement.",
-        "Droit d’opposition : vous pouvez vous opposer au traitement de vos données. Nous obtempérerons, à moins que certaines raisons ne justifient ce traitement.",
-        "Pour exercer ces droits, veuillez nous contacter. Si vous avez une plainte concernant la façon dont nous traitons vos données, nous aimerions en être informés, mais vous avez également le droit de déposer une plainte auprès de l’autorité de contrôle (l’autorité chargée de la protection des données).",
+        "Vous avez les droits suivants concernant vos données personnelles :",
+        "Pour exercer ces droits, veuillez nous contacter. Veuillez vous référer aux coordonnées au bas de cette politique de cookies. Si vous avez une plainte concernant la façon dont nous traitons vos données, nous aimerions en être informés, mais vous avez également le droit de déposer une plainte auprès de l’autorité de contrôle (l’autorité chargée de la protection des données).",
       ],
     },
     {
       titre: "10. Coordonnées",
       paragraphes: [
         "Pour des questions et/ou des commentaires sur notre politique de cookies et cette déclaration, veuillez nous contacter en utilisant les coordonnées suivantes :",
-        "Hôtel Palladia — 271 Av. de Grande Bretagne, 31300 Toulouse, France",
-        "Site web : https://www.hotelpalladia.com — E-mail : info@hotelpalladia.com — Téléphone : +33 5 62 12 01 20",
+        "Cette politique de cookies a été synchronisée avec cookiedatabase.org le avril 22, 2024.",
+        "Découvrez notre Charte environnementale RSE",
+        "info@hotelpalladia.com Nous trouver 271 Av. de Grande Bretagne, 31300 Toulouse +33 5 62 12 01 20 Facebook Linkedin Youtube Instagram Création site internet hôtel",
       ],
     },
   ],
+
+
 
   /** Services déposant des cookies, tels que déclarés sur le site WordPress. */
   services: [

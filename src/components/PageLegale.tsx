@@ -6,6 +6,20 @@ export type SectionLegale = {
 };
 
 /**
+ * Rend en gras les segments encadres de ** : sur ces pages, chaque paragraphe
+ * est introduit par un intitule mis en valeur.
+ */
+function EnGras({ texte }: { texte: string }) {
+  return (
+    <>
+      {texte
+        .split(/\*\*(.+?)\*\*/g)
+        .map((m, i) => (i % 2 === 1 ? <strong key={`${m}-${i}`}>{m}</strong> : m))}
+    </>
+  );
+}
+
+/**
  * Gabarit des pages légales : titre, sections numérotées, texte en colonne
  * étroite pour rester lisible.
  */
@@ -41,12 +55,14 @@ export default function PageLegale({
           </dl>
         )}
 
-        {sections.map((s) => (
-          <section key={s.titre} className="mt-10">
-            <h2 className="text-lg font-semibold text-ink">{s.titre}</h2>
+        {sections.map((s, i) => (
+          <section key={`${s.titre}-${i}`} className="mt-10">
+            {s.titre && <h2 className="text-lg font-semibold text-ink">{s.titre}</h2>}
             <div className="mt-4 space-y-4 leading-relaxed text-body">
-              {s.paragraphes.map((p) => (
-                <p key={p.slice(0, 40)}>{p}</p>
+              {s.paragraphes.map((p, n) => (
+                <p key={`${p.slice(0, 40)}-${n}`}>
+                  <EnGras texte={p} />
+                </p>
               ))}
             </div>
           </section>
