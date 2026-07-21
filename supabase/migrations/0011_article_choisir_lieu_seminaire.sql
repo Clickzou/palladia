@@ -23,18 +23,19 @@ values (
   'fr',
   'Comment choisir le meilleur lieu pour organiser un séminaire à Toulouse ?',
   'Découvrez le cadre idéal pour vos séminaires à Toulouse. L Hôtel Palladia offre luxe, confort et services personnalisés pour réussir votre événement.',
-  '/images/salons/amphitheatre.jpg',
-  '/images/salons/amphitheatre.jpg',
+  '/images/blog/seminaire-amphitheatre.webp',
+  '/images/blog/seminaire-amphitheatre.webp',
   'brouillon',
   '2026-06-10 13:51:47',
   1,
   'Découvrez le cadre idéal pour vos séminaires à Toulouse. L Hôtel Palladia offre luxe, confort et services personnalisés pour réussir votre événement.'
 )
+-- Volontairement limite : ni image_hero, ni image_vignette, ni statut ne
+-- sont mis a jour ici. Ils sont renseignes par 0012, et les reecrire
+-- ferait regresser l'article si ce fichier etait rejoue apres 0012.
 on conflict (slug, locale) do update set
   titre = excluded.titre,
   chapo = excluded.chapo,
-  image_hero = excluded.image_hero,
-  image_vignette = excluded.image_vignette,
   date_publication = excluded.date_publication,
   position = excluded.position,
   seo_description = excluded.seo_description;
