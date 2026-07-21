@@ -2,6 +2,8 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { supabaseConfigure } from "@/lib/blog";
+import { envoyerCourriel } from "@/lib/courriel";
+import { destinataires } from "@/config/site";
 
 export type EtatDevis = { ok: boolean; message: string } | null;
 
@@ -10,10 +12,9 @@ export type EtatDevis = { ok: boolean; message: string } | null;
  * anonyme mais interdisent toute lecture : une demande déposée n’est visible
  * que par l’équipe authentifiée.
  *
- * ATTENTION — aucune notification n’est envoyée pour l’instant. L’ancien site
- * prévenait `destinataires.devis` (voir config/site.ts) à chaque demande ;
- * ici, elles s’empilent en base sans que personne ne soit alerté. Il reste à
- * brancher un service d’envoi (Resend, SMTP OVH…) et à fournir sa clé.
+ * L’équipe est prévenue par courriel, comme sur l’ancien site. Un envoi manqué
+ * ne fait pas échouer la demande : elle est déjà enregistrée, et la perdre
+ * serait plus grave que de ne pas notifier.
  */
 export async function envoyerDevis(
   _etat: EtatDevis,
@@ -65,6 +66,33 @@ export async function envoyerDevis(
       message: "Votre demande n’a pas pu être enregistrée. Merci de réessayer ou de nous appeler au 05 62 12 01 20.",
     };
   }
+
+  const intitules: Record<string, string> = {
+    salle_reunion: "Salle de réunion",
+    mariage: "Mariage",
+    evenement_hybride: "Événement hybride",
+    reservation_groupe: "Réservation de groupe",
+    autre: "Demande générale",
+  };
+  const type = champ("type") || "autre";
+
+  await envoyerCourriel({
+    destinataires: destinataires.devis,
+    sujet: `Demande de devis — ${intitules[type] ?? type} — ${prenom} ${nom}`,
+    repondreA: email,
+    lignes: [
+      `Type de demande : ${intitules[type] ?? type}`,
+      `Nom : ${prenom} ${nom}`,
+      `E-mail : ${email}`,
+      `Téléphone : ${champ("telephone") || "non renseigné"}`,
+      `Entreprise : ${champ("entreprise") || "non renseignée"}`,
+      `Date souhaitée : ${champ("date_evenement") || "non renseignée"}` +
+        (champ("date_flexible") === "Non" ? " (date ferme)" : " (date flexible)"),
+      `Budget : ${champ("budget") || "non renseigné"}`,
+      "",
+      champ("message") || "(aucun message)",
+    ],
+  });
 
   return {
     ok: true,
