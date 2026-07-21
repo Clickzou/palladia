@@ -22,15 +22,15 @@ export default function RestaurantPage() {
         external
       />
 
-      {/* Presentation + carte room service */}
-      <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 lg:grid-cols-2">
-        <div className="text-center lg:text-left">
+      {/* Presentation + portrait du chef */}
+      <section className="mx-auto grid max-w-[1800px] items-start gap-12 px-8 pb-20 lg:grid-cols-2 lg:gap-16">
+        <div>
           <Image
             src="/images/restaurant/picto-carte.png"
             alt=""
             width={90}
             height={90}
-            className="mx-auto h-20 w-auto lg:mx-0"
+            className="h-20 w-auto"
           />
           <a
             href="/carte-restaurant.pdf"
@@ -41,20 +41,23 @@ export default function RestaurantPage() {
             Consulter la carte
           </a>
 
-          <div className="mt-8 space-y-4 leading-relaxed text-body">
+          {/* Bloc d'introduction : lignes serrees, comme sur le site */}
+          <div className="mt-10 leading-relaxed text-body">
             {r.intro.map((p) => (
               <p key={p.slice(0, 30)}>{p}</p>
             ))}
           </div>
 
-          <p className="mt-6 text-body">
-            Notre chef de cuisine :{" "}
-            <a href={r.chef.href} className="font-semibold text-gold hover:underline">
-              {r.chef.name}
+          <p className="mt-8">
+            <a
+              href={r.chef.href}
+              className="font-semibold text-[#8b3a3a] underline underline-offset-4 hover:text-gold"
+            >
+              Découvrez notre chef de Cuisine, {r.chef.name}
             </a>
           </p>
 
-          <div className="mt-8 space-y-2">
+          <div className="mt-8 space-y-4">
             {r.horaires.map((h) => (
               <p key={h.texte.slice(0, 30)} className={h.fort ? "font-semibold text-ink" : "text-body"}>
                 {h.texte}
@@ -63,10 +66,10 @@ export default function RestaurantPage() {
           </div>
         </div>
 
-        <div className="relative aspect-[4/5] w-full">
+        <div className="relative aspect-[3/4] w-full">
           <Image
-            src="/images/restaurant/salle-1.jpg"
-            alt="Le chef et son équipe"
+            src="/images/restaurant/chef.jpg"
+            alt={`${r.chef.name}, chef de cuisine de l’Hôtel Palladia`}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
