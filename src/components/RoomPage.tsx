@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { booking } from "@/config/site";
 import type { Room } from "@/data/rooms";
-import RoomGallery from "./RoomGallery";
 import { IconBed, IconExpand, IconLock, IconTv, IconWifi } from "./icons";
 
 /**
@@ -69,13 +68,13 @@ export default function RoomPage({ room }: { room: Room }) {
         <span className="font-semibold text-ink">{room.breadcrumb}</span>
       </nav>
 
-      {/* Texte + galerie */}
-      <section className="mx-auto grid max-w-7xl items-start gap-12 px-6 pb-20 lg:grid-cols-2">
+      {/* Texte + visuel */}
+      <section className="mx-auto grid max-w-[1700px] items-start gap-12 px-8 pb-20 lg:grid-cols-2 lg:gap-16">
         <div>
           <h2 className="font-display text-3xl tracking-wide text-gold uppercase lg:text-4xl">
             {room.heading}
           </h2>
-          <p className="mt-6 font-semibold text-ink">{room.lead}</p>
+          <p className="mt-8 leading-relaxed text-body">{room.lead}</p>
           {room.paragraphs.map((p) => (
             <p key={p.slice(0, 40)} className="mt-5 leading-relaxed text-body">
               {p}
@@ -83,7 +82,16 @@ export default function RoomPage({ room }: { room: Room }) {
           ))}
         </div>
 
-        <RoomGallery images={room.gallery} />
+        {/* Une seule image, sans carrousel, comme sur le site d'origine */}
+        <div className="relative aspect-[4/3] w-full overflow-hidden">
+          <Image
+            src={room.gallery[0].src}
+            alt={room.gallery[0].alt}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </div>
       </section>
 
       {/* Preparez votre sejour */}
