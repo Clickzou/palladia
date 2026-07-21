@@ -56,8 +56,17 @@ export default function SeminairesPage() {
         <div className="mx-auto mt-6 mb-14 h-px w-20 bg-gold" />
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {s.salons.map((salon) => (
-            <article key={salon.nom} className="bg-cream">
+          {s.salons.map((salon, i) => (
+            <article
+              key={salon.nom}
+              className={
+                // 13 salons sur 3 colonnes : le dernier est seul sur sa ligne,
+                // on le decale d'une colonne pour le centrer.
+                i === s.salons.length - 1 && s.salons.length % 3 === 1
+                  ? "bg-cream lg:col-start-2"
+                  : "bg-cream"
+              }
+            >
               <div className="px-6 py-6 text-center">
                 <h3 className="font-display text-xl tracking-wide text-gold uppercase">
                   {salon.nom}
