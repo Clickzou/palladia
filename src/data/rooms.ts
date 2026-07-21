@@ -18,8 +18,10 @@ export type Room = {
   metaDescription: string;
   ctaHero: string;
   surface: string;
-  /** Chapo en gras */
+  /** Chapo d'introduction */
   lead: string;
+  /** Le site met ce chapo en gras sur certaines pages seulement */
+  leadGras?: boolean;
   paragraphs: string[];
   heroImage: string;
   gallery: { src: string; alt: string }[];
@@ -46,9 +48,9 @@ export const rooms: Room[] = [
       "WIFI par fibre optique vous est offerte. La chambre dispose également d’un coffre sécurisé pour vos objets de valeur. Ces chambres sont idéales si vous souhaitez profiter des services d’un hôtel 4 étoiles aussi bien pour un séjour d’affaires que pour un week-end de détente.",
     ],
     heroImage: "/images/chambres/confort-hero.jpg",
+    // Une seule image sur cette page : le site n'y affiche pas de carrousel
     gallery: [
       { src: "/images/chambres/confort-1.jpg", alt: "Chambre Confort de l’Hôtel Palladia" },
-      { src: "/images/chambres/confort-2.jpg", alt: "Espace bureau de la Chambre Confort" },
     ],
   },
   {
@@ -64,15 +66,19 @@ export const rooms: Room[] = [
       "La chambre PRESTIGE est une chambre luxueuse de 27 m² où les couleurs cuivrées, bronze ou argentées se mêlent à un mobilier de grande qualité.",
     ctaHero: "Réservez la Chambre Prestige",
     surface: "27 m²",
-    lead: "La chambre PRESTIGE est une chambre luxueuse de 27 m² où les couleurs cuivrées, bronze ou bien argentées se mêlent à un mobilier et des textures de grande qualité.",
+    lead: "La chambre PRESTIGE est une chambre luxueuse de 27 m².",
+    leadGras: true,
     paragraphs: [
       "Notre literie est de grande qualité pour un confort optimal. Les écrans sont full HD et vous proposent un bouquet de chaînes internationales et Canal +. La salle de bains dispose de baignoire ou douche. Les WC sont indépendants.",
       "Cette chambre est résolument une chambre de standing. Un plateau de courtoisie est à votre disposition avec une machine à café, des dosettes de thé, cafés et tisanes. WIFI offerte. La chambre dispose également d’un coffre sécurisé pour vos objets de valeur et d’une table avec fer à repasser.",
     ],
     heroImage: "/images/chambres/prestige-hero.jpg",
     gallery: [
-      { src: "/images/chambres/prestige-1.jpg", alt: "Chambre Prestige de l’Hôtel Palladia" },
-      { src: "/images/chambres/prestige-2.jpg", alt: "Salle de bains de la Chambre Prestige" },
+      { src: "/images/chambres/prestiges-matelassees.jpg", alt: "Chambre Prestige, tête de lit matelassée" },
+      { src: "/images/chambres/prestige-bleue.jpg", alt: "Chambre Prestige aux teintes bleutées" },
+      { src: "/images/chambres/prestige-doree.jpg", alt: "Chambre Prestige aux teintes dorées" },
+      { src: "/images/chambres/prestiges-rayures.jpg", alt: "Chambre Prestige, décor à rayures" },
+      { src: "/images/chambres/prestige-sdb.jpg", alt: "Salle de bains de la Chambre Prestige" },
     ],
   },
   {

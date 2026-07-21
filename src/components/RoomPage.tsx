@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import RoomGallery from "./RoomGallery";
 import { booking } from "@/config/site";
 import type { Room } from "@/data/rooms";
 import { IconBed, IconExpand, IconLock, IconTv, IconWifi } from "./icons";
@@ -74,7 +75,13 @@ export default function RoomPage({ room }: { room: Room }) {
           <h2 className="font-display text-3xl tracking-wide text-gold uppercase lg:text-4xl">
             {room.heading}
           </h2>
-          <p className="mt-8 leading-relaxed text-body">{room.lead}</p>
+          <p
+            className={`mt-8 leading-relaxed ${
+              room.leadGras ? "font-semibold text-ink" : "text-body"
+            }`}
+          >
+            {room.lead}
+          </p>
           {room.paragraphs.map((p) => (
             <p key={p.slice(0, 40)} className="mt-5 leading-relaxed text-body">
               {p}
@@ -82,16 +89,20 @@ export default function RoomPage({ room }: { room: Room }) {
           ))}
         </div>
 
-        {/* Une seule image, sans carrousel, comme sur le site d'origine */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden">
-          <Image
-            src={room.gallery[0].src}
-            alt={room.gallery[0].alt}
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
-        </div>
+        {/* Carrousel si plusieurs visuels, image seule sinon — comme sur le site */}
+        {room.gallery.length > 1 ? (
+          <RoomGallery images={room.gallery} />
+        ) : (
+          <div className="relative aspect-[4/3] w-full overflow-hidden">
+            <Image
+              src={room.gallery[0].src}
+              alt={room.gallery[0].alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+        )}
       </section>
 
       {/* Preparez votre sejour */}
