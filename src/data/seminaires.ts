@@ -113,6 +113,7 @@ export const seminaires = {
     },
     {
       titre: "Les salles de séminaires de l’Hôtel Palladia : une solution adaptée à chaque besoin",
+      fondGris: true,
       chapo:
         "Le grand hôtel Palladia est un hôtel d’affaire qui dispose d’une variété de salles de séminaires pour votre journée de travail, chacune adaptée à des besoins spécifiques. Voici un aperçu des différentes options disponibles pour une location de salles : des prix attractifs pour votre demi-journée d’étude ou votre journée d’étude.",
       points: [

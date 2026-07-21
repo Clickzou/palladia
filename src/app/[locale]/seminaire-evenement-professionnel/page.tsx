@@ -146,7 +146,13 @@ export default function SeminairesPage() {
 
       {/* Contenu éditorial */}
       {s.sections.map((section) => (
-        <section key={section.titre} className="mx-auto max-w-4xl px-6 py-16">
+        <section
+          key={section.titre}
+          className={
+            "fondGris" in section && section.fondGris ? "bg-cream px-6 py-20" : "px-6 py-16"
+          }
+        >
+          <div className="mx-auto max-w-4xl">
           <h2 className="text-center font-display text-2xl tracking-wide text-gold uppercase md:text-3xl">
             {section.titre}
           </h2>
@@ -187,6 +193,7 @@ export default function SeminairesPage() {
               )}
             </div>
           ))}
+          </div>
         </section>
       ))}
 
