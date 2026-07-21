@@ -14,7 +14,7 @@ export default function CoffretsPage() {
   return (
     <>
       <PageHeader breadcrumb="Coffrets Cadeaux" title={c.title} />
-      <p className="px-6 pb-16 text-center text-lg text-body">{c.chapo}</p>
+      <p className="px-6 pb-16 text-center text-body">{c.chapo}</p>
 
       {/* Coffrets */}
       <section className="mx-auto grid max-w-[1500px] gap-8 px-6 pb-20 md:grid-cols-2 xl:grid-cols-3">
@@ -64,7 +64,7 @@ export default function CoffretsPage() {
       {/* Avantages */}
       <section className="bg-cream px-6 py-20 text-center">
         <h2 className="section-title">{c.garantiesTitre}</h2>
-        <p className="mt-4 text-lg text-body">{c.garantiesSousTitre}</p>
+        <p className="mt-4 text-body">{c.garantiesSousTitre}</p>
 
         <ul className="mx-auto mt-14 grid max-w-[1400px] gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {c.garanties.map((g) => (

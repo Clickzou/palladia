@@ -64,7 +64,7 @@ export default async function HomePage({
         <h2 className="section-title">{t("introTitle")}</h2>
         <div className="mx-auto mt-5 h-px w-20 bg-gold" />
         <p
-          className="mt-8 text-lg leading-relaxed text-body"
+          className="mt-8 leading-relaxed text-body"
           dangerouslySetInnerHTML={{ __html: t.raw("introText") as string }}
         />
       </section>

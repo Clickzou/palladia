@@ -14,7 +14,7 @@ export default function SpaPage() {
     <>
       <PageHeader breadcrumb="Spa" title={spa.title} subtitle={spa.subtitle} />
 
-      <p className="mx-auto max-w-4xl px-6 pb-14 text-center text-lg leading-relaxed text-body">
+      <p className="mx-auto max-w-4xl px-6 pb-14 text-center leading-relaxed text-body">
         {spa.intro}
       </p>
 
@@ -22,15 +22,15 @@ export default function SpaPage() {
 
       {/* Presentation, horaires et contact */}
       <section className="mx-auto max-w-4xl px-6 py-16 text-center">
-        <p className="text-lg leading-relaxed text-body">{spa.presentation}</p>
+        <p className="leading-relaxed text-body">{spa.presentation}</p>
 
         <h2 className="mt-10 font-semibold tracking-wide text-ink uppercase">
           Horaires d’ouverture :
         </h2>
-        <p className="mt-4 text-lg leading-relaxed text-body">
+        <p className="mt-4 leading-relaxed text-body">
           {spa.horaires.join(", ")}.
         </p>
-        <p className="mt-4 text-lg text-body">{spa.fermeture}</p>
+        <p className="mt-4 text-body">{spa.fermeture}</p>
 
         <a
           href={spa.telephoneHref}

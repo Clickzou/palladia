@@ -17,10 +17,14 @@
   --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Corps de texte : mesures relevees sur le site d'origine
+   (Roboto 400, 19 px, interligne 29 px, rgba(3,3,3,0.82)). */
 body {
   background: #fff;
   color: var(--color-body);
   font-family: var(--font-sans);
+  font-size: 19px;
+  line-height: 29px;
 }
 
 /* Titres de section : capitales dorées + filet centré, signature du site */

@@ -13,7 +13,7 @@ export default function EngagementsPage() {
     <>
       <PageHeader breadcrumb="Engagements" title="Engagements" />
 
-      <p className="px-6 pb-12 text-center text-lg text-body">
+      <p className="px-6 pb-12 text-center text-body">
         Ensemble protégeons la vie, protégeons la Terre
       </p>
 
