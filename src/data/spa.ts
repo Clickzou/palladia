@@ -29,12 +29,12 @@ export const spa = {
   telephoneHref: "tel:+33562869409",
 
   carrousel: [
-    { src: "/images/spa/carrousel-1.jpg", alt: "Jacuzzi du spa" },
-    { src: "/images/spa/carrousel-2.jpg", alt: "Cabine de soin" },
-    { src: "/images/spa/carrousel-3.jpg", alt: "Espace détente" },
-    { src: "/images/spa/carrousel-4.jpg", alt: "Hammam" },
-    { src: "/images/spa/carrousel-5.jpg", alt: "Salle de repos" },
-    { src: "/images/spa/carrousel-7.jpg", alt: "Espace bien-être" },
+    { src: "/images/spa/vue-1.jpg", alt: "Espace détente du spa" },
+    { src: "/images/spa/vue-2.jpg", alt: "Jacuzzi du spa" },
+    { src: "/images/spa/vue-3.jpg", alt: "Transats et espace repos" },
+    { src: "/images/spa/vue-4.jpg", alt: "Cabine de soin" },
+    { src: "/images/spa/vue-5.jpg", alt: "Hammam" },
+    { src: "/images/spa/vue-6.jpg", alt: "Couloir du spa" },
   ],
 
   forfaitsTitre: "Les formules Hôtel & Spa",

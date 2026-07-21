@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { booking } from "@/config/site";
 import { spa } from "@/data/spa";
 import PageHeader from "@/components/PageHeader";
-import RoomGallery from "@/components/RoomGallery";
+import CarrouselLarge from "@/components/CarrouselLarge";
 
 export const metadata: Metadata = {
   title: spa.metaTitle,
@@ -18,7 +18,7 @@ export default function SpaPage() {
         {spa.intro}
       </p>
 
-      <RoomGallery images={[...spa.carrousel]} />
+      <CarrouselLarge images={spa.carrousel} />
 
       {/* Presentation, horaires et contact */}
       <section className="mx-auto max-w-4xl px-6 py-16 text-center">
@@ -61,7 +61,7 @@ export default function SpaPage() {
 
       {/* Bandeau formules */}
       <section
-        className="relative flex h-[340px] items-center justify-center bg-cover bg-center"
+        className="relative flex h-[440px] items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: "url('/images/spa/formules-bandeau.jpg')" }}
       >
         <h2 className="px-6 text-center font-display text-3xl tracking-wide text-white uppercase drop-shadow-lg md:text-5xl">
