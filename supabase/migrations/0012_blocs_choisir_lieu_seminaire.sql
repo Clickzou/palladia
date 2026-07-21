@@ -36,8 +36,8 @@ insert into public.article_blocs (article_id, ordre, type, contenu)
 values ((select id from public.articles where slug = 'choisir-lieu-seminaire-toulouse' and locale = 'fr'), 13, 'bouton', '{"boutons":[{"label":"Séminaire à Toulouse","href":"/seminaire-evenement-professionnel"}]}'::jsonb);
 
 -- Visuel principal : l'amphithéâtre, comme sur le site.
-update public.articles set image_hero = '/images/blog/seminaire-amphitheatre.jpg',
-  image_vignette = '/images/blog/seminaire-amphitheatre.jpg', statut = 'publie'
+update public.articles set image_hero = '/images/blog/seminaire-amphitheatre.webp',
+  image_vignette = '/images/blog/seminaire-amphitheatre.webp', statut = 'publie'
   where slug = 'choisir-lieu-seminaire-toulouse' and locale = 'fr';
 
 commit;

@@ -27,6 +27,17 @@ body {
   line-height: 29px;
 }
 
+/* Les titres ne doivent pas heriter de l'interligne fixe du corps de texte :
+   a 40 px de police, 29 px d'interligne feraient se chevaucher les lignes. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
+
 /* Titres de section : capitales dorées + filet centré, signature du site */
 @utility section-title {
   font-family: var(--font-display);
@@ -35,4 +46,5 @@ body {
   letter-spacing: 0.02em;
   text-align: center;
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  line-height: 1.2;
 }

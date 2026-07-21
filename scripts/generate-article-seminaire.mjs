@@ -299,8 +299,8 @@ blocs.forEach((b, i) => {
 lignes.push(
   "",
   "-- Visuel principal : l'amphithéâtre, comme sur le site.",
-  `update public.articles set image_hero = '/images/blog/seminaire-amphitheatre.jpg',`,
-  `  image_vignette = '/images/blog/seminaire-amphitheatre.jpg', statut = 'publie'`,
+  `update public.articles set image_hero = '/images/blog/seminaire-amphitheatre.webp',`,
+  `  image_vignette = '/images/blog/seminaire-amphitheatre.webp', statut = 'publie'`,
   `  where slug = ${q(SLUG)} and locale = 'fr';`,
   "",
   "commit;",
