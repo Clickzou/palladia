@@ -110,6 +110,22 @@ export default function RoomPage({ room }: { room: Room }) {
           </a>
         </div>
       </section>
+
+      {/* Video de presentation, pleine largeur */}
+      <section className="relative h-[60vh] min-h-[380px] w-full overflow-hidden">
+        <video
+          className="absolute inset-0 size-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          poster="/images/hotel/vue-3.jpg"
+          aria-label="L’Hôtel Palladia en vidéo"
+        >
+          <source src="/videos/hotel-presentation.mp4" type="video/mp4" />
+        </video>
+      </section>
     </>
   );
 }
