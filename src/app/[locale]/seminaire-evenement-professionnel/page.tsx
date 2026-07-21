@@ -187,9 +187,13 @@ export default function SeminairesPage() {
 
             return (
               <div key={point.num} className="mt-10">
-                <h3 className="text-lg tracking-wide text-ink uppercase">
-                  {point.num} {point.titre}
-                </h3>
+                {/* Sans visuel, le titre coiffe le paragraphe ; avec un visuel,
+                    il est place dans la colonne de texte, juste au-dessus. */}
+                {!image && (
+                  <h3 className="text-lg tracking-wide text-ink uppercase">
+                    {point.num} {point.titre}
+                  </h3>
+                )}
 
                 {image ? (
                   // Largeur portee par l'image elle-meme : avec une grille, la
@@ -208,7 +212,12 @@ export default function SeminairesPage() {
                         className="object-cover"
                       />
                     </div>
-                    <p className="flex-1 leading-relaxed text-body">{point.texte}</p>
+                    <div className="flex-1">
+                      <h3 className="text-lg tracking-wide text-ink uppercase">
+                        {point.num} {point.titre}
+                      </h3>
+                      <p className="mt-4 leading-relaxed text-body">{point.texte}</p>
+                    </div>
                   </div>
                 ) : (
                   <p className="mt-4 leading-relaxed text-body">{point.texte}</p>
