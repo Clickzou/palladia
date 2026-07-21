@@ -44,8 +44,14 @@ export type BlocContenu = {
     paragraphes: string[];
     liste?: string[];
     centre?: boolean;
-    /** Taille du titre : 19 px par defaut, 25 px (« moyen ») ou 40 px (« grand ») */
-    taille_titre?: "normal" | "moyen" | "grand";
+    /**
+     * Taille du titre : 19 px par defaut, 25 px (« moyen »), 40 px (« grand »)
+     * ou 22 px en Roboto sans capitales dorées (« sous-titre »).
+     */
+    taille_titre?: "normal" | "moyen" | "grand" | "sous-titre";
+    /** Visuel centre sous le texte */
+    image?: string;
+    alt?: string;
     /** Ligne en italique fermant la section */
     note?: string;
     /** Bande grise pleine largeur */

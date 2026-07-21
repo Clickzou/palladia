@@ -6,6 +6,9 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
+    // 75 par defaut : suffisant pour une vignette, visible sur un bandeau
+    // plein ecran ou les aplats de ciel se pixellisent.
+    qualities: [75, 85],
   },
 
   /**

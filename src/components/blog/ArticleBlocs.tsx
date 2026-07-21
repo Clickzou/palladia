@@ -76,7 +76,12 @@ function BlocRendu({ bloc }: { bloc: Bloc }) {
 }
 
 /* --- Titre de section, commun a plusieurs blocs --- */
-const TAILLES = { normal: "titre-bloc", moyen: "titre-moyen", grand: "section-title" } as const;
+const TAILLES = {
+  normal: "titre-bloc",
+  moyen: "titre-moyen",
+  grand: "section-title",
+  "sous-titre": "text-center text-[22px] font-normal text-body uppercase",
+} as const;
 
 function TitreSection({
   children,
@@ -160,6 +165,20 @@ function BlocTexte({ c }: { c: BlocContenu["texte"] }) {
         {c.note && (
           <p className={`mt-8 text-body italic ${c.centre ? "text-center" : ""}`}>{c.note}</p>
         )}
+        {c.image && (
+          <div
+            className="relative mx-auto mt-10 w-full max-w-[775px]"
+            style={{ aspectRatio: ratioImage(c.image, "16 / 9") }}
+          >
+            <Image
+              src={c.image}
+              alt={c.alt ?? ""}
+              fill
+              sizes="(max-width: 775px) 100vw, 775px"
+              className="object-cover"
+            />
+          </div>
+        )}
         {c.boutons && <Boutons boutons={c.boutons} />}
       </div>
     </section>
@@ -238,7 +257,7 @@ function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
               src={c.image}
               alt={c.alt}
               fill
-              sizes="(max-width: 768px) 100vw, 550px"
+              sizes={c.large ? "(max-width: 768px) 100vw, 850px" : "(max-width: 768px) 100vw, 550px"}
               className="object-cover"
             />
           </div>
@@ -428,7 +447,7 @@ function BlocCarrousel({ c }: { c: BlocContenu["carrousel"] }) {
             src={img.src}
             alt={img.alt}
             fill
-            sizes="(max-width: 800px) 100vw, 800px"
+            sizes={c.pleine_largeur ? "100vw" : "(max-width: 800px) 100vw, 800px"}
             className={c.pleine_largeur ? "object-cover" : "object-contain"}
           />
         </div>
@@ -539,14 +558,20 @@ function BlocEquipe({ c }: { c: BlocContenu["equipe"] }) {
         <p className="mt-6 whitespace-pre-line text-body">{c.adresse.join("\n")}</p>
       )}
 
-      <div className="mx-auto mt-12 grid max-w-5xl gap-10 sm:grid-cols-3">
+      {/* Autant de colonnes que de membres : a trois colonnes fixes, deux
+          portraits se retrouvaient decales vers la gauche. */}
+      <div
+        className={`conteneur mt-12 grid gap-10 ${
+          c.membres.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"
+        }`}
+      >
         {c.membres.map((m) => (
           <div key={m.nom}>
             <h3 className="font-semibold tracking-wide text-ink uppercase">{m.nom}</h3>
             <p className="mt-1 text-body">{m.fonction}</p>
             {m.photo && (
-              <div className="relative mx-auto mt-5 size-40 overflow-hidden rounded-full">
-                <Image src={m.photo} alt={m.nom} fill sizes="160px" className="object-cover" />
+              <div className="relative mx-auto mt-5 size-[200px] overflow-hidden rounded-full">
+                <Image src={m.photo} alt={m.nom} fill sizes="200px" className="object-cover" />
               </div>
             )}
             {m.telephone && (
