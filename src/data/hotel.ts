@@ -35,8 +35,7 @@ export const hotel = {
     { nom: "Sport", detail: "Espace Fitness et salle de sport", icone: "sport" },
     { nom: "Bien-être", detail: "SPA / Institut de beauté (tarifs selon prestations)", icone: "spa" },
     { nom: "Room Service", detail: "Room Service 7j/7 – 24h/24", icone: "service" },
-    // Le site indique 280 places ici et 300 sur la page Seminaires : a trancher.
-    { nom: "Parking", detail: "Parking de 280 places gratuit, emplacements bornes électriques", icone: "parking" },
+    { nom: "Parking", detail: "Parking de 300 places gratuit, emplacements bornes électriques", icone: "parking" },
     { nom: "Équipements spéciaux Bus", detail: "Prise 220/380 volts + branchement eau", icone: "bus" },
     { nom: "Navette Aéroport-Hôtel", detail: "Sur réservation et sous réserve de disponibilité", icone: "navette" },
     { nom: "Business center", detail: "2 ordinateurs connectés à internet et une imprimante", icone: "business" },
