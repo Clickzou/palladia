@@ -155,6 +155,7 @@ function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
         {/* Deux colonnes egales, texte centre verticalement par rapport au visuel */}
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className={c.position === "gauche" ? "md:order-2" : ""}>
+            {c.sous_titre && <h3 className="titre-mini mb-4">{c.sous_titre}</h3>}
             <Paragraphes items={c.paragraphes} />
             {c.liste && <Liste items={c.liste} />}
             {c.conclusion && (
@@ -379,15 +380,10 @@ function BlocCitation({ c }: { c: BlocContenu["citation"] }) {
 function BlocEquipe({ c }: { c: BlocContenu["equipe"] }) {
   return (
     <section className="bg-cream px-6 py-16 text-center">
-      {c.intro && (
-        <p className="mx-auto max-w-3xl font-semibold whitespace-pre-line text-ink">{c.intro}</p>
-      )}
+      {/* Le site titre cette accroche : on garde le meme niveau */}
+      {c.intro && <h3 className="titre-mini mx-auto max-w-3xl whitespace-pre-line">{c.intro}</h3>}
       {c.adresse && (
-        <div className="mt-6 space-y-1 text-body">
-          {c.adresse.map((l) => (
-            <p key={l}>{l}</p>
-          ))}
-        </div>
+        <p className="mt-6 whitespace-pre-line text-body">{c.adresse.join("\n")}</p>
       )}
 
       <div className="mx-auto mt-12 grid max-w-5xl gap-10 sm:grid-cols-3">
@@ -401,20 +397,24 @@ function BlocEquipe({ c }: { c: BlocContenu["equipe"] }) {
               </div>
             )}
             {m.telephone && (
-              <a
-                href={`tel:${m.telephone.replace(/\s/g, "")}`}
-                className="mt-5 block text-ink underline underline-offset-4 hover:text-gold"
-              >
-                {m.telephone}
-              </a>
+              <p className="mt-5">
+                <a
+                  href={`tel:${m.telephone.replace(/\s/g, "")}`}
+                  className="font-semibold text-ink underline underline-offset-4 hover:text-gold"
+                >
+                  {m.telephone}
+                </a>
+              </p>
             )}
             {m.email && (
-              <a
-                href={`mailto:${m.email}`}
-                className="mt-2 block text-ink underline underline-offset-4 hover:text-gold"
-              >
-                {m.email}
-              </a>
+              <p className="mt-2">
+                <a
+                  href={`mailto:${m.email}`}
+                  className="font-semibold text-ink underline underline-offset-4 hover:text-gold"
+                >
+                  {m.email}
+                </a>
+              </p>
             )}
           </div>
         ))}

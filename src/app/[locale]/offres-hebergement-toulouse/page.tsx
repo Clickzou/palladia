@@ -105,7 +105,7 @@ export default function OffresEtePage() {
         className="bg-gold px-6 py-28 text-center text-white md:py-36"
         style={{ clipPath: "polygon(0 4%, 100% 0, 100% 96%, 0 100%)" }}
       >
-        <h2 className="font-display text-2xl tracking-wide uppercase md:text-4xl">
+        <h2 className="section-title text-white">
           {o.argumentsTitre}
         </h2>
         <div className="mx-auto mt-6 h-px w-20 bg-white/70" />

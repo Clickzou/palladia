@@ -60,6 +60,7 @@ async function mesurer(page, url) {
         .replace(/[“”]/g, '"')
         .replace(/[–—]/g, "-")
         .replace(/^[•·▪]\s*/, "")
+        .replace(/[​-‍﻿]/g, "")
         .replace(/\s+/g, " ")
         .trim()
         .toLowerCase();

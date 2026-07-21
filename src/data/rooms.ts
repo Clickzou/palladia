@@ -56,7 +56,7 @@ export const rooms: Room[] = [
     titreCourt: "Prestige",
     resume:
       "La chambre PRESTIGE, d’une surface de 27 m², offre une expérience luxueuse où les nuances chatoyantes de cuivre, de bronze et d’argent fusionnent harmonieusement avec un mobilier raffiné et des textures haut de gamme",
-    hero: "La Chambre Prestige",
+    hero: "Chambres Prestiges",
     heading: "La chambre Prestige",
     breadcrumb: "La Chambre Prestige",
     metaTitle: "Chambre Prestige - Le Palladia hôtel 4 étoiles Toulouse",

@@ -105,7 +105,7 @@ export default async function DinerSpectaclesPage({
 
       {/* Reservation */}
       <section className="px-6 pb-20 text-center">
-        <h2 className="section-title text-ink-soft">Réservation</h2>
+        <h2 className="titre-mini text-ink-soft">Réservation</h2>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <a
             href={booking.restaurant}

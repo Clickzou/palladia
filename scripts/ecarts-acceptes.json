@@ -4,10 +4,9 @@
     "compte a part pour qu'ils ne masquent pas les vrais defauts.",
     "Chaque entree porte la raison de la decision."
   ],
-
   "titres_absents": [
     {
-      "motif": "^(l')?h[oô]tel palladia$|^chambres?( prestiges?)?$|^le restaurant$|^le spa$|^presse$|^engagements$|^recrutement$|^actualit[ée]s$|^s[ée]minaires?$|^nos spectacles au palladia$|^visites [àa] toulouse|^votre h[oô]tel s[ée]minaire|^offre.* h[ée]bergement|^demande de devis$|^coffrets? cadeaux?",
+      "motif": "^(l')?h[oô]tel palladia$|^chambres?( prestiges?)?$|^le restaurant$|^le spa$|^presse$|^engagements$|^recrutement$|^actualit[ée]s$|^s[ée]minaires?$|^nos spectacles au palladia$|^visites [àa] toulouse|^votre h[oô]tel s[ée]minaire|^offre.* h[ée]bergement|^demande de devis$|^coffrets? cadeaux?|^h[oô]tel 4 [ée]toiles toulouse$",
       "raison": "Titre WordPress affiche EN PLUS du titre de section : le site a deux <h1> par page. Un seul <h1> par page est la regle SEO ; la v2 n'en garde qu'un."
     },
     {
@@ -26,9 +25,13 @@
     {
       "motif": "jean jacques goldman",
       "raison": "Le site ecrit « Jean Jacques » sans trait d'union ; la v2 retient l'orthographe exacte."
+    },
+    {
+      "motif": "^(ambiance assuree|tomy vay|theatre|concert de musique classique|concert des golden gospel|)$",
+      "pages": ["/diner-spectacles-toulouse"],
+      "raison": "Affiches de la saison 2025, passee : la v2 pilote cette liste par la date et n'affiche que les spectacles a venir."
     }
   ],
-
   "textes_absents": [
     {
       "motif": ".",
@@ -46,20 +49,30 @@
     },
     {
       "motif": "^modes de paiement acceptes :",
-      "pages": ["/restaurant"],
+      "pages": [
+        "/restaurant"
+      ],
       "raison": "Le site affiche l'information deux fois de suite : un paragraphe « Modes de paiement acceptés : … » puis un titre suivi de la meme liste. La v2 n'en garde qu'une, sous forme de titre + liste. A signaler au client."
     },
     {
       "motif": "^le samedi (7 novembre|28 novembre) 2026",
       "raison": "Le site colle date, horaire de diner et horaire de spectacle dans un seul paragraphe ; la v2 les separe en date et sous-titre."
+    },
+    {
+      "motif": "^le \\d+ (octobre|novembre|decembre) 2025",
+      "pages": ["/diner-spectacles-toulouse"],
+      "raison": "Le site affiche encore la programmation 2025, passee. La v2 pilote cette liste par la date et n'affiche que les spectacles a venir : proposer des dates ecoulees a la reservation serait un defaut, pas une fidelite."
+    },
+    {
+      "motif": "^(l )?h[oô]tel palladia 4 [ée]toiles offre",
+      "pages": ["/actualites"],
+      "raison": "Le chapo du site ecrit « l hotel » avec une espace au lieu d'une apostrophe. La v2 corrige la coquille."
     }
   ],
-
   "ignorer_images": {
     "raison": "Le site charge ses visuels au defilement et n'en affiche qu'une partie au moment de la mesure : le decompte n'est pas comparable.",
     "actif": true
   },
-
   "ignorer_fonds": {
     "raison": "La detection remonte aussi des conteneurs internes : trop instable pour servir de verdict. Les fonds sont verifies page par page.",
     "actif": true

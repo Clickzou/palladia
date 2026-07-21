@@ -81,10 +81,11 @@ export default function ChambresPage() {
       {/* Animaux de compagnie */}
       <div className="px-6 pb-20 text-center">
         <Dog className="mx-auto size-10 text-gold" strokeWidth={1.2} />
-        <p className="mx-auto mt-6 max-w-3xl leading-relaxed text-body">
+        {/* Titre sur le site, malgre sa longueur : on garde le meme niveau */}
+        <h3 className="mx-auto mt-6 max-w-3xl text-[15px] leading-relaxed font-normal text-body">
           Les animaux de compagnie (de moins de 10 kg) sont autorisés, avec un supplément de 15 €
           par jour, par animal, dans la limite de 1 animal par chambre sur demande uniquement.
-        </p>
+        </h3>
       </div>
     </>
   );

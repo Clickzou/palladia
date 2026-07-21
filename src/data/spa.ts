@@ -78,7 +78,7 @@ export const spa = {
   cgv: [
     "Nous remercions notre aimable clientèle de bien vouloir se présenter au Spa dix minutes avant l’horaire de la prestation.",
     "Tout retard sera décompté sur le temps du soin. Toute prestation non annulée 48h avant sera due.",
-    "Accès au Jacuzzi et hammam muni obligatoirement d’un maillot de bain.",
+    "Accès au jacuzzi, hammam muni obligatoirement d’un maillot de bain.",
     "L’entrée au Spa est exclusivement réservée aux plus de 16 ans.",
     "Certains soins sont déconseillés pendant la grossesse. Nous vous recommandons de demander conseil à votre médecin.",
     "Les massages sont effectués par un personnel formé au massage femme enceinte (en fonction du personnel présent)",

@@ -55,6 +55,8 @@ export type BlocContenu = {
     titre?: string;
     /** Taille du titre : 19 px par defaut, 25 px (« moyen ») ou 40 px (« grand ») */
     taille_titre?: "normal" | "moyen" | "grand";
+    /** Intitule dore place au-dessus du texte de la colonne */
+    sous_titre?: string;
     paragraphes: string[];
     liste?: string[];
     /** Paragraphe fermant la colonne de texte, sous la liste */
