@@ -21,7 +21,7 @@ export default function SeminairesPage() {
       />
 
       {/* Atouts + présentation */}
-      <section className="mx-auto grid max-w-7xl items-start gap-10 px-6 pb-20 lg:grid-cols-2">
+      <section className="grid items-stretch gap-6 px-3 pb-20 lg:grid-cols-[minmax(0,42%)_1fr] lg:gap-8">
         <div className="bg-cream px-8 py-12 text-center">
           <ul className="space-y-4">
             {s.atouts.map((a) => (
@@ -39,7 +39,8 @@ export default function SeminairesPage() {
           </Link>
         </div>
 
-        <div className="space-y-5 leading-relaxed text-body">
+        {/* Texte centre verticalement par rapport a l'encadre de gauche */}
+        <div className="flex flex-col justify-center space-y-5 px-4 leading-relaxed text-body lg:px-8">
           {s.presentation.map((p, i) => (
             <p key={p.slice(0, 30)} className={i === 1 || i === 2 ? "font-semibold text-ink" : ""}>
               {p}
@@ -49,12 +50,12 @@ export default function SeminairesPage() {
       </section>
 
       {/* Fiches techniques des salons */}
-      <section className="px-6 pb-20">
+      <section className="px-3 pb-20">
         <h2 className="section-title">Fiches techniques de nos salons</h2>
         <p className="mt-4 text-center tracking-wide text-ink-soft uppercase">{s.subtitle}</p>
         <div className="mx-auto mt-6 mb-14 h-px w-20 bg-gold" />
 
-        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {s.salons.map((salon) => (
             <article key={salon.nom} className="bg-cream">
               <div className="px-6 py-6 text-center">
@@ -63,7 +64,7 @@ export default function SeminairesPage() {
                 </h3>
                 <p className="mt-2 text-body">{salon.places}</p>
               </div>
-              <div className="relative aspect-[16/10]">
+              <div className="relative aspect-[1024/474]">
                 <Image
                   src={salon.image}
                   alt={`Salon ${salon.nom} de l’Hôtel Palladia`}
