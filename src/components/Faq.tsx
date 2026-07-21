@@ -14,7 +14,7 @@ export default function Faq({
   const [ouvert, setOuvert] = useState<number | null>(0);
 
   return (
-    <div className="mx-auto max-w-4xl divide-y divide-black/10 border border-black/10">
+    <div className="mx-auto max-w-6xl divide-y divide-black/10 border border-black/10">
       {items.map((item, i) => {
         const actif = ouvert === i;
         return (

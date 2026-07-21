@@ -152,7 +152,7 @@ export default function SeminairesPage() {
             "fondGris" in section && section.fondGris ? "bg-cream px-6 py-20" : "px-6 py-16"
           }
         >
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-6xl">
           <h2 className="text-center font-display text-2xl tracking-wide text-gold uppercase md:text-3xl">
             {section.titre}
           </h2>
@@ -207,7 +207,7 @@ export default function SeminairesPage() {
       ))}
 
       {/* Devis */}
-      <section className="bg-cream px-6 py-20 text-center">
+      <section className="px-6 py-20 text-center">
         <h2 className="section-title">{s.devis.titre}</h2>
         <p className="mx-auto mt-8 max-w-3xl leading-relaxed text-body">{s.devis.texte}</p>
         <Link
@@ -219,7 +219,7 @@ export default function SeminairesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="px-6 py-20">
+      <section className="bg-cream px-6 py-20">
         <h2 className="mb-12 text-center font-display text-2xl tracking-wide text-ink md:text-3xl">
           🙋 FAQ séminaire Toulouse
         </h2>
