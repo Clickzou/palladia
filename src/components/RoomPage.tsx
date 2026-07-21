@@ -70,7 +70,7 @@ export default function RoomPage({ room }: { room: Room }) {
       </nav>
 
       {/* Texte + visuel */}
-      <section className="mx-auto grid max-w-[1700px] items-start gap-12 px-8 pb-20 lg:grid-cols-2 lg:gap-16">
+      <section className="mx-auto grid max-w-[1700px] items-center gap-12 px-8 pb-20 lg:grid-cols-2 lg:gap-16">
         <div>
           <h2 className="font-display text-3xl tracking-wide text-gold uppercase lg:text-4xl">
             {room.heading}
@@ -93,7 +93,7 @@ export default function RoomPage({ room }: { room: Room }) {
         {room.gallery.length > 1 ? (
           <RoomGallery images={room.gallery} />
         ) : (
-          <div className="relative aspect-[4/3] w-full overflow-hidden">
+          <div className="relative aspect-[5/3] w-full overflow-hidden">
             <Image
               src={room.gallery[0].src}
               alt={room.gallery[0].alt}

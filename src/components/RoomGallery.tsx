@@ -14,7 +14,7 @@ export default function RoomGallery({
   const go = (step: number) => setI((v) => (v + step + images.length) % images.length);
 
   return (
-    <div className="relative aspect-[4/3] w-full overflow-hidden">
+    <div className="relative aspect-[5/3] w-full overflow-hidden">
       {images.map((img, n) => (
         <Image
           key={img.src}
