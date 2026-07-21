@@ -61,7 +61,14 @@ export type BlocContenu = {
     boutons?: { label: string; href: string }[];
   };
   carrousel: { images: { src: string; alt: string }[] };
-  liste_cochee: { titre?: string; intro?: string; items: string[]; conclusion?: string };
+  liste_cochee: {
+    titre?: string;
+    intro?: string;
+    items: string[];
+    conclusion?: string;
+    /** Bande grise pleine largeur */
+    fond_gris?: boolean;
+  };
   citation: { texte: string; auteur?: string };
   equipe: {
     intro?: string;

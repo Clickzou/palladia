@@ -231,27 +231,21 @@ const blocs = [
 
   // 8. Tendances
   {
-    type: "texte",
+    type: "liste_cochee",
     contenu: {
       titre: "Les nouvelles tendances des séminaires d’entreprise",
-      paragraphes: [
-        "Les attentes des entreprises évoluent. Aujourd’hui, les organisateurs recherchent davantage :",
-      ],
-      liste: [
+      fond_gris: true,
+      intro:
+        "Les attentes des entreprises évoluent.\n\nAujourd’hui, les organisateurs recherchent davantage :",
+      items: [
         "d’expériences collaboratives ;",
         "d’activités de team building ;",
         "de formats hybrides ;",
         "d’événements plus responsables ;",
         "d’espaces favorisant les échanges informels.",
       ],
-    },
-  },
-  {
-    type: "texte",
-    contenu: {
-      paragraphes: [
+      conclusion:
         "Les lieux capables de proposer des solutions flexibles et innovantes répondent mieux à ces nouvelles exigences.",
-      ],
     },
   },
 

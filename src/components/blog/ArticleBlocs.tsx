@@ -234,9 +234,10 @@ function BlocCarrousel({ c }: { c: BlocContenu["carrousel"] }) {
 
 function BlocListeCochee({ c }: { c: BlocContenu["liste_cochee"] }) {
   return (
-    <section className="mx-auto max-w-4xl px-6 py-10 text-center">
+    <section className={c.fond_gris ? "bg-cream py-20" : "py-10"}>
+      <div className="mx-auto max-w-4xl px-6 text-center">
       {c.titre && <TitreSection>{c.titre}</TitreSection>}
-      {c.intro && <p className="leading-relaxed text-body">{c.intro}</p>}
+      {c.intro && <p className="whitespace-pre-line leading-relaxed text-body">{c.intro}</p>}
       <ul className="mt-6 space-y-2">
         {c.items.map((i) => (
           <li key={i} className="flex items-center justify-center gap-2 text-body">
@@ -244,7 +245,8 @@ function BlocListeCochee({ c }: { c: BlocContenu["liste_cochee"] }) {
           </li>
         ))}
       </ul>
-      {c.conclusion && <p className="mt-6 leading-relaxed text-body">{c.conclusion}</p>}
+      {c.conclusion && <p className="mt-8 leading-relaxed text-body">{c.conclusion}</p>}
+      </div>
     </section>
   );
 }
