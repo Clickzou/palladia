@@ -180,14 +180,24 @@ export default async function HomePage({
           <p className="mt-6 leading-relaxed text-body">{t("videoText")}</p>
         </div>
         <div className="relative min-h-[320px] md:min-h-[520px]">
-          {/* TODO : remplacer par le lecteur video une fois l'hebergement choisi */}
-          <Image
-            src="/images/restaurant.jpg"
-            alt="L’Hôtel Palladia en vidéo"
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-          />
+          {/*
+            Lecture automatique, en sourdine et en boucle : le navigateur
+            l'autorise a ces conditions. `playsInline` evite le passage en
+            plein ecran force sur iPhone, `poster` affiche un visuel pendant
+            le chargement.
+          */}
+          <video
+            className="absolute inset-0 size-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/images/bandeau-3.jpg"
+            aria-label="Visite en vidéo de l’Hôtel Palladia"
+          >
+            <source src="/videos/hotel-palladia.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
 
