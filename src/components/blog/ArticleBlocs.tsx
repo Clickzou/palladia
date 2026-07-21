@@ -101,12 +101,13 @@ function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
   return (
     <section className="mx-auto max-w-6xl px-6 py-10">
       {c.titre && <TitreSection>{c.titre}</TitreSection>}
-      <div className="grid items-center gap-10 md:grid-cols-2">
+      {/* Texte aligne en haut, visuel au format carre : mise en page du site */}
+      <div className="grid items-start gap-12 md:grid-cols-2">
         <div className={c.position === "gauche" ? "md:order-2" : ""}>
           <Paragraphes items={c.paragraphes} />
           {c.liste && <Liste items={c.liste} />}
         </div>
-        <div className={`relative aspect-[4/3] ${c.position === "gauche" ? "md:order-1" : ""}`}>
+        <div className={`relative aspect-square ${c.position === "gauche" ? "md:order-1" : ""}`}>
           <Image
             src={c.image}
             alt={c.alt}
