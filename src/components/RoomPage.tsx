@@ -75,13 +75,7 @@ export default function RoomPage({ room }: { room: Room }) {
           <h2 className="font-display text-3xl tracking-wide text-gold uppercase lg:text-4xl">
             {room.heading}
           </h2>
-          <p
-            className={`mt-8 leading-relaxed ${
-              room.leadGras ? "font-semibold text-ink" : "text-body"
-            }`}
-          >
-            {room.lead}
-          </p>
+          <p className="mt-8 leading-relaxed font-semibold text-ink">{room.lead}</p>
           {room.paragraphs.map((p) => (
             <p key={p.slice(0, 40)} className="mt-5 leading-relaxed text-body">
               {p}

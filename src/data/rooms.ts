@@ -18,10 +18,8 @@ export type Room = {
   metaDescription: string;
   ctaHero: string;
   surface: string;
-  /** Chapo d'introduction */
+  /** Chapo d'introduction, toujours affiche en gras */
   lead: string;
-  /** Le site met ce chapo en gras sur certaines pages seulement */
-  leadGras?: boolean;
   paragraphs: string[];
   heroImage: string;
   gallery: { src: string; alt: string }[];
@@ -67,7 +65,6 @@ export const rooms: Room[] = [
     ctaHero: "Réservez la Chambre Prestige",
     surface: "27 m²",
     lead: "La chambre PRESTIGE est une chambre luxueuse de 27 m².",
-    leadGras: true,
     paragraphs: [
       "Notre literie est de grande qualité pour un confort optimal. Les écrans sont full HD et vous proposent un bouquet de chaînes internationales et Canal +. La salle de bains dispose de baignoire ou douche. Les WC sont indépendants.",
       "Cette chambre est résolument une chambre de standing. Un plateau de courtoisie est à votre disposition avec une machine à café, des dosettes de thé, cafés et tisanes. WIFI offerte. La chambre dispose également d’un coffre sécurisé pour vos objets de valeur et d’une table avec fer à repasser.",
