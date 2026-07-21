@@ -18,8 +18,9 @@ export const booking = {
   /** Page offres premium VerticalBooking */
   premium:
     "https://reservations.verticalbooking.com/premium/index.html?id_albergo=12425&dc=5376&lingua_int=fra&id_stile=19042",
-  /** Reservation restaurant TheFork */
-  restaurant: "https://widget.thefork.com/fr/f4fd4f59-4b37-4601-8acc-a7d63d4ae849",
+  /** Reservation restaurant TheFork (avec suivi de provenance) */
+  restaurant:
+    "https://widget.thefork.com/fr/f4fd4f59-4b37-4601-8acc-a7d63d4ae849?step=date&utm_source=hotelpalladia.com",
   /** Reservation spa Secretbox */
   spa: "https://hotelpalladia.secretbox.fr/",
 } as const;

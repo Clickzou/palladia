@@ -50,9 +50,9 @@ export default function Footer() {
               <FooterExtLink href={booking.rooms}>{t("resaChambre")}</FooterExtLink>
               <FooterExtLink href={booking.restaurant}>{t("resaRestaurant")}</FooterExtLink>
               <FooterExtLink href={booking.spa}>{t("resaSpa")}</FooterExtLink>
-              <FooterLink href="/devis">{t("devisSalle")}</FooterLink>
-              <FooterLink href="/devis">{t("devisMariage")}</FooterLink>
-              <FooterLink href="/devis">{t("devisHybride")}</FooterLink>
+              <FooterLink href="/devis?type=salle_reunion">{t("devisSalle")}</FooterLink>
+              <FooterLink href="/devis?type=mariage">{t("devisMariage")}</FooterLink>
+              <FooterLink href="/devis?type=evenement_hybride">{t("devisHybride")}</FooterLink>
               <FooterLink href="/spectacle-toulouse">{t("concerts")}</FooterLink>
             </ul>
           </div>
