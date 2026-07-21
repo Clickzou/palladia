@@ -50,8 +50,8 @@ const blocs = [
       cartes: [
         {
           titre: "Choisir un lieu\nfacilement accessible",
-          image: "/images/bandeau-exterieur.jpg",
-          alt: "Entrée de l’Hôtel Palladia avec tapis rouge",
+          image: "/images/blog/criteres/lieu-accessible.jpg",
+          alt: "Entrée de l’Hôtel Palladia",
           paragraphes: [
             "Le premier critère concerne la localisation du lieu de séminaire.",
             "Vos collaborateurs doivent pouvoir rejoindre facilement l’établissement, qu’ils viennent de Toulouse ou d’autres régions.",
@@ -61,7 +61,7 @@ const blocs = [
         },
         {
           titre: "Disposer de salles\nadaptées à chaque format",
-          image: "/images/salons/saint-georges.png",
+          image: "/images/blog/criteres/salles-adaptees.webp",
           alt: "Salle de réunion équipée d’un écran",
           paragraphes: [
             "Toutes les entreprises n’ont pas les mêmes besoins.",
@@ -78,7 +78,7 @@ const blocs = [
         },
         {
           titre: "Proposer un hébergement\nsur place",
-          image: "/images/chambres/confort-hero.jpg",
+          image: "/images/blog/criteres/hebergement-sur-place.jpg",
           alt: "Chambre de l’Hôtel Palladia",
           paragraphes: [
             "Pour un séminaire résidentiel à Toulouse, la présence d’un hôtel constitue un avantage considérable.",
@@ -88,7 +88,7 @@ const blocs = [
         },
         {
           titre: "Offrir une restauration\nde qualité",
-          image: "/images/mariages.jpg",
+          image: "/images/blog/criteres/restauration-qualite.webp",
           alt: "Salle dressée pour un banquet",
           paragraphes: [
             "Les temps de repas participent pleinement à l’expérience globale d’un séminaire.",
