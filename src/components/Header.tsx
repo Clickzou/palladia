@@ -190,7 +190,7 @@ function SocialLink({
       target="_blank"
       rel="noopener"
       aria-label={label}
-      className="flex size-8 items-center justify-center bg-ink transition-colors hover:bg-gold"
+      className="flex size-8 items-center justify-center bg-ink text-gold transition-colors hover:bg-gold hover:text-ink"
     >
       {children}
     </a>

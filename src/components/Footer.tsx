@@ -152,7 +152,7 @@ function Social({ href, label, children }: { href: string; label: string; childr
       target="_blank"
       rel="noopener"
       aria-label={label}
-      className="flex size-9 items-center justify-center rounded border border-white/25 transition-colors hover:border-gold hover:bg-gold hover:text-ink"
+      className="flex size-9 items-center justify-center rounded border border-gold/50 text-gold transition-colors hover:bg-gold hover:text-ink"
     >
       {children}
     </a>
