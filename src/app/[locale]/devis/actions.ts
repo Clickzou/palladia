@@ -6,9 +6,9 @@ import { supabaseConfigure } from "@/lib/blog";
 export type EtatDevis = { ok: boolean; message: string } | null;
 
 /**
- * Enregistre une demande de devis. Les politiques RLS autorisent l'insertion
- * anonyme mais interdisent toute lecture : une demande déposée n'est visible
- * que par l'équipe authentifiée.
+ * Enregistre une demande de devis. Les politiques RLS autorisent l’insertion
+ * anonyme mais interdisent toute lecture : une demande déposée n’est visible
+ * que par l’équipe authentifiée.
  */
 export async function envoyerDevis(
   _etat: EtatDevis,

@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { booking } from "@/config/site";
 import { formaterDate, prochainsEvenements } from "@/lib/evenements";
 
-export const metadata: Metadata = {
-  title: "Instigateur de spectacle à Toulouse - Hôtel Palladia",
-  description:
-    "Concerts de musique classique, théâtre, jazz, dîners-spectacles et brunchs : découvrez la programmation culturelle de l’Hôtel Palladia à Toulouse.",
-};
+export const metadata: Metadata = metadonnees("/spectacle-toulouse");
 
 export default async function SpectaclesPage({
   params,

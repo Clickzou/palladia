@@ -1,5 +1,5 @@
 /**
- * Offres d'emploi. À terme, candidates à une table Supabase `offres_emploi`
+ * Offres d’emploi. À terme, candidates à une table Supabase `offres_emploi`
  * avec une date de clôture : une annonce pourvue ne doit pas rester en ligne.
  */
 export const recrutement = {

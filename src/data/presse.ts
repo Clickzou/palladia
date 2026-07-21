@@ -1,6 +1,6 @@
 /**
  * Revues de presse. Les visuels sont des captures des articles publiés ;
- * `image: null` signifie qu'elle reste à récupérer.
+ * `image: null` signifie qu’elle reste à récupérer.
  */
 export const presse = {
   metaTitle: "Presse - Le Palladia hôtel 4 étoiles Toulouse",

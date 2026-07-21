@@ -3,7 +3,7 @@ import { Link } from "@/i18n/navigation";
 
 /**
  * Section moitie image / moitie texte, alternee gauche-droite,
- * telle qu'utilisee sur toute la page d'accueil du site d'origine.
+ * telle qu’utilisee sur toute la page d’accueil du site d’origine.
  */
 export default function SplitSection({
   title,

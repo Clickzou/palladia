@@ -5,7 +5,7 @@ import Image from "next/image";
  *
  * `mode` :
  *  - "carre"   : vignettes carrees recadrees (galeries denses)
- *  - "paysage" : l'image garde son cadrage d'origine, sans recadrage ni
+ *  - "paysage" : l’image garde son cadrage d’origine, sans recadrage ni
  *                agrandissement — a preferer pour les grandes photos.
  */
 export default function PhotoGrid({

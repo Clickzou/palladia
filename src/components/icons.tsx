@@ -1,6 +1,6 @@
 /**
  * Icones SVG inline (aucune dependance externe, aucun webfont a charger).
- * Traits repris du jeu Font Awesome utilise par le site d'origine.
+ * Traits repris du jeu Font Awesome utilise par le site d’origine.
  */
 type P = { className?: string };
 

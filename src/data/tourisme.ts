@@ -1,6 +1,6 @@
 /**
  * Page Tourisme. La carte est une carte uMap (OpenStreetMap) partagée,
- * intégrée en iframe comme sur le site d'origine.
+ * intégrée en iframe comme sur le site d’origine.
  */
 export const tourisme = {
   metaTitle: "Visiter Toulouse : les lieux et visites incontournables - Hôtel Palladia",

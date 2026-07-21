@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import { presse } from "@/data/presse";
 import { social } from "@/config/site";
 
-export const metadata: Metadata = {
-  title: presse.metaTitle,
-  description: presse.metaDescription,
-};
+export const metadata: Metadata = metadonnees("/presse");
 
 export default function PressePage() {
   return (

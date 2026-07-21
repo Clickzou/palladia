@@ -28,7 +28,7 @@ export default function FormulaireDevis({ type = "autre" }: { type?: string }) {
       <input type="hidden" name="type" value={type} />
       <input type="hidden" name="locale" value={locale} />
 
-      {/* Piège à robots, invisible et ignoré des lecteurs d'écran */}
+      {/* Piège à robots, invisible et ignoré des lecteurs d’écran */}
       <div aria-hidden className="absolute left-[-9999px]">
         <label>
           Ne pas remplir

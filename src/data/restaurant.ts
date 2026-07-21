@@ -2,7 +2,7 @@
  * Contenu de la page Restaurant.
  *
  * NOTE — `menuSemaine` et `menuJour` changent chaque semaine : ce sont les
- * premiers candidats a migrer vers Supabase (table `menus`), pour que l'hotel
+ * premiers candidats a migrer vers Supabase (table `menus`), pour que l’hotel
  * puisse les mettre a jour sans passer par un deploiement. La forme des objets
  * ci-dessous correspond deja au schema prevu.
  */

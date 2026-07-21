@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import { booking } from "@/config/site";
 import { spa } from "@/data/spa";
 import PageHeader from "@/components/PageHeader";
 import CarrouselLarge from "@/components/CarrouselLarge";
 
-export const metadata: Metadata = {
-  title: spa.metaTitle,
-  description: spa.metaDescription,
-};
+export const metadata: Metadata = metadonnees("/spa");
 
 export default function SpaPage() {
   return (

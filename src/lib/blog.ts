@@ -3,16 +3,16 @@ import type { Article, ArticleComplet, Bloc } from "./supabase/types";
 
 /**
  * Tant que les variables Supabase ne sont pas renseignees (.env.local), le blog
- * se comporte comme s'il etait vide plutot que de faire echouer le rendu.
+ * se comporte comme s’il etait vide plutot que de faire echouer le rendu.
  */
 export const supabaseConfigure = Boolean(
   process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
 );
 
-/** Nombre d'articles affichés par page de liste. */
+/** Nombre d’articles affichés par page de liste. */
 export const ARTICLES_PAR_PAGE = 6;
 
-/** Liste des articles publiés d'une langue, du plus récent au plus ancien. */
+/** Liste des articles publiés d’une langue, du plus récent au plus ancien. */
 export async function listerArticles(locale: string): Promise<Article[]> {
   if (!supabaseConfigure) return [];
   const supabase = await createClient();
@@ -32,7 +32,7 @@ export async function listerArticles(locale: string): Promise<Article[]> {
 }
 
 /**
- * Une page d'articles, avec le nombre total de pages.
+ * Une page d’articles, avec le nombre total de pages.
  * La pagination est faite côté base : seules les 6 lignes utiles remontent.
  */
 export async function listerArticlesPagines(
@@ -49,7 +49,7 @@ export async function listerArticlesPagines(
     .select("*", { count: "exact" })
     .eq("locale", locale)
     .eq("statut", "publie")
-    // `position` fixe l'ordre voulu par l'hotel ; les articles qui n'en ont
+    // `position` fixe l’ordre voulu par l’hotel ; les articles qui n’en ont
     // pas sont classes ensuite, du plus recent au plus ancien.
     .order("position", { ascending: true, nullsFirst: false })
     .order("date_publication", { ascending: false })
@@ -67,7 +67,7 @@ export async function listerArticlesPagines(
   };
 }
 
-/** Un article et ses blocs, ou null s'il n'existe pas / n'est pas publié. */
+/** Un article et ses blocs, ou null s’il n’existe pas / n’est pas publié. */
 export async function lireArticle(
   slug: string,
   locale: string,

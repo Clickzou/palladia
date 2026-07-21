@@ -5,8 +5,8 @@ import { IconBed, IconCheck, IconExpand, IconGift, IconLock, IconTv, IconWifi } 
 import type { Bloc, BlocContenu } from "@/lib/supabase/types";
 
 /**
- * Rendu d'un article : chaque bloc enregistre en base est associe a un
- * composant. Reproduit les mises en page Elementor du site d'origine.
+ * Rendu d’un article : chaque bloc enregistre en base est associe a un
+ * composant. Reproduit les mises en page Elementor du site d’origine.
  */
 /** Icones disponibles pour le bloc `caracteristiques`. */
 const ICONES: Record<string, React.ReactNode> = {
@@ -310,7 +310,7 @@ function BlocEquipe({ c }: { c: BlocContenu["equipe"] }) {
   );
 }
 
-/** Rangée de boutons d'action centrés. */
+/** Rangée de boutons d’action centrés. */
 function BlocBouton({ c }: { c: BlocContenu["bouton"] }) {
   return (
     <section className="flex flex-wrap justify-center gap-4 px-6 py-12">

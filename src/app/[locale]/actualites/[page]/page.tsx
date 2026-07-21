@@ -4,7 +4,7 @@ import ListeActualites from "../liste";
 
 /**
  * Pages 2 et suivantes : /actualites/2, /actualites/3…
- * Reprend le format d'URL du site WordPress, pour ne pas perdre
+ * Reprend le format d’URL du site WordPress, pour ne pas perdre
  * les pages deja indexees.
  */
 type Props = { params: Promise<{ locale: string; page: string }> };
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `Actualités du Palladia — page ${page} - Le Palladia hôtel 4 étoiles Toulouse`,
     description:
       "Toute l’actualité de l’Hôtel Palladia à Toulouse : événements, spectacles, offres et vie de l’établissement.",
-    // Les pages de liste au-dela de la premiere n'ont pas vocation a etre indexees
+    // Les pages de liste au-dela de la premiere n’ont pas vocation a etre indexees
     robots: { index: false, follow: true },
   };
 }

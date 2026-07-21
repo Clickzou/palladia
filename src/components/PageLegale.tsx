@@ -19,7 +19,7 @@ export default function PageLegale({
   breadcrumb: string;
   titre: string;
   chapo?: string;
-  /** Bloc d'identification en paires libellé / valeur */
+  /** Bloc d’identification en paires libellé / valeur */
   enTete?: readonly (readonly [string, string])[];
   sections: readonly SectionLegale[];
 }) {

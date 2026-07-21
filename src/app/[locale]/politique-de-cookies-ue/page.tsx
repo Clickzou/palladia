@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import PageLegale from "@/components/PageLegale";
 import { politiqueCookies as c } from "@/data/politique-cookies";
 
-export const metadata: Metadata = { title: c.metaTitle, description: c.metaDescription };
+export const metadata: Metadata = metadonnees("/politique-de-cookies-ue");
 
 export default function CookiesPage() {
   return (

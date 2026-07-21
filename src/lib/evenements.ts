@@ -15,7 +15,7 @@ export type Evenement = {
   lien_billetterie: string | null;
 };
 
-/** Prochaines représentations (les dates passées disparaissent d'elles-mêmes). */
+/** Prochaines représentations (les dates passées disparaissent d’elles-mêmes). */
 export async function prochainsEvenements(limite = 12): Promise<Evenement[]> {
   if (!supabaseConfigure) return [];
   const supabase = await createClient();

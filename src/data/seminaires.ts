@@ -1,11 +1,11 @@
 /**
  * Page Séminaires & événements professionnels.
  *
- * Deux incohérences du site d'origine ont été tranchées ici :
- *  - nombre de salles : 13 (valeur de cette page et de l'accueil ; deux articles
+ * Deux incohérences du site d’origine ont été tranchées ici :
+ *  - nombre de salles : 13 (valeur de cette page et de l’accueil ; deux articles
  *    annonçaient 15 et 16) ;
  *  - Capitouls : 265 m² sur la fiche technique, 300 m² dans le tableau des
- *    capacités. On retient 265 m², à confirmer par l'hôtel.
+ *    capacités. On retient 265 m², à confirmer par l’hôtel.
  */
 
 export const seminaires = {
@@ -31,7 +31,7 @@ export const seminaires = {
     "Réactivité et souplesse de notre équipe commerciale permettent une adaptation à tous vos besoins pour la réussite de vos manifestations professionnelles ou privées, évènementielles, caritatives…",
   ],
 
-  /** Fiches techniques des salons, dans l'ordre du site. */
+  /** Fiches techniques des salons, dans l’ordre du site. */
   salons: [
     { nom: "Amphithéâtre",     places: "285 places", detail: "285 places",              image: "/images/salons/amphitheatre.jpg" },
     { nom: "Salon Opéra",      places: "350 places", detail: "Superficie : 500 m²",     image: "/images/salons/opera.jpg" },
@@ -52,8 +52,8 @@ export const seminaires = {
     "3 salons modulables (Dalbade, Velane, Daurade) pour une superficie de 100 m²",
 
   /**
-   * Tableau des capacités. Le site d'origine le publiait en image :
-   * ici c'est un vrai tableau, lisible par Google et par un lecteur d'écran.
+   * Tableau des capacités. Le site d’origine le publiait en image :
+   * ici c’est un vrai tableau, lisible par Google et par un lecteur d’écran.
    */
   configurations: ["Pavé", "En U", "Classe", "Théâtre", "Cocktail", "Banquet", "Cabaret"],
   capacites: [

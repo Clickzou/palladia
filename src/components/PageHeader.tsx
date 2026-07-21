@@ -2,7 +2,7 @@ import { Link } from "@/i18n/navigation";
 
 /**
  * En-tete editorial commun aux pages de rubrique (Restaurant, Spa, Seminaires...) :
- * fil d'Ariane, titre dore, sous-titre, filet et bouton d'action facultatif.
+ * fil d’Ariane, titre dore, sous-titre, filet et bouton d’action facultatif.
  */
 export default function PageHeader({
   breadcrumb,

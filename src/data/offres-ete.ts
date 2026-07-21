@@ -1,10 +1,10 @@
 /**
- * Page « Offre été » — offres d'hébergement estivales.
+ * Page « Offre été » — offres d’hébergement estivales.
  *
  * Ces offres sont datées (été 2026) : elles devront basculer vers Supabase
  * avec une période de validité, comme la table `evenements`, pour ne pas
- * rester affichées une fois la saison passée. C'est exactement le défaut
- * relevé sur l'ancien site (offre famille 2025 encore en ligne en 2026).
+ * rester affichées une fois la saison passée. C’est exactement le défaut
+ * relevé sur l’ancien site (offre famille 2025 encore en ligne en 2026).
  */
 export const offresEte = {
   metaTitle: "Offres hébergement été 2026 - Hôtel Palladia 4 étoiles Toulouse",

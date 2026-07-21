@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 
 /**
- * Lecteur YouTube differé : tant que le visiteur n'a pas cliqué, seule une
- * image est affichée. L'iframe — et les cookies Google qui vont avec — n'est
- * chargée qu'au clic. La page reste légère et aucun traceur n'est déposé
- * sans action de l'internaute.
+ * Lecteur YouTube differé : tant que le visiteur n’a pas cliqué, seule une
+ * image est affichée. L’iframe — et les cookies Google qui vont avec — n’est
+ * chargée qu’au clic. La page reste légère et aucun traceur n’est déposé
+ * sans action de l’internaute.
  */
 export default function VideoYoutube({
   id,

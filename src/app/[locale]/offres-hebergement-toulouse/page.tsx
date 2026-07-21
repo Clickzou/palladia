@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { booking } from "@/config/site";
 import { offresEte as o } from "@/data/offres-ete";
 import PhotoGrid from "@/components/PhotoGrid";
 import { IconCheck } from "@/components/icons";
 
-export const metadata: Metadata = {
-  title: o.metaTitle,
-  description: o.metaDescription,
-};
+export const metadata: Metadata = metadonnees("/offres-hebergement-toulouse");
 
 /** Met en gras les segments encadrés par ** */
 function EnGras({ texte }: { texte: string }) {
@@ -88,7 +86,7 @@ export default function OffresEtePage() {
               </a>
             </div>
 
-            {/* L'affiche occupe toute la moitie, sans marge, comme sur le site. */}
+            {/* L’affiche occupe toute la moitie, sans marge, comme sur le site. */}
             <div className={`relative min-h-[320px] md:min-h-[560px] ${afficheAdroite ? "" : "md:order-1"}`}>
               <Image
                 src={offre.affiche}

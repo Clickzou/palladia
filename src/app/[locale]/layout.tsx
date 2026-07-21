@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "../globals.css";
 
-/* Polices du site d'origine : Spinnaker pour les titres, Roboto pour le texte. */
+/* Polices du site d’origine : Spinnaker pour les titres, Roboto pour le texte. */
 const spinnaker = Spinnaker({
   weight: "400",
   subsets: ["latin"],

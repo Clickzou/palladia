@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import { recrutement as r } from "@/data/recrutement";
 
-export const metadata: Metadata = {
-  title: r.metaTitle,
-  description: r.metaDescription,
-};
+export const metadata: Metadata = metadonnees("/recrutement");
 
 export default function RecrutementPage() {
   return (

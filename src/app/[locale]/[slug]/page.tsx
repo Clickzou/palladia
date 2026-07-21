@@ -51,7 +51,7 @@ export default async function ArticlePage({ params }: Props) {
         </nav>
 
         {/* Largeur bornee : les titres longs se repartissent sur deux lignes
-            plutot que de s'etaler sur toute la largeur de l'ecran. */}
+            plutot que de s’etaler sur toute la largeur de l’ecran. */}
         <h1 className="section-title mx-auto mt-10 max-w-5xl">{article.titre}</h1>
         {article.sous_titre && (
           <p className="mt-4 tracking-wide text-ink-soft uppercase md:text-lg">
@@ -63,7 +63,7 @@ export default async function ArticlePage({ params }: Props) {
 
       {article.image_hero && (
         // Hauteur fixe : tous les articles ont un en-tete de meme dimension,
-        // quel que soit le format du fichier d'origine.
+        // quel que soit le format du fichier d’origine.
         <div className="relative h-[300px] w-full md:h-[500px] lg:h-[600px]">
           <Image
             src={article.image_hero}

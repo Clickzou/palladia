@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import PageHeader from "@/components/PageHeader";
@@ -6,10 +7,7 @@ import Faq from "@/components/Faq";
 import { IconCheck } from "@/components/icons";
 import { seminaires as s } from "@/data/seminaires";
 
-export const metadata: Metadata = {
-  title: s.metaTitle,
-  description: s.metaDescription,
-};
+export const metadata: Metadata = metadonnees("/seminaire-evenement-professionnel");
 
 export default function SeminairesPage() {
   return (
@@ -39,7 +37,7 @@ export default function SeminairesPage() {
           </Link>
         </div>
 
-        {/* Texte centre verticalement par rapport a l'encadre de gauche */}
+        {/* Texte centre verticalement par rapport a l’encadre de gauche */}
         <div className="flex flex-col justify-center space-y-5 px-4 leading-relaxed text-body lg:px-8">
           {s.presentation.map((p, i) => (
             <p key={p.slice(0, 30)} className={i === 1 || i === 2 ? "font-semibold text-ink" : ""}>
@@ -61,7 +59,7 @@ export default function SeminairesPage() {
               key={salon.nom}
               className={
                 // 13 salons sur 3 colonnes : le dernier est seul sur sa ligne,
-                // on le decale d'une colonne pour le centrer.
+                // on le decale d’une colonne pour le centrer.
                 i === s.salons.length - 1 && s.salons.length % 3 === 1
                   ? "bg-cream lg:col-start-2"
                   : "bg-cream"
@@ -196,8 +194,8 @@ export default function SeminairesPage() {
                 )}
 
                 {image ? (
-                  // Largeur portee par l'image elle-meme : avec une grille, la
-                  // colonne etroite restait a gauche quand l'image passait a droite.
+                  // Largeur portee par l’image elle-meme : avec une grille, la
+                  // colonne etroite restait a gauche quand l’image passait a droite.
                   <div
                     className={`mt-6 flex flex-col items-center gap-8 sm:flex-row ${
                       imageADroite ? "sm:flex-row-reverse" : ""
@@ -249,7 +247,7 @@ export default function SeminairesPage() {
         <Faq items={s.faq} />
       </section>
 
-      {/* Donnees structurees : le site d'origine n'en avait pas */}
+      {/* Donnees structurees : le site d’origine n’en avait pas */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

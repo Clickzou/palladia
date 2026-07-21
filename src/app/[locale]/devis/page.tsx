@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import FormulaireDevis from "@/components/FormulaireDevis";
 import { site } from "@/config/site";
 import { IconMail, IconMap, IconPhone } from "@/components/icons";
 
-export const metadata: Metadata = {
-  title: "Demande de devis - Le Palladia hôtel 4 étoiles Toulouse",
-  description:
-    "Demandez un devis pour vos séminaires, conférences, soirées d’entreprise et mariages à l’Hôtel Palladia, Toulouse.",
-};
+export const metadata: Metadata = metadonnees("/devis");
 
 /** `?type=mariage` ou `?type=salle_reunion` pré-oriente la demande. */
 export default async function DevisPage({
@@ -33,7 +30,7 @@ export default async function DevisPage({
       </div>
 
       {/* Coordonnees directes : la page Contact ayant ete supprimee, ce bloc
-          reste le point d'entree pour toute demande non commerciale. */}
+          reste le point d’entree pour toute demande non commerciale. */}
       <section className="bg-cream px-6 py-16 text-center">
         <h2 className="font-display text-xl tracking-wide text-ink uppercase md:text-2xl">
           Une autre demande ? Contactez-nous directement

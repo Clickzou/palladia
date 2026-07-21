@@ -1,5 +1,5 @@
 /**
- * Les 4 categories de chambres. Textes et URLs repris a l'identique du site
+ * Les 4 categories de chambres. Textes et URLs repris a l’identique du site
  * WordPress (cache WP Rocket du 2 decembre 2025).
  */
 export type Room = {
@@ -8,7 +8,7 @@ export type Room = {
   hero: string;
   /** Titre de la section editoriale (H2) */
   heading: string;
-  /** Libelle du fil d'Ariane */
+  /** Libelle du fil d’Ariane */
   breadcrumb: string;
   /** Titre court, utilise sur la page listing /chambres */
   titreCourt: string;
@@ -18,7 +18,7 @@ export type Room = {
   metaDescription: string;
   ctaHero: string;
   surface: string;
-  /** Chapo d'introduction, toujours affiche en gras */
+  /** Chapo d’introduction, toujours affiche en gras */
   lead: string;
   paragraphs: string[];
   heroImage: string;
@@ -46,7 +46,7 @@ export const rooms: Room[] = [
       "WIFI par fibre optique vous est offerte. La chambre dispose également d’un coffre sécurisé pour vos objets de valeur. Ces chambres sont idéales si vous souhaitez profiter des services d’un hôtel 4 étoiles aussi bien pour un séjour d’affaires que pour un week-end de détente.",
     ],
     heroImage: "/images/chambres/confort-hero.jpg",
-    // Une seule image sur cette page : le site n'y affiche pas de carrousel
+    // Une seule image sur cette page : le site n’y affiche pas de carrousel
     gallery: [
       { src: "/images/chambres/confort-1.jpg", alt: "Chambre Confort de l’Hôtel Palladia" },
     ],
@@ -88,7 +88,7 @@ export const rooms: Room[] = [
     breadcrumb: "Suite Junior",
     metaTitle: "Suite Junior - Le Palladia hôtel 4 étoiles Toulouse",
     metaDescription:
-      "La chambre JUNIOR SUITE est une suite de 47 m² composée d'un réel espace salon dans la chambre. Colorée et contemporaine.",
+      "La chambre JUNIOR SUITE est une suite de 47 m² composée d’un réel espace salon dans la chambre. Colorée et contemporaine.",
     ctaHero: "Réservez la Suite Junior",
     surface: "47 m²",
     lead: "La chambre JUNIOR SUITE est une suite de 47 m² composée d’un réel espace salon dans la chambre. Coloré et contemporain, le mobilier et le design de cette chambre saura vous séduire.",
@@ -115,7 +115,7 @@ export const rooms: Room[] = [
     metaDescription:
       "La SUITE est composée de deux pièces séparées, une chambre et un salon donnant sur une terrasse privative, pour une superficie de 54 m².",
     ctaHero: "Réservez la Suite",
-    // Le site d'origine affichait 47 m² dans le bandeau et 54 m² dans le texte :
+    // Le site d’origine affichait 47 m² dans le bandeau et 54 m² dans le texte :
     // on retient 54 m², valeur donnee par le contenu editorial et la meta description.
     surface: "54 m²",
     lead: "La SUITE est composée de deux pièces séparées, une chambre et un salon donnant sur une terrasse privative, pour une superficie totale de 54 m².",

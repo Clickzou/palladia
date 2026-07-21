@@ -1,7 +1,7 @@
 /**
  * Politique de cookies.
  *
- * ATTENTION — ce texte décrit l'installation WordPress : il cite Elementor,
+ * ATTENTION — ce texte décrit l’installation WordPress : il cite Elementor,
  * WordPress, Complianz et Wistia, qui disparaissent tous avec la refonte.
  * La liste des cookies devra être réécrite une fois la v2 en ligne, en
  * fonction des services réellement utilisés (analytics, YouTube, reCAPTCHA…).

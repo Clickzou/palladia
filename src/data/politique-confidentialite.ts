@@ -1,4 +1,4 @@
-/** Politique de confidentialité, texte fourni par l'hôtel. */
+/** Politique de confidentialité, texte fourni par l’hôtel. */
 export const politiqueConfidentialite = {
   metaTitle: "Politique de confidentialité - Hôtel Palladia Toulouse",
   metaDescription:

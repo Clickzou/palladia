@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Faq from "@/components/Faq";
 import { coffrets as c } from "@/data/coffrets";
 import { IconCheck } from "@/components/icons";
 
-export const metadata: Metadata = {
-  title: c.metaTitle,
-  description: c.metaDescription,
-};
+export const metadata: Metadata = metadonnees("/coffret-cadeau-hotel-restaurant-toulouse");
 
 export default function CoffretsPage() {
   return (

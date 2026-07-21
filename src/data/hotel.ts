@@ -1,4 +1,4 @@
-/** Page Hôtel : présentation de l'établissement et liste des services. */
+/** Page Hôtel : présentation de l’établissement et liste des services. */
 export const hotel = {
   metaTitle: "Hôtel - Hôtel Palladia 4 étoiles Toulouse",
   metaDescription:
@@ -16,7 +16,7 @@ export const hotel = {
     "Le Palladia cultive l’art de vivre à la française. Sa cuisine, inspirée du terroir du Sud-Ouest, varie au rythme des saisons et privilégie les produits frais et soigneusement sélectionnés. À la belle saison, la terrasse ombragée devient un lieu convivial pour savourer grillades, cocktails et assiettes estivales. L’hôtel allie ainsi héritage antique, confort contemporain et raffinement gastronomique.",
   ],
 
-  /** Tableau exposé dans l'hôtel, présenté sous le texte d'introduction. */
+  /** Tableau exposé dans l’hôtel, présenté sous le texte d’introduction. */
   tableau: {
     src: "/images/hotel/gorgone-palladia-tolosa.jpg",
     legende: "« La Gorgone Palladia Tolosa » Dany Monné 1999",

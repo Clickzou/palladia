@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 
-export const metadata: Metadata = {
-  title: "Hôtel Palladia - Engagement Clef Verte | Éco-Responsabilité",
-  description:
-    "L’Hôtel Palladia est labellisé Clef Verte pour l’année 2026. Découvrez notre charte environnementale et nos écogestes.",
-};
+export const metadata: Metadata = metadonnees("/engagements");
 
 export default function EngagementsPage() {
   return (

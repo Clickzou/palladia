@@ -1,5 +1,5 @@
 /**
- * Pictogrammes des services de l'hotel.
+ * Pictogrammes des services de l’hotel.
  * Bases sur lucide-react : trace regulier, rendu fiable a toutes les tailles.
  */
 import {
@@ -18,7 +18,7 @@ import {
   Accessibility,
 } from "lucide-react";
 
-/** Cle utilisee dans src/data/hotel.ts → composant d'icone. */
+/** Cle utilisee dans src/data/hotel.ts → composant d’icone. */
 export const PICTOS_SERVICES = {
   piscine: Waves,
   sport: Dumbbell,

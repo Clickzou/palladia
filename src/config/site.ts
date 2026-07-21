@@ -1,6 +1,6 @@
 /**
  * Constantes du site : coordonnees, reseaux et moteurs de reservation externes.
- * URLs reprises telles quelles du site WordPress d'origine.
+ * URLs reprises telles quelles du site WordPress d’origine.
  */
 export const site = {
   name: "Hôtel Palladia",

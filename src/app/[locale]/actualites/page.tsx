@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import ListeActualites from "./liste";
 
-export const metadata: Metadata = {
-  title: "Actualités du Palladia - Le Palladia hôtel 4 étoiles Toulouse",
-  description:
-    "Toute l’actualité de l’Hôtel Palladia à Toulouse : événements, spectacles, offres et vie de l’établissement.",
-};
+export const metadata: Metadata = metadonnees("/actualites");
 
 export default async function ActualitesPage({
   params,

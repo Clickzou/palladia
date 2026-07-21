@@ -20,12 +20,12 @@ export async function generateMetadata({
   };
 }
 
-/** Bandeau de 4 visuels sous le texte d'introduction, sur une seule ligne. */
+/** Bandeau de 4 visuels sous le texte d’introduction, sur une seule ligne. */
 const BANDEAU = [
-  { src: "/images/bandeau-1.jpg", alt: "L'Hôtel Palladia, proche de l'aéroport de Toulouse" },
+  { src: "/images/bandeau-1.jpg", alt: "L’Hôtel Palladia, proche de l’aéroport de Toulouse" },
   { src: "/images/bandeau-2.jpg", alt: "Hôtel de luxe 4 étoiles à Toulouse" },
-  { src: "/images/bandeau-3.jpg", alt: "Intérieur de l'Hôtel Palladia" },
-  { src: "/images/bandeau-4.jpg", alt: "Le spa de l'Hôtel Palladia" },
+  { src: "/images/bandeau-3.jpg", alt: "Intérieur de l’Hôtel Palladia" },
+  { src: "/images/bandeau-4.jpg", alt: "Le spa de l’Hôtel Palladia" },
 ];
 
 export default async function HomePage({
@@ -40,10 +40,10 @@ export default async function HomePage({
     <>
       <HeroCarousel
         slides={[
-          { src: "/images/hero-1.jpg", alt: "Chambre de luxe à l'Hôtel Palladia" },
-          { src: "/images/hero-4.webp", alt: "L'Hôtel Palladia, 4 étoiles à Toulouse" },
+          { src: "/images/hero-1.jpg", alt: "Chambre de luxe à l’Hôtel Palladia" },
+          { src: "/images/hero-4.webp", alt: "L’Hôtel Palladia, 4 étoiles à Toulouse" },
           { src: "/images/hero-2.jpg", alt: "Chambre Prestige" },
-          { src: "/images/hero-5.jpg", alt: "Le spa de l'Hôtel Palladia" },
+          { src: "/images/hero-5.jpg", alt: "Le spa de l’Hôtel Palladia" },
           { src: "/images/hero-3.jpg", alt: "Hôtel 4 étoiles à Toulouse" },
         ]}
         title={t("heroTitle")}
@@ -102,7 +102,7 @@ export default async function HomePage({
         title={t("chambresTitle")}
         text={t("chambresText")}
         image="/images/chambres.jpg"
-        imageAlt="Suite de l'Hôtel Palladia"
+        imageAlt="Suite de l’Hôtel Palladia"
         ctaLabel={t("chambresCta")}
         ctaHref={booking.rooms}
         external
@@ -154,7 +154,7 @@ export default async function HomePage({
         title={t("spectaclesTitle")}
         text={t("spectaclesText")}
         image="/images/spectacles.jpg"
-        imageAlt="Spectacle à l'Hôtel Palladia"
+        imageAlt="Spectacle à l’Hôtel Palladia"
         ctaLabel={t("spectaclesCta")}
         ctaHref="/spectacle-toulouse"
         reversed
@@ -182,7 +182,7 @@ export default async function HomePage({
         <div className="relative min-h-[320px] md:min-h-[520px]">
           {/*
             Lecture automatique, en sourdine et en boucle : le navigateur
-            l'autorise a ces conditions. `playsInline` evite le passage en
+            l’autorise a ces conditions. `playsInline` evite le passage en
             plein ecran force sur iPhone, `poster` affiche un visuel pendant
             le chargement.
           */}

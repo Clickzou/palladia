@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import PhotoGrid from "@/components/PhotoGrid";
@@ -6,10 +7,7 @@ import { booking } from "@/config/site";
 import { hotel } from "@/data/hotel";
 import { PICTOS_SERVICES } from "@/components/icons-services";
 
-export const metadata: Metadata = {
-  title: hotel.metaTitle,
-  description: hotel.metaDescription,
-};
+export const metadata: Metadata = metadonnees("/hotel");
 
 
 /** Affiche le pictogramme correspondant a la cle du service. */
@@ -20,7 +18,7 @@ function Picto({ nom, className = "" }: { nom: string; className?: string }) {
 }
 
 export default function HotelPage() {
-  // L'accessibilite PMR est presentee seule, centree, en fin de liste.
+  // L’accessibilite PMR est presentee seule, centree, en fin de liste.
   const services = hotel.services.filter((s) => s.icone !== "pmr");
   const pmr = hotel.services.find((s) => s.icone === "pmr");
 
@@ -33,7 +31,7 @@ export default function HotelPage() {
       </p>
 
       {/* Presentation : texte et tableau a gauche, video a droite.
-          Mise en page large, proche pleine largeur, comme sur le site d'origine. */}
+          Mise en page large, proche pleine largeur, comme sur le site d’origine. */}
       <section className="mx-auto grid max-w-[1800px] items-stretch gap-10 px-8 pb-20 lg:grid-cols-2 lg:gap-14">
         <div>
           <div className="space-y-5 leading-relaxed text-body">

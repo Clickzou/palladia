@@ -1,4 +1,4 @@
-/** Mentions légales et politique RGPD, texte fourni par l'hôtel. */
+/** Mentions légales et politique RGPD, texte fourni par l’hôtel. */
 export const mentionsLegales = {
   metaTitle: "Mentions Légales du Palladia 4 étoiles Toulouse",
   metaDescription:

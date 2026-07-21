@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { booking } from "@/config/site";
 import { restaurant as r } from "@/data/restaurant";
@@ -6,10 +7,7 @@ import PageHeader from "@/components/PageHeader";
 import PhotoGrid from "@/components/PhotoGrid";
 import VideoYoutube from "@/components/VideoYoutube";
 
-export const metadata: Metadata = {
-  title: r.metaTitle,
-  description: r.metaDescription,
-};
+export const metadata: Metadata = metadonnees("/restaurant");
 
 export default function RestaurantPage() {
   return (
@@ -42,7 +40,7 @@ export default function RestaurantPage() {
             Consulter la carte
           </a>
 
-          {/* Bloc d'introduction : lignes serrees, comme sur le site */}
+          {/* Bloc d’introduction : lignes serrees, comme sur le site */}
           <div className="mt-10 leading-relaxed text-body">
             {r.intro.map((p) => (
               <p key={p.slice(0, 30)}>{p}</p>

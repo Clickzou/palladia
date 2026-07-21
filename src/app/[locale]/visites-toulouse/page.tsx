@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Faq from "@/components/Faq";
 import { tourisme as t } from "@/data/tourisme";
 
-export const metadata: Metadata = {
-  title: t.metaTitle,
-  description: t.metaDescription,
-};
+export const metadata: Metadata = metadonnees("/visites-toulouse");
 
-/** Met en gras les segments encadrés par ** dans les textes d'introduction. */
+/** Met en gras les segments encadrés par ** dans les textes d’introduction. */
 function EnGras({ texte }: { texte: string }) {
   const morceaux = texte.split(/\*\*(.+?)\*\*/g);
   return (

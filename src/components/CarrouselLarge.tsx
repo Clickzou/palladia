@@ -8,9 +8,9 @@ import { IconChevronLeft, IconChevronRight } from "./icons";
  * Carrousel pleine largeur affichant plusieurs visuels de front (trois sur
  * grand ecran, deux sur tablette, un sur mobile).
  *
- * Le defilement s'appuie sur le scroll natif avec accrochage : le navigateur
- * calcule lui-meme les limites, ce qui evite l'espace vide qu'un decalage en
- * pourcentage produit quand toutes les images tiennent deja a l'ecran.
+ * Le defilement s’appuie sur le scroll natif avec accrochage : le navigateur
+ * calcule lui-meme les limites, ce qui evite l’espace vide qu’un decalage en
+ * pourcentage produit quand toutes les images tiennent deja a l’ecran.
  * Bonus : le glissement tactile fonctionne sans code supplementaire.
  */
 export default function CarrouselLarge({
@@ -22,7 +22,7 @@ export default function CarrouselLarge({
   const [debut, setDebut] = useState(true);
   const [fin, setFin] = useState(false);
 
-  /** Met a jour l'etat des fleches selon la position de defilement. */
+  /** Met a jour l’etat des fleches selon la position de defilement. */
   const majBornes = () => {
     const el = piste.current;
     if (!el) return;
@@ -39,7 +39,7 @@ export default function CarrouselLarge({
   const aller = (sens: 1 | -1) => {
     const el = piste.current;
     if (!el) return;
-    // On defile d'une vignette : la largeur du premier enfant
+    // On defile d’une vignette : la largeur du premier enfant
     const pas = el.firstElementChild?.clientWidth ?? el.clientWidth / 3;
     el.scrollBy({ left: sens * pas, behavior: "smooth" });
   };
@@ -67,7 +67,7 @@ export default function CarrouselLarge({
         ))}
       </div>
 
-      {/* Fleches masquees lorsqu'il n'y a rien a faire defiler */}
+      {/* Fleches masquees lorsqu’il n’y a rien a faire defiler */}
       {!(debut && fin) && (
         <>
           <button

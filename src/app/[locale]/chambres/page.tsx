@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { Coffee, Croissant, Dog } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { rooms } from "@/data/rooms";
 import PageHeader from "@/components/PageHeader";
 
-export const metadata: Metadata = {
-  title: "Chambres & Suites - Le Palladia hôtel 4 étoiles Toulouse",
-  description:
-    "Découvrez les quatre catégories de chambres de l’Hôtel Palladia à Toulouse : Confort, Prestige, Suite Junior et la Suite, pour un total de 90 chambres.",
-};
+export const metadata: Metadata = metadonnees("/chambres");
 
 export default function ChambresPage() {
   return (

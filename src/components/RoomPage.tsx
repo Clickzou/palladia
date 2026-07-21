@@ -60,7 +60,7 @@ export default function RoomPage({ room }: { room: Room }) {
         </ul>
       </div>
 
-      {/* Fil d'Ariane */}
+      {/* Fil d’Ariane */}
       <nav aria-label="Fil d’Ariane" className="py-8 text-center text-sm">
         <Link href="/" className="text-[#8b3a3a] underline hover:text-gold">
           Accueil
