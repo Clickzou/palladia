@@ -161,11 +161,13 @@ export const seminaires = {
           titre: "Activités de team-building",
           texte:
             "Pour renforcer les liens entre les membres de votre équipe, L’Hôtel Palladia propose des activités de team-building via ses partenaires. Des ateliers créatifs aux défis sportifs, ces activités sont conçues pour favoriser la coopération, la communication et l’esprit d’équipe. Que ce soit des animations à l’hôtel, en plein centre de Toulouse, sur le Canal du Midi ou dans un parc en bord de Garonne, nous vous proposons des activités diverses et variées grâce à nos partenaires sur le lieu de votre choix.",
+          image: "/images/salons/team-building.jpg",
         },
       ],
     },
     {
       titre: "Un lieu exceptionnel au cœur de Toulouse",
+      fondGris: true,
       chapo:
         "L’emplacement de L’Hôtel Palladia est un atout majeur. Situé à proximité des principales attractions de Toulouse, il offre un cadre idéal pour les moments de détente après les sessions de travail.",
       points: [

@@ -165,34 +165,43 @@ export default function SeminairesPage() {
             ))}
 
           {"sousTitre" in section && section.sousTitre && (
-            <h3 className="mt-10 text-lg tracking-wide text-ink uppercase">{section.sousTitre}</h3>
+            <h3 className="mt-10 text-center text-lg tracking-wide text-ink uppercase">{section.sousTitre}</h3>
           )}
 
           {section.chapo && <p className="mt-6 leading-relaxed text-body">{section.chapo}</p>}
 
-          {section.points.map((point) => (
-            <div key={point.num} className="mt-10">
-              <h3 className="text-lg tracking-wide text-ink uppercase">
-                {point.num} {point.titre}
-              </h3>
-              {"image" in point && point.image ? (
-                <div className="mt-5 grid items-center gap-8 sm:grid-cols-[240px_1fr]">
-                  <div className="relative aspect-[4/3]">
-                    <Image
-                      src={point.image}
-                      alt=""
-                      fill
-                      sizes="240px"
-                      className="object-cover"
-                    />
+          {section.points.map((point, n) => {
+            const image = "image" in point ? point.image : undefined;
+            // Les visuels alternent gauche / droite au fil des points illustres
+            const imageADroite = n % 2 === 1;
+
+            return (
+              <div key={point.num} className="mt-10">
+                <h3 className="text-center text-lg tracking-wide text-ink uppercase">
+                  {point.num} {point.titre}
+                </h3>
+
+                {image ? (
+                  <div className="mt-6 grid items-center gap-8 sm:grid-cols-[360px_1fr]">
+                    <div
+                      className={`relative aspect-[3/2] ${imageADroite ? "sm:order-2" : ""}`}
+                    >
+                      <Image
+                        src={image}
+                        alt=""
+                        fill
+                        sizes="360px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <p className="leading-relaxed text-body">{point.texte}</p>
                   </div>
-                  <p className="leading-relaxed text-body">{point.texte}</p>
-                </div>
-              ) : (
-                <p className="mt-4 leading-relaxed text-body">{point.texte}</p>
-              )}
-            </div>
-          ))}
+                ) : (
+                  <p className="mt-4 leading-relaxed text-body">{point.texte}</p>
+                )}
+              </div>
+            );
+          })}
           </div>
         </section>
       ))}
