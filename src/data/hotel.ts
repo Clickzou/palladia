@@ -12,11 +12,17 @@ export const hotel = {
     "Le Palladia cultive l’art de vivre à la française. Sa cuisine, inspirée du terroir du Sud-Ouest, varie au rythme des saisons et privilégie les produits frais et soigneusement sélectionnés. À la belle saison, la terrasse ombragée devient un lieu convivial pour savourer grillades, cocktails et assiettes estivales. L’hôtel allie ainsi héritage antique, confort contemporain et raffinement gastronomique.",
   ],
 
+  /** Tableau exposé dans l'hôtel, présenté sous le texte d'introduction. */
+  tableau: {
+    src: "/images/hotel/gorgone-palladia-tolosa.jpg",
+    legende: "« La Gorgone Palladia Tolosa » Dany Monné 1999",
+  },
+
   galerie: [
-    { src: "/images/hotel/vue-4.jpg", alt: "Façade de l’Hôtel Palladia" },
-    { src: "/images/hotel/vue-3.jpg", alt: "Intérieur de l’hôtel" },
-    { src: "/images/hotel/vue-2.jpg", alt: "Espaces communs" },
-    { src: "/images/hotel/vue-5.jpg", alt: "Vue de l’établissement" },
+    { src: "/images/hotel/vue-2.jpg", alt: "Piscine extérieure de l’Hôtel Palladia" },
+    { src: "/images/hotel/vue-3.jpg", alt: "Espace bien-être et jacuzzi" },
+    { src: "/images/hotel/vue-4.jpg", alt: "Chambre de l’Hôtel Palladia" },
+    { src: "/images/hotel/vue-5.jpg", alt: "Suite de l’Hôtel Palladia" },
   ],
 
   servicesTitre: "Services",
@@ -25,7 +31,8 @@ export const hotel = {
     { nom: "Sport", detail: "Espace Fitness et salle de sport", icone: "sport" },
     { nom: "Bien-être", detail: "SPA / Institut de beauté (tarifs selon prestations)", icone: "spa" },
     { nom: "Room Service", detail: "Room Service 7j/7 – 24h/24", icone: "service" },
-    { nom: "Parking", detail: "Parking de 300 places gratuit", icone: "parking" },
+    // Le site indique 280 places ici et 300 sur la page Seminaires : a trancher.
+    { nom: "Parking", detail: "Parking de 280 places gratuit, emplacements bornes électriques", icone: "parking" },
     { nom: "Équipements spéciaux Bus", detail: "Prise 220/380 volts + branchement eau", icone: "bus" },
     { nom: "Navette Aéroport-Hôtel", detail: "Sur réservation et sous réserve de disponibilité", icone: "navette" },
     { nom: "Business center", detail: "2 ordinateurs connectés à internet et une imprimante", icone: "business" },
