@@ -56,6 +56,8 @@ function BlocRendu({ bloc }: { bloc: Bloc }) {
       return <BlocCaracteristiques c={bloc.contenu as BlocContenu["caracteristiques"]} />;
     case "menu":
       return <BlocMenu c={bloc.contenu as BlocContenu["menu"]} />;
+    case "sections":
+      return <BlocSections c={bloc.contenu as BlocContenu["sections"]} />;
     default:
       return null;
   }
@@ -125,7 +127,9 @@ function Liste({ items }: { items: string[] }) {
   return (
     <ul className="mt-4 list-disc space-y-1 pl-6 text-body">
       {items.map((i) => (
-        <li key={i}>{i}</li>
+        <li key={i}>
+          <RichText texte={i} />
+        </li>
       ))}
     </ul>
   );
@@ -148,6 +152,10 @@ function BlocTexte({ c }: { c: BlocContenu["texte"] }) {
 }
 
 function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
+  // Mise en page « demi-ecran » : le visuel touche le bord, le texte occupe
+  // l'autre moitie. C'est la trame des articles longs du site.
+  if (c.pleine_largeur) return <BlocDemiEcran c={c} />;
+
   return (
     <section className={c.fond_gris ? "bg-cream py-10" : "py-10"}>
       <div className="conteneur">
@@ -185,6 +193,71 @@ function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
             {c.apres_liste && <Liste items={c.apres_liste} />}
           </div>
         )}
+      </div>
+    </section>
+  );
+}
+
+function BlocDemiEcran({ c }: { c: BlocContenu["texte_image"] }) {
+  return (
+    <section className={`grid items-stretch md:grid-cols-2 ${c.fond_gris ? "bg-cream" : ""}`}>
+      <div
+        className={`relative min-h-[280px] ${c.position === "gauche" ? "" : "md:order-2"}`}
+      >
+        <Image
+          src={c.image}
+          alt={c.alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+        />
+      </div>
+
+      <div className="flex flex-col justify-center px-8 py-14 lg:px-16">
+        {c.titre && <h2 className="titre-bloc mb-6 text-left">{c.titre}</h2>}
+        {c.sous_titre && <h3 className="titre-mini mb-4 text-left">{c.sous_titre}</h3>}
+        <Paragraphes items={c.paragraphes} />
+        {c.liste && <Liste items={c.liste} />}
+        {c.conclusion && (
+          <p className="mt-4 leading-relaxed text-body">
+            <RichText texte={c.conclusion} />
+          </p>
+        )}
+      </div>
+    </section>
+  );
+}
+
+/** Suite de sous-sections titrees regroupees sous un meme intitule. */
+function BlocSections({ c }: { c: BlocContenu["sections"] }) {
+  return (
+    <section className={c.fond_gris ? "bg-cream py-14" : "py-14"}>
+      <div className="conteneur">
+        {c.titre && <TitreSection taille={c.taille_titre}>{c.titre}</TitreSection>}
+        {c.intro && (
+          <p className="mb-10 text-center leading-relaxed text-body">
+            <RichText texte={c.intro} />
+          </p>
+        )}
+
+        <div className={c.deux_colonnes ? "grid gap-10 md:grid-cols-2" : "space-y-8"}>
+          {c.sections.map((s) => (
+            <div key={s.titre}>
+              <h3 className="titre-mini text-left">{s.titre}</h3>
+              {s.intro && (
+                <p className="mt-3 leading-relaxed text-body">
+                  <RichText texte={s.intro} />
+                </p>
+              )}
+              {s.items && <Liste items={s.items} />}
+              {s.conclusion && (
+                <p className="mt-3 leading-relaxed text-body">
+                  <RichText texte={s.conclusion} />
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -229,6 +302,11 @@ function BlocCartes({ c }: { c: BlocContenu["cartes"] }) {
               <div className="mt-6">
                 <Paragraphes items={carte.paragraphes} />
                 {carte.liste && <Liste items={carte.liste} />}
+                {carte.conclusion && (
+                  <p className="mt-4 leading-relaxed text-body">
+                    <RichText texte={carte.conclusion} />
+                  </p>
+                )}
               </div>
             </article>
           ))}
@@ -260,7 +338,7 @@ function BlocBandeauImage({ c }: { c: BlocContenu["bandeau_image"] }) {
       <Image src={c.image} alt="" fill sizes="100vw" className="object-cover" />
       <div className="absolute inset-0 bg-black/55" />
       <div className="relative z-10 mx-auto max-w-4xl text-center text-white">
-        <h2 className="font-display text-2xl tracking-wide md:text-3xl">{c.titre}</h2>
+        <h2 className="titre-moyen text-white">{c.titre}</h2>
         {c.paragraphes && (
           <div className="mt-6 space-y-4 leading-relaxed">
             {c.paragraphes.map((p) => (
@@ -296,6 +374,28 @@ function BlocBandeauImage({ c }: { c: BlocContenu["bandeau_image"] }) {
 }
 
 function BlocCarrousel({ c }: { c: BlocContenu["carrousel"] }) {
+  // Une image seule n'est pas un carrousel : le site la pose simplement dans
+  // le contenu, centree et a ses proportions d'origine.
+  if (c.images.length === 1) {
+    const [img] = c.images;
+    return (
+      <section className="py-10">
+        <div
+          className="relative mx-auto w-full max-w-[1200px]"
+          style={{ aspectRatio: ratioImage(img.src, "16 / 9") }}
+        >
+          <Image
+            src={img.src}
+            alt={img.alt}
+            fill
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            className="object-contain"
+          />
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-10">
       <CarrouselLarge images={c.images} />
@@ -342,11 +442,15 @@ function BlocMenu({ c }: { c: BlocContenu["menu"] }) {
         <div className="divide-y divide-black/10 bg-cream">
           {c.sections.map((s) => (
             <div key={s.titre} className="px-6 py-6 text-center">
-              <h3 className="font-display text-lg font-medium tracking-wide text-ink uppercase">
-                {s.titre}
-              </h3>
+              {c.services_en_titre === false ? (
+                <p className="text-body">
+                  <strong className="text-ink">{s.titre}</strong>
+                </p>
+              ) : (
+                <h4 className="titre-mini">{s.titre}</h4>
+              )}
               {s.lignes.map((l) => (
-                <p key={l.slice(0, 30)} className="mt-2 text-body">
+                <p key={l.slice(0, 30)} className="mt-2 whitespace-pre-line text-body">
                   <RichText texte={l} />
                 </p>
               ))}

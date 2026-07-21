@@ -14,7 +14,8 @@ export type BlocType =
   | "equipe"
   | "bouton"
   | "caracteristiques"
-  | "menu";
+  | "menu"
+  | "sections";
 
 export type Article = {
   id: string;
@@ -57,6 +58,8 @@ export type BlocContenu = {
     taille_titre?: "normal" | "moyen" | "grand";
     /** Intitule dore place au-dessus du texte de la colonne */
     sous_titre?: string;
+    /** Visuel bord a bord sur la moitie de l'ecran, texte sur l'autre */
+    pleine_largeur?: boolean;
     paragraphes: string[];
     liste?: string[];
     /** Paragraphe fermant la colonne de texte, sous la liste */
@@ -80,7 +83,15 @@ export type BlocContenu = {
     fond_gris?: boolean;
     /** Place le titre de chaque carte sous son visuel plutot qu’au-dessus */
     titre_sous_image?: boolean;
-    cartes: { titre: string; image?: string; alt?: string; paragraphes: string[]; liste?: string[] }[];
+    cartes: {
+      titre: string;
+      image?: string;
+      alt?: string;
+      paragraphes: string[];
+      liste?: string[];
+      /** Paragraphe fermant la carte, sous la liste */
+      conclusion?: string;
+    }[];
   };
   /** `accent` s’insere en gras entre `texte` et `suite`. */
   bandeau: { texte: string; accent?: string; suite?: string; sous_texte?: string };
@@ -106,7 +117,22 @@ export type BlocContenu = {
     /** Lignes d'ouverture, avant les sections (apéritif, amuse-bouche…) */
     entree?: string[];
     sections: { titre: string; lignes: string[] }[];
+    /**
+     * Le site titre les services sur certaines cartes et les met simplement
+     * en gras sur d'autres : `false` reproduit la seconde forme.
+     */
+    services_en_titre?: boolean;
     tarif?: { label: string; montant: string };
+  };
+  /** Suite de sous-sections titrees sous un meme intitule. */
+  sections: {
+    titre?: string;
+    taille_titre?: "normal" | "moyen" | "grand";
+    intro?: string;
+    fond_gris?: boolean;
+    /** Deux colonnes plutot qu'une seule pile */
+    deux_colonnes?: boolean;
+    sections: { titre: string; intro?: string; items?: string[]; conclusion?: string }[];
   };
   citation: { texte: string; auteur?: string };
   equipe: {

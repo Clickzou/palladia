@@ -175,7 +175,8 @@ for (const route of aTraiter) {
   // correspondances au fur et a mesure plutot que de les indexer par texte.
   const restants = [...v2.titres];
   for (const t of site.titres) {
-    const i = restants.findIndex((r) => r.texte === t.texte);
+    // « 10 kg » et « 10kg » designent la meme chose : on compare sans espaces.
+    const i = restants.findIndex((r) => sansEspace(r.texte) === sansEspace(t.texte));
     if (i === -1) {
       noter(
         `titre absent (${t.niveau}, ${t.taille}px) : « ${t.texte.slice(0, 70)} »`,

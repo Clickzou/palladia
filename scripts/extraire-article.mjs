@@ -74,13 +74,19 @@ const page = await navigateur.newPage({ viewport: { width: 1920, height: 1080 } 
 
 for (const route of cibles) {
   await page.goto(ORIGINE + route.origine, { waitUntil: "networkidle", timeout: 60_000 });
+  // Deux passes lentes : le chargement differe ne se declenche qu'au moment
+  // ou le visuel approche de la fenetre, et la page s'allonge en chargeant.
   await page.evaluate(async () => {
-    for (let y = 0; y < document.body.scrollHeight; y += 600) {
-      window.scrollTo(0, y);
-      await new Promise((r) => setTimeout(r, 60));
+    for (let passe = 0; passe < 2; passe++) {
+      for (let y = 0; y < document.body.scrollHeight; y += 400) {
+        window.scrollTo(0, y);
+        await new Promise((r) => setTimeout(r, 150));
+      }
+      window.scrollTo(0, 0);
+      await new Promise((r) => setTimeout(r, 300));
     }
   });
-  await page.waitForTimeout(800);
+  await page.waitForTimeout(1500);
 
   const releve = await page.evaluate(() => {
     const visible = (el) => {
@@ -100,10 +106,29 @@ for (const route of cibles) {
       return "rgb(255, 255, 255)";
     };
 
-    const elements = [...zone.querySelectorAll("h1,h2,h3,h4,h5,h6,p,li,img")]
+    // Elementor pose la moitie de ses visuels en image de fond CSS : sans les
+    // relever, on ne recupere qu'une fraction des photos de l'article.
+    const fondsImages = [...zone.querySelectorAll("*")].filter(visible).filter((el) => {
+      const u = getComputedStyle(el).backgroundImage;
+      return u && u !== "none" && /url\((["']?)https?:/.test(u);
+    });
+
+    const elements = [...zone.querySelectorAll("h1,h2,h3,h4,h5,h6,p,li,img"), ...fondsImages]
       .filter(visible)
       .map((el) => {
         const r = el.getBoundingClientRect();
+
+        if (fondsImages.includes(el) && el.tagName !== "IMG") {
+          const u = /url\(["']?([^"')]+)/.exec(getComputedStyle(el).backgroundImage);
+          return {
+            type: "image",
+            url: u[1],
+            ratio: +(r.width / r.height).toFixed(2),
+            largeur: Math.round(r.width),
+            fond: "image de fond",
+          };
+        }
+
         if (el.tagName === "IMG")
           return {
             type: "image",

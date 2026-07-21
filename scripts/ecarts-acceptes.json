@@ -23,16 +23,43 @@
       "raison": "Titre de FAQ ouvert par un emoji : meme raison."
     },
     {
+      "motif": "\\u20e3",
+      "raison": "Numerotation en emoji « touche » (1️⃣, 2️⃣…), remplacee par des chiffres. Le site numerote d'ailleurs 1, 2 puis 4 : la v2 retablit la suite."
+    },
+    {
       "motif": "jean jacques goldman",
       "raison": "Le site ecrit « Jean Jacques » sans trait d'union ; la v2 retient l'orthographe exacte."
     },
     {
       "motif": "^(ambiance assuree|tomy vay|theatre|concert de musique classique|concert des golden gospel|)$",
-      "pages": ["/diner-spectacles-toulouse"],
+      "pages": [
+        "/diner-spectacles-toulouse"
+      ],
       "raison": "Affiches de la saison 2025, passee : la v2 pilote cette liste par la date et n'affiche que les spectacles a venir."
     }
   ],
   "textes_absents": [
+    {
+      "motif": "^parking de 280 places",
+      "pages": [
+        "/hotel"
+      ],
+      "raison": "Le site annonce 280 places sur cette page et 300 ailleurs. L'hotelier a confirme 300 : la v2 affiche 300 partout."
+    },
+    {
+      "motif": "^2 ordinateurs connectes a internet et d'une imprimante",
+      "pages": [
+        "/hotel"
+      ],
+      "raison": "Faute d'accord sur le site (« et d'une imprimante ») ; la v2 ecrit « et une imprimante »."
+    },
+    {
+      "motif": "^toilettes et ascenseurs accessibles",
+      "pages": [
+        "/hotel"
+      ],
+      "raison": "Le site colle la fin de la description PMR au debut du paragraphe suivant ; la v2 les separe."
+    },
     {
       "motif": ".",
       "pages": [
@@ -60,12 +87,16 @@
     },
     {
       "motif": "^le \\d+ (octobre|novembre|decembre) 2025",
-      "pages": ["/diner-spectacles-toulouse"],
+      "pages": [
+        "/diner-spectacles-toulouse"
+      ],
       "raison": "Le site affiche encore la programmation 2025, passee. La v2 pilote cette liste par la date et n'affiche que les spectacles a venir : proposer des dates ecoulees a la reservation serait un defaut, pas une fidelite."
     },
     {
       "motif": "^(l )?h[oô]tel palladia 4 [ée]toiles offre",
-      "pages": ["/actualites"],
+      "pages": [
+        "/actualites"
+      ],
       "raison": "Le chapo du site ecrit « l hotel » avec une espace au lieu d'une apostrophe. La v2 corrige la coquille."
     }
   ],
