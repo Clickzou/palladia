@@ -82,12 +82,13 @@ export default function SpaPage() {
               ))}
             </ul>
             <a
-              href={booking.spa}
+              href={f.reservation}
               target="_blank"
               rel="noopener"
               className="mx-auto mt-8 rounded-full bg-gold px-9 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
             >
               Réserver
+              <span className="sr-only"> le {f.nom}</span>
             </a>
           </article>
         ))}

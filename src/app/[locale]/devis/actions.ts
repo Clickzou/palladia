@@ -9,6 +9,11 @@ export type EtatDevis = { ok: boolean; message: string } | null;
  * Enregistre une demande de devis. Les politiques RLS autorisent l’insertion
  * anonyme mais interdisent toute lecture : une demande déposée n’est visible
  * que par l’équipe authentifiée.
+ *
+ * ATTENTION — aucune notification n’est envoyée pour l’instant. L’ancien site
+ * prévenait `destinataires.devis` (voir config/site.ts) à chaque demande ;
+ * ici, elles s’empilent en base sans que personne ne soit alerté. Il reste à
+ * brancher un service d’envoi (Resend, SMTP OVH…) et à fournir sa clé.
  */
 export async function envoyerDevis(
   _etat: EtatDevis,

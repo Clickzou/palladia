@@ -167,7 +167,19 @@ async function mesurer(page, url) {
       if (fonds.at(-1) !== aplat) fonds.push(aplat);
     }
 
-    return { titres, textes, images, fonds };
+    /**
+     * Destinations des liens de contenu. Un bouton qui pointe au mauvais
+     * endroit ne se voit ni dans le texte ni dans la mise en page.
+     */
+    const liens = [...zone.querySelectorAll("a[href]")]
+      .filter(visible)
+      .map((el) => ({
+        texte: texteUtile(el),
+        href: el.getAttribute("href") ?? "",
+      }))
+      .filter((l) => l.texte.length > 1 && !/^#/.test(l.href));
+
+    return { titres, textes, images, fonds, liens };
   });
 }
 
@@ -252,6 +264,32 @@ for (const route of aTraiter) {
         ecarts.push(`proportions ${img.fichier} : site ${img.ratio} / v2 ${e.ratio}`);
       if (e.place !== img.place)
         ecarts.push(`place de ${img.fichier} : site ${img.place} / v2 ${e.place}`);
+    }
+  }
+
+  /**
+   * Liens : on compare la destination a libelle egal. Les chemins internes
+   * different forcement d'un domaine a l'autre, seul le dernier segment est
+   * confronte ; les liens sortants le sont en entier.
+   */
+  if (!ACCEPTES.ignorer_liens?.actif) {
+    const interne = (h) => /hotelpalladia\.com/.test(h) || /^\//.test(h);
+    const segment = (h) =>
+      h.replace(/[?#].*$/, "").replace(/\/$/, "").split("/").filter(Boolean).pop() ?? "";
+    const parTexte = new Map(v2.liens.map((l) => [l.texte, l.href]));
+
+    for (const l of site.liens) {
+      const chez = parTexte.get(l.texte);
+      if (chez === undefined) continue;  // libelle absent : deja signale ailleurs
+      const pareil = interne(l.href)
+        ? segment(l.href) === segment(chez)
+        : l.href.replace(/&#0?38;/g, "&") === chez.replace(/&#0?38;/g, "&");
+      if (!pareil)
+        noter(
+          `lien « ${l.texte.slice(0, 40)} » : site ${l.href.slice(0, 60)} / v2 ${chez.slice(0, 60)}`,
+          "liens",
+          l.texte,
+        );
     }
   }
 

@@ -41,6 +41,7 @@ export const spa = {
   forfaits: [
     {
       nom: "Forfait Bien Être Duo",
+      reservation: "https://hotelpalladia.secretbox.fr/bien-etre-1.html",
       prix: "299 €",
       pour: "pour 2 personnes",
       inclus: [
@@ -52,6 +53,7 @@ export const spa = {
     },
     {
       nom: "Forfait Plaisir & Détente",
+      reservation: "https://hotelpalladia.secretbox.fr/plaisir-et-detente.html",
       prix: "365 €",
       pour: "pour 2 personnes",
       inclus: [
@@ -64,6 +66,7 @@ export const spa = {
     },
     {
       nom: "Forfait Palladia",
+      reservation: "https://hotelpalladia.secretbox.fr/forfait-palladia.html",
       prix: "440 €",
       pour: "pour 2 personnes",
       inclus: [

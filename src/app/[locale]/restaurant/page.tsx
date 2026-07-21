@@ -49,7 +49,7 @@ export default function RestaurantPage() {
 
           <p className="mt-8">
             <a
-              href={r.chef.href}
+              href="/presse"
               className="font-semibold text-[#8b3a3a] underline underline-offset-4 hover:text-gold"
             >
               Découvrez notre chef de Cuisine, {r.chef.name}

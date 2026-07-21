@@ -11,6 +11,25 @@ export const site = {
   maps: "https://www.google.fr/maps/place/Le+Palladia/@43.6053379,1.3978489,17z",
 } as const;
 
+/**
+ * Destinataires des formulaires, releves dans la configuration Elementor de
+ * l'ancien site (scripts/destinataires-formulaires.mjs). Ces adresses ne sont
+ * pas visibles cote navigateur : elles vivaient dans la base WordPress.
+ */
+export const destinataires = {
+  /** Demande de devis : la communication, les ventes et les deux commerciales */
+  devis: [
+    "communication@hotelpalladia.com",
+    "salesmanager@hotelpalladia.com",
+    "commercial1@hotelpalladia.com",
+    "commercial2@hotelpalladia.com",
+  ],
+  /** Candidatures spontanees et reponses aux offres */
+  recrutement: ["candidature@hotelpalladia.com"],
+  /** Inscriptions a la lettre d'information */
+  newsletter: ["communication@hotelpalladia.com"],
+} as const;
+
 export const booking = {
   /** Moteur VerticalBooking — reservation chambre */
   rooms:
