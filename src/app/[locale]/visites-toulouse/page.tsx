@@ -72,10 +72,9 @@ export default function TourismePage() {
               </h3>
               <p className="mt-4 grow leading-relaxed text-body">{lieu.description}</p>
               <p className="mt-5 text-sm text-muted">{lieu.adresse}</p>
+              {/* Site officiel du lieu, comme sur le site d’origine */}
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  `${lieu.nom} ${lieu.adresse}`,
-                )}`}
+                href={lieu.site}
                 target="_blank"
                 rel="noopener"
                 className="mt-6 self-center rounded-full bg-gold px-7 py-2.5 text-sm font-medium text-white underline-offset-2 transition-colors hover:bg-gold-dark"
