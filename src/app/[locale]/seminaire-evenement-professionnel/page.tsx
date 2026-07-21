@@ -175,7 +175,7 @@ export default function SeminairesPage() {
             ))}
 
           {"sousTitre" in section && section.sousTitre && (
-            <h3 className="mt-10 text-center text-lg tracking-wide text-ink uppercase">{section.sousTitre}</h3>
+            <h3 className="mt-10 text-lg tracking-wide text-ink uppercase">{section.sousTitre}</h3>
           )}
 
           {section.chapo && <p className="mt-6 leading-relaxed text-body">{section.chapo}</p>}
@@ -187,24 +187,32 @@ export default function SeminairesPage() {
 
             return (
               <div key={point.num} className="mt-10">
-                <h3 className="text-center text-lg tracking-wide text-ink uppercase">
-                  {point.num} {point.titre}
-                </h3>
+                {/* Sans visuel, le titre reste centre au-dessus du texte ;
+                    avec un visuel, il rejoint la colonne de texte. */}
+                {!image && (
+                  <h3 className="text-lg tracking-wide text-ink uppercase">
+                    {point.num} {point.titre}
+                  </h3>
+                )}
 
                 {image ? (
-                  <div className="mt-6 grid items-center gap-8 sm:grid-cols-[360px_1fr]">
-                    <div
-                      className={`relative aspect-[3/2] ${imageADroite ? "sm:order-2" : ""}`}
-                    >
+                  // Largeur portee par l'image elle-meme : avec une grille, la
+                  // colonne etroite restait a gauche quand l'image passait a droite.
+                  <div
+                    className={`mt-6 flex flex-col items-center gap-8 sm:flex-row ${
+                      imageADroite ? "sm:flex-row-reverse" : ""
+                    }`}
+                  >
+                    <div className="relative aspect-[3/2] w-full shrink-0 sm:w-[360px]">
                       <Image
                         src={image}
                         alt=""
                         fill
-                        sizes="360px"
+                        sizes="(max-width: 640px) 100vw, 360px"
                         className="object-cover"
                       />
                     </div>
-                    <p className="leading-relaxed text-body">{point.texte}</p>
+                    <p className="flex-1 leading-relaxed text-body">{point.texte}</p>
                   </div>
                 ) : (
                   <p className="mt-4 leading-relaxed text-body">{point.texte}</p>
