@@ -79,6 +79,8 @@ export const restaurant = {
 
   bar: {
     titre: "Le Bar Lounge",
+    /** youtube.com/watch?v=NJUSVNeyRdU */
+    videoId: "NJUSVNeyRdU",
     sousTitre: "Idéal pour déguster un cocktail",
     paragraphes: [
       "Calme et accueillant, décoré de teintes or, noir et blanc, design et cosy, l’atmosphère vous invite à la détente.",

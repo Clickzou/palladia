@@ -4,6 +4,7 @@ import { booking } from "@/config/site";
 import { restaurant as r } from "@/data/restaurant";
 import PageHeader from "@/components/PageHeader";
 import PhotoGrid from "@/components/PhotoGrid";
+import VideoYoutube from "@/components/VideoYoutube";
 
 export const metadata: Metadata = {
   title: r.metaTitle,
@@ -145,15 +146,12 @@ export default function RestaurantPage() {
 
       {/* Bar Lounge */}
       <section className="grid items-stretch md:grid-cols-2">
-        <div className="relative min-h-[320px] md:min-h-[520px]">
-          <Image
-            src="/images/restaurant/bar-lounge.jpg"
-            alt="Le bar lounge de l’Hôtel Palladia"
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-          />
-        </div>
+        <VideoYoutube
+          id={r.bar.videoId}
+          titre="Le bar lounge de l’Hôtel Palladia"
+          poster="/images/restaurant/bar-lounge.jpg"
+          className="min-h-[320px] md:min-h-[520px]"
+        />
         <div className="flex flex-col justify-center px-8 py-16 lg:px-20">
           <h2 className="font-display text-3xl tracking-wide text-gold uppercase lg:text-4xl">
             {r.bar.titre}
