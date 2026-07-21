@@ -91,35 +91,32 @@ export default function OffresEtePage() {
               </a>
             </div>
 
-            {/* Les affiches portent les mentions tarifaires : on les affiche
-                entieres plutot que recadrees, pour ne rien tronquer. */}
-            <div
-              className={`flex items-center justify-center bg-white p-4 ${
-                afficheAdroite ? "" : "md:order-1"
-              }`}
-            >
+            {/* L'affiche occupe toute la moitie, sans marge, comme sur le site. */}
+            <div className={`relative min-h-[320px] md:min-h-[560px] ${afficheAdroite ? "" : "md:order-1"}`}>
               <Image
                 src={offre.affiche}
                 alt={offre.afficheAlt}
-                width={1024}
-                height={640}
+                fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="h-auto w-full max-w-2xl"
+                className="object-cover"
               />
             </div>
           </section>
         );
       })}
 
-      {/* Pourquoi reserver en direct */}
-      <section className="bg-gold px-6 py-20 text-center text-white">
+      {/* Pourquoi reserver en direct — bandeau dore en biais, comme sur le site */}
+      <section
+        className="bg-gold px-6 py-28 text-center text-white md:py-36"
+        style={{ clipPath: "polygon(0 4%, 100% 0, 100% 96%, 0 100%)" }}
+      >
         <h2 className="font-display text-2xl tracking-wide uppercase md:text-4xl">
           {o.argumentsTitre}
         </h2>
         <div className="mx-auto mt-6 h-px w-20 bg-white/70" />
-        <ul className="mx-auto mt-10 flex max-w-lg flex-col gap-3">
+        <ul className="mx-auto mt-10 flex max-w-lg flex-col gap-2">
           {o.arguments.map((a) => (
-            <li key={a} className="flex items-center justify-center gap-3 text-lg md:text-xl">
+            <li key={a} className="flex items-center justify-center gap-3 text-xl md:text-2xl">
               <IconCheck className="size-5 fill-current" />
               {a}
             </li>
