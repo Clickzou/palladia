@@ -7,6 +7,18 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+
+  /**
+   * Redirections 301 depuis les URLs heritees de WordPress.
+   * Le slug /suite-junior-2/ avait ete cree automatiquement par WordPress
+   * lors d'une recreation de page ; on le ramene vers l'URL propre.
+   */
+  async redirects() {
+    return [
+      { source: "/suite-junior-2", destination: "/suite-junior", permanent: true },
+      { source: "/:locale(en|es)/suite-junior-2", destination: "/:locale/suite-junior", permanent: true },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);
