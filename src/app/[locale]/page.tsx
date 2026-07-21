@@ -1,0 +1,180 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { booking } from "@/config/site";
+import HeroCarousel from "@/components/HeroCarousel";
+import SplitSection from "@/components/SplitSection";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  };
+}
+
+/** Bandeau de 4 visuels sous le texte d'introduction. */
+const BANDEAU = [
+  { src: "/images/bandeau-spa.jpg", alt: "Espace bien-être et jacuzzi" },
+  { src: "/images/bandeau-exterieur.jpg", alt: "Entrée de l'Hôtel Palladia" },
+  { src: "/images/bandeau-bar.jpg", alt: "Bar-lounge de l'hôtel" },
+  { src: "/images/bandeau-hall.jpg", alt: "Hall d'accueil" },
+];
+
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
+
+  return (
+    <>
+      <HeroCarousel
+        slides={[
+          { src: "/images/hero-1.jpg", alt: "Chambre de luxe à l'Hôtel Palladia" },
+          { src: "/images/hero-2.jpg", alt: "Chambre Prestige" },
+          { src: "/images/hero-3.jpg", alt: "Hôtel 4 étoiles à Toulouse" },
+        ]}
+        title={t("heroTitle")}
+        subtitle={t("heroSubtitle")}
+        ctaLabel={t("heroCta")}
+        ctaHref={booking.rooms}
+      />
+
+      {/* Introduction */}
+      <section className="mx-auto max-w-4xl px-6 py-20 text-center">
+        <h2 className="section-title">{t("introTitle")}</h2>
+        <div className="mx-auto mt-5 h-px w-20 bg-gold" />
+        <p
+          className="mt-8 text-lg leading-relaxed text-body"
+          dangerouslySetInnerHTML={{ __html: t.raw("introText") as string }}
+        />
+      </section>
+
+      {/* Bandeau de 4 visuels */}
+      <section className="grid grid-cols-2 lg:grid-cols-4">
+        {BANDEAU.map((img) => (
+          <div key={img.src} className="relative aspect-[4/3]">
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="(max-width: 1024px) 50vw, 25vw"
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </section>
+
+      <SplitSection
+        title={t("chambresTitle")}
+        text={t("chambresText")}
+        image="/images/chambres.jpg"
+        imageAlt="Suite de l'Hôtel Palladia"
+        ctaLabel={t("chambresCta")}
+        ctaHref={booking.rooms}
+        external
+      />
+
+      <SplitSection
+        title={t("restaurantTitle")}
+        text={t("restaurantText")}
+        image="/images/restaurant.jpg"
+        imageAlt="Salle du restaurant"
+        ctaLabel={t("restaurantCta")}
+        ctaHref={booking.restaurant}
+        external
+        reversed
+        tinted
+      />
+
+      <SplitSection
+        title={t("spaTitle")}
+        text={t("spaText")}
+        image="/images/spa.jpg"
+        imageAlt="Espace bien-être"
+        ctaLabel={t("spaCta")}
+        ctaHref={booking.spa}
+        external
+      />
+
+      <SplitSection
+        title={t("sallesTitle")}
+        text={t("sallesText")}
+        image="/images/salles-reunion.jpg"
+        imageAlt="Amphithéâtre de 285 places"
+        ctaLabel={t("sallesCta")}
+        ctaHref="/seminaire-evenement-professionnel"
+        reversed
+        tinted
+      />
+
+      <SplitSection
+        title={t("mariagesTitle")}
+        text={t("mariagesText")}
+        image="/images/mariages.jpg"
+        imageAlt="Réception de mariage"
+        ctaLabel={t("mariagesCta")}
+        ctaHref="/devis"
+      />
+
+      <SplitSection
+        title={t("spectaclesTitle")}
+        text={t("spectaclesText")}
+        image="/images/spectacles.jpg"
+        imageAlt="Spectacle à l'Hôtel Palladia"
+        ctaLabel={t("spectaclesCta")}
+        ctaHref="/spectacle-toulouse"
+        reversed
+        tinted
+      />
+
+      {/* Bandeau spectacles */}
+      <section className="bg-ink px-6 py-16 text-center text-white">
+        <p className="font-display text-2xl tracking-wide uppercase md:text-3xl">
+          {t("bandeauSpectacles")}
+        </p>
+        <Link
+          href="/spectacle-toulouse"
+          className="mt-8 inline-block bg-gold px-10 py-4 text-sm font-semibold tracking-wider uppercase transition-colors hover:bg-gold-dark"
+        >
+          {t("bandeauSpectaclesCta")}
+        </Link>
+      </section>
+
+      {/* Coffrets cadeaux */}
+      <section className="grid items-stretch md:grid-cols-2">
+        <div className="relative min-h-[300px] md:min-h-[460px]">
+          <Image
+            src="/images/coffrets.jpg"
+            alt="Coffrets cadeaux de l'Hôtel Palladia"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="flex flex-col justify-center bg-cream px-8 py-16 lg:px-20">
+          <h2 className="font-display text-3xl tracking-wide text-gold uppercase lg:text-4xl">
+            {t("coffretsTitle")}
+          </h2>
+          <div className="mt-5 h-px w-16 bg-gold" />
+          <p className="mt-6 leading-relaxed text-body">{t("coffretsText")}</p>
+          <Link
+            href="/coffret-cadeau-hotel-restaurant-toulouse"
+            className="mt-8 self-start bg-gold px-8 py-3 text-sm font-semibold tracking-wider text-white uppercase transition-colors hover:bg-gold-dark"
+          >
+            {t("coffretsCta")}
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}
