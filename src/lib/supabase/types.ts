@@ -1,0 +1,67 @@
+/** Types du blog, alignés sur supabase/migrations/0001_blog.sql. */
+
+export type ArticleStatut = "brouillon" | "publie" | "archive";
+
+export type BlocType =
+  | "texte"
+  | "texte_image"
+  | "cartes"
+  | "bandeau"
+  | "bandeau_image"
+  | "carrousel"
+  | "liste_cochee"
+  | "citation";
+
+export type Article = {
+  id: string;
+  slug: string;
+  locale: "fr" | "en" | "es";
+  titre: string;
+  sous_titre: string | null;
+  chapo: string | null;
+  image_hero: string | null;
+  image_vignette: string | null;
+  statut: ArticleStatut;
+  date_publication: string;
+  seo_title: string | null;
+  seo_description: string | null;
+  groupe_id: string;
+};
+
+/** Contenu de chaque type de bloc (colonne jsonb `contenu`). */
+export type BlocContenu = {
+  texte: { titre?: string; paragraphes: string[]; liste?: string[]; centre?: boolean };
+  texte_image: {
+    titre?: string;
+    paragraphes: string[];
+    liste?: string[];
+    image: string;
+    alt: string;
+    position: "gauche" | "droite";
+  };
+  cartes: {
+    titre?: string;
+    cartes: { titre: string; image?: string; alt?: string; paragraphes: string[]; liste?: string[] }[];
+  };
+  bandeau: { texte: string; accent?: string; sous_texte?: string };
+  bandeau_image: {
+    image: string;
+    titre: string;
+    paragraphes?: string[];
+    liste?: string[];
+    boutons?: { label: string; href: string }[];
+  };
+  carrousel: { images: { src: string; alt: string }[] };
+  liste_cochee: { titre?: string; intro?: string; items: string[]; conclusion?: string };
+  citation: { texte: string; auteur?: string };
+};
+
+export type Bloc<T extends BlocType = BlocType> = {
+  id: string;
+  article_id: string;
+  ordre: number;
+  type: T;
+  contenu: BlocContenu[T];
+};
+
+export type ArticleComplet = Article & { blocs: Bloc[] };

@@ -1,0 +1,64 @@
+import { createClient } from "./supabase/server";
+import type { Article, ArticleComplet, Bloc } from "./supabase/types";
+
+/**
+ * Tant que les variables Supabase ne sont pas renseignees (.env.local), le blog
+ * se comporte comme s'il etait vide plutot que de faire echouer le rendu.
+ */
+export const supabaseConfigure = Boolean(
+  process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+);
+
+/** Liste des articles publiés d'une langue, du plus récent au plus ancien. */
+export async function listerArticles(locale: string): Promise<Article[]> {
+  if (!supabaseConfigure) return [];
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("articles")
+    .select("*")
+    .eq("locale", locale)
+    .eq("statut", "publie")
+    .order("date_publication", { ascending: false });
+
+  if (error) {
+    console.error("Lecture des articles impossible :", error.message);
+    return [];
+  }
+  return data ?? [];
+}
+
+/** Un article et ses blocs, ou null s'il n'existe pas / n'est pas publié. */
+export async function lireArticle(
+  slug: string,
+  locale: string,
+): Promise<ArticleComplet | null> {
+  if (!supabaseConfigure) return null;
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("articles")
+    .select("*, article_blocs(*)")
+    .eq("slug", slug)
+    .eq("locale", locale)
+    .eq("statut", "publie")
+    .maybeSingle();
+
+  if (error || !data) return null;
+
+  const { article_blocs, ...article } = data as Article & { article_blocs: Bloc[] };
+  return {
+    ...article,
+    blocs: (article_blocs ?? []).sort((a, b) => a.ordre - b.ordre),
+  };
+}
+
+/** Slugs publiés, pour la génération statique et le sitemap. */
+export async function listerSlugs(): Promise<{ slug: string; locale: string }[]> {
+  if (!supabaseConfigure) return [];
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("articles")
+    .select("slug, locale")
+    .eq("statut", "publie");
+
+  return data ?? [];
+}
