@@ -43,7 +43,7 @@ export default async function SpectaclesPage({
               La programmation de la prochaine saison est en préparation.
             </p>
             <Link
-              href="/contact"
+              href="/devis"
               className="mt-8 inline-block rounded-full bg-gold px-9 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
             >
               Être informé des prochaines dates
