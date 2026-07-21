@@ -4,8 +4,6 @@ import { booking } from "@/config/site";
 import { offresEte as o } from "@/data/offres-ete";
 import PhotoGrid from "@/components/PhotoGrid";
 import { IconCheck } from "@/components/icons";
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 
 export const metadata: Metadata = {
   title: o.metaTitle,
@@ -20,10 +18,6 @@ function EnGras({ texte }: { texte: string }) {
     </>
   );
 }
-
-/** Les affiches promotionnelles ne sont pas encore fournies : on ne casse pas le rendu. */
-const afficheDisponible = (chemin: string) =>
-  existsSync(join(process.cwd(), "public", chemin));
 
 export default function OffresEtePage() {
   return (
@@ -42,7 +36,6 @@ export default function OffresEtePage() {
       {/* Offres, alternées texte / affiche */}
       {o.offres.map((offre, i) => {
         const afficheAdroite = i % 2 === 0;
-        const aAffiche = afficheDisponible(offre.affiche);
 
         return (
           <section
@@ -94,23 +87,21 @@ export default function OffresEtePage() {
               </a>
             </div>
 
-            <div className={`relative min-h-[320px] md:min-h-[520px] ${afficheAdroite ? "" : "md:order-1"}`}>
-              {aAffiche ? (
-                <Image
-                  src={offre.affiche}
-                  alt={offre.afficheAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              ) : (
-                <div className="flex h-full flex-col items-center justify-center bg-ink-soft px-8 text-center">
-                  <span className="font-display text-3xl text-gold md:text-4xl">{offre.prix}</span>
-                  <span className="mt-4 text-sm tracking-wide text-white/70 uppercase">
-                    {offre.titre}
-                  </span>
-                </div>
-              )}
+            {/* Les affiches portent les mentions tarifaires : on les affiche
+                entieres plutot que recadrees, pour ne rien tronquer. */}
+            <div
+              className={`flex items-center justify-center bg-white p-4 ${
+                afficheAdroite ? "" : "md:order-1"
+              }`}
+            >
+              <Image
+                src={offre.affiche}
+                alt={offre.afficheAlt}
+                width={1024}
+                height={640}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="h-auto w-full max-w-2xl"
+              />
             </div>
           </section>
         );
