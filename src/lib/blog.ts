@@ -9,6 +9,9 @@ export const supabaseConfigure = Boolean(
   process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
 );
 
+/** Nombre d'articles affichés par page de liste. */
+export const ARTICLES_PAR_PAGE = 6;
+
 /** Liste des articles publiés d'une langue, du plus récent au plus ancien. */
 export async function listerArticles(locale: string): Promise<Article[]> {
   if (!supabaseConfigure) return [];
@@ -25,6 +28,39 @@ export async function listerArticles(locale: string): Promise<Article[]> {
     return [];
   }
   return data ?? [];
+}
+
+/**
+ * Une page d'articles, avec le nombre total de pages.
+ * La pagination est faite côté base : seules les 6 lignes utiles remontent.
+ */
+export async function listerArticlesPagines(
+  locale: string,
+  page = 1,
+): Promise<{ articles: Article[]; pages: number; page: number }> {
+  if (!supabaseConfigure) return { articles: [], pages: 0, page: 1 };
+
+  const supabase = await createClient();
+  const debut = (page - 1) * ARTICLES_PAR_PAGE;
+
+  const { data, count, error } = await supabase
+    .from("articles")
+    .select("*", { count: "exact" })
+    .eq("locale", locale)
+    .eq("statut", "publie")
+    .order("date_publication", { ascending: false })
+    .range(debut, debut + ARTICLES_PAR_PAGE - 1);
+
+  if (error) {
+    console.error("Lecture des articles impossible :", error.message);
+    return { articles: [], pages: 0, page };
+  }
+
+  return {
+    articles: data ?? [],
+    pages: Math.ceil((count ?? 0) / ARTICLES_PAR_PAGE),
+    page,
+  };
 }
 
 /** Un article et ses blocs, ou null s'il n'existe pas / n'est pas publié. */
