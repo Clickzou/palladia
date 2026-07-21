@@ -4,6 +4,9 @@ import CarrouselLarge from "@/components/CarrouselLarge";
 import { IconBed, IconCheck, IconExpand, IconGift, IconLock, IconTv, IconWifi } from "@/components/icons";
 import {
   Armchair as IconFauteuil,
+  Bike as IconVelo,
+  Footprints as IconPieton,
+  MapPin as IconCarte,
   Martini as IconVerre,
   SquareParking as IconParking,
 } from "lucide-react";
@@ -24,6 +27,9 @@ const ICONES: Record<string, React.ReactNode> = {
   coffre: <IconLock />,
   cadeau: <IconGift className="size-10 fill-current" />,
   restauration: <IconVerre className="size-10" strokeWidth={1.4} />,
+  velo: <IconVelo className="size-10" strokeWidth={1.4} />,
+  pieton: <IconPieton className="size-10" strokeWidth={1.4} />,
+  gps: <IconCarte className="size-10" strokeWidth={1.4} />,
 };
 
 export default function ArticleBlocs({ blocs }: { blocs: Bloc[] }) {
@@ -88,13 +94,16 @@ function TitreSection({
  * en gras et fait des liens internes ; les reproduire garde le maillage SEO.
  */
 function RichText({ texte }: { texte: string }) {
-  const morceaux = texte.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
+  const morceaux = texte.split(/(\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g);
 
   return (
     <>
       {morceaux.map((m, i) => {
         const gras = /^\*\*[^*]+\*\*$/.exec(m);
         if (gras) return <strong key={i} className="text-ink">{m.slice(2, -2)}</strong>;
+
+        const italique = /^\*[^*]+\*$/.exec(m);
+        if (italique) return <em key={i}>{m.slice(1, -1)}</em>;
 
         const lien = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(m);
         if (lien) {
@@ -458,7 +467,9 @@ function BlocMenu({ c }: { c: BlocContenu["menu"] }) {
   return (
     <section className="py-10">
       <div className="conteneur">
-        {c.titre && <TitreSection taille={c.taille_titre}>{c.titre}</TitreSection>}
+        {c.titre_section && (
+          <h2 className="mb-10 text-center text-[19px] font-normal text-ink">{c.titre_section}</h2>
+        )}
 
         {c.entree && (
           <div className="mb-10 space-y-2 text-center text-body">
@@ -470,7 +481,12 @@ function BlocMenu({ c }: { c: BlocContenu["menu"] }) {
           </div>
         )}
 
-        <div className="divide-y divide-black/10 bg-cream">
+        <div className="mx-auto max-w-[945px] bg-[#f2f2f2] px-8 py-12">
+          {c.titre && (
+            <h2 className="mb-8 text-center font-display text-[19px] font-semibold text-ink">
+              {c.titre}
+            </h2>
+          )}
           {c.sections.map((s) => (
             <div key={s.titre} className="px-6 py-6 text-center">
               {c.services_en_titre === false ? (

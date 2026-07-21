@@ -127,7 +127,10 @@ export type BlocContenu = {
   };
   /** Carte de menu : sections de plats, puis le tarif en bandeau sombre. */
   menu: {
+    /** Titre de l'encadre (« Menu à 75€ TTC ») */
     titre?: string;
+    /** Intitule de section, au-dessus de l'encadre */
+    titre_section?: string;
     /** Taille du titre : 19 px par defaut, 25 px (« moyen ») ou 40 px (« grand ») */
     taille_titre?: "normal" | "moyen" | "grand";
     /** Lignes d'ouverture, avant les sections (apéritif, amuse-bouche…) */
