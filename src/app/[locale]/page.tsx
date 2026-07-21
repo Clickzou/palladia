@@ -40,7 +40,9 @@ export default async function HomePage({
       <HeroCarousel
         slides={[
           { src: "/images/hero-1.jpg", alt: "Chambre de luxe à l'Hôtel Palladia" },
+          { src: "/images/hero-4.webp", alt: "L'Hôtel Palladia, 4 étoiles à Toulouse" },
           { src: "/images/hero-2.jpg", alt: "Chambre Prestige" },
+          { src: "/images/hero-5.jpg", alt: "Le spa de l'Hôtel Palladia" },
           { src: "/images/hero-3.jpg", alt: "Hôtel 4 étoiles à Toulouse" },
         ]}
         title={t("heroTitle")}
