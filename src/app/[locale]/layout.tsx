@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BandeauCookies from "@/components/BandeauCookies";
 import "../globals.css";
 
 /* Polices du site d’origine : Spinnaker pour les titres, Roboto pour le texte. */
@@ -48,6 +49,7 @@ export default async function LocaleLayout({
           <Header />
           <main>{children}</main>
           <Footer />
+          <BandeauCookies />
         </NextIntlClientProvider>
       </body>
     </html>

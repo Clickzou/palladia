@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { enregistrerConsentement, lireConsentement } from "@/lib/consentement";
 
 /**
  * Lecteur YouTube differé : tant que le visiteur n’a pas cliqué, seule une
@@ -22,6 +23,19 @@ export default function VideoYoutube({
 }) {
   const [actif, setActif] = useState(false);
 
+  /**
+   * Un clic sur la vidéo vaut consentement pour les contenus externes : le
+   * visiteur demande explicitement à voir un contenu YouTube. On l'enregistre
+   * pour ne pas le lui redemander à chaque vidéo.
+   */
+  const lancer = () => {
+    const c = lireConsentement();
+    if (c && !c.categories.marketing) {
+      enregistrerConsentement({ ...c.categories, marketing: true });
+    }
+    setActif(true);
+  };
+
   if (actif) {
     return (
       <div className={`relative ${className}`}>
@@ -39,7 +53,7 @@ export default function VideoYoutube({
   return (
     <button
       type="button"
-      onClick={() => setActif(true)}
+      onClick={lancer}
       aria-label={`Lire la vidéo : ${titre}`}
       className={`group relative block w-full cursor-pointer overflow-hidden ${className}`}
     >

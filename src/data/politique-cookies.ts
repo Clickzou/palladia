@@ -1,152 +1,95 @@
 /**
- * Politique de cookies.
+ * Politique de cookies de la v2.
  *
- * ATTENTION — ce texte décrit l’installation WordPress : il cite Elementor,
- * WordPress, Complianz et Wistia, qui disparaissent tous avec la refonte.
- * La liste des cookies devra être réécrite une fois la v2 en ligne, en
- * fonction des services réellement utilisés (analytics, YouTube, reCAPTCHA…).
+ * Réécrite pour refléter les services réellement utilisés : la version
+ * WordPress décrivait Elementor, Complianz et Wistia, qui ont tous disparu.
+ *
+ * À compléter lors de l'ajout de Google Analytics et de Search Console.
  */
 export const politiqueCookies = {
-  metaTitle: "Politique de Cookies - Le Palladia hôtel 4 étoiles Toulouse",
+  metaTitle: "Politique de Cookies de Le Palladia : Sécurité & Confort",
   metaDescription:
-    "Politique de cookies de l’Hôtel Palladia : nature des cookies déposés, finalités et gestion de votre consentement.",
+    "Découvrez comment Le Palladia 4 étoiles respecte votre vie privée avec notre politique de cookies. Sécurité et confort assurés.",
   titre: "Politique de cookies",
   chapo:
-    "Cette politique de cookies a été mise à jour pour la dernière fois le 17 juin 2024 et s’applique aux citoyens et aux résidents permanents légaux de l’Espace Économique Européen et de la Suisse.",
+    "Cette politique explique quels traceurs sont déposés lors de votre visite sur www.hotelpalladia.com, à quoi ils servent et comment maîtriser vos choix. Dernière mise à jour : juillet 2026.",
 
   sections: [
     {
-      titre: "1. Introduction",
+      titre: "1. Notre principe",
       paragraphes: [
-        "Notre site web, https://www.hotelpalladia.com (ci-après : « le site web ») utilise des cookies et autres technologies liées (par simplification, toutes ces technologies sont désignées par le terme « cookies »). Des cookies sont également placés par des tierces parties que nous avons engagées. Dans le document ci-dessous, nous vous informons de l’utilisation des cookies sur notre site web.",
+        "**Aucun traceur de mesure d’audience ou de contenu externe n’est déposé avant votre accord.** À votre première visite, un bandeau vous propose de tout accepter, de tout refuser ou de choisir catégorie par catégorie. Refuser est aussi simple qu’accepter : les deux boutons sont présentés au même niveau.",
+        "Tant que vous n’avez pas fait de choix, seuls les éléments strictement nécessaires au fonctionnement du site sont actifs.",
+        "Votre décision est conservée six mois, puis vous est redemandée. Vous pouvez en changer à tout moment via le lien « Gérer mes cookies » en bas de chaque page.",
       ],
     },
     {
-      titre: "2. Que sont les cookies ?",
+      titre: "2. Ce qu’est un cookie",
       paragraphes: [
-        "Un cookie est un petit fichier simple envoyé avec les pages de ce site web et stocké par votre navigateur sur le disque dur de votre ordinateur ou d’un autre appareil. Les informations qui y sont stockées peuvent être renvoyées à nos serveurs ou aux serveurs des tierces parties concernées lors d’une visite ultérieure.",
+        "Un cookie est un petit fichier déposé par un site sur votre appareil, qui lui permet de vous reconnaître lors d’une visite ultérieure. Le terme est employé ici au sens large : il couvre aussi les technologies équivalentes, comme le stockage local du navigateur.",
       ],
     },
     {
-      titre: "3. Que sont les scripts ?",
+      titre: "3. Cookies strictement nécessaires",
       paragraphes: [
-        "Un script est un élément de code utilisé pour que notre site web fonctionne correctement et de manière interactive. Ce code est exécuté sur notre serveur ou sur votre appareil.",
+        "**Toujours actifs.** Sans eux, le site ne peut pas fonctionner correctement. Ils ne servent ni à vous suivre, ni à vous profiler, et ne sont partagés avec personne.",
+        "**Préférence de langue** — mémorise si vous consultez le site en français, anglais ou espagnol. Durée : la session de navigation.",
+        "**Choix de cookies** — conserve votre décision pour ne pas vous la redemander à chaque page. Stocké dans votre navigateur, jamais transmis à nos serveurs. Durée : 6 mois.",
+        "**Sécurité des formulaires** — protège l’envoi des demandes de devis contre les soumissions automatisées. Durée : la session.",
       ],
     },
     {
-      titre: "4. Qu’est-ce qu’une balise invisible ?",
+      titre: "4. Cookies de mesure d’audience",
       paragraphes: [
-        "Une balise invisible (ou balise web) est un petit morceau de texte ou d’image invisible sur un site web, utilisé pour suivre le trafic sur un site web. Pour ce faire, diverses données vous concernant sont stockées à l’aide de balises invisibles.",
+        "**Soumis à votre accord.** Ils nous indiquent quelles pages sont consultées et d’où viennent les visiteurs, afin d’améliorer le site. Les données sont agrégées : elles ne permettent pas de vous identifier.",
+        "Si vous refusez cette catégorie, aucune mesure d’audience n’est effectuée et votre visite n’est pas comptabilisée.",
       ],
     },
     {
-      titre: "5.1 Cookies techniques ou fonctionnels",
+      titre: "5. Contenus externes",
       paragraphes: [
-        "Certains cookies assurent le fonctionnement correct de certaines parties du site web et la prise en compte de vos préférences en tant qu’internaute. En plaçant des cookies fonctionnels, nous vous facilitons la visite de notre site web. Ainsi, vous n’avez pas besoin de saisir à plusieurs reprises les mêmes informations lors de la visite de notre site web et, par exemple, les éléments restent dans votre panier jusqu’à votre paiement. Nous pouvons déposer ces cookies sans votre consentement.",
+        "**Soumis à votre accord.** Certaines pages intègrent des contenus hébergés par des tiers, susceptibles de déposer leurs propres traceurs.",
+        "**YouTube** (Google Ireland Limited) — vidéo de présentation du bar-lounge. Tant que vous n’avez pas cliqué, seule une image est affichée : le lecteur n’est chargé qu’à votre demande, et aucun cookie Google n’est déposé avant.",
+        "**OpenStreetMap / uMap** — carte des lieux à visiter à Toulouse, sur la page Tourisme.",
+        "Ces services disposent de leurs propres politiques de confidentialité, que nous vous invitons à consulter.",
       ],
     },
     {
-      titre: "5.2 Cookies statistiques",
+      titre: "6. Ce que nous n’utilisons pas",
       paragraphes: [
-        "Nous utilisons des cookies statistiques afin d’optimiser l’expérience des internautes sur notre site web. Avec ces cookies statistiques, nous obtenons des informations sur l’utilisation de notre site web. Nous demandons votre permission pour placer des cookies statistiques.",
+        "Nous ne déposons **aucun cookie publicitaire**, ne pratiquons **aucun reciblage** et ne revendons **aucune donnée** de navigation. Le site ne comporte pas de régie publicitaire.",
       ],
     },
     {
-      titre: "5.3 Cookies de marketing/suivi",
+      titre: "7. Gérer vos choix",
       paragraphes: [
-        "Les cookies de marketing/suivi sont des cookies ou toute autre forme de stockage local, utilisés pour créer des profils d’utilisateurs afin d’afficher de la publicité ou de suivre l’utilisateur sur ce site web ou sur plusieurs sites web dans des finalités marketing similaires.",
+        "**Depuis le site** — le lien « Gérer mes cookies », en bas de chaque page, réaffiche le bandeau et vous permet de modifier votre décision.",
+        "**Depuis votre navigateur** — tous les navigateurs permettent de supprimer les cookies existants, d’en bloquer le dépôt ou d’être averti avant chacun. Ces réglages se trouvent dans les préférences de confidentialité. Notez que bloquer l’ensemble des cookies peut altérer le fonctionnement du site.",
       ],
     },
     {
-      titre: "5.4 Réseaux sociaux",
+      titre: "8. Vos droits",
       paragraphes: [
-        "Sur notre site web, nous avons inclus du contenu provenant de Instagram pour promouvoir des pages web (par exemple, « like », « pin ») ou les partager (par exemple, « tweet ») sur des réseaux sociaux comme Instagram. Ce contenu est intégré grâce un code obtenu de Instagram et place des cookies. Ce contenu peut stocker et traiter certaines informations à des fins de publicité personnalisée.",
-        "Veuillez lire la déclaration de confidentialité de ces réseaux sociaux (qui peut être modifiée régulièrement) afin de savoir ce qu’ils font de vos données (personnelles) traitées en utilisant ces cookies. Les données récupérées sont anonymisées autant que possible. Instagram se trouve aux États-Unis.",
+        "Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité sur vos données personnelles. Pour l’exercer, écrivez-nous à info@hotelpalladia.com ou par courrier à : Hôtel Palladia, 271 avenue de Grande Bretagne, 31300 Toulouse.",
+        "Vous pouvez également introduire une réclamation auprès de la CNIL, autorité de contrôle française : www.cnil.fr",
       ],
     },
     {
-      titre: "6. Cookies placés",
+      titre: "9. Coordonnées",
       paragraphes: [
-        "Elementor",
-        "Statistics (anonymous)",
-        "Nous utilisons Elementor pour la création de contenu. En savoir plus sur Elementor",
-        "Ces données ne sont pas partagées avec des tierces parties.",
-        "WordPress",
-        "Fonctionnel",
-        "Nous utilisons WordPress pour le développement du site web. En savoir plus sur WordPress",
-        "Ces données ne sont pas partagées avec des tierces parties.",
-        "Google Analytics",
-        "Statistiques",
-        "Nous utilisons Google Analytics pour les statistiques du site web. En savoir plus sur Google Analytics",
-        "Pour plus d’informations, veuillez lire la déclaration de confidentialité Google Analytics .",
-        "Wistia",
-        "Statistiques, Marketing",
-        "Nous utilisons Wistia pour l’affichage de vidéos. En savoir plus sur Wistia",
-        "Pour plus d’informations, veuillez lire la déclaration de confidentialité Wistia .",
-        "Complianz",
-        "Fonctionnel",
-        "Nous utilisons Complianz pour la gestion du consentement aux cookies. En savoir plus sur Complianz",
-        "Ces données ne sont pas partagées avec des tierces parties. Pour plus d’informations, veuillez lire la déclaration de confidentialité Complianz .",
-        "Google Fonts",
-        "Finalité en attente d’enquête",
-        "Nous utilisons Google Fonts pour l’affichage des polices web. En savoir plus sur Google Fonts",
-        "Pour plus d’informations, veuillez lire la déclaration de confidentialité Google Fonts .",
-        "Google reCAPTCHA",
-        "Finalité en attente d’enquête",
-        "Nous utilisons Google reCAPTCHA pour le blocage des indésirables. En savoir plus sur Google reCAPTCHA",
-        "Pour plus d’informations, veuillez lire la déclaration de confidentialité Google reCAPTCHA .",
-        "YouTube",
-        "Finalité en attente d’enquête",
-        "Nous utilisons YouTube pour l’affichage de vidéos. En savoir plus sur YouTube",
-        "Pour plus d’informations, veuillez lire la déclaration de confidentialité YouTube .",
-        "Divers",
-        "Finalité en attente d’enquête",
-        "Le partage des données est en cours d’enquête",
-      ],
-    },
-    {
-      titre: "7. Consentement",
-      paragraphes: [
-        "Lorsque vous visitez notre site web pour la première fois, nous vous montrerons une fenêtre contextuelle avec une explication sur les cookies. Dès que vous cliquez sur « Enregistrer les préférences » vous nous autorisez à utiliser les catégories de cookies et d’extensions que vous avez sélectionnés dans la fenêtre contextuelle, comme décrit dans la présente politique de cookies. Vous pouvez désactiver l’utilisation des cookies via votre navigateur, mais veuillez noter que notre site web pourrait ne plus fonctionner correctement.",
-      ],
-    },
-    {
-      titre: "8. Activer/désactiver et supprimer les cookies",
-      paragraphes: [
-        "Vous pouvez utiliser votre navigateur internet pour supprimer automatiquement ou manuellement les cookies. Vous pouvez également spécifier que certains cookies ne peuvent pas être placés. Une autre option consiste à modifier les réglages de votre navigateur Internet afin que vous receviez un message à chaque fois qu’un cookie est placé. Pour plus d’informations sur ces options, reportez-vous aux instructions de la section Aide de votre navigateur.",
-        "Veuillez noter que notre site web peut ne pas marcher correctement si tous les cookies sont désactivés. Si vous supprimez les cookies dans votre navigateur, ils seront de nouveau placés après votre consentement lorsque vous revisiterez notre site web.",
-      ],
-    },
-    {
-      titre: "9. Vos droits concernant les données personnelles",
-      paragraphes: [
-        "Vous avez les droits suivants concernant vos données personnelles :",
-        "Pour exercer ces droits, veuillez nous contacter. Veuillez vous référer aux coordonnées au bas de cette politique de cookies. Si vous avez une plainte concernant la façon dont nous traitons vos données, nous aimerions en être informés, mais vous avez également le droit de déposer une plainte auprès de l’autorité de contrôle (l’autorité chargée de la protection des données).",
-      ],
-    },
-    {
-      titre: "10. Coordonnées",
-      paragraphes: [
-        "Pour des questions et/ou des commentaires sur notre politique de cookies et cette déclaration, veuillez nous contacter en utilisant les coordonnées suivantes :",
-        "Cette politique de cookies a été synchronisée avec cookiedatabase.org le avril 22, 2024.",
-        "Découvrez notre Charte environnementale RSE",
-        "info@hotelpalladia.com Nous trouver 271 Av. de Grande Bretagne, 31300 Toulouse +33 5 62 12 01 20 Facebook Linkedin Youtube Instagram Création site internet hôtel",
+        "Hôtel Palladia — 271 avenue de Grande Bretagne, 31300 Toulouse, France",
+        "Téléphone : +33 5 62 12 01 20 — E-mail : info@hotelpalladia.com — Site : www.hotelpalladia.com",
       ],
     },
   ],
 
-
-
-  /** Services déposant des cookies, tels que déclarés sur le site WordPress. */
+  /** Récapitulatif des traceurs, par catégorie. */
   services: [
-    ["Elementor", "Statistiques (anonymes)"],
-    ["WordPress", "Fonctionnel"],
-    ["Google Analytics", "Statistiques"],
-    ["Wistia", "Statistiques, Marketing"],
-    ["Complianz", "Fonctionnel"],
-    ["Google Fonts", "Finalité en attente d’enquête"],
-    ["Google reCAPTCHA", "Finalité en attente d’enquête"],
-    ["YouTube", "Finalité en attente d’enquête"],
-    ["Divers", "Finalité en attente d’enquête"],
+    ["Préférence de langue", "Nécessaire — session"],
+    ["Choix de cookies", "Nécessaire — 6 mois"],
+    ["Sécurité des formulaires", "Nécessaire — session"],
+    ["Mesure d’audience", "Statistiques — soumis à consentement"],
+    ["YouTube", "Contenus externes — chargé au clic uniquement"],
+    ["OpenStreetMap / uMap", "Contenus externes — page Tourisme"],
   ] as const,
 } as const;

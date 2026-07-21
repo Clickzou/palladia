@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import LienCookies from "./LienCookies";
 import { booking, site, social } from "@/config/site";
 import {
   IconFacebook,
@@ -86,6 +87,9 @@ export default function Footer() {
               <FooterLink href="/mentions-legales">{t("mentions")}</FooterLink>
               <FooterLink href="/politique-de-cookies-ue">{t("cookies")}</FooterLink>
               <FooterLink href="/politique-de-confidentialite">{t("confidentialite")}</FooterLink>
+              <li>
+                <LienCookies libelle={t("gererCookies")} />
+              </li>
             </ul>
 
             <div className="mt-8 space-y-3 text-white/85">
