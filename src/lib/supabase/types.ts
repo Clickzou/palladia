@@ -46,6 +46,10 @@ export type BlocContenu = {
   };
   cartes: {
     titre?: string;
+    /** Bande grise pleine largeur derriere les cartes */
+    fond_gris?: boolean;
+    /** Place le titre de chaque carte sous son visuel plutot qu'au-dessus */
+    titre_sous_image?: boolean;
     cartes: { titre: string; image?: string; alt?: string; paragraphes: string[]; liste?: string[] }[];
   };
   bandeau: { texte: string; accent?: string; sous_texte?: string };

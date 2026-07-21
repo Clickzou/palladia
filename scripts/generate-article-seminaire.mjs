@@ -153,6 +153,7 @@ const blocs = [
     type: "cartes",
     contenu: {
       titre: "Des infrastructures uniques à Toulouse",
+      titre_sous_image: true,
       cartes: [
         {
           titre: "L’Hôtel Palladia dispose notamment :",

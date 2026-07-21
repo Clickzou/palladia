@@ -122,33 +122,46 @@ function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
 }
 
 function BlocCartes({ c }: { c: BlocContenu["cartes"] }) {
-  const cols = c.cartes.length >= 4 ? "lg:grid-cols-4" : c.cartes.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2";
+  const cols =
+    c.cartes.length >= 4 ? "lg:grid-cols-4" : c.cartes.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2";
+  const titre = (carte: (typeof c.cartes)[number]) => (
+    <h3 className="text-center font-display text-xl text-ink">{carte.titre}</h3>
+  );
+
   return (
-    <section className="mx-auto max-w-7xl px-6 py-10">
-      {c.titre && <TitreSection>{c.titre}</TitreSection>}
-      <div className={`grid gap-6 sm:grid-cols-2 ${cols}`}>
-        {c.cartes.map((carte) => (
-          <article key={carte.titre} className="border border-gold/40 bg-white">
-            {carte.image && (
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={carte.image}
-                  alt={carte.alt ?? ""}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 25vw"
-                  className="object-cover"
-                />
-              </div>
-            )}
-            <div className="px-6 py-6">
-              <h3 className="text-center font-display text-lg text-ink">{carte.titre}</h3>
-              <div className="mt-4">
+    // Bande grise pleine largeur, contenu presque pleine largeur
+    <section className={c.fond_gris === false ? "py-10" : "bg-cream py-14"}>
+      <div className="mx-auto max-w-[1700px] px-6">
+        {c.titre && <TitreSection>{c.titre}</TitreSection>}
+        <div className={`grid gap-6 sm:grid-cols-2 ${cols}`}>
+          {c.cartes.map((carte) => (
+            <article
+              key={carte.titre}
+              className="flex flex-col border border-gold/40 bg-white px-4 pt-6 pb-8"
+            >
+              {!c.titre_sous_image && <div className="mb-5">{titre(carte)}</div>}
+
+              {carte.image && (
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={carte.image}
+                    alt={carte.alt ?? ""}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 25vw"
+                    className="object-cover"
+                  />
+                </div>
+              )}
+
+              {c.titre_sous_image && <div className="mt-6">{titre(carte)}</div>}
+
+              <div className="mt-6">
                 <Paragraphes items={carte.paragraphes} />
                 {carte.liste && <Liste items={carte.liste} />}
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
