@@ -110,15 +110,21 @@ h6 {
   line-height: 1.3;
 }
 
-/* Largeur de contenu du site d'origine (--container-max-width: 1140px) */
-@utility conteneur {
-  width: 100%;
-  max-width: 1140px;
-  margin-inline: auto;
-  padding-inline: 1.25rem;
-}
-@media (min-width: 1180px) {
+/* Largeur de contenu du site d'origine (--container-max-width: 1140px).
+   Ecrit en composant plutot qu'en @utility : la regle @media qui suivait
+   empechait Tailwind de generer l'utilitaire, et les blocs d'article
+   s'etalaient alors sur toute la largeur de l'ecran. */
+@layer components {
   .conteneur {
-    padding-inline: 0;
+    width: 100%;
+    max-width: 1140px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 1180px) {
+    .conteneur {
+      padding-inline: 0;
+    }
   }
 }

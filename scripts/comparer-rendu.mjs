@@ -57,7 +57,7 @@ async function mesurer(page, url) {
         .normalize("NFD")
         .replace(/[̀-ͯ]/g, "")
         .replace(/[’‘]/g, "'")
-        .replace(/[“”]/g, '"')
+        .replace(/[“”«»]/g, '"')
         .replace(/[–—]/g, "-")
         .replace(/^[•·▪]\s*/, "")
         .replace(/[​-‍﻿]/g, "")
@@ -94,20 +94,57 @@ async function mesurer(page, url) {
     // chaque cote et ne doit pas ressortir comme un ecart.
     const textes = [...zone.querySelectorAll("p,li")]
       .filter(visible)
-      .filter((el) => !el.closest("nav") && !/^accueil »/.test(norm(el.textContent)))
+      .filter((el) => !el.closest("nav") && !/^accueil ["»]/.test(norm(el.textContent)))
       .map((el) => norm(el.textContent))
       .filter((t) => t.length > 25);
 
+    /**
+     * Nom du fichier d'origine. Next.js sert ses visuels via
+     * /_next/image?url=…&w=… : sans decoder ce parametre, toutes les images
+     * de la v2 porteraient le meme nom et ne pourraient plus etre appariees.
+     */
+    const nomFichier = (src) => {
+      const url = new URL(src, location.href);
+      const reel = url.searchParams.get("url") ?? url.pathname;
+      return decodeURIComponent(reel.split("/").pop() ?? "");
+    };
+
     // Les visuels encore en attente de chargement portent un placeholder SVG
     // en data-URI : leurs proportions ne veulent rien dire.
-    const images = [...zone.querySelectorAll("img")]
+    // Elementor pose une partie de ses visuels en image de fond CSS. Les
+    // ignorer reviendrait a croire qu'ils manquent dans la v2, qui les sert
+    // en balises <img>.
+    const fondsImages = [...zone.querySelectorAll("*")].filter(visible).filter((el) => {
+      const u = getComputedStyle(el).backgroundImage;
+      return u && u !== "none" && /url\((["']?)https?:/.test(u);
+    });
+
+    const images = [...zone.querySelectorAll("img"), ...fondsImages]
       .filter(visible)
-      .filter((el) => !/^data:/.test(el.currentSrc))
+      .filter((el) => el.tagName !== "IMG" || !/^data:/.test(el.currentSrc))
       .map((el) => {
         const r = el.getBoundingClientRect();
+        const centre = (r.left + r.right) / 2;
+        const largeur = r.width / window.innerWidth;
+        const source =
+          el.tagName === "IMG"
+            ? el.currentSrc
+            : /url\(["']?([^"')]+)/.exec(getComputedStyle(el).backgroundImage)[1];
+
         return {
-          fichier: decodeURIComponent(el.currentSrc.split("/").pop() ?? "").split("?")[0],
+          fichier: nomFichier(source),
           ratio: +(r.width / r.height).toFixed(2),
+          // Place du visuel dans la page : c'est ce qui distingue une mise en
+          // page en deux colonnes d'un empilement pleine largeur.
+          largeur: +largeur.toFixed(2),
+          place:
+            largeur > 0.8
+              ? "pleine largeur"
+              : centre < window.innerWidth * 0.42
+                ? "gauche"
+                : centre > window.innerWidth * 0.58
+                  ? "droite"
+                  : "centre",
         };
       });
 
@@ -192,12 +229,26 @@ for (const route of aTraiter) {
 
   // Visuels : seules les proportions sont fiables. Le decompte depend du
   // chargement differe, et l'ordre varie ; on apparie par nom de fichier.
-  if (!ACCEPTES.ignorer_images?.actif) {
+  {
+    // Un meme visuel affiche deux fois (bandeau puis contenu) est un defaut
+    // frequent de l'import : on compte les occurrences de chaque fichier.
+    const compter = (l, f) => l.filter((i) => i.fichier === f).length;
+    for (const f of new Set(v2.images.map((i) => i.fichier))) {
+      const [aSite, aV2] = [compter(site.images, f), compter(v2.images, f)];
+      // aSite === 0 signifie le plus souvent que le site charge ce visuel au
+      // defilement et que la mesure ne l'a pas vu : on ne conclut rien.
+      if (aSite > 0 && aV2 > aSite)
+        ecarts.push(`${f} affiché ${aV2} fois dans la v2, ${aSite} sur le site`);
+    }
+
     const parNom = new Map(v2.images.map((i) => [i.fichier, i]));
     for (const img of site.images) {
       const e = parNom.get(img.fichier);
-      if (e && Math.abs(e.ratio - img.ratio) > 0.15)
+      if (!e) continue;
+      if (Math.abs(e.ratio - img.ratio) > 0.15)
         ecarts.push(`proportions ${img.fichier} : site ${img.ratio} / v2 ${e.ratio}`);
+      if (e.place !== img.place)
+        ecarts.push(`place de ${img.fichier} : site ${img.place} / v2 ${e.place}`);
     }
   }
 

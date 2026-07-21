@@ -151,6 +151,48 @@ function BlocTexte({ c }: { c: BlocContenu["texte"] }) {
   );
 }
 
+/** Colonne de texte d'un bloc image/texte, dans ses deux mises en page. */
+function ColonneTexte({ c }: { c: BlocContenu["texte_image"] }) {
+  return (
+    <>
+      {c.sous_titre && <h3 className="titre-mini mb-4 text-left">{c.sous_titre}</h3>}
+      <Paragraphes items={c.paragraphes} />
+      {c.liste && <Liste items={c.liste} />}
+      {c.conclusion && (
+        <p className="mt-4 leading-relaxed text-body">
+          <RichText texte={c.conclusion} />
+        </p>
+      )}
+      {c.sections && <SousSections sections={c.sections} />}
+      {c.boutons && <Boutons boutons={c.boutons} />}
+    </>
+  );
+}
+
+/** Sous-sections titrees, partagees par le bloc `sections` et les colonnes. */
+function SousSections({ sections }: { sections: NonNullable<BlocContenu["texte_image"]["sections"]> }) {
+  return (
+    <>
+      {sections.map((s) => (
+        <div key={s.titre} className="mt-8 first:mt-6">
+          <h3 className="titre-mini text-left">{s.titre}</h3>
+          {s.intro && (
+            <p className="mt-3 leading-relaxed text-body">
+              <RichText texte={s.intro} />
+            </p>
+          )}
+          {s.items && <Liste items={s.items} />}
+          {s.conclusion && (
+            <p className="mt-3 leading-relaxed text-body">
+              <RichText texte={s.conclusion} />
+            </p>
+          )}
+        </div>
+      ))}
+    </>
+  );
+}
+
 function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
   // Mise en page « demi-ecran » : le visuel touche le bord, le texte occupe
   // l'autre moitie. C'est la trame des articles longs du site.
@@ -163,14 +205,7 @@ function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
         {/* Deux colonnes egales, texte centre verticalement par rapport au visuel */}
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className={c.position === "gauche" ? "md:order-2" : ""}>
-            {c.sous_titre && <h3 className="titre-mini mb-4">{c.sous_titre}</h3>}
-            <Paragraphes items={c.paragraphes} />
-            {c.liste && <Liste items={c.liste} />}
-            {c.conclusion && (
-              <p className="mt-4 leading-relaxed text-body">
-                <RichText texte={c.conclusion} />
-              </p>
-            )}
+            <ColonneTexte c={c} />
           </div>
           <div
             className={`relative w-full ${c.position === "gauche" ? "md:order-1" : ""}`}
@@ -215,14 +250,7 @@ function BlocDemiEcran({ c }: { c: BlocContenu["texte_image"] }) {
 
       <div className="flex flex-col justify-center px-8 py-14 lg:px-16">
         {c.titre && <h2 className="titre-bloc mb-6 text-left">{c.titre}</h2>}
-        {c.sous_titre && <h3 className="titre-mini mb-4 text-left">{c.sous_titre}</h3>}
-        <Paragraphes items={c.paragraphes} />
-        {c.liste && <Liste items={c.liste} />}
-        {c.conclusion && (
-          <p className="mt-4 leading-relaxed text-body">
-            <RichText texte={c.conclusion} />
-          </p>
-        )}
+        <ColonneTexte c={c} />
       </div>
     </section>
   );
@@ -240,23 +268,12 @@ function BlocSections({ c }: { c: BlocContenu["sections"] }) {
           </p>
         )}
 
-        <div className={c.deux_colonnes ? "grid gap-10 md:grid-cols-2" : "space-y-8"}>
-          {c.sections.map((s) => (
-            <div key={s.titre}>
-              <h3 className="titre-mini text-left">{s.titre}</h3>
-              {s.intro && (
-                <p className="mt-3 leading-relaxed text-body">
-                  <RichText texte={s.intro} />
-                </p>
-              )}
-              {s.items && <Liste items={s.items} />}
-              {s.conclusion && (
-                <p className="mt-3 leading-relaxed text-body">
-                  <RichText texte={s.conclusion} />
-                </p>
-              )}
-            </div>
-          ))}
+        <div className={c.deux_colonnes ? "grid gap-10 md:grid-cols-2" : ""}>
+          {c.deux_colonnes ? (
+            c.sections.map((s) => <SousSections key={s.titre} sections={[s]} />)
+          ) : (
+            <SousSections sections={c.sections} />
+          )}
         </div>
       </div>
     </section>
@@ -427,7 +444,7 @@ function BlocMenu({ c }: { c: BlocContenu["menu"] }) {
   return (
     <section className="py-10">
       <div className="conteneur">
-        {c.titre && <h2 className="section-title mb-8">{c.titre}</h2>}
+        {c.titre && <TitreSection taille={c.taille_titre}>{c.titre}</TitreSection>}
 
         {c.entree && (
           <div className="mb-10 space-y-2 text-center text-body">
@@ -443,13 +460,15 @@ function BlocMenu({ c }: { c: BlocContenu["menu"] }) {
           {c.sections.map((s) => (
             <div key={s.titre} className="px-6 py-6 text-center">
               {c.services_en_titre === false ? (
-                <p className="text-body">
+                // Intitule et premier plat dans le meme paragraphe, comme le site
+                <p className="whitespace-pre-line text-body">
                   <strong className="text-ink">{s.titre}</strong>
+                  {s.lignes[0] && <RichText texte={s.lignes[0]} />}
                 </p>
               ) : (
                 <h4 className="titre-mini">{s.titre}</h4>
               )}
-              {s.lignes.map((l) => (
+              {s.lignes.slice(c.services_en_titre === false ? 1 : 0).map((l) => (
                 <p key={l.slice(0, 30)} className="mt-2 whitespace-pre-line text-body">
                   <RichText texte={l} />
                 </p>

@@ -64,6 +64,10 @@ export type BlocContenu = {
     liste?: string[];
     /** Paragraphe fermant la colonne de texte, sous la liste */
     conclusion?: string;
+    /** Sous-sections titrees, dans la colonne de texte */
+    sections?: { titre: string; intro?: string; items?: string[]; conclusion?: string }[];
+    /** Boutons fermant la colonne de texte */
+    boutons?: { label: string; href: string; externe?: boolean }[];
     image: string;
     alt: string;
     position: "gauche" | "droite";
@@ -114,6 +118,8 @@ export type BlocContenu = {
   /** Carte de menu : sections de plats, puis le tarif en bandeau sombre. */
   menu: {
     titre?: string;
+    /** Taille du titre : 19 px par defaut, 25 px (« moyen ») ou 40 px (« grand ») */
+    taille_titre?: "normal" | "moyen" | "grand";
     /** Lignes d'ouverture, avant les sections (apéritif, amuse-bouche…) */
     entree?: string[];
     sections: { titre: string; lignes: string[] }[];

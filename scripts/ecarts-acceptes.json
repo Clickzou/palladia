@@ -93,7 +93,7 @@
       "raison": "Le site affiche encore la programmation 2025, passee. La v2 pilote cette liste par la date et n'affiche que les spectacles a venir : proposer des dates ecoulees a la reservation serait un defaut, pas une fidelite."
     },
     {
-      "motif": "^(l )?h[oô]tel palladia 4 [ée]toiles offre",
+      "motif": "a deux pas du zenith de toulouse",
       "pages": [
         "/actualites"
       ],
