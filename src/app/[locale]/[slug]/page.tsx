@@ -50,7 +50,9 @@ export default async function ArticlePage({ params }: Props) {
           <span className="font-semibold text-ink">{article.titre}</span>
         </nav>
 
-        <h1 className="section-title mt-10">{article.titre}</h1>
+        {/* Largeur bornee : les titres longs se repartissent sur deux lignes
+            plutot que de s'etaler sur toute la largeur de l'ecran. */}
+        <h1 className="section-title mx-auto mt-10 max-w-5xl">{article.titre}</h1>
         {article.sous_titre && (
           <p className="mt-4 tracking-wide text-ink-soft uppercase md:text-lg">
             {article.sous_titre}
