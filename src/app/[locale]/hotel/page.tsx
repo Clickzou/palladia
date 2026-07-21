@@ -28,8 +28,13 @@ export default function HotelPage() {
     <>
       <PageHeader breadcrumb="Hôtel" title={hotel.title} subtitle={hotel.subtitle} />
 
-      {/* Presentation : texte et tableau a gauche, video a droite */}
-      <section className="mx-auto grid max-w-[1500px] items-start gap-12 px-6 pb-20 lg:grid-cols-2">
+      <p className="mx-auto max-w-4xl px-6 pb-14 text-center font-semibold text-ink">
+        {hotel.chapo}
+      </p>
+
+      {/* Presentation : texte et tableau a gauche, video a droite.
+          Mise en page large, proche pleine largeur, comme sur le site d'origine. */}
+      <section className="mx-auto grid max-w-[1800px] items-stretch gap-10 px-8 pb-20 lg:grid-cols-2 lg:gap-14">
         <div>
           <div className="space-y-5 leading-relaxed text-body">
             {hotel.presentation.map((p) => (
@@ -49,7 +54,7 @@ export default function HotelPage() {
           </figure>
         </div>
 
-        <div className="relative aspect-[3/4] w-full overflow-hidden lg:sticky lg:top-32">
+        <div className="relative min-h-[420px] w-full overflow-hidden lg:min-h-full">
           <video
             className="absolute inset-0 size-full object-cover"
             autoPlay

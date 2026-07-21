@@ -6,6 +6,10 @@ export const hotel = {
   title: "L’Hôtel Palladia",
   subtitle: "Votre hôtel indépendant et haut de gamme à Toulouse",
 
+  /** Chapo en gras, centre sous le sous-titre. */
+  chapo:
+    "Par son nom, le Palladia perpétue une tradition de culture et de beauté malgré les deux millénaires qui nous éloignent de « Palladia Tolosa » (Toulouse Romaine).",
+
   presentation: [
     "Si Toulouse est aujourd’hui surnommée la « Ville Rose », c’est aux Romains qu’elle le doit. C’est en effet durant la Pax Romana que la cité, alors appelée Palladia Tolosa, a hérité des techniques de la tuile et de la brique qui façonnent encore son identité architecturale. Carrefour du commerce entre les îles britanniques et le monde méditerranéen, elle s’est enrichie de temples, remparts et amphithéâtres, dont certains vestiges sont encore visibles aujourd’hui, notamment les arènes de Purpan et les collections du musée Saint-Raymond.",
     "C’est dans cet héritage culturel que s’inscrit l’hôtel Palladia, établissement 4 étoiles indépendant fondé en 1992 par Monsieur Georges Miatto. Le nom de l’hôtel perpétue la tradition de culture et de beauté associée à Pallas Athéna, déesse de la raison et de l’intelligence, évoquée par plusieurs poètes antiques.",
