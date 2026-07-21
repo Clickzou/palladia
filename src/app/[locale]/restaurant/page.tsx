@@ -79,27 +79,20 @@ export default function RestaurantPage() {
       {/* Menus */}
       <section className="bg-cream px-6 py-20">
         <h2 className="section-title">Menu</h2>
-        <h3 className="mt-4 text-center text-lg font-normal tracking-wide text-ink-soft uppercase">
+        <h3 className="mt-4 text-center text-[22px] font-normal text-body uppercase">
           Découvrez notre menu de la semaine
         </h3>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
 
         <div className="mx-auto mt-14 grid max-w-6xl gap-10 md:grid-cols-2">
-          {/* Menu de la semaine */}
+          {/* Menu de la semaine. Le site titre chaque service en h4 doré 19 px
+              et regroupe ses options dans un seul paragraphe, separees par « ou ». */}
           <article className="bg-white px-8 py-12 text-center shadow-sm">
-            <h3 className="font-display text-2xl tracking-wide text-gold uppercase">
-              {r.menuSemaine.titre}
-            </h3>
+            <h2 className="titre-moyen text-ink">{r.menuSemaine.titre}</h2>
             {r.menuSemaine.sections.map((s) => (
               <div key={s.titre} className="mt-8">
-                <h4 className="font-semibold tracking-wide text-ink uppercase">{s.titre}</h4>
-                <ul className="mt-3 space-y-2 text-body">
-                  {s.choix.map((c) => (
-                    <li key={c.slice(0, 25)} className="whitespace-pre-line">
-                      {c}
-                    </li>
-                  ))}
-                </ul>
+                <h4 className="titre-mini">{s.titre}</h4>
+                <p className="mt-3 whitespace-pre-line text-body">{s.choix.join("\nou\n")}</p>
               </div>
             ))}
             <p className="mt-10 text-sm text-muted italic">{r.menuSemaine.note}</p>
@@ -107,36 +100,28 @@ export default function RestaurantPage() {
 
           {/* Menu du jour */}
           <article className="bg-white px-8 py-12 text-center shadow-sm">
-            <h3 className="font-display text-2xl tracking-wide text-gold uppercase">
-              {r.menuJour.titre}
-            </h3>
-            <p className="mt-2 tracking-wide text-ink-soft uppercase">{r.menuJour.sousTitre}</p>
+            <h2 className="titre-moyen text-ink">{r.menuJour.titre}</h2>
+            <h4 className="titre-mini mt-2">{r.menuJour.sousTitre}</h4>
 
-            <p className="mt-8 font-semibold text-ink">{r.menuJour.intro}</p>
-            <ul className="mt-3 space-y-1 text-body">
-              {r.menuJour.formules.map((f) => (
-                <li key={f.prix}>
-                  <span className="font-semibold text-ink">{f.prix}</span>{" "}
-                  {f.detail.replace(/\*\*/g, "")}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-8 text-body">{r.menuJour.intro}</p>
+            {r.menuJour.formules.map((f) => (
+              <div key={f.prix} className="mt-4">
+                <h4 className="titre-mini">{f.prix}</h4>
+                <p className="mt-1 text-body">{f.detail.replace(/\*\*/g, "")}</p>
+              </div>
+            ))}
 
-            <p className="mt-8 font-semibold text-ink">{r.menuJour.tarifsTitre}</p>
-            <ul className="mt-3 space-y-1 text-body">
+            <p className="mt-8 text-body">{r.menuJour.tarifsTitre}</p>
+            <div className="mt-3 space-y-1 text-body">
               {r.menuJour.tarifs.map((t) => (
-                <li key={t}>{t}</li>
+                <p key={t}>{t}</p>
               ))}
-            </ul>
+            </div>
 
             <div className="mt-10 border-t border-black/10 pt-8">
-              <h4 className="font-semibold tracking-wide text-ink uppercase">
-                {r.menuJour.enfant.titre}
-              </h4>
-              <p className="mt-2 text-body">
-                <span className="font-semibold text-ink">{r.menuJour.enfant.prix}</span> —{" "}
-                {r.menuJour.enfant.detail}
-              </p>
+              <h4 className="titre-mini">{r.menuJour.enfant.titre}</h4>
+              <h4 className="titre-mini mt-4">{r.menuJour.enfant.prix}</h4>
+              <p className="mt-1 text-body">{r.menuJour.enfant.detail}</p>
             </div>
           </article>
         </div>
@@ -151,7 +136,7 @@ export default function RestaurantPage() {
           className="min-h-[320px] md:min-h-[520px]"
         />
         <div className="flex flex-col justify-center px-8 py-16 lg:px-20">
-          <h2 className="font-display text-3xl tracking-wide text-gold uppercase lg:text-4xl">
+          <h2 className="section-title text-left">
             {r.bar.titre}
           </h2>
           <p className="mt-2 tracking-wide text-ink-soft uppercase">{r.bar.sousTitre}</p>
@@ -163,9 +148,7 @@ export default function RestaurantPage() {
             <p>{r.bar.horaires}</p>
           </div>
 
-          <h3 className="mt-8 font-semibold tracking-wide text-ink uppercase">
-            Modes de paiement acceptés
-          </h3>
+          <h3 className="titre-mini mt-8 text-left">Modes de paiement acceptés</h3>
           <p className="mt-2 text-body">{r.bar.paiement}</p>
         </div>
       </section>

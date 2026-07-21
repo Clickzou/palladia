@@ -1,0 +1,786 @@
+{
+  "/images/bandeau-1.jpg": [
+    768,
+    512
+  ],
+  "/images/bandeau-2.jpg": [
+    768,
+    512
+  ],
+  "/images/bandeau-3.jpg": [
+    768,
+    512
+  ],
+  "/images/bandeau-4.jpg": [
+    768,
+    512
+  ],
+  "/images/bandeau-bar.jpg": [
+    1800,
+    1200
+  ],
+  "/images/bandeau-exterieur.jpg": [
+    1024,
+    683
+  ],
+  "/images/bandeau-hall.jpg": [
+    1799,
+    1200
+  ],
+  "/images/bandeau-spa.jpg": [
+    1920,
+    1145
+  ],
+  "/images/banniere-dvd.jpg": [
+    2048,
+    947
+  ],
+  "/images/blog/1.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/10.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/11.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/12.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/13-1.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/13.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/14.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/15.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/16.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/17.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/18.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/19.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/2.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/20.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/21.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/3.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/4.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/5.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/6.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/7.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/8.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/9.jpg": [
+    1748,
+    1240
+  ],
+  "/images/blog/accord-met-et-vin-banniere.webp": [
+    1920,
+    664
+  ],
+  "/images/blog/Actu-programmation-culturelle-site-.jpg": [
+    1920,
+    664
+  ],
+  "/images/blog/amphitheatre-hotel-palladia-renove.webp": [
+    1920,
+    664
+  ],
+  "/images/blog/amphitheatre-palladia-scaled.jpg": [
+    1920,
+    2560
+  ],
+  "/images/blog/amphitheatre-palladia.jpg": [
+    1920,
+    2560
+  ],
+  "/images/blog/banniere-.png": [
+    1920,
+    1080
+  ],
+  "/images/blog/banniere-afterwork-1er-octobre-scaled.jpg": [
+    1920,
+    664
+  ],
+  "/images/blog/banniere-afterwork-1er-octobre.jpg": [
+    1920,
+    663
+  ],
+  "/images/blog/chambre-prestige-terrasse.jpg": [
+    1920,
+    1145
+  ],
+  "/images/blog/cle-verte-jardin.jpg": [
+    1920,
+    664
+  ],
+  "/images/blog/cravate-club-le-grenier-toulouse-scaled.jpg": [
+    1920,
+    664
+  ],
+  "/images/blog/cravate-club-le-grenier-toulouse.jpg": [
+    1920,
+    663
+  ],
+  "/images/blog/criteres/hebergement-sur-place.jpg": [
+    1920,
+    1148
+  ],
+  "/images/blog/criteres/lieu-accessible.jpg": [
+    1024,
+    611
+  ],
+  "/images/blog/criteres/restauration-qualite.webp": [
+    1024,
+    611
+  ],
+  "/images/blog/criteres/salles-adaptees.webp": [
+    1024,
+    611
+  ],
+  "/images/blog/evenementiel-toulouse-palladia.jpg": [
+    1920,
+    1610
+  ],
+  "/images/blog/Fred-Klasinski.jpg": [
+    150,
+    150
+  ],
+  "/images/blog/gardien-du-temple-toulouse.webp": [
+    1920,
+    664
+  ],
+  "/images/blog/hotel-proche-aeroport-toulouse.jpg": [
+    1920,
+    663
+  ],
+  "/images/blog/hotel-seminaire-toulouse-scaled.jpg": [
+    1920,
+    664
+  ],
+  "/images/blog/hotel-seminaire-toulouse.jpg": [
+    1920,
+    663
+  ],
+  "/images/blog/infrastructures/amphitheatre.jpg": [
+    1024,
+    474
+  ],
+  "/images/blog/infrastructures/salon-perchepinte.jpg": [
+    1024,
+    474
+  ],
+  "/images/blog/infrastructures/soiree-privee.jpg": [
+    1024,
+    611
+  ],
+  "/images/blog/interieur-restaurant-palladia-toulouse-00047.jpg": [
+    1800,
+    1200
+  ],
+  "/images/blog/jardin-du-barry.jpg": [
+    680,
+    306
+  ],
+  "/images/blog/laure-averous-commerciale-hotel-palladia.jpg": [
+    200,
+    200
+  ],
+  "/images/blog/logo-fidelite-.png": [
+    528,
+    356
+  ],
+  "/images/blog/mariage-hotel-palladia-toulouse-scaled.jpg": [
+    1920,
+    664
+  ],
+  "/images/blog/mariage-hotel-palladia-toulouse.jpg": [
+    1920,
+    663
+  ],
+  "/images/blog/offre-famille-ete-2025-VB-1.jpg": [
+    1200,
+    750
+  ],
+  "/images/blog/Opera-scaled-1.jpg": [
+    1810,
+    2560
+  ],
+  "/images/blog/orchestre-de-chambre-toulouse-scaled.jpg": [
+    1920,
+    664
+  ],
+  "/images/blog/orchestre-de-chambre-toulouse.jpg": [
+    1920,
+    663
+  ],
+  "/images/blog/P1680477okok.jpg": [
+    1920,
+    1080
+  ],
+  "/images/blog/P1680591okok.jpg": [
+    1920,
+    1080
+  ],
+  "/images/blog/P1680987ok.jpg": [
+    1920,
+    1080
+  ],
+  "/images/blog/palladia-piscine-exterieur.jpg": [
+    1024,
+    768
+  ],
+  "/images/blog/pauline-duffort-commerciale-hotel-palladia.jpg": [
+    200,
+    200
+  ],
+  "/images/blog/port-saint-sauveur.jpg": [
+    1920,
+    900
+  ],
+  "/images/blog/repas-saint-valentin-toulouse-palladia-scaled.jpg": [
+    1920,
+    664
+  ],
+  "/images/blog/repas-saint-valentin-toulouse-palladia.jpg": [
+    1920,
+    663
+  ],
+  "/images/blog/reveillon-toulouse-scaled.jpg": [
+    1920,
+    664
+  ],
+  "/images/blog/reveillon-toulouse.jpg": [
+    1920,
+    663
+  ],
+  "/images/blog/salle-de-reunion-dalbade-palladia.jpg": [
+    1920,
+    888
+  ],
+  "/images/blog/salon-opera-hotel-palladia-toulouse.jpg": [
+    1920,
+    888
+  ],
+  "/images/blog/seminaire-amphitheatre.webp": [
+    2048,
+    708
+  ],
+  "/images/blog/soiree-theme-hotel-palladia-1.jpg": [
+    1920,
+    1145
+  ],
+  "/images/blog/spectacle-toulouse-hotel-palladia.jpg": [
+    1315,
+    797
+  ],
+  "/images/blog/temps-forts-palladia.webp": [
+    1920,
+    664
+  ],
+  "/images/blog/toulouse-garonne.jpg": [
+    1024,
+    1024
+  ],
+  "/images/blog/ZENTIH-TOULOUSE-2024.jpg": [
+    1920,
+    664
+  ],
+  "/images/chambre-prestige-terrasse-hotel-palladia-1024x611.jpg": [
+    1024,
+    611
+  ],
+  "/images/chambres.jpg": [
+    1024,
+    611
+  ],
+  "/images/chambres/confort-1.jpg": [
+    768,
+    458
+  ],
+  "/images/chambres/confort-2.jpg": [
+    1920,
+    1145
+  ],
+  "/images/chambres/confort-hero.jpg": [
+    1920,
+    1145
+  ],
+  "/images/chambres/junior-1.jpg": [
+    1920,
+    885
+  ],
+  "/images/chambres/junior-2.jpg": [
+    1920,
+    1145
+  ],
+  "/images/chambres/junior-hero.jpg": [
+    1920,
+    1145
+  ],
+  "/images/chambres/prestige-1.jpg": [
+    1920,
+    885
+  ],
+  "/images/chambres/prestige-2.jpg": [
+    1920,
+    1145
+  ],
+  "/images/chambres/prestige-bleue.jpg": [
+    768,
+    458
+  ],
+  "/images/chambres/prestige-doree.jpg": [
+    768,
+    458
+  ],
+  "/images/chambres/prestige-hero.jpg": [
+    1536,
+    916
+  ],
+  "/images/chambres/prestige-sdb.jpg": [
+    1024,
+    611
+  ],
+  "/images/chambres/prestiges-matelassees.jpg": [
+    768,
+    458
+  ],
+  "/images/chambres/prestiges-rayures.jpg": [
+    768,
+    458
+  ],
+  "/images/chambres/suite-1.jpg": [
+    1920,
+    1145
+  ],
+  "/images/chambres/suite-hero.jpg": [
+    1920,
+    1145
+  ],
+  "/images/clef-verte.png": [
+    2560,
+    2560
+  ],
+  "/images/coffrets.jpg": [
+    1920,
+    1145
+  ],
+  "/images/coffrets/bien-etre.jpg": [
+    1180,
+    502
+  ],
+  "/images/coffrets/detente-gourmandise.jpg": [
+    1920,
+    1145
+  ],
+  "/images/coffrets/forfait-palladia.jpg": [
+    1920,
+    1145
+  ],
+  "/images/coffrets/plaisir-detente.jpg": [
+    1180,
+    502
+  ],
+  "/images/coffrets/tolosa.jpg": [
+    1920,
+    1145
+  ],
+  "/images/engagements-fond.jpg": [
+    1920,
+    878
+  ],
+  "/images/favicon.png": [
+    32,
+    32
+  ],
+  "/images/hero-1.jpg": [
+    1920,
+    885
+  ],
+  "/images/hero-2.jpg": [
+    1920,
+    1145
+  ],
+  "/images/hero-3.jpg": [
+    1024,
+    683
+  ],
+  "/images/hero-4.webp": [
+    2000,
+    922
+  ],
+  "/images/hero-5.jpg": [
+    1920,
+    885
+  ],
+  "/images/hotel-palladia-toulouse-1024x472.webp": [
+    1024,
+    472
+  ],
+  "/images/hotel-piscine.jpg": [
+    1920,
+    885
+  ],
+  "/images/hotel-toulouse-luxe-4-1024x611.jpg": [
+    1024,
+    611
+  ],
+  "/images/hotel/gorgone-palladia-tolosa.jpg": [
+    300,
+    300
+  ],
+  "/images/hotel/vue-2.jpg": [
+    1920,
+    1145
+  ],
+  "/images/hotel/vue-3.jpg": [
+    1920,
+    1145
+  ],
+  "/images/hotel/vue-4.jpg": [
+    1920,
+    1145
+  ],
+  "/images/hotel/vue-5.jpg": [
+    1920,
+    1145
+  ],
+  "/images/logo-independant.png": [
+    300,
+    272
+  ],
+  "/images/logo-palladia.png": [
+    300,
+    212
+  ],
+  "/images/mariages.jpg": [
+    1024,
+    611
+  ],
+  "/images/offres/famille.jpg": [
+    1024,
+    640
+  ],
+  "/images/offres/journee-piscine.jpg": [
+    1024,
+    640
+  ],
+  "/images/offres/sejour-ete.jpg": [
+    1024,
+    640
+  ],
+  "/images/offres/zenith.jpg": [
+    1024,
+    640
+  ],
+  "/images/presse/actu-toulouse.png": [
+    862,
+    650
+  ],
+  "/images/presse/bernieshoot.png": [
+    862,
+    650
+  ],
+  "/images/presse/journal-diagonal.png": [
+    862,
+    650
+  ],
+  "/images/presse/la-depeche.png": [
+    862,
+    650
+  ],
+  "/images/restaurant.jpg": [
+    1024,
+    611
+  ],
+  "/images/restaurant/bar-lounge.jpg": [
+    1800,
+    1200
+  ],
+  "/images/restaurant/chef.jpg": [
+    600,
+    750
+  ],
+  "/images/restaurant/picto-carte.png": [
+    375,
+    375
+  ],
+  "/images/restaurant/plat-47.jpg": [
+    2048,
+    2560
+  ],
+  "/images/restaurant/plat-49.jpg": [
+    2048,
+    2560
+  ],
+  "/images/restaurant/plat-50.jpg": [
+    2048,
+    2560
+  ],
+  "/images/restaurant/plat-51.jpg": [
+    2048,
+    2560
+  ],
+  "/images/restaurant/plat-52.jpg": [
+    2048,
+    2560
+  ],
+  "/images/restaurant/plat-53.jpg": [
+    2048,
+    2560
+  ],
+  "/images/restaurant/plat-54.jpg": [
+    2048,
+    2560
+  ],
+  "/images/restaurant/plat-55.jpg": [
+    2048,
+    2560
+  ],
+  "/images/restaurant/plat-56.jpg": [
+    2048,
+    2560
+  ],
+  "/images/restaurant/plat-choco.jpg": [
+    2048,
+    2560
+  ],
+  "/images/restaurant/salle-1.jpg": [
+    1645,
+    1379
+  ],
+  "/images/restaurant/salle-10.jpg": [
+    1645,
+    1379
+  ],
+  "/images/restaurant/salle-11.jpg": [
+    1645,
+    1379
+  ],
+  "/images/restaurant/salle-12.jpg": [
+    1645,
+    1379
+  ],
+  "/images/restaurant/salle-14.jpg": [
+    1645,
+    1379
+  ],
+  "/images/restaurant/salle-2.jpg": [
+    1645,
+    1379
+  ],
+  "/images/restaurant/salle-3.jpg": [
+    1645,
+    1379
+  ],
+  "/images/restaurant/salle-5.jpg": [
+    1645,
+    1379
+  ],
+  "/images/restaurant/salle-6.jpg": [
+    1645,
+    1379
+  ],
+  "/images/salles-reunion.jpg": [
+    1024,
+    724
+  ],
+  "/images/salons/amphitheatre.jpg": [
+    1920,
+    888
+  ],
+  "/images/salons/capitoul.jpg": [
+    768,
+    355
+  ],
+  "/images/salons/croix-baragnon.jpg": [
+    2048,
+    947
+  ],
+  "/images/salons/dalbade.jpg": [
+    1024,
+    474
+  ],
+  "/images/salons/daurade.jpg": [
+    1024,
+    474
+  ],
+  "/images/salons/filatiers.jpg": [
+    1024,
+    474
+  ],
+  "/images/salons/hybride.jpg": [
+    1305,
+    612
+  ],
+  "/images/salons/opera.jpg": [
+    1920,
+    888
+  ],
+  "/images/salons/ozenne.jpg": [
+    1920,
+    888
+  ],
+  "/images/salons/perchepinte.jpg": [
+    2048,
+    947
+  ],
+  "/images/salons/saint-georges.png": [
+    1024,
+    474
+  ],
+  "/images/salons/st-nicolas.png": [
+    1024,
+    474
+  ],
+  "/images/salons/team-building.jpg": [
+    845,
+    414
+  ],
+  "/images/salons/velane.jpg": [
+    1024,
+    474
+  ],
+  "/images/salons/vip.jpg": [
+    1024,
+    474
+  ],
+  "/images/spa.jpg": [
+    1920,
+    1145
+  ],
+  "/images/spa/carrousel-1.jpg": [
+    1180,
+    502
+  ],
+  "/images/spa/carrousel-2.jpg": [
+    1180,
+    502
+  ],
+  "/images/spa/carrousel-3.jpg": [
+    1180,
+    502
+  ],
+  "/images/spa/carrousel-4.jpg": [
+    1180,
+    502
+  ],
+  "/images/spa/carrousel-5.jpg": [
+    1180,
+    502
+  ],
+  "/images/spa/carrousel-7.jpg": [
+    1180,
+    502
+  ],
+  "/images/spa/formules-bandeau.jpg": [
+    1920,
+    851
+  ],
+  "/images/spa/spa-1.jpg": [
+    1920,
+    1145
+  ],
+  "/images/spa/spa-2.jpg": [
+    1920,
+    1145
+  ],
+  "/images/spa/spa-3.jpg": [
+    1920,
+    1145
+  ],
+  "/images/spa/vue-1.jpg": [
+    1838,
+    1225
+  ],
+  "/images/spa/vue-2.jpg": [
+    1838,
+    1225
+  ],
+  "/images/spa/vue-3.jpg": [
+    1838,
+    1225
+  ],
+  "/images/spa/vue-4.jpg": [
+    1838,
+    1225
+  ],
+  "/images/spa/vue-5.jpg": [
+    1838,
+    1225
+  ],
+  "/images/spa/vue-6.jpg": [
+    1838,
+    1225
+  ],
+  "/images/spectacles.jpg": [
+    1024,
+    621
+  ],
+  "/images/spectacles/dion-goldman.jpg": [
+    848,
+    1024
+  ],
+  "/images/spectacles/gospel-experience.jpg": [
+    724,
+    1024
+  ],
+  "/images/spectacles/kevin-micoud.jpg": [
+    724,
+    1024
+  ],
+  "/images/spectacles/olivier-max.jpg": [
+    724,
+    1024
+  ]
+}

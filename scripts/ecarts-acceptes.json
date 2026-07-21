@@ -1,0 +1,67 @@
+{
+  "_lisez_moi": [
+    "Ecarts volontaires entre le site d'origine et la v2. Le comparateur les",
+    "compte a part pour qu'ils ne masquent pas les vrais defauts.",
+    "Chaque entree porte la raison de la decision."
+  ],
+
+  "titres_absents": [
+    {
+      "motif": "^(l')?h[oô]tel palladia$|^chambres?( prestiges?)?$|^le restaurant$|^le spa$|^presse$|^engagements$|^recrutement$|^actualit[ée]s$|^s[ée]minaires?$|^nos spectacles au palladia$|^visites [àa] toulouse|^votre h[oô]tel s[ée]minaire|^offre.* h[ée]bergement|^demande de devis$|^coffrets? cadeaux?",
+      "raison": "Titre WordPress affiche EN PLUS du titre de section : le site a deux <h1> par page. Un seul <h1> par page est la regle SEO ; la v2 n'en garde qu'un."
+    },
+    {
+      "motif": "^(votre h[oô]tel ind[ée]pendant|4 cat[ée]gories de chambres|cuisine de qualit[ée]|un havre de tranquillit[ée]|pour vos s[ée]minaires et conf[ée]rences|d[ée]couvrez les actualit[ée]s de l'h[oô]tel palladia dans)",
+      "raison": "Sous-titre du bandeau WordPress, second exemplaire du sous-titre de page. Meme cause que le double <h1>."
+    },
+    {
+      "motif": "^[^\\p{L}\\p{N}\"«(]",
+      "flags": "u",
+      "raison": "Titre ouvert par un emoji decoratif : les emojis sont retires a la demande du client, le libelle lui-meme est identique."
+    },
+    {
+      "motif": "faq s[ée]minaire toulouse$|faq – visiter toulouse|palladia recrute",
+      "raison": "Titre de FAQ ouvert par un emoji : meme raison."
+    },
+    {
+      "motif": "jean jacques goldman",
+      "raison": "Le site ecrit « Jean Jacques » sans trait d'union ; la v2 retient l'orthographe exacte."
+    }
+  ],
+
+  "textes_absents": [
+    {
+      "motif": ".",
+      "pages": [
+        "/coffret-cadeau-hotel-restaurant-toulouse",
+        "/visites-toulouse",
+        "/seminaire-evenement-professionnel"
+      ],
+      "raison": "Reponses de FAQ repliees : presentes dans le code (donc indexees par Google) mais masquees par l'attribut `hidden`, alors que le site les laisse mesurables. Verifie manuellement page par page."
+    },
+    {
+      "motif": "^[^\\p{L}\\p{N}\"«(•·]|👉|🍽",
+      "flags": "u",
+      "raison": "Ligne ouverte par un emoji decoratif : retire a la demande du client."
+    },
+    {
+      "motif": "^modes de paiement acceptes :",
+      "pages": ["/restaurant"],
+      "raison": "Le site affiche l'information deux fois de suite : un paragraphe « Modes de paiement acceptés : … » puis un titre suivi de la meme liste. La v2 n'en garde qu'une, sous forme de titre + liste. A signaler au client."
+    },
+    {
+      "motif": "^le samedi (7 novembre|28 novembre) 2026",
+      "raison": "Le site colle date, horaire de diner et horaire de spectacle dans un seul paragraphe ; la v2 les separe en date et sous-titre."
+    }
+  ],
+
+  "ignorer_images": {
+    "raison": "Le site charge ses visuels au defilement et n'en affiche qu'une partie au moment de la mesure : le decompte n'est pas comparable.",
+    "actif": true
+  },
+
+  "ignorer_fonds": {
+    "raison": "La detection remonte aussi des conteneurs internes : trop instable pour servir de verdict. Les fonds sont verifies page par page.",
+    "actif": true
+  }
+}

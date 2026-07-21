@@ -67,7 +67,7 @@ export default function HeroCarousel({
       <div className="absolute inset-0 bg-black/40" />
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
-        <h1 className="font-display text-4xl tracking-wide uppercase drop-shadow-lg md:text-6xl">
+        <h1 className="titre-page text-white drop-shadow-lg">
           {title}
         </h1>
         {subtitle && (

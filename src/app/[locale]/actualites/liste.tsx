@@ -45,7 +45,7 @@ export default async function ListeActualites({
                 </Link>
 
                 <div className="flex grow flex-col px-8 py-8 text-center">
-                  <h2 className="font-semibold text-ink">
+                  <h2 className="titre-moyen text-ink">
                     <Link href={`/${a.slug}`} className="transition-colors hover:text-gold">
                       {a.titre}
                     </Link>

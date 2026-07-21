@@ -19,7 +19,7 @@ export default async function DevisPage({
     <>
       <header className="px-6 pt-16 pb-10 text-center">
         <h1 className="section-title">Demande de devis</h1>
-        <h2 className="mt-4 font-normal tracking-wide text-ink-soft uppercase md:text-lg">
+        <h2 className="mt-4 text-[22px] font-normal text-body uppercase">
           Pour vos séminaires, conférences, soirée d’entreprise &amp; mariages
         </h2>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />

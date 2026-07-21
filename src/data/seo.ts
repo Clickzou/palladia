@@ -47,7 +47,8 @@ export const seo = {
   "/la-suite": {
     titre: "La suite - Le Palladia hôtel 4 étoiles Toulouse",
     description:
-      "La SUITE est composée de deux pièces séparées, une chambre et un salon donnant sur une terrasse privative, pour une superficie de 54 m².",
+      // 47 m² et non 54 : surface confirmee par l’hotelier, le site se contredisait.
+      "La SUITE est composée de deux pièces séparées, une chambre et un salon donnant sur une terrasse privative, pour une superficie de 47 m².",
   },
   "/seminaire-evenement-professionnel": {
     titre: "Séminaires - Le Palladia hôtel 4 étoiles Toulouse",

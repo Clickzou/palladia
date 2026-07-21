@@ -37,7 +37,7 @@ export default function SplitSection({
           tinted ? "bg-cream" : "bg-white"
         }`}
       >
-        <h2 className="font-display text-3xl tracking-wide text-gold uppercase lg:text-4xl">
+        <h2 className="section-title text-left">
           {title}
         </h2>
         <div className="mt-5 h-px w-16 bg-gold" />

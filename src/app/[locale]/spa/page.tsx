@@ -71,7 +71,7 @@ export default function SpaPage() {
       <section className="grid gap-px bg-black/10 md:grid-cols-3">
         {spa.forfaits.map((f) => (
           <article key={f.nom} className="flex flex-col bg-cream px-8 py-14 text-center">
-            <h3 className="font-display text-2xl text-ink">{f.nom}</h3>
+            <h3 className="titre-section text-ink">{f.nom}</h3>
             <div className="mx-auto mt-5 h-px w-16 bg-gold" />
             <h4 className="mt-6 text-lg font-normal text-ink">
               {f.prix} {f.pour}

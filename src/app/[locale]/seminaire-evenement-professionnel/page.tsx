@@ -49,7 +49,7 @@ export default function SeminairesPage() {
 
       {/* Fiches techniques des salons */}
       <section className="px-3 pb-20">
-        <h2 className="section-title">Fiches techniques de nos salons</h2>
+        <h2 className="titre-section">Fiches techniques de nos salons</h2>
         <p className="mt-4 text-center tracking-wide text-ink-soft uppercase">{s.subtitle}</p>
         <div className="mx-auto mt-6 mb-14 h-px w-20 bg-gold" />
 
@@ -90,7 +90,7 @@ export default function SeminairesPage() {
 
       {/* Tableau des capacités */}
       <section className="px-6 pb-20">
-        <h2 className="section-title">Résumé capacités des salles</h2>
+        <h2 className="titre-section">Résumé capacités des salles</h2>
         <div className="mx-auto mt-6 mb-12 h-px w-20 bg-gold" />
 
         <div className="mx-auto max-w-5xl overflow-x-auto">
@@ -143,7 +143,7 @@ export default function SeminairesPage() {
 
       {/* Séminaire hybride */}
       <section className="bg-cream px-6 py-20 text-center">
-        <h2 className="section-title">{s.hybride.titre}</h2>
+        <h2 className="titre-section">{s.hybride.titre}</h2>
         <div className="mx-auto mt-6 mb-10 h-px w-20 bg-gold" />
         <h3 className="font-display text-2xl tracking-wide text-ink uppercase md:text-3xl">
           {s.hybride.sousTitre}
@@ -173,7 +173,7 @@ export default function SeminairesPage() {
             ))}
 
           {"sousTitre" in section && section.sousTitre && (
-            <h3 className="mt-10 text-lg tracking-wide text-ink uppercase">{section.sousTitre}</h3>
+            <h3 className="mt-10 text-[22px] font-normal text-body uppercase">{section.sousTitre}</h3>
           )}
 
           {section.chapo && <p className="mt-6 leading-relaxed text-body">{section.chapo}</p>}
@@ -188,7 +188,7 @@ export default function SeminairesPage() {
                 {/* Sans visuel, le titre coiffe le paragraphe ; avec un visuel,
                     il est place dans la colonne de texte, juste au-dessus. */}
                 {!image && (
-                  <h3 className="text-lg tracking-wide text-ink uppercase">
+                  <h3 className="text-[22px] font-normal text-body uppercase">
                     {point.num} {point.titre}
                   </h3>
                 )}
@@ -211,7 +211,7 @@ export default function SeminairesPage() {
                       />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg tracking-wide text-ink uppercase">
+                      <h3 className="text-[22px] font-normal text-body uppercase">
                         {point.num} {point.titre}
                       </h3>
                       <p className="mt-4 leading-relaxed text-body">{point.texte}</p>
@@ -229,7 +229,7 @@ export default function SeminairesPage() {
 
       {/* Devis */}
       <section className="px-6 py-20 text-center">
-        <h2 className="section-title">{s.devis.titre}</h2>
+        <h2 className="titre-section">{s.devis.titre}</h2>
         <p className="mx-auto mt-8 max-w-3xl leading-relaxed text-body">{s.devis.texte}</p>
         <Link
           href="/devis"

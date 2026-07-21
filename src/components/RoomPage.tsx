@@ -32,7 +32,7 @@ export default function RoomPage({ room }: { room: Room }) {
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
-          <h1 className="font-display text-4xl tracking-wide uppercase drop-shadow-lg md:text-6xl">
+          <h1 className="titre-page text-white drop-shadow-lg">
             {room.hero}
           </h1>
           <a
@@ -73,7 +73,7 @@ export default function RoomPage({ room }: { room: Room }) {
       {/* Texte + visuel */}
       <section className="mx-auto grid max-w-[1700px] items-center gap-12 px-8 pb-20 lg:grid-cols-2 lg:gap-16">
         <div>
-          <h2 className="font-display text-3xl tracking-wide text-gold uppercase lg:text-4xl">
+          <h2 className="titre-section text-left">
             {room.heading}
           </h2>
           <p className="mt-8 leading-relaxed font-semibold text-ink">{room.lead}</p>
@@ -103,7 +103,7 @@ export default function RoomPage({ room }: { room: Room }) {
       {/* Preparez votre sejour */}
       <section className="bg-cream px-6 py-14">
         <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-6 sm:flex-row">
-          <h2 className="font-display text-xl tracking-wide text-ink uppercase md:text-2xl">
+          <h2 className="titre-mini text-ink">
             Préparez votre séjour
           </h2>
           <a

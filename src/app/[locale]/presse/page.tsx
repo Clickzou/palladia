@@ -18,7 +18,7 @@ export default function PressePage() {
             key={a.url}
             className="flex flex-col border border-gold/50 bg-white px-5 py-6 text-center"
           >
-            <h2 className="font-display text-lg tracking-wide text-gold uppercase">{a.media}</h2>
+            <h2 className="text-[22px] font-normal text-body uppercase">{a.media}</h2>
 
             <div className="mt-5 grow">
               {a.image ? (

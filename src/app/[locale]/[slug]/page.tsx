@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import ArticleBlocs from "@/components/blog/ArticleBlocs";
 import { lireArticle } from "@/lib/blog";
+import { ratioImage } from "@/lib/images";
 
 /**
  * Article de blog. Les URLs sont a la racine (/zenith-de-toulouse-hotel-palladia)
@@ -52,19 +53,27 @@ export default async function ArticlePage({ params }: Props) {
 
         {/* Largeur bornee : les titres longs se repartissent sur deux lignes
             plutot que de s’etaler sur toute la largeur de l’ecran. */}
-        <h1 className="section-title mx-auto mt-10 max-w-5xl">{article.titre}</h1>
+        {/* Le site distingue le titre WordPress (fil d’Ariane, vignettes) du
+            titre affiche en tete d’article : `titre_page` porte le second. */}
+        <h1 className="section-title mx-auto mt-10 max-w-5xl">
+          {article.titre_page ?? article.titre}
+        </h1>
+        {/* Mesure du site : h2 Roboto 22 px, capitales, couleur du corps */}
         {article.sous_titre && (
-          <p className="mt-4 tracking-wide text-ink-soft uppercase md:text-lg">
+          <h2 className="mt-4 text-[22px] font-normal text-body uppercase">
             {article.sous_titre}
-          </p>
+          </h2>
         )}
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
       </header>
 
       {article.image_hero && (
-        // Hauteur fixe : tous les articles ont un en-tete de meme dimension,
-        // quel que soit le format du fichier d’origine.
-        <div className="relative h-[300px] w-full md:h-[500px] lg:h-[600px]">
+        // Comme sur le site d’origine : pleine largeur, aux proportions
+        // naturelles du fichier.
+        <div
+          className="relative w-full"
+          style={{ aspectRatio: ratioImage(article.image_hero, "1920 / 664") }}
+        >
           <Image
             src={article.image_hero}
             alt={article.titre}

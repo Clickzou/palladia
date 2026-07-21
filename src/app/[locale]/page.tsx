@@ -176,7 +176,7 @@ export default async function HomePage({
       {/* Presentation en video */}
       <section className="grid items-stretch bg-cream md:grid-cols-2">
         <div className="flex flex-col justify-center px-8 py-16 lg:px-20">
-          <h2 className="font-display text-3xl text-ink lg:text-4xl">{t("videoTitle")}</h2>
+          <h2 className="section-title text-ink">{t("videoTitle")}</h2>
           <p className="mt-6 leading-relaxed text-body">{t("videoText")}</p>
         </div>
         <div className="relative min-h-[320px] md:min-h-[520px]">

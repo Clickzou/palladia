@@ -13,13 +13,16 @@ export type BlocType =
   | "citation"
   | "equipe"
   | "bouton"
-  | "caracteristiques";
+  | "caracteristiques"
+  | "menu";
 
 export type Article = {
   id: string;
   slug: string;
   locale: "fr" | "en" | "es";
   titre: string;
+  /** Titre affiche en tete d’article quand il differe du titre WordPress. */
+  titre_page: string | null;
   sous_titre: string | null;
   chapo: string | null;
   image_hero: string | null;
@@ -35,24 +38,50 @@ export type Article = {
 
 /** Contenu de chaque type de bloc (colonne jsonb `contenu`). */
 export type BlocContenu = {
-  texte: { titre?: string; paragraphes: string[]; liste?: string[]; centre?: boolean };
-  texte_image: {
+  texte: {
     titre?: string;
     paragraphes: string[];
     liste?: string[];
+    centre?: boolean;
+    /** Taille du titre : 19 px par defaut, 25 px (« moyen ») ou 40 px (« grand ») */
+    taille_titre?: "normal" | "moyen" | "grand";
+    /** Ligne en italique fermant la section */
+    note?: string;
+    /** Bande grise pleine largeur */
+    fond_gris?: boolean;
+    boutons?: { label: string; href: string; externe?: boolean }[];
+  };
+  texte_image: {
+    titre?: string;
+    /** Taille du titre : 19 px par defaut, 25 px (« moyen ») ou 40 px (« grand ») */
+    taille_titre?: "normal" | "moyen" | "grand";
+    paragraphes: string[];
+    liste?: string[];
+    /** Paragraphe fermant la colonne de texte, sous la liste */
+    conclusion?: string;
     image: string;
     alt: string;
     position: "gauche" | "droite";
+    /** Proportions du visuel, au format CSS `aspect-ratio` (defaut 5 / 3) */
+    ratio?: string;
+    /** Bande grise pleine largeur */
+    fond_gris?: boolean;
+    /** Paragraphes pleine largeur sous les deux colonnes */
+    apres?: string[];
+    apres_liste?: string[];
   };
   cartes: {
     titre?: string;
+    /** Taille du titre : 19 px par defaut, 25 px (« moyen ») ou 40 px (« grand ») */
+    taille_titre?: "normal" | "moyen" | "grand";
     /** Bande grise pleine largeur derriere les cartes */
     fond_gris?: boolean;
     /** Place le titre de chaque carte sous son visuel plutot qu’au-dessus */
     titre_sous_image?: boolean;
     cartes: { titre: string; image?: string; alt?: string; paragraphes: string[]; liste?: string[] }[];
   };
-  bandeau: { texte: string; accent?: string; sous_texte?: string };
+  /** `accent` s’insere en gras entre `texte` et `suite`. */
+  bandeau: { texte: string; accent?: string; suite?: string; sous_texte?: string };
   bandeau_image: {
     image: string;
     titre: string;
@@ -68,6 +97,14 @@ export type BlocContenu = {
     conclusion?: string;
     /** Bande grise pleine largeur */
     fond_gris?: boolean;
+  };
+  /** Carte de menu : sections de plats, puis le tarif en bandeau sombre. */
+  menu: {
+    titre?: string;
+    /** Lignes d'ouverture, avant les sections (apéritif, amuse-bouche…) */
+    entree?: string[];
+    sections: { titre: string; lignes: string[] }[];
+    tarif?: { label: string; montant: string };
   };
   citation: { texte: string; auteur?: string };
   equipe: {

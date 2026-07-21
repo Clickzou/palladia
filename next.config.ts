@@ -22,6 +22,19 @@ const nextConfig: NextConfig = {
       // reportes sur le formulaire de demande, qui couvre les memes besoins.
       { source: "/contact", destination: "/devis", permanent: true },
       { source: "/:locale(en|es)/contact", destination: "/:locale/devis", permanent: true },
+
+      // Le site en ligne redirige cet ancien article vers la page Seminaire :
+      // son contenu y a ete repris, le garder ferait du contenu duplique.
+      {
+        source: "/seminaire-hotel-palladia-toulouse",
+        destination: "/seminaire-evenement-professionnel",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|es)/seminaire-hotel-palladia-toulouse",
+        destination: "/:locale/seminaire-evenement-professionnel",
+        permanent: true,
+      },
     ];
   },
 };

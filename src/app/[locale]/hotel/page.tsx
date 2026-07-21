@@ -78,7 +78,7 @@ export default function HotelPage() {
             <li key={s.nom} className="flex gap-5">
               <Picto nom={s.icone} />
               <div>
-                <h3 className="font-display text-2xl text-gold">{s.nom}</h3>
+                <h3 className="titre-section">{s.nom}</h3>
                 <p className="mt-2 leading-relaxed text-body">{s.detail}</p>
               </div>
             </li>
@@ -88,7 +88,7 @@ export default function HotelPage() {
         {pmr && (
           <div className="mx-auto mt-16 max-w-4xl text-center">
             <Picto nom="pmr" className="mx-auto" />
-            <h3 className="mt-4 font-display text-2xl text-gold">{pmr.nom}</h3>
+            <h3 className="titre-section mt-4">{pmr.nom}</h3>
             <p className="mt-3 leading-relaxed text-body">{pmr.detail}</p>
           </div>
         )}
@@ -99,7 +99,7 @@ export default function HotelPage() {
       {/* Preparez votre sejour */}
       <section className="bg-cream px-6 py-14">
         <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-6 sm:flex-row">
-          <h2 className="font-display text-xl tracking-wide text-ink uppercase md:text-2xl">
+          <h2 className="titre-mini text-ink">
             Préparez votre séjour
           </h2>
           <a

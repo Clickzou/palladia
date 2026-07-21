@@ -46,7 +46,7 @@ export default function OffresEtePage() {
                 afficheAdroite ? "" : "md:order-2"
               }`}
             >
-              <h2 className="font-display text-2xl tracking-wide text-ink uppercase md:text-3xl">
+              <h2 className="section-title text-ink">
                 {offre.titre}
               </h2>
               <h3 className="mt-3 font-semibold tracking-wide text-gold uppercase">{offre.prix}</h3>

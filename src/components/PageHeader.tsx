@@ -29,12 +29,13 @@ export default function PageHeader({
         <span className="font-semibold text-ink">{breadcrumb}</span>
       </nav>
 
+      {/* 40 px : sur le site, le titre en tete de page est plus petit que
+          celui incruste dans un visuel d’en-tete (55 px). */}
       <h1 className="section-title mt-14">{title}</h1>
-      {/* Sous-titre en h2 : il structure la page, comme sur le site d’origine */}
+      {/* Sous-titre en h2 : il structure la page, comme sur le site d’origine.
+          Mesure : Roboto 22 px, capitales. */}
       {subtitle && (
-        <h2 className="mt-4 text-lg font-normal tracking-wide text-ink-soft uppercase md:text-xl">
-          {subtitle}
-        </h2>
+        <h2 className="mt-4 text-[22px] font-normal text-body uppercase">{subtitle}</h2>
       )}
       <div className="mx-auto mt-6 h-px w-20 bg-gold" />
 

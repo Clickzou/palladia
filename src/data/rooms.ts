@@ -107,18 +107,18 @@ export const rooms: Room[] = [
     slug: "la-suite",
     titreCourt: "La Suite",
     resume:
-      "LA SUITE se divise en deux espaces distincts, comprenant une chambre élégante et un salon lumineux avec un accès direct à une terrasse privée, offrant ainsi une surface généreuse de 54 m²",
+      "LA SUITE se divise en deux espaces distincts, comprenant une chambre élégante et un salon lumineux avec un accès direct à une terrasse privée, offrant ainsi une surface généreuse de 47 m²",
     hero: "La Suite",
     heading: "La suite",
     breadcrumb: "La Suite",
     metaTitle: "La suite - Le Palladia hôtel 4 étoiles Toulouse",
     metaDescription:
-      "La SUITE est composée de deux pièces séparées, une chambre et un salon donnant sur une terrasse privative, pour une superficie de 54 m².",
+      "La SUITE est composée de deux pièces séparées, une chambre et un salon donnant sur une terrasse privative, pour une superficie de 47 m².",
     ctaHero: "Réservez la Suite",
-    // Le site d’origine affichait 47 m² dans le bandeau et 54 m² dans le texte :
-    // on retient 54 m², valeur donnee par le contenu editorial et la meta description.
-    surface: "54 m²",
-    lead: "La SUITE est composée de deux pièces séparées, une chambre et un salon donnant sur une terrasse privative, pour une superficie totale de 54 m².",
+    // Le site d’origine se contredit : 47 m² dans le bandeau, 54 m² dans le
+    // texte. L’hotelier a tranche pour 47 m², repris partout ci-dessous.
+    surface: "47 m²",
+    lead: "La SUITE est composée de deux pièces séparées, une chambre et un salon donnant sur une terrasse privative, pour une superficie totale de 47 m².",
     paragraphs: [
       "La chambre est composée d’un lit 180×200, d’une partie bureau et d’un coin lecture. Les écrans sont full HD avec un bouquet de 50 chaines internationales et Canal +. La suite dispose d’une salle de bains avec baignoire et d’une deuxième salle de bain comportant une douche.",
       "Le salon est composé d’un canapé deux places avec table basse, et d’une salle d’eau. Le salon donne sur une grande terrasse privative.",
