@@ -187,13 +187,9 @@ export default function SeminairesPage() {
 
             return (
               <div key={point.num} className="mt-10">
-                {/* Sans visuel, le titre reste centre au-dessus du texte ;
-                    avec un visuel, il rejoint la colonne de texte. */}
-                {!image && (
-                  <h3 className="text-lg tracking-wide text-ink uppercase">
-                    {point.num} {point.titre}
-                  </h3>
-                )}
+                <h3 className="text-lg tracking-wide text-ink uppercase">
+                  {point.num} {point.titre}
+                </h3>
 
                 {image ? (
                   // Largeur portee par l'image elle-meme : avec une grille, la
