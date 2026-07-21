@@ -10,7 +10,10 @@ export type BlocType =
   | "bandeau_image"
   | "carrousel"
   | "liste_cochee"
-  | "citation";
+  | "citation"
+  | "equipe"
+  | "bouton"
+  | "caracteristiques";
 
 export type Article = {
   id: string;
@@ -54,6 +57,23 @@ export type BlocContenu = {
   carrousel: { images: { src: string; alt: string }[] };
   liste_cochee: { titre?: string; intro?: string; items: string[]; conclusion?: string };
   citation: { texte: string; auteur?: string };
+  equipe: {
+    intro?: string;
+    adresse?: string[];
+    membres: {
+      nom: string;
+      fonction: string;
+      photo?: string;
+      telephone?: string;
+      email?: string;
+    }[];
+  };
+  bouton: { boutons: { label: string; href: string; externe?: boolean }[] };
+  caracteristiques: {
+    titre?: string;
+    /** `icone` reprend les noms exposés par components/icons.tsx */
+    items: { icone?: string; label: string }[];
+  };
 };
 
 export type Bloc<T extends BlocType = BlocType> = {

@@ -1,13 +1,24 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import RoomGallery from "@/components/RoomGallery";
-import { IconCheck } from "@/components/icons";
+import { IconBed, IconCheck, IconExpand, IconGift, IconLock, IconTv, IconWifi } from "@/components/icons";
 import type { Bloc, BlocContenu } from "@/lib/supabase/types";
 
 /**
  * Rendu d'un article : chaque bloc enregistre en base est associe a un
  * composant. Reproduit les mises en page Elementor du site d'origine.
  */
+/** Icones disponibles pour le bloc `caracteristiques`. */
+const ICONES: Record<string, React.ReactNode> = {
+  places: <IconExpand />,
+  parking: <IconExpand />,
+  lit: <IconBed />,
+  ecran: <IconTv />,
+  wifi: <IconWifi />,
+  coffre: <IconLock />,
+  cadeau: <IconGift className="size-10 fill-current" />,
+};
+
 export default function ArticleBlocs({ blocs }: { blocs: Bloc[] }) {
   return (
     <>
@@ -36,6 +47,12 @@ function BlocRendu({ bloc }: { bloc: Bloc }) {
       return <BlocListeCochee c={bloc.contenu as BlocContenu["liste_cochee"]} />;
     case "citation":
       return <BlocCitation c={bloc.contenu as BlocContenu["citation"]} />;
+    case "equipe":
+      return <BlocEquipe c={bloc.contenu as BlocContenu["equipe"]} />;
+    case "bouton":
+      return <BlocBouton c={bloc.contenu as BlocContenu["bouton"]} />;
+    case "caracteristiques":
+      return <BlocCaracteristiques c={bloc.contenu as BlocContenu["caracteristiques"]} />;
     default:
       return null;
   }
@@ -223,6 +240,102 @@ function BlocCitation({ c }: { c: BlocContenu["citation"] }) {
         « {c.texte} »
       </blockquote>
       {c.auteur && <p className="mt-4 text-muted">{c.auteur}</p>}
+    </section>
+  );
+}
+
+/** Trombinoscope du service commercial. */
+function BlocEquipe({ c }: { c: BlocContenu["equipe"] }) {
+  return (
+    <section className="bg-cream px-6 py-16 text-center">
+      {c.intro && (
+        <p className="mx-auto max-w-3xl font-semibold whitespace-pre-line text-ink">{c.intro}</p>
+      )}
+      {c.adresse && (
+        <div className="mt-6 space-y-1 text-body">
+          {c.adresse.map((l) => (
+            <p key={l}>{l}</p>
+          ))}
+        </div>
+      )}
+
+      <div className="mx-auto mt-12 grid max-w-5xl gap-10 sm:grid-cols-3">
+        {c.membres.map((m) => (
+          <div key={m.nom}>
+            <h3 className="font-semibold tracking-wide text-ink uppercase">{m.nom}</h3>
+            <p className="mt-1 text-body">{m.fonction}</p>
+            {m.photo && (
+              <div className="relative mx-auto mt-5 size-40 overflow-hidden rounded-full">
+                <Image src={m.photo} alt={m.nom} fill sizes="160px" className="object-cover" />
+              </div>
+            )}
+            {m.telephone && (
+              <a
+                href={`tel:${m.telephone.replace(/\s/g, "")}`}
+                className="mt-5 block text-ink underline underline-offset-4 hover:text-gold"
+              >
+                {m.telephone}
+              </a>
+            )}
+            {m.email && (
+              <a
+                href={`mailto:${m.email}`}
+                className="mt-2 block text-ink underline underline-offset-4 hover:text-gold"
+              >
+                {m.email}
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/** Rangée de boutons d'action centrés. */
+function BlocBouton({ c }: { c: BlocContenu["bouton"] }) {
+  return (
+    <section className="flex flex-wrap justify-center gap-4 px-6 py-12">
+      {c.boutons.map((b) =>
+        b.externe ? (
+          <a
+            key={b.href}
+            href={b.href}
+            target="_blank"
+            rel="noopener"
+            className="rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
+          >
+            {b.label}
+          </a>
+        ) : (
+          <Link
+            key={b.href}
+            href={b.href}
+            className="rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
+          >
+            {b.label}
+          </Link>
+        ),
+      )}
+    </section>
+  );
+}
+
+/** Rangée de pictos chiffrés (capacité, parking, services). */
+function BlocCaracteristiques({ c }: { c: BlocContenu["caracteristiques"] }) {
+  return (
+    <section className="px-6 py-14">
+      {c.titre && (
+        <p className="mb-10 text-center tracking-wide text-ink-soft uppercase">{c.titre}</p>
+      )}
+      <ul className="mx-auto grid max-w-5xl gap-10 sm:grid-cols-3">
+        {c.items.map((i) => (
+          <li key={i.label} className="text-center">
+            <span className="text-gold">{ICONES[i.icone ?? ""] ?? <IconCheck className="size-10 fill-current" />}</span>
+            <p className="mt-4 text-body">{i.label}</p>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
