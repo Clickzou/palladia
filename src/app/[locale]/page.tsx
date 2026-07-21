@@ -19,12 +19,12 @@ export async function generateMetadata({
   };
 }
 
-/** Bandeau de 4 visuels sous le texte d'introduction. */
+/** Bandeau de 4 visuels sous le texte d'introduction, sur une seule ligne. */
 const BANDEAU = [
-  { src: "/images/bandeau-spa.jpg", alt: "Espace bien-être et jacuzzi" },
-  { src: "/images/bandeau-exterieur.jpg", alt: "Entrée de l'Hôtel Palladia" },
-  { src: "/images/bandeau-bar.jpg", alt: "Bar-lounge de l'hôtel" },
-  { src: "/images/bandeau-hall.jpg", alt: "Hall d'accueil" },
+  { src: "/images/bandeau-1.jpg", alt: "L'Hôtel Palladia, proche de l'aéroport de Toulouse" },
+  { src: "/images/bandeau-2.jpg", alt: "Hôtel de luxe 4 étoiles à Toulouse" },
+  { src: "/images/bandeau-3.jpg", alt: "Intérieur de l'Hôtel Palladia" },
+  { src: "/images/bandeau-4.jpg", alt: "Le spa de l'Hôtel Palladia" },
 ];
 
 export default async function HomePage({
@@ -68,10 +68,10 @@ export default async function HomePage({
         />
       </section>
 
-      {/* Bandeau de 4 visuels */}
+      {/* Bandeau de 4 visuels, alignes sur une ligne a partir du format tablette */}
       <section className="grid grid-cols-2 lg:grid-cols-4">
         {BANDEAU.map((img) => (
-          <div key={img.src} className="relative aspect-[4/3]">
+          <div key={img.src} className="relative aspect-[3/2]">
             <Image
               src={img.src}
               alt={img.alt}
