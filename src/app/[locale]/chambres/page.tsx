@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Coffee, Croissant } from "lucide-react";
+import { Coffee, Croissant, Dog } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { booking } from "@/config/site";
 import { rooms } from "@/data/rooms";
 import PageHeader from "@/components/PageHeader";
 
@@ -48,49 +47,48 @@ export default function ChambresPage() {
         </Link>
       </div>
 
-      {/* Les quatre categories */}
+      {/* Les quatre categories, de la plus spacieuse a la plus simple */}
       <section className="mx-auto grid max-w-[1500px] gap-8 px-6 pb-20 md:grid-cols-2">
-        {rooms.map((room) => (
-          <article key={room.slug} className="flex flex-col border border-gold/60">
+        {[...rooms].reverse().map((room) => (
+          <article key={room.slug} className="flex flex-col border border-gold/50 bg-cream/60 p-3">
             <Link href={`/${room.slug}`} className="group relative block aspect-[3/2] overflow-hidden">
               <Image
                 src={room.heroImage}
-                alt={room.hero}
+                alt={room.titreCourt}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </Link>
 
-            <div className="flex grow flex-col px-8 py-8 text-center">
-              <h2 className="font-display text-2xl tracking-wide text-gold uppercase">
-                <Link href={`/${room.slug}`} className="transition-colors hover:text-gold-dark">
-                  {room.hero}
+            <div className="flex grow flex-col px-6 py-8 text-center">
+              <h2 className="font-display text-3xl tracking-wide text-ink uppercase">
+                <Link href={`/${room.slug}`} className="transition-colors hover:text-gold">
+                  {room.titreCourt}
                 </Link>
               </h2>
-              <p className="mt-2 font-semibold text-ink">{room.surface}</p>
-              <p className="mt-5 grow leading-relaxed text-body">{room.lead}</p>
+              <p className="mt-6 grow leading-relaxed text-body">{room.resume}</p>
 
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <Link
-                  href={`/${room.slug}`}
-                  className="rounded-full border border-gold px-7 py-2.5 text-sm font-medium text-gold transition-colors hover:bg-gold hover:text-white"
-                >
-                  En savoir plus
-                </Link>
-                <a
-                  href={booking.premium}
-                  target="_blank"
-                  rel="noopener"
-                  className="rounded-full bg-gold px-7 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gold-dark"
-                >
-                  Réserver
-                </a>
-              </div>
+              <Link
+                href={`/${room.slug}`}
+                className="mx-auto mt-8 rounded-full bg-gold px-9 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
+              >
+                Découvrir
+                <span className="sr-only"> la chambre {room.titreCourt}</span>
+              </Link>
             </div>
           </article>
         ))}
       </section>
+
+      {/* Animaux de compagnie */}
+      <div className="px-6 pb-20 text-center">
+        <Dog className="mx-auto size-10 text-gold" strokeWidth={1.2} />
+        <p className="mx-auto mt-6 max-w-3xl leading-relaxed text-body">
+          Les animaux de compagnie (de moins de 10 kg) sont autorisés, avec un supplément de 15 €
+          par jour, par animal, dans la limite de 1 animal par chambre sur demande uniquement.
+        </p>
+      </div>
     </>
   );
 }

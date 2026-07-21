@@ -10,6 +10,10 @@ export type Room = {
   heading: string;
   /** Libelle du fil d'Ariane */
   breadcrumb: string;
+  /** Titre court, utilise sur la page listing /chambres */
+  titreCourt: string;
+  /** Resume affiche sur la carte de la page listing */
+  resume: string;
   metaTitle: string;
   metaDescription: string;
   ctaHero: string;
@@ -24,6 +28,9 @@ export type Room = {
 export const rooms: Room[] = [
   {
     slug: "preference",
+    titreCourt: "Confort",
+    resume:
+      "Les chambres CONFORT de 27 m² incarnent l’élégance avec leurs lignes épurées et l’harmonie des teintes chaudes, enveloppant l’environnement d’une atmosphère accueillante et réconfortante",
     hero: "La Chambre confort",
     heading: "La Chambre Confort",
     breadcrumb: "La Chambre confort",
@@ -46,6 +53,9 @@ export const rooms: Room[] = [
   },
   {
     slug: "platinium",
+    titreCourt: "Prestige",
+    resume:
+      "La chambre PRESTIGE, d’une surface de 27 m², offre une expérience luxueuse où les nuances chatoyantes de cuivre, de bronze et d’argent fusionnent harmonieusement avec un mobilier raffiné et des textures haut de gamme",
     hero: "La Chambre Prestige",
     heading: "La chambre Prestige",
     breadcrumb: "La Chambre Prestige",
@@ -67,6 +77,9 @@ export const rooms: Room[] = [
   },
   {
     slug: "suite-junior",
+    titreCourt: "Junior Suite",
+    resume:
+      "La JUNIOR SUITE, spacieuse avec ses 47 m², offre une expérience unique grâce à son salon intégré à la chambre. Dotée d’un design contemporain et de meubles vibrants, cette suite promet de captiver votre attention",
     hero: "Suites Juniors",
     heading: "La Junior Suite",
     breadcrumb: "Suite Junior",
@@ -89,6 +102,9 @@ export const rooms: Room[] = [
   },
   {
     slug: "la-suite",
+    titreCourt: "La Suite",
+    resume:
+      "LA SUITE se divise en deux espaces distincts, comprenant une chambre élégante et un salon lumineux avec un accès direct à une terrasse privée, offrant ainsi une surface généreuse de 54 m²",
     hero: "La Suite",
     heading: "La suite",
     breadcrumb: "La Suite",
