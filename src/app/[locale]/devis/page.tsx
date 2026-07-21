@@ -16,7 +16,7 @@ export default async function DevisPage({
   searchParams: Promise<{ type?: string }>;
 }) {
   const { type } = await searchParams;
-  const types = ["salle_reunion", "mariage", "evenement_hybride"];
+  const types = ["salle_reunion", "mariage", "evenement_hybride", "reservation_groupe"];
 
   return (
     <>

@@ -40,7 +40,7 @@ export default function ChambresPage() {
         </p>
 
         <Link
-          href="/devis"
+          href="/devis?type=reservation_groupe"
           className="mt-10 inline-block rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
         >
           Réservation Groupe ? Par ici →
