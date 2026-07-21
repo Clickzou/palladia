@@ -21,6 +21,7 @@ export async function listerArticles(locale: string): Promise<Article[]> {
     .select("*")
     .eq("locale", locale)
     .eq("statut", "publie")
+    .order("position", { ascending: true, nullsFirst: false })
     .order("date_publication", { ascending: false });
 
   if (error) {
@@ -48,6 +49,9 @@ export async function listerArticlesPagines(
     .select("*", { count: "exact" })
     .eq("locale", locale)
     .eq("statut", "publie")
+    // `position` fixe l'ordre voulu par l'hotel ; les articles qui n'en ont
+    // pas sont classes ensuite, du plus recent au plus ancien.
+    .order("position", { ascending: true, nullsFirst: false })
     .order("date_publication", { ascending: false })
     .range(debut, debut + ARTICLES_PAR_PAGE - 1);
 

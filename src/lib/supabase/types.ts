@@ -29,6 +29,8 @@ export type Article = {
   seo_title: string | null;
   seo_description: string | null;
   groupe_id: string;
+  /** Ordre d'affichage manuel ; null = classement par date */
+  position: number | null;
 };
 
 /** Contenu de chaque type de bloc (colonne jsonb `contenu`). */
