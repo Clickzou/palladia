@@ -128,11 +128,11 @@ h6 {
     }
   }
 
-  /* Certaines pages composent hors du gabarit, presque bord a bord :
-     mesure sur le site, 1880 px de contenu pour 1920 de fenetre. */
+  /* Certaines pages composent hors du gabarit : mesure sur le site, de 1610
+     a 1800 px selon l'article. */
   .conteneur-large {
     width: 100%;
-    max-width: 1880px;
+    max-width: 1700px;
     margin-inline: auto;
     padding-inline: 1.25rem;
   }

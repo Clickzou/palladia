@@ -2,7 +2,11 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import CarrouselLarge from "@/components/CarrouselLarge";
 import { IconBed, IconCheck, IconExpand, IconGift, IconLock, IconTv, IconWifi } from "@/components/icons";
-import { Martini as IconVerre } from "lucide-react";
+import {
+  Armchair as IconFauteuil,
+  Martini as IconVerre,
+  SquareParking as IconParking,
+} from "lucide-react";
 import { ratioImage } from "@/lib/images";
 import type { Bloc, BlocContenu } from "@/lib/supabase/types";
 
@@ -12,14 +16,14 @@ import type { Bloc, BlocContenu } from "@/lib/supabase/types";
  */
 /** Icones disponibles pour le bloc `caracteristiques`. */
 const ICONES: Record<string, React.ReactNode> = {
-  places: <IconExpand />,
-  parking: <IconExpand />,
+  places: <IconFauteuil className="size-10" strokeWidth={1.4} />,
+  parking: <IconParking className="size-10" strokeWidth={1.4} />,
   lit: <IconBed />,
   ecran: <IconTv />,
   wifi: <IconWifi />,
   coffre: <IconLock />,
   cadeau: <IconGift className="size-10 fill-current" />,
-  restauration: <IconVerre />,
+  restauration: <IconVerre className="size-10" strokeWidth={1.4} />,
 };
 
 export default function ArticleBlocs({ blocs }: { blocs: Bloc[] }) {
@@ -205,7 +209,15 @@ function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
       <div className={c.large ? "conteneur-large" : "conteneur"}>
         {c.titre && <TitreSection taille={c.taille_titre}>{c.titre}</TitreSection>}
         {/* Deux colonnes egales, texte centre verticalement par rapport au visuel */}
-        <div className="grid items-center gap-10 md:grid-cols-2">
+        <div
+          className={`grid items-center gap-10 ${
+            c.texte_dominant
+              ? c.position === "gauche"
+                ? "md:grid-cols-[1fr_2fr]"
+                : "md:grid-cols-[2fr_1fr]"
+              : "md:grid-cols-2"
+          }`}
+        >
           <div className={c.position === "gauche" ? "md:order-2" : ""}>
             <ColonneTexte c={c} />
           </div>
@@ -400,14 +412,14 @@ function BlocCarrousel({ c }: { c: BlocContenu["carrousel"] }) {
     return (
       <section className={c.pleine_largeur ? "" : "py-10"}>
         <div
-          className={`relative mx-auto w-full ${c.pleine_largeur ? "" : "max-w-[1200px]"}`}
+          className={`relative mx-auto w-full ${c.pleine_largeur ? "" : "max-w-[800px]"}`}
           style={{ aspectRatio: ratioImage(img.src, "16 / 9") }}
         >
           <Image
             src={img.src}
             alt={img.alt}
             fill
-            sizes="(max-width: 1200px) 100vw, 1200px"
+            sizes="(max-width: 800px) 100vw, 800px"
             className={c.pleine_largeur ? "object-cover" : "object-contain"}
           />
         </div>
@@ -592,7 +604,9 @@ function BlocCaracteristiques({ c }: { c: BlocContenu["caracteristiques"] }) {
       <ul className="mx-auto grid max-w-5xl gap-10 sm:grid-cols-3">
         {c.items.map((i) => (
           <li key={i.label} className="text-center">
-            <span className="text-gold">{ICONES[i.icone ?? ""] ?? <IconCheck className="size-10 fill-current" />}</span>
+            <span className="flex justify-center text-gold">
+              {ICONES[i.icone ?? ""] ?? <IconCheck className="size-10 fill-current" />}
+            </span>
             <p className="mt-4 text-body">{i.label}</p>
           </li>
         ))}

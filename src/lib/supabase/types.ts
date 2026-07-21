@@ -62,8 +62,10 @@ export type BlocContenu = {
     sous_titre?: string;
     /** Visuel bord a bord sur la moitie de l'ecran, texte sur l'autre */
     pleine_largeur?: boolean;
-    /** Gabarit etendu (1880 px) plutot que la largeur de contenu (1140 px) */
+    /** Gabarit etendu (1680 px) plutot que la largeur de contenu (1140 px) */
     large?: boolean;
+    /** Colonnes inegales : le texte occupe environ 60 % de la rangee */
+    texte_dominant?: boolean;
     paragraphes: string[];
     liste?: string[];
     /** Paragraphe fermant la colonne de texte, sous la liste */
