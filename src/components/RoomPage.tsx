@@ -52,9 +52,10 @@ export default function RoomPage({ room }: { room: Room }) {
           {features.map((f) => (
             <li key={f.label} className="flex flex-col items-center gap-3 text-center">
               <span className="text-gold">{f.icon}</span>
-              <span className="text-sm leading-snug whitespace-pre-line text-ink-soft md:text-base">
+              {/* Titre : ces caracteristiques structurent la page sur le site */}
+              <h3 className="text-sm leading-snug font-normal whitespace-pre-line text-ink-soft md:text-base">
                 {f.label}
-              </span>
+              </h3>
             </li>
           ))}
         </ul>

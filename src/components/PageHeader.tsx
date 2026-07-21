@@ -30,10 +30,11 @@ export default function PageHeader({
       </nav>
 
       <h1 className="section-title mt-14">{title}</h1>
+      {/* Sous-titre en h2 : il structure la page, comme sur le site d’origine */}
       {subtitle && (
-        <p className="mt-4 text-lg tracking-wide text-ink-soft uppercase md:text-xl">
+        <h2 className="mt-4 text-lg font-normal tracking-wide text-ink-soft uppercase md:text-xl">
           {subtitle}
-        </p>
+        </h2>
       )}
       <div className="mx-auto mt-6 h-px w-20 bg-gold" />
 

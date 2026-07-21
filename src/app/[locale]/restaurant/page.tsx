@@ -79,9 +79,9 @@ export default function RestaurantPage() {
       {/* Menus */}
       <section className="bg-cream px-6 py-20">
         <h2 className="section-title">Menu</h2>
-        <p className="mt-4 text-center text-lg tracking-wide text-ink-soft uppercase">
+        <h3 className="mt-4 text-center text-lg font-normal tracking-wide text-ink-soft uppercase">
           Découvrez notre menu de la semaine
-        </p>
+        </h3>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
 
         <div className="mx-auto mt-14 grid max-w-6xl gap-10 md:grid-cols-2">

@@ -24,9 +24,10 @@ export default function Footer() {
           href="/engagements"
           className="mx-auto flex max-w-3xl items-center justify-center gap-6 px-6"
         >
-          <span className="text-center text-lg font-medium tracking-wide text-[#4a7c2f] uppercase">
+          {/* Titre : ce bandeau est un h2 sur le site d’origine */}
+          <h2 className="text-center text-lg font-medium tracking-wide text-[#4a7c2f] uppercase">
             {t("rse")}
-          </span>
+          </h2>
           <Image
             src="/images/clef-verte.png"
             alt="Label Clef Verte"

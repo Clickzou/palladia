@@ -217,7 +217,7 @@ export default async function HomePage({
       {/* Bandeau spectacles */}
       <section className="bg-gold px-6 py-14">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-8 text-center md:flex-row md:justify-between md:text-left">
-          <p className="text-xl text-white md:text-2xl">{t("bandeauSpectacles")}</p>
+          <h2 className="text-xl text-white md:text-2xl">{t("bandeauSpectacles")}</h2>
           <Link
             href="/spectacle-toulouse"
             className="shrink-0 rounded-full border-2 border-white px-8 py-3.5 font-medium text-white transition-colors hover:bg-white hover:text-gold"

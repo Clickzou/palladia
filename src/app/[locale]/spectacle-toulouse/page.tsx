@@ -20,9 +20,9 @@ export default async function SpectaclesPage({
       <header className="px-6 pt-16 pb-10 text-center">
         <h1 className="section-title">Nos spectacles au Palladia</h1>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
-        <p className="mt-8 font-semibold tracking-wide text-ink uppercase">
+        <h2 className="mt-8 font-semibold tracking-wide text-ink uppercase">
           Concert de musique classique, théâtre, jazz, dîner &amp; spectacle, brunchs
-        </p>
+        </h2>
         <p className="mx-auto mt-6 max-w-3xl text-body">
           L’hôtel Palladia, s’inscrit dans l’air du temps et met la culture à l’honneur en
           proposant une programmation riche et éclectique.

@@ -49,7 +49,7 @@ export default function OffresEtePage() {
               <h2 className="font-display text-2xl tracking-wide text-ink uppercase md:text-3xl">
                 {offre.titre}
               </h2>
-              <p className="mt-3 font-semibold tracking-wide text-gold uppercase">{offre.prix}</p>
+              <h3 className="mt-3 font-semibold tracking-wide text-gold uppercase">{offre.prix}</h3>
 
               <div className="mt-6 space-y-4 leading-relaxed text-body">
                 {offre.paragraphes.map((p) => (

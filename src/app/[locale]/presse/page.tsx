@@ -51,9 +51,9 @@ export default function PressePage() {
       {/* Instagram */}
       <section className="px-6 pb-24 text-center">
         <h2 className="section-title">Sur Instagram</h2>
-        <p className="mt-4 tracking-wide text-ink-soft uppercase">
+        <h3 className="mt-4 font-normal tracking-wide text-ink-soft uppercase">
           Nos dernières publications sur Instagram
-        </p>
+        </h3>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
         <a
           href={social.instagram}
