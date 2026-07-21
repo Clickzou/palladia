@@ -53,6 +53,13 @@ export default async function HomePage({
 
       {/* Introduction */}
       <section className="mx-auto max-w-4xl px-6 py-20 text-center">
+        <Image
+          src="/images/logo-independant.png"
+          alt="Établissement 100 % toulousain indépendant"
+          width={300}
+          height={272}
+          className="mx-auto mb-8 h-auto w-40 md:w-48"
+        />
         <h2 className="section-title">{t("introTitle")}</h2>
         <div className="mx-auto mt-5 h-px w-20 bg-gold" />
         <p

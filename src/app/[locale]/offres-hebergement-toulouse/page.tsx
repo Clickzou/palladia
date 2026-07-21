@@ -23,9 +23,13 @@ export default function OffresEtePage() {
   return (
     <>
       <header className="px-6 pt-14 pb-12 text-center">
-        <p className="mx-auto mb-8 w-fit rounded-full border-2 border-gold px-6 py-3 text-xs font-semibold tracking-[0.2em] text-gold uppercase">
-          Établissement 100 % toulousain indépendant
-        </p>
+        <Image
+          src="/images/logo-independant.png"
+          alt="Établissement 100 % toulousain indépendant"
+          width={300}
+          height={272}
+          className="mx-auto mb-8 h-auto w-40 md:w-48"
+        />
         <h1 className="section-title">{o.title}</h1>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
         <p className="mx-auto mt-8 max-w-3xl leading-relaxed text-body">
