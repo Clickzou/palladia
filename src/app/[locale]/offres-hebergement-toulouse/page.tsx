@@ -42,10 +42,7 @@ export default function OffresEtePage() {
         const afficheAdroite = i % 2 === 0;
 
         return (
-          <section
-            key={offre.slug}
-            className={`grid items-stretch md:grid-cols-2 ${i % 2 === 1 ? "bg-cream" : ""}`}
-          >
+          <section key={offre.slug} className="grid items-stretch bg-cream md:grid-cols-2">
             <div
               className={`flex flex-col justify-center px-8 py-14 lg:px-16 ${
                 afficheAdroite ? "" : "md:order-2"
