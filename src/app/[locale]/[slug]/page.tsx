@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: Props) {
             plutot que de s’etaler sur toute la largeur de l’ecran. */}
         {/* Le site distingue le titre WordPress (fil d’Ariane, vignettes) du
             titre affiche en tete d’article : `titre_page` porte le second. */}
-        <h1 className="section-title mx-auto mt-10 max-w-5xl">
+        <h1 className="section-title mx-auto mt-10 max-w-[1800px]">
           {article.titre_page ?? article.titre}
         </h1>
         {/* Mesure du site : h2 Roboto 22 px, capitales, couleur du corps */}

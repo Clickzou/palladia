@@ -11,12 +11,12 @@
 export const seminaires = {
   metaTitle: "Séminaires - Le Palladia hôtel 4 étoiles Toulouse",
   metaDescription:
-    "Hôtel séminaire à Toulouse : un amphithéâtre de 285 places, 13 salles de réunion à la lumière du jour et un parking gratuit de 300 places.",
+    "Hôtel séminaire à Toulouse : un amphithéâtre de 285 places, 16 salles de réunion à la lumière du jour et un parking gratuit de 300 places.",
   title: "Votre hôtel séminaire à Toulouse",
   subtitle: "Pour vos séminaires et conférences à Toulouse",
 
   atouts: [
-    "13 salles de réunion pouvant accueillir jusqu’à 400 personnes",
+    "16 salles de réunion pouvant accueillir jusqu’à 400 personnes",
     "1 Amphithéâtre de 285 places",
     "Wifi 1 giga",
     "Parking Gratuit",
@@ -26,7 +26,7 @@ export const seminaires = {
 
   presentation: [
     "L’Hôtel Palladia propose une gamme très variée de salles de réunion et de services haut de gamme, l’un des plus beaux hotel seminaire Toulouse pouvant accueillir les évènements les plus prestigieux aussi bien que les réunions et cocktails.",
-    "L’Hôtel Palladia est le seul hôtel a posséder un amphithéâtre de 285 places sur Toulouse et 13 salles de réunion à la lumière du jour, idéal pour des séminaires résidentiels.",
+    "L’Hôtel Palladia est le seul hôtel a posséder un amphithéâtre de 285 places sur Toulouse et 16 salles de réunion à la lumière du jour, idéal pour des séminaires résidentiels.",
     "Un grand parking de 300 places est à la disposition des clients de l’hôtel. Elégance du décor et fonctionnalité des installations font de l’hôtel Palladia un endroit idéal pour vos séminaires et vos réceptions à Toulouse.",
     "Réactivité et souplesse de notre équipe commerciale permettent une adaptation à tous vos besoins pour la réussite de vos manifestations professionnelles ou privées, évènementielles, caritatives…",
   ],

@@ -50,6 +50,8 @@ export type BlocContenu = {
     note?: string;
     /** Bande grise pleine largeur */
     fond_gris?: boolean;
+    /** Gabarit etendu (1880 px) plutot que la largeur de contenu (1140 px) */
+    large?: boolean;
     boutons?: { label: string; href: string; externe?: boolean }[];
   };
   texte_image: {
@@ -60,6 +62,8 @@ export type BlocContenu = {
     sous_titre?: string;
     /** Visuel bord a bord sur la moitie de l'ecran, texte sur l'autre */
     pleine_largeur?: boolean;
+    /** Gabarit etendu (1880 px) plutot que la largeur de contenu (1140 px) */
+    large?: boolean;
     paragraphes: string[];
     liste?: string[];
     /** Paragraphe fermant la colonne de texte, sous la liste */
@@ -106,7 +110,11 @@ export type BlocContenu = {
     liste?: string[];
     boutons?: { label: string; href: string }[];
   };
-  carrousel: { images: { src: string; alt: string }[] };
+  carrousel: {
+    images: { src: string; alt: string }[];
+    /** Visuel unique affiche bord a bord plutot que centre a 1200 px */
+    pleine_largeur?: boolean;
+  };
   liste_cochee: {
     titre?: string;
     intro?: string;
@@ -136,6 +144,8 @@ export type BlocContenu = {
     taille_titre?: "normal" | "moyen" | "grand";
     intro?: string;
     fond_gris?: boolean;
+    /** Gabarit etendu (1880 px) plutot que la largeur de contenu (1140 px) */
+    large?: boolean;
     /** Deux colonnes plutot qu'une seule pile */
     deux_colonnes?: boolean;
     sections: { titre: string; intro?: string; items?: string[]; conclusion?: string }[];

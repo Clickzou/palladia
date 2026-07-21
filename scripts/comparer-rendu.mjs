@@ -54,13 +54,16 @@ async function mesurer(page, url) {
     // sont pas des ecarts de contenu.
     const norm = (t) =>
       t
+        // Diacritiques et caracteres invisibles ecrits en echappements : les
+        // inscrire en clair les exposait a une corruption a l'ecriture, et la
+        // normalisation echouait alors d'un seul cote de la comparaison.
         .normalize("NFD")
         .replace(/[̀-ͯ]/g, "")
-        .replace(/[’‘]/g, "'")
+        .replace(/[‘’]/g, "'")
         .replace(/[“”«»]/g, '"')
         .replace(/[–—]/g, "-")
         .replace(/^[•·▪]\s*/, "")
-        .replace(/[​-‍﻿]/g, "")
+        .replace(/[​-‍﻿  ]/g, " ")
         .replace(/\s+/g, " ")
         .trim()
         .toLowerCase();

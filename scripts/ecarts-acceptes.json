@@ -31,11 +31,22 @@
       "raison": "Le site ecrit « Jean Jacques » sans trait d'union ; la v2 retient l'orthographe exacte."
     },
     {
-      "motif": "^(ambiance assuree|tomy vay|theatre|concert de musique classique|concert des golden gospel|)$",
+      "motif": "ambiance assuree|tomy vay|toulousain 2|le tango et l' ?amor|golden gospel",
       "pages": [
         "/diner-spectacles-toulouse"
       ],
       "raison": "Affiches de la saison 2025, passee : la v2 pilote cette liste par la date et n'affiche que les spectacles a venir."
+    },
+    {
+      "motif": "^$",
+      "raison": "Titre vide laisse par Elementor : rien a reproduire."
+    },
+    {
+      "motif": "^reservation$",
+      "pages": [
+        "/saint-valentin-toulouse"
+      ],
+      "raison": "Le site titre deux fois de suite : « Réservations » puis « Réservation » juste au-dessus des boutons. La v2 n'en garde qu'un."
     }
   ],
   "textes_absents": [
@@ -98,6 +109,13 @@
         "/actualites"
       ],
       "raison": "Le chapo du site ecrit « l hotel » avec une espace au lieu d'une apostrophe. La v2 corrige la coquille."
+    },
+    {
+      "motif": "parking gratuit de 250 places",
+      "pages": [
+        "/choisir-lieu-seminaire-toulouse"
+      ],
+      "raison": "Le site annonce 250 places ici, 280 sur la page Hôtel et 300 ailleurs. L'hotelier a confirme 300 : la v2 affiche 300 partout."
     }
   ],
   "ignorer_images": {

@@ -53,7 +53,7 @@ export const seo = {
   "/seminaire-evenement-professionnel": {
     titre: "Séminaires - Le Palladia hôtel 4 étoiles Toulouse",
     description:
-      "L’Hôtel Palladia c’est 13 salles de réunion (jusqu’à 400 personnes), 1 Amphithéâtre, Parking gratuit 300 places, Restauration sur place.",
+      "L’Hôtel Palladia c’est 16 salles de réunion (jusqu’à 400 personnes), 1 Amphithéâtre, Parking gratuit 300 places, Restauration sur place.",
   },
   "/restaurant": {
     titre: "Restaurant - Le Palladia hôtel 4 étoiles Toulouse",
