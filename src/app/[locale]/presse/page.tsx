@@ -12,7 +12,7 @@ export default function PressePage() {
     <>
       <PageHeader breadcrumb="Presse" title={presse.title} subtitle={presse.subtitle} />
 
-      <section className="mx-auto grid max-w-[1500px] gap-6 px-6 pb-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      <section className="grid gap-6 px-6 pb-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:px-[100px]">
         {presse.articles.map((a) => (
           <article
             key={a.url}
