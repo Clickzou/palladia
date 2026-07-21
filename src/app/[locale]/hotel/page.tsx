@@ -4,7 +4,8 @@ import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import PhotoGrid from "@/components/PhotoGrid";
 import { booking } from "@/config/site";
-import { hotel } from "@/data/hotel";
+import { hotel as hotelFr } from "@/data/hotel";
+import { traduireContenu } from "@/i18n/contenu";
 import { PICTOS_SERVICES } from "@/components/icons-services";
 
 export const metadata: Metadata = metadonnees("/hotel");
@@ -17,7 +18,10 @@ function Picto({ nom, className = "" }: { nom: string; className?: string }) {
   return <Icone className={`size-9 shrink-0 text-ink-soft ${className}`} strokeWidth={1.5} />;
 }
 
-export default function HotelPage() {
+export default async function HotelPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const hotel = traduireContenu(hotelFr, locale);
+
   // L’accessibilite PMR est presentee seule, centree, en fin de liste.
   const services = hotel.services.filter((s) => s.icone !== "pmr");
   const pmr = hotel.services.find((s) => s.icone === "pmr");
