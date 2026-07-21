@@ -20,8 +20,8 @@ export default function RoomPage({ room }: { room: Room }) {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative h-[70vh] min-h-[460px] w-full">
+      {/* Hero — 200 px de plus que la hauteur de reference */}
+      <section className="relative h-[calc(70vh+200px)] min-h-[660px] w-full">
         <Image
           src={room.heroImage}
           alt={room.hero}
