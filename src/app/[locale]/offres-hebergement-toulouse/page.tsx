@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
+import { traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { booking } from "@/config/site";
-import { offresEte as o } from "@/data/offres-ete";
+import { offresEte as oFr } from "@/data/offres-ete";
 import PhotoGrid from "@/components/PhotoGrid";
 import { IconCheck } from "@/components/icons";
 
-export const metadata: Metadata = metadonnees("/offres-hebergement-toulouse");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/offres-hebergement-toulouse", locale);
+}
 
 /** Met en gras les segments encadrés par ** */
 function EnGras({ texte }: { texte: string }) {
@@ -17,7 +26,10 @@ function EnGras({ texte }: { texte: string }) {
   );
 }
 
-export default function OffresEtePage() {
+export default async function OffresEtePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const o = traduireContenu(oFr, locale);
+
   return (
     <>
       <header className="px-6 pt-14 pb-12 text-center">

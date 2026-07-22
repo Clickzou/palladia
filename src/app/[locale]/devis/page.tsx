@@ -4,7 +4,15 @@ import FormulaireDevis from "@/components/FormulaireDevis";
 import { site } from "@/config/site";
 import { IconMail, IconMap, IconPhone } from "@/components/icons";
 
-export const metadata: Metadata = metadonnees("/devis");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/devis", locale);
+}
 
 /** `?type=mariage` ou `?type=salle_reunion` pré-oriente la demande. */
 export default async function DevisPage({

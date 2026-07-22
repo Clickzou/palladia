@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
 import { metadonnees } from "@/data/seo";
+import { traduireContenu } from "@/i18n/contenu";
 import Faq from "@/components/Faq";
-import { tourisme as t } from "@/data/tourisme";
+import { tourisme as tFr } from "@/data/tourisme";
 
-export const metadata: Metadata = metadonnees("/visites-toulouse");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/visites-toulouse", locale);
+}
 
 /** Met en gras les segments encadrés par ** dans les textes d’introduction. */
 function EnGras({ texte }: { texte: string }) {
@@ -15,7 +24,10 @@ function EnGras({ texte }: { texte: string }) {
   );
 }
 
-export default function TourismePage() {
+export default async function TourismePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = traduireContenu(tFr, locale);
+
   return (
     <>
       <header className="mx-auto max-w-5xl px-6 pt-16 pb-10 text-center">

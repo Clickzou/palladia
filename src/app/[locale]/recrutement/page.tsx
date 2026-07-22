@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
 import { metadonnees } from "@/data/seo";
-import { recrutement as r } from "@/data/recrutement";
+import { traduireContenu } from "@/i18n/contenu";
+import { recrutement as rFr } from "@/data/recrutement";
 
-export const metadata: Metadata = metadonnees("/recrutement");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/recrutement", locale);
+}
 
-export default function RecrutementPage() {
+export default async function RecrutementPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const r = traduireContenu(rFr, locale);
+
   return (
     <>
       <header className="px-6 pt-16 pb-10 text-center">

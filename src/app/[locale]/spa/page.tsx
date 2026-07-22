@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
+import { traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import { booking } from "@/config/site";
-import { spa } from "@/data/spa";
+import { spa as spaFr } from "@/data/spa";
 import PageHeader from "@/components/PageHeader";
 import CarrouselLarge from "@/components/CarrouselLarge";
 
-export const metadata: Metadata = metadonnees("/spa");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/spa", locale);
+}
 
-export default function SpaPage() {
+export default async function SpaPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const spa = traduireContenu(spaFr, locale);
+
   return (
     <>
       <PageHeader breadcrumb="Spa" title={spa.title} subtitle={spa.subtitle} />

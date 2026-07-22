@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import ArticleBlocs from "@/components/blog/ArticleBlocs";
 import { lireArticle } from "@/lib/blog";
 import { ratioImage } from "@/lib/images";
+import { traduireContenu } from "@/i18n/contenu";
 
 /**
  * Article de blog. Les URLs sont a la racine (/zenith-de-toulouse-hotel-palladia)
@@ -18,9 +19,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = await lireArticle(slug, locale);
   if (!article) return {};
 
+  const SITE = "https://www.hotelpalladia.com";
+  const traduit = traduireContenu(article, locale);
+
   return {
-    title: article.seo_title ?? article.titre,
-    description: article.seo_description ?? article.chapo ?? undefined,
+    title: traduit.seo_title ?? traduit.titre,
+    description: traduit.seo_description ?? traduit.chapo ?? undefined,
+    // Les trois langues partagent le meme slug : on le declare a Google.
+    alternates: {
+      canonical: locale === "fr" ? `${SITE}/${slug}` : `${SITE}/${locale}/${slug}`,
+      languages: {
+        fr: `${SITE}/${slug}`,
+        en: `${SITE}/en/${slug}`,
+        es: `${SITE}/es/${slug}`,
+        "x-default": `${SITE}/${slug}`,
+      },
+    },
     openGraph: {
       title: article.seo_title ?? article.titre,
       description: article.seo_description ?? article.chapo ?? undefined,
@@ -35,8 +49,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticlePage({ params }: Props) {
   const { locale, slug } = await params;
-  const article = await lireArticle(slug, locale);
-  if (!article) notFound();
+  const source = await lireArticle(slug, locale);
+  if (!source) notFound();
+
+  const article = traduireContenu(source, locale);
 
   return (
     <article>

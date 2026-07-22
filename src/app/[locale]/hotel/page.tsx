@@ -8,7 +8,15 @@ import { hotel as hotelFr } from "@/data/hotel";
 import { traduireContenu } from "@/i18n/contenu";
 import { PICTOS_SERVICES } from "@/components/icons-services";
 
-export const metadata: Metadata = metadonnees("/hotel");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/hotel", locale);
+}
 
 
 /** Affiche le pictogramme correspondant a la cle du service. */

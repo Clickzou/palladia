@@ -1,15 +1,38 @@
 import type { Metadata } from "next";
+import { traduire } from "@/i18n/contenu";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import PageHeader from "@/components/PageHeader";
 import { formaterDate, prochainsEvenements } from "@/lib/evenements";
 import { booking } from "@/config/site";
 
-export const metadata: Metadata = {
-  title: "Dîners & Spectacles à Toulouse - Le Palladia hôtel 4 étoiles",
-  description:
-    "Partagez un moment convivial à l’Hôtel Palladia : humour, théâtre, concerts et musique classique accompagnés d’un dîner gastronomique.",
-};
+const SITE = "https://www.hotelpalladia.com";
+const CHEMIN = "/diner-spectacles-toulouse";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    title: traduire("Dîners & Spectacles à Toulouse - Le Palladia hôtel 4 étoiles", locale),
+    description: traduire(
+      "Partagez un moment convivial à l’Hôtel Palladia : humour, théâtre, concerts et musique classique accompagnés d’un dîner gastronomique.",
+      locale,
+    ),
+    alternates: {
+      canonical: locale === "fr" ? `${SITE}${CHEMIN}` : `${SITE}/${locale}${CHEMIN}`,
+      languages: {
+        fr: `${SITE}${CHEMIN}`,
+        en: `${SITE}/en${CHEMIN}`,
+        es: `${SITE}/es${CHEMIN}`,
+        "x-default": `${SITE}${CHEMIN}`,
+      },
+    },
+  };
+}
 
 export default async function DinerSpectaclesPage({
   params,

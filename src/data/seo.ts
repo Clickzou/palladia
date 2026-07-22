@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+import { traduire } from "@/i18n/contenu";
+
+/** Domaine de production, base des URLs canoniques et des alternatives. */
+const SITE = "https://www.hotelpalladia.com";
+
 /**
  * Titres et descriptions de reference, repris a l'identique du site
  * WordPress en ligne.
@@ -124,8 +130,39 @@ export const seo = {
 
 export type RouteSeo = keyof typeof seo;
 
-/** Métadonnées Next d'une route, prêtes à être exportées. */
-export function metadonnees(route: RouteSeo) {
+/**
+ * Métadonnées Next d'une route, dans la langue demandée.
+ *
+ * Le titre et la description sont ce que Google affiche dans ses résultats :
+ * les laisser en français sur les versions anglaise et espagnole reviendrait
+ * à ne pas exister dans ces langues.
+ *
+ * L'URL canonique et les alternatives `hreflang` déclarent à Google que les
+ * trois versions sont la même page, et laquelle servir à qui.
+ */
+export function metadonnees(route: RouteSeo, locale = "fr"): Metadata {
   const { titre, description } = seo[route];
-  return { title: titre, description };
+  const chemin = route === "/" ? "" : route;
+
+  return {
+    title: traduire(titre, locale),
+    description: traduire(description, locale),
+    alternates: {
+      canonical: locale === "fr" ? `${SITE}${chemin}` : `${SITE}/${locale}${chemin}`,
+      languages: {
+        fr: `${SITE}${chemin}`,
+        en: `${SITE}/en${chemin}`,
+        es: `${SITE}/es${chemin}`,
+        "x-default": `${SITE}${chemin}`,
+      },
+    },
+    openGraph: {
+      title: traduire(titre, locale),
+      description: traduire(description, locale),
+      url: locale === "fr" ? `${SITE}${chemin}` : `${SITE}/${locale}${chemin}`,
+      siteName: "Hôtel Palladia",
+      locale: { fr: "fr_FR", en: "en_GB", es: "es_ES" }[locale] ?? "fr_FR",
+      type: "website",
+    },
+  };
 }

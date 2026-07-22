@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
+import { traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import PageHeader from "@/components/PageHeader";
 import Faq from "@/components/Faq";
 import { IconCheck } from "@/components/icons";
-import { seminaires as s } from "@/data/seminaires";
+import { seminaires as sFr } from "@/data/seminaires";
 
-export const metadata: Metadata = metadonnees("/seminaire-evenement-professionnel");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/seminaire-evenement-professionnel", locale);
+}
 
-export default function SeminairesPage() {
+export default async function SeminairesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const s = traduireContenu(sFr, locale);
+
   return (
     <>
       <PageHeader

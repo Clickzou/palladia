@@ -1,11 +1,23 @@
 import type { Metadata } from "next";
 import { metadonnees } from "@/data/seo";
+import { traduireContenu } from "@/i18n/contenu";
 import PageLegale from "@/components/PageLegale";
-import { politiqueCookies as c } from "@/data/politique-cookies";
+import { politiqueCookies as cFr } from "@/data/politique-cookies";
 
-export const metadata: Metadata = metadonnees("/politique-de-cookies-ue");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/politique-de-cookies-ue", locale);
+}
 
-export default function CookiesPage() {
+export default async function CookiesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const c = traduireContenu(cFr, locale);
+
   return (
     <>
       <PageLegale

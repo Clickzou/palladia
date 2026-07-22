@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -14,7 +15,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home" });
+
+  // Le titre vient des messages d'interface ; les alternatives et la canonique
+  // sont celles de toutes les pages.
   return {
+    ...metadonnees("/", locale),
     title: t("metaTitle"),
     description: t("metaDescription"),
   };

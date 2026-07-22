@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
+import { traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { booking } from "@/config/site";
-import { restaurant as r } from "@/data/restaurant";
+import { restaurant as rFr } from "@/data/restaurant";
 import PageHeader from "@/components/PageHeader";
 import PhotoGrid from "@/components/PhotoGrid";
 import VideoYoutube from "@/components/VideoYoutube";
 
-export const metadata: Metadata = metadonnees("/restaurant");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/restaurant", locale);
+}
 
-export default function RestaurantPage() {
+export default async function RestaurantPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const r = traduireContenu(rFr, locale);
+
   return (
     <>
       <PageHeader

@@ -67,20 +67,31 @@ export async function listerArticlesPagines(
   };
 }
 
-/** Un article et ses blocs, ou null s’il n’existe pas / n’est pas publié. */
+/**
+ * Un article et ses blocs, ou null s’il n’existe pas / n’est pas publié.
+ *
+ * Faute de version traduite, on sert la version française plutôt qu’une page
+ * introuvable : l’adresse reste la même dans les trois langues, et le contenu
+ * éditorial est traduit à l’affichage par le dictionnaire.
+ */
 export async function lireArticle(
   slug: string,
   locale: string,
 ): Promise<ArticleComplet | null> {
   if (!supabaseConfigure) return null;
   const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("articles")
-    .select("*, article_blocs(*)")
-    .eq("slug", slug)
-    .eq("locale", locale)
-    .eq("statut", "publie")
-    .maybeSingle();
+
+  const chercher = async (langue: string) =>
+    supabase
+      .from("articles")
+      .select("*, article_blocs(*)")
+      .eq("slug", slug)
+      .eq("locale", langue)
+      .eq("statut", "publie")
+      .maybeSingle();
+
+  let { data, error } = await chercher(locale);
+  if ((error || !data) && locale !== "fr") ({ data, error } = await chercher("fr"));
 
   if (error || !data) return null;
 

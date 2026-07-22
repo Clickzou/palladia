@@ -44,6 +44,9 @@ for (const f of fichiers) {
     if (/\.(jpe?g|png|webp|avif|pdf|svg|mp4)$/i.test(t)) continue;
     if (!/[a-zàâçéèêëîïôûùüÿñæœ]/i.test(t)) continue; // codes, identifiants
     if (/^[a-z_]+$/.test(t)) continue; // cles techniques
+    // Une chaine sur plusieurs lignes qui contient des delimiteurs de code
+    // n'est pas du texte : c'est un fragment mal decoupe par l'expression.
+    if (t.includes("\n") && /[[\]{}]/.test(t)) continue;
     phrases.add(t);
   }
 }

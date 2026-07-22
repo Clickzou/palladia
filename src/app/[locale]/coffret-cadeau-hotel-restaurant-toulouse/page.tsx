@@ -1,14 +1,26 @@
 import type { Metadata } from "next";
+import { traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Faq from "@/components/Faq";
-import { coffrets as c } from "@/data/coffrets";
+import { coffrets as cFr } from "@/data/coffrets";
 import { IconCheck } from "@/components/icons";
 
-export const metadata: Metadata = metadonnees("/coffret-cadeau-hotel-restaurant-toulouse");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/coffret-cadeau-hotel-restaurant-toulouse", locale);
+}
 
-export default function CoffretsPage() {
+export default async function CoffretsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const c = traduireContenu(cFr, locale);
+
   return (
     <>
       <PageHeader breadcrumb="Coffrets Cadeaux" title={c.title} />

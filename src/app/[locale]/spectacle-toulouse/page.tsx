@@ -5,7 +5,15 @@ import { Link } from "@/i18n/navigation";
 import { booking } from "@/config/site";
 import { formaterDate, prochainsEvenements } from "@/lib/evenements";
 
-export const metadata: Metadata = metadonnees("/spectacle-toulouse");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/spectacle-toulouse", locale);
+}
 
 export default async function SpectaclesPage({
   params,

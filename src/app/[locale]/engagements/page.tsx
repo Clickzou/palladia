@@ -3,7 +3,15 @@ import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 
-export const metadata: Metadata = metadonnees("/engagements");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/engagements", locale);
+}
 
 export default function EngagementsPage() {
   return (

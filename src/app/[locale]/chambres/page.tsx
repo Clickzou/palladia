@@ -1,14 +1,26 @@
 import type { Metadata } from "next";
+import { traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { Coffee, Croissant, Dog } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { rooms } from "@/data/rooms";
+import { rooms as roomsFr } from "@/data/rooms";
 import PageHeader from "@/components/PageHeader";
 
-export const metadata: Metadata = metadonnees("/chambres");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/chambres", locale);
+}
 
-export default function ChambresPage() {
+export default async function ChambresPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const rooms = traduireContenu(roomsFr, locale);
+
   return (
     <>
       <PageHeader

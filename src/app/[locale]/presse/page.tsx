@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
+import { traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
-import { presse } from "@/data/presse";
+import { presse as presseFr } from "@/data/presse";
 import { social } from "@/config/site";
 
-export const metadata: Metadata = metadonnees("/presse");
+/** Titre et description dans la langue de la page, avec les alternatives hreflang. */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return metadonnees("/presse", locale);
+}
 
-export default function PressePage() {
+export default async function PressePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const presse = traduireContenu(presseFr, locale);
+
   return (
     <>
       <PageHeader breadcrumb="Presse" title={presse.title} subtitle={presse.subtitle} />
