@@ -31,13 +31,9 @@ const clef = (v) =>
     .replace(/[^a-z0-9]/gi, "")
     .toLowerCase();
 
-/**
- * Cinq lieux sont nommes autrement sur la carte que dans nos donnees — dont
- * « Citée de l'Espace », coquille heritee du site WordPress.
- */
+/** Quatre lieux sont nommes autrement sur la carte que dans nos donnees. */
 const ALIAS = {
   "Canal du Midi": "Canal du Midi : Location & Balade en vélo",
-  "Citée de l’Espace": "Cité de l'Espace",
   "Let’s Visit Airbus": "Let’s Visit Airbus - Manatour",
   "Muséum Histoire Naturelle": "Muséum d'Histoire Naturelle",
   "Wam Park Toulouse": "Wam Park - Toulouse - Sesquières",
