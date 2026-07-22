@@ -3,6 +3,8 @@ import { metadonnees } from "@/data/seo";
 import { traduire, traduireContenu } from "@/i18n/contenu";
 import Faq from "@/components/Faq";
 import { tourisme as tFr } from "@/data/tourisme";
+import CarteTourisme from "@/components/CarteTourisme";
+import { site } from "@/config/site";
 
 /** Titre et description dans la langue de la page, avec les alternatives hreflang. */
 export async function generateMetadata({
@@ -50,23 +52,16 @@ export default async function TourismePage({ params }: { params: Promise<{ local
           {tr("📖 Carte interactive des lieux incontournables à Toulouse")}
         </h2>
         <div className="mt-10">
-          <iframe
-            src={t.carteUrl}
-            title={tr("Carte des points d’intérêt à Toulouse proches de l’Hôtel Palladia")}
-            loading="lazy"
-            className="h-[70vh] min-h-[420px] w-full border-0"
+          <CarteTourisme
+            lieux={t.lieux}
+            hotel={{ nom: site.name, adresse: site.address, lat: site.lat, lng: site.lng }}
+            libelles={{
+              decouvrir: tr("Découvrir"),
+              carte: tr("Carte des points d’intérêt à Toulouse proches de l’Hôtel Palladia"),
+              pleinEcran: tr("Voir en plein écran"),
+            }}
           />
         </div>
-        <p className="mt-5 text-center">
-          <a
-            href={t.carteUrl}
-            target="_blank"
-            rel="noopener"
-            className="text-[#8b3a3a] underline underline-offset-4 hover:text-gold"
-          >
-            {tr("Voir en plein écran")}
-          </a>
-        </p>
       </section>
 
       {/* Liste des lieux */}

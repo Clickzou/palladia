@@ -9,6 +9,9 @@ export const site = {
   phoneHref: "tel:+33562120120",
   address: "271 Av. de Grande Bretagne, 31300 Toulouse",
   maps: "https://www.google.fr/maps/place/Le+Palladia/@43.6053379,1.3978489,17z",
+  /** Position relevee sur la carte uMap de l'hotel, pour la page Tourisme. */
+  lat: 43.605523,
+  lng: 1.400424,
 } as const;
 
 /**
