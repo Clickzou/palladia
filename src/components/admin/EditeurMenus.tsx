@@ -7,14 +7,15 @@ import type { MenuJour, MenuSemaine } from "@/lib/menus";
 import { traduire } from "@/app/[locale]/adminpclickzou/actions";
 import Connexion from "./Connexion";
 import { ChampsJour, ChampsSemaine } from "./ChampsMenu";
+import CartesMenus from "@/components/restaurant/CartesMenus";
 
 type Ligne = { cle: "semaine" | "jour"; fr: unknown; en: unknown; es: unknown; modifie_le: string };
 type Langue = "fr" | "en" | "es";
 
-const LANGUES: { code: Langue; nom: string }[] = [
-  { code: "fr", nom: "Français" },
-  { code: "en", nom: "English" },
-  { code: "es", nom: "Español" },
+const LANGUES: { code: Langue; nom: string; ou: string }[] = [
+  { code: "fr", nom: "Français", ou: "ou" },
+  { code: "en", nom: "English", ou: "or" },
+  { code: "es", nom: "Español", ou: "o" },
 ];
 
 /** Indicateur d'attente : la traduction prend une dizaine de secondes. */
@@ -48,6 +49,7 @@ export default function EditeurMenus() {
   const [langue, setLangue] = useState<Langue>("fr");
   const [message, setMessage] = useState<{ ok: boolean; texte: string } | null>(null);
   const [enCours, setEnCours] = useState<string | null>(null);
+  const [apercu, setApercu] = useState(false);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -78,28 +80,39 @@ export default function EditeurMenus() {
   const valeur = (cle: "semaine" | "jour") =>
     (lignes?.[cle]?.[langue] ?? lignes?.[cle]?.fr) as MenuSemaine | MenuJour | undefined;
 
-  const enregistrer = async () => {
-    if (!lignes) return;
+  /**
+   * Ecrit les menus. Sans precision, les trois langues ; sinon celles
+   * demandees seulement — corriger l'anglais ne doit pas obliger a republier
+   * le reste.
+   */
+  const enregistrer = async (
+    quoi: Langue[] = ["fr", "en", "es"],
+    etat = { source: lignes, annonce: "Menus publiés. Ils sont en ligne." },
+  ) => {
+    const donnees = etat.source;
+    if (!donnees) return false;
+
     setEnCours("enregistrement");
     setMessage(null);
 
     for (const cle of ["semaine", "jour"] as const) {
-      const l = lignes[cle];
-      const { error } = await supabase
-        .from("menus")
-        .update({ fr: l.fr, en: l.en, es: l.es, modifie_par: session.user.id })
-        .eq("cle", cle);
+      const l = donnees[cle];
+      const champs: Record<string, unknown> = { modifie_par: session.user.id };
+      for (const langue of quoi) champs[langue] = l[langue];
+
+      const { error } = await supabase.from("menus").update(champs).eq("cle", cle);
 
       if (error) {
         setMessage({ ok: false, texte: `Enregistrement refusé : ${error.message}` });
         setEnCours(null);
-        return;
+        return false;
       }
     }
 
     await charger();
     setEnCours(null);
-    setMessage({ ok: true, texte: "Menus publiés. Ils sont en ligne." });
+    setMessage({ ok: true, texte: etat.annonce });
+    return true;
   };
 
   const traduireTout = async () => {
@@ -132,21 +145,19 @@ export default function EditeurMenus() {
       return;
     }
 
-    setLignes((l) =>
-      l
-        ? {
-            ...l,
-            semaine: { ...l.semaine, en: semaine.en, es: semaine.es },
-            jour: { ...l.jour, en: jour.en, es: jour.es },
-          }
-        : l,
-    );
-
-    setEnCours(null);
+    const apres = {
+      ...lignes,
+      semaine: { ...lignes.semaine, en: semaine.en, es: semaine.es },
+      jour: { ...lignes.jour, en: jour.en, es: jour.es },
+    };
+    setLignes(apres);
     setLangue("en");
-    setMessage({
-      ok: true,
-      texte: "Traductions proposées. Relisez-les, corrigez si besoin, puis publiez.",
+
+    // Enregistrement immediat : une traduction perdue par un rechargement,
+    // c'est dix secondes d'attente et un appel a l'API pour rien.
+    await enregistrer(["en", "es"], {
+      source: apres,
+      annonce: "Traductions enregistrées. Relisez-les et corrigez si besoin.",
     });
   };
 
@@ -206,9 +217,24 @@ export default function EditeurMenus() {
             {enCours === "traduction" && <Rouet />}
             {enCours === "traduction" ? "Traduction en cours…" : "Traduire depuis le français"}
           </button>
+          {langue !== "fr" && (
+            <button
+              type="button"
+              onClick={() =>
+                enregistrer([langue], {
+                  source: lignes,
+                  annonce: `Version ${LANGUES.find((l) => l.code === langue)?.nom} enregistrée.`,
+                })
+              }
+              disabled={enCours !== null}
+              className="cursor-pointer rounded-full border border-black/25 px-6 py-2 text-sm text-ink transition-colors hover:border-gold hover:text-gold disabled:opacity-50"
+            >
+              Enregistrer cette langue
+            </button>
+          )}
           <button
             type="button"
-            onClick={enregistrer}
+            onClick={() => enregistrer()}
             disabled={enCours !== null}
             className="flex cursor-pointer items-center gap-2 rounded-full bg-gold px-8 py-2 text-sm font-medium text-white transition-colors hover:bg-gold-dark disabled:opacity-50"
           >
@@ -234,6 +260,38 @@ export default function EditeurMenus() {
         >
           {message.texte}
         </p>
+      )}
+
+      <button
+        type="button"
+        onClick={() => setApercu((a) => !a)}
+        className="mt-6 cursor-pointer text-sm text-gold underline underline-offset-4"
+      >
+        {apercu ? "Masquer l’aperçu" : "Voir l’aperçu des trois langues"}
+      </button>
+
+      {/* Apercu du rendu reel : le meme composant que la page Restaurant, pour
+          qu'il ne puisse pas deriver de ce que verront les clients. */}
+      {apercu && lignes && (
+        <div className="mt-8 space-y-12 border-y border-black/10 bg-cream/60 py-10">
+          {LANGUES.map((l) => {
+            const semaine = (lignes.semaine[l.code] ?? lignes.semaine.fr) as MenuSemaine;
+            const jour = (lignes.jour[l.code] ?? lignes.jour.fr) as MenuJour;
+            const traduit = l.code === "fr" || lignes.semaine[l.code];
+
+            return (
+              <section key={l.code}>
+                <h3 className="px-6 text-sm tracking-wide text-muted uppercase">
+                  {l.nom}
+                  {!traduit && " — pas encore traduit, le français s’affichera"}
+                </h3>
+                <div className="mt-4 px-6">
+                  <CartesMenus semaine={semaine} jour={jour} ou={l.ou} />
+                </div>
+              </section>
+            );
+          })}
+        </div>
       )}
 
       {!lignes ? (
