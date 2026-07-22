@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { seo } from "@/data/seo";
-import { listerSlugs } from "@/lib/blog";
+import { ARTICLES_PAR_PAGE, listerSlugs } from "@/lib/blog";
 import { routing } from "@/i18n/routing";
 
 export const dynamic = "force-dynamic";
@@ -44,6 +44,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const route of routes) {
     const priorite = route === "/" ? 1 : route.startsWith("/politique") || route === "/mentions-legales" ? 0.3 : 0.8;
     ajouter(route, priorite, route === "/" ? "weekly" : "monthly");
+  }
+
+  /**
+   * Pages de liste au-delà de la première. Sans elles, les treize articles
+   * qui n'apparaissent pas sur /actualites ne reçoivent aucun lien interne :
+   * Google les découvre par le sitemap, mais sans le moindre appui du site.
+   */
+  const publies = articles.filter((a) => a.locale === routing.defaultLocale).length;
+  for (let page = 2; page <= Math.ceil(publies / ARTICLES_PAR_PAGE); page++) {
+    ajouter(`/actualites/${page}`, 0.4, "monthly");
   }
 
   // Articles du blog, à la racine comme sur WordPress

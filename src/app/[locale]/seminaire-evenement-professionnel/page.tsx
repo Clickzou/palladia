@@ -219,7 +219,9 @@ export default async function SeminairesPage({ params }: { params: Promise<{ loc
                     <div className="relative aspect-[3/2] w-full shrink-0 sm:w-[360px]">
                       <Image
                         src={image}
-                        alt=""
+                        // Le visuel illustre le point : sans description, un
+                        // lecteur d'ecran ne dit rien de ce qu'il montre.
+                        alt={point.titre}
                         fill
                         sizes="(max-width: 640px) 100vw, 360px"
                         className="object-cover"

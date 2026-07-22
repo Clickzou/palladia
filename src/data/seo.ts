@@ -144,6 +144,18 @@ export type RouteSeo = keyof typeof seo;
 export const ogLocale = (locale: string) =>
   ({ fr: "fr_FR", en: "en_GB", es: "es_ES" })[locale] ?? "fr_FR";
 
+/**
+ * Visuel affiche quand une page est partagee sur les reseaux ou messageries.
+ * Sans lui, le lien s'affiche en texte nu. Format 1200 × 630, celui qu'attendent
+ * Facebook, LinkedIn et X pour la grande carte.
+ */
+export const IMAGE_PARTAGE = {
+  url: `${SITE}/images/partage-hotel-palladia.jpg`,
+  width: 1200,
+  height: 630,
+  alt: "Le hall de l’Hôtel Palladia, hôtel 4 étoiles à Toulouse",
+} as const;
+
 export function metadonnees(route: RouteSeo, locale = "fr"): Metadata {
   const { titre, description } = seo[route];
   const chemin = route === "/" ? "" : route;
@@ -167,6 +179,7 @@ export function metadonnees(route: RouteSeo, locale = "fr"): Metadata {
       siteName: "Hôtel Palladia",
       locale: ogLocale(locale),
       type: "website",
+      images: [{ ...IMAGE_PARTAGE, alt: traduire(IMAGE_PARTAGE.alt, locale) }],
     },
   };
 }

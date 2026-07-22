@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { traduire } from "@/i18n/contenu";
-import { ogLocale } from "@/data/seo";
+import { IMAGE_PARTAGE, ogLocale } from "@/data/seo";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import PageHeader from "@/components/PageHeader";
@@ -42,6 +42,7 @@ export async function generateMetadata({
       siteName: "Hôtel Palladia",
       locale: ogLocale(locale),
       type: "website",
+      images: [{ ...IMAGE_PARTAGE, alt: traduire(IMAGE_PARTAGE.alt, locale) }],
     },
   };
 }
