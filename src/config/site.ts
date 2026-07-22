@@ -27,6 +27,8 @@ export const destinataires = {
     "commercial1@hotelpalladia.com",
     "commercial2@hotelpalladia.com",
   ],
+  /** Messages de la page Contact : accueil general, pas le service commercial */
+  contact: ["info@hotelpalladia.com"],
   /** Candidatures spontanees et reponses aux offres */
   recrutement: ["candidature@hotelpalladia.com"],
   /** Inscriptions a la lettre d'information */

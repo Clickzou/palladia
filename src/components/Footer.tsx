@@ -49,7 +49,7 @@ export default function Footer() {
             <ul className="space-y-2 text-white/85">
               <FooterLink href="/adelya">{t("carteFidelite")}</FooterLink>
               {/* La page Contact a ete supprimee : le lien mene au formulaire */}
-              <FooterLink href="/devis">{t("contact")}</FooterLink>
+              <FooterLink href="/contact">{t("contact")}</FooterLink>
               <FooterLink href="/recrutement">{t("recrutement")}</FooterLink>
               <FooterExtLink href={reserverEn(booking.rooms, locale)}>{t("resaChambre")}</FooterExtLink>
               <FooterExtLink href={booking.restaurant}>{t("resaRestaurant")}</FooterExtLink>

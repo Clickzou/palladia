@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BandeauCookies from "@/components/BandeauCookies";
 import PopupOffre from "@/components/PopupOffre";
+import Analytics from "@/components/Analytics";
 import { traduire } from "@/i18n/contenu";
 import { booking, reserverEn } from "@/config/site";
 import "../globals.css";
@@ -111,6 +112,7 @@ export default async function LocaleLayout({
               fermer: traduire("Fermer", locale),
             }}
           />
+          <Analytics id={process.env.NEXT_PUBLIC_GA_ID} />
         </NextIntlClientProvider>
       </body>
     </html>

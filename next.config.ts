@@ -21,11 +21,6 @@ const nextConfig: NextConfig = {
       { source: "/suite-junior-2", destination: "/suite-junior", permanent: true },
       { source: "/:locale(en|es)/suite-junior-2", destination: "/:locale/suite-junior", permanent: true },
 
-      // La page Contact est supprimee : son trafic et son referencement sont
-      // reportes sur le formulaire de demande, qui couvre les memes besoins.
-      { source: "/contact", destination: "/devis", permanent: true },
-      { source: "/:locale(en|es)/contact", destination: "/:locale/devis", permanent: true },
-
       // Le site en ligne redirige cet ancien article vers la page Seminaire :
       // son contenu y a ete repris, le garder ferait du contenu duplique.
       {

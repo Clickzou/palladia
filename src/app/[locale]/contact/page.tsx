@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { metadonnees } from "@/data/seo";
-import FormulaireDevis from "@/components/FormulaireDevis";
+import FormulaireContact from "@/components/FormulaireContact";
 import { site } from "@/config/site";
 import { traduire } from "@/i18n/contenu";
 import { IconMail, IconMap, IconPhone } from "@/components/icons";
@@ -12,20 +12,20 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return metadonnees("/devis", locale);
+  return metadonnees("/contact", locale);
 }
 
-/** `?type=mariage` ou `?type=salle_reunion` pré-oriente la demande. */
-export default async function DevisPage({
+/**
+ * Page Contact. Le WordPress en avait une, mais vide : aucun contenu, aucun
+ * formulaire. Elle sert ici aux demandes generales, quand /devis s'adresse au
+ * service commercial — d'ou deux destinataires differents.
+ */
+export default async function ContactPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ type?: string }>;
 }) {
   const { locale } = await params;
-  const { type } = await searchParams;
-  const types = ["salle_reunion", "mariage", "evenement_hybride", "reservation_groupe"];
   const t = (texte: string) => traduire(texte, locale);
 
   // Le formulaire est un composant client : ses libelles sont traduits ici,
@@ -36,17 +36,8 @@ export default async function DevisPage({
     prenom: t("Prénom"),
     telephone: t("Téléphone"),
     email: t("E-mail"),
-    entreprise: t("Entreprise"),
-    entreprisePlaceholder: t("Nom de votre entreprise"),
-    budget: t("Budget de l’événement"),
-    budgetPlaceholder: t("Quel est votre budget approximatif ?"),
-    dateEvenement: t("Date de l’événement"),
-    dateEvenementPlaceholder: t("Date souhaitée pour votre événement ?"),
-    dateFlexible: t("Date flexible ?"),
-    oui: t("Oui"),
-    non: t("Non"),
     message: t("Message"),
-    messagePlaceholder: t("Veuillez indiquer des informations complémentaires si nécessaire"),
+    messagePlaceholder: t("Votre question, votre demande…"),
     envoiEnCours: t("Envoi en cours…"),
     envoyer: t("Envoyer"),
   };
@@ -54,29 +45,17 @@ export default async function DevisPage({
   return (
     <>
       <header className="px-6 pt-16 pb-10 text-center">
-        <h1 className="section-title">{t("Demande de devis")}</h1>
+        <h1 className="section-title">{t("Contact")}</h1>
         <h2 className="mt-4 text-[22px] font-normal text-body uppercase">
-          {t("Pour vos séminaires, conférences, soirée d’entreprise & mariages")}
+          {t("Une question ? Notre équipe vous répond")}
         </h2>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
       </header>
 
-      <div className="px-6 pb-20">
-        <FormulaireDevis
-          type={type && types.includes(type) ? type : "autre"}
-          libelles={libelles}
-        />
-      </div>
-
-      {/* Coordonnees directes, pour qui cherche un numero plutot qu’un
-          formulaire. Les demandes generales passent par /contact. */}
-      <section className="bg-cream px-6 py-16 text-center">
-        <h2 className="font-display text-xl tracking-wide text-ink uppercase md:text-2xl">
-          {t("Une autre demande ? Contactez-nous directement")}
-        </h2>
-        <div className="mx-auto mt-5 h-px w-16 bg-gold" />
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-5 text-body">
+      {/* Coordonnees, avant le formulaire : beaucoup de visiteurs cherchent un
+          numero de telephone, pas un champ a remplir. */}
+      <section className="px-6 pb-14">
+        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-5 text-body">
           <a href={site.phoneHref} className="flex items-center gap-2 hover:text-gold">
             <IconPhone /> {site.phone}
           </a>
@@ -92,6 +71,28 @@ export default async function DevisPage({
             <IconMap /> {site.address}
           </a>
         </div>
+      </section>
+
+      <div className="px-6 pb-20">
+        <FormulaireContact libelles={libelles} />
+      </div>
+
+      {/* Renvoi vers le devis : une demande commerciale y est mieux traitee,
+          avec les champs budget et date que ce formulaire n'a pas. */}
+      <section className="bg-cream px-6 py-16 text-center">
+        <h2 className="font-display text-xl tracking-wide text-ink uppercase md:text-2xl">
+          {t("Un séminaire, un mariage, un événement ?")}
+        </h2>
+        <div className="mx-auto mt-5 h-px w-16 bg-gold" />
+        <p className="mt-8 text-body">
+          {t("Notre équipe commerciale établit votre devis sur mesure.")}
+        </p>
+        <a
+          href={locale === "fr" ? "/devis" : `/${locale}/devis`}
+          className="mt-8 inline-block rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
+        >
+          {t("Demande de devis")}
+        </a>
       </section>
     </>
   );

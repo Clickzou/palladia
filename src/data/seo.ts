@@ -111,6 +111,13 @@ export const seo = {
     description:
       "Séminaire, soirée entreprise, mariage ou journée d’étude, demandez un devis pour votre événement à l’Hôtel Palladia à Toulouse.",
   },
+  "/contact": {
+    // Le WordPress avait bien une page /contact, mais vide : titre et
+    // description sont repris de ses metadonnees, le contenu est nouveau.
+    titre: "Contactez Le Palladia 4*, Hôtel & Restaurant de Luxe à Toulouse",
+    description:
+      "Découvrez comment joindre Le Palladia, votre hôtel 4 étoiles et restaurant gourmet à Toulouse. Service client premium.",
+  },
   "/mentions-legales": {
     titre: "Mentions Légales du Palladia 4 étoiles - Luxe & Hospitalité",
     description:
