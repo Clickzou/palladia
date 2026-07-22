@@ -38,7 +38,21 @@ export default function BandeauCookies({ libelles }: { libelles: LibellesCookies
 
   useEffect(() => {
     // Affiché uniquement si aucun choix valide n'est enregistré
-    if (!lireConsentement()) setVisible(true);
+    const relire = () => {
+      const enregistre = lireConsentement();
+      setVisible(!enregistre);
+      // Le panneau détaillé repart des choix en cours, jamais de l'écran précédent.
+      if (!enregistre) {
+        setReglages(false);
+        setChoix(TOUT_REFUSER);
+      }
+    };
+
+    relire();
+    // « Gérer mes cookies », en pied de page, efface le choix : le bandeau doit
+    // revenir aussitôt, sans attendre un rechargement.
+    window.addEventListener("palladia:consentement", relire);
+    return () => window.removeEventListener("palladia:consentement", relire);
   }, []);
 
   const valider = (categories: Categories) => {

@@ -12,6 +12,23 @@ export const supabaseConfigure = Boolean(
 /** Nombre d’articles affichés par page de liste. */
 export const ARTICLES_PAR_PAGE = 6;
 
+/**
+ * Langue effectivement stockée en base pour une langue demandée.
+ *
+ * Les articles ne sont écrits qu’en français : leur traduction se fait à
+ * l’affichage, par le dictionnaire. Interroger la base en `en` ne remontait
+ * rien, et la page Actualités s’affichait vide dans les deux autres langues.
+ */
+async function langueDisponible(supabase: Awaited<ReturnType<typeof createClient>>, locale: string) {
+  if (locale === "fr") return "fr";
+  const { count } = await supabase
+    .from("articles")
+    .select("id", { count: "exact", head: true })
+    .eq("locale", locale)
+    .eq("statut", "publie");
+  return count ? locale : "fr";
+}
+
 /** Liste des articles publiés d’une langue, du plus récent au plus ancien. */
 export async function listerArticles(locale: string): Promise<Article[]> {
   if (!supabaseConfigure) return [];
@@ -19,7 +36,7 @@ export async function listerArticles(locale: string): Promise<Article[]> {
   const { data, error } = await supabase
     .from("articles")
     .select("*")
-    .eq("locale", locale)
+    .eq("locale", await langueDisponible(supabase, locale))
     .eq("statut", "publie")
     .order("position", { ascending: true, nullsFirst: false })
     .order("date_publication", { ascending: false });
@@ -47,7 +64,7 @@ export async function listerArticlesPagines(
   const { data, count, error } = await supabase
     .from("articles")
     .select("*", { count: "exact" })
-    .eq("locale", locale)
+    .eq("locale", await langueDisponible(supabase, locale))
     .eq("statut", "publie")
     // `position` fixe l’ordre voulu par l’hotel ; les articles qui n’en ont
     // pas sont classes ensuite, du plus recent au plus ancien.
