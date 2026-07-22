@@ -97,7 +97,9 @@ export const politiqueConfidentialite = {
       titre: "13- Transfert des données personnelles à l’étranger",
       paragraphes: [
         "**Pas de transfert en dehors de l’Union européenne** L’Éditeur s’engage à ne pas transférer les données personnelles de ses Utilisateurs en dehors de l’Union européenne.",
-        "https://www.cnil.fr/fr/la-protection-des-donnees-dans-le-mondehttps://www.cnil.fr/fr/la-protectiondes-donnees-dans-le-monde",
+        // Le site WordPress collait deux fois la meme adresse bout a bout, ce
+        // qui rendait le lien inutilisable. Corrige a la demande du client.
+        "https://www.cnil.fr/fr/la-protection-des-donnees-dans-le-monde",
       ],
     },
     {
