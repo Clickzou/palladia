@@ -66,7 +66,12 @@ export async function traduireMenu(
       }
 
       const { content } = await rep.json();
-      const texte: string = content?.[0]?.text ?? "";
+      // La reponse peut contenir plusieurs blocs — le modele raisonne avant de
+      // repondre. Prendre le premier renvoyait sa reflexion, pas sa reponse.
+      const texte: string =
+        (content as { type: string; text?: string }[] | undefined)?.find((b) => b.type === "text")
+          ?.text ?? "";
+      if (!texte) return { ...resultat, erreur: "Réponse de traduction vide." };
       // Le modele encadre parfois sa reponse d'un bloc de code.
       const json = texte.replace(/^```(?:json)?\s*|\s*```$/g, "").trim();
       resultat[langue] = JSON.parse(json);
