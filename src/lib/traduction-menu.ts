@@ -37,9 +37,8 @@ export async function traduireMenu(
   const cle = process.env.ANTHROPIC_API_KEY;
   if (!cle) return { erreur: "La clé de traduction n’est pas configurée (ANTHROPIC_API_KEY)." };
 
-  const resultat: ResultatTraduction = {};
-
-  for (const langue of langues) {
+  /** Une langue, traduite. Renvoie le menu obtenu ou la raison de l'echec. */
+  const traduireVers = async (langue: keyof typeof LANGUES) => {
     try {
       const rep = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
@@ -62,7 +61,8 @@ export async function traduireMenu(
       });
 
       if (!rep.ok) {
-        return { ...resultat, erreur: `Traduction refusée (${rep.status}) : ${await rep.text()}` };
+        const detail = (await rep.text()).slice(0, 200);
+        return { langue, erreur: `Traduction refusée (${rep.status}) : ${detail}` };
       }
 
       const { content } = await rep.json();
@@ -71,17 +71,28 @@ export async function traduireMenu(
       const texte: string =
         (content as { type: string; text?: string }[] | undefined)?.find((b) => b.type === "text")
           ?.text ?? "";
-      if (!texte) return { ...resultat, erreur: "Réponse de traduction vide." };
+      if (!texte) return { langue, erreur: "La traduction est revenue vide." };
+
       // Le modele encadre parfois sa reponse d'un bloc de code.
       const json = texte.replace(/^```(?:json)?\s*|\s*```$/g, "").trim();
-      resultat[langue] = JSON.parse(json);
+      return { langue, menu: JSON.parse(json) };
     } catch (e) {
       return {
-        ...resultat,
+        langue,
         erreur: `Traduction impossible : ${e instanceof Error ? e.message : String(e)}`,
       };
     }
-  }
+  };
+
+  // Les langues partent de front : enchainer les appels faisait attendre une
+  // demi-minute pour quatre traductions.
+  const essais = await Promise.all(langues.map(traduireVers));
+
+  const resultat: ResultatTraduction = {};
+  for (const e of essais) if ("menu" in e) resultat[e.langue] = e.menu;
+
+  const rate = essais.find((e) => "erreur" in e);
+  if (rate) return { ...resultat, erreur: (rate as { erreur: string }).erreur };
 
   return resultat;
 }

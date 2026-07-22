@@ -17,6 +17,22 @@ const LANGUES: { code: Langue; nom: string }[] = [
   { code: "es", nom: "Español" },
 ];
 
+/** Indicateur d'attente : la traduction prend une dizaine de secondes. */
+function Rouet() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-4 animate-spin" aria-hidden>
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="3" opacity="0.25" />
+      <path
+        d="M21 12a9 9 0 0 0-9-9"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 /**
  * Tableau de bord des menus du restaurant.
  *
@@ -91,15 +107,40 @@ export default function EditeurMenus() {
     setEnCours("traduction");
     setMessage(null);
 
-    for (const cle of ["semaine", "jour"] as const) {
-      const r = await traduire(lignes[cle].fr);
-      if (r.erreur) {
-        setMessage({ ok: false, texte: r.erreur });
-        setEnCours(null);
-        return;
-      }
-      setLignes((l) => (l ? { ...l, [cle]: { ...l[cle], en: r.en, es: r.es } } : l));
+    // Les deux menus partent ensemble : quatre traductions enchainees, c'etait
+    // une demi-minute d'attente devant un formulaire fige.
+    const [semaine, jour] = await Promise.all([
+      traduire(lignes.semaine.fr),
+      traduire(lignes.jour.fr),
+    ]);
+
+    const rate = semaine.erreur ?? jour.erreur;
+    if (rate) {
+      setMessage({ ok: false, texte: rate });
+      setEnCours(null);
+      return;
     }
+
+    // Une reponse sans erreur mais sans traduction laissait croire au succes,
+    // et le formulaire retombait sur le français sans rien dire.
+    if (!semaine.en || !semaine.es || !jour.en || !jour.es) {
+      setMessage({
+        ok: false,
+        texte: "La traduction n’a rien renvoyé. Réessayez ; si cela persiste, prévenez Clickzou.",
+      });
+      setEnCours(null);
+      return;
+    }
+
+    setLignes((l) =>
+      l
+        ? {
+            ...l,
+            semaine: { ...l.semaine, en: semaine.en, es: semaine.es },
+            jour: { ...l.jour, en: jour.en, es: jour.es },
+          }
+        : l,
+    );
 
     setEnCours(null);
     setLangue("en");
@@ -160,16 +201,18 @@ export default function EditeurMenus() {
             type="button"
             onClick={traduireTout}
             disabled={enCours !== null}
-            className="cursor-pointer rounded-full border border-gold px-6 py-2 text-sm text-gold transition-colors hover:bg-gold hover:text-white disabled:opacity-50"
+            className="flex cursor-pointer items-center gap-2 rounded-full border border-gold px-6 py-2 text-sm text-gold transition-colors hover:bg-gold hover:text-white disabled:opacity-50"
           >
+            {enCours === "traduction" && <Rouet />}
             {enCours === "traduction" ? "Traduction en cours…" : "Traduire depuis le français"}
           </button>
           <button
             type="button"
             onClick={enregistrer}
             disabled={enCours !== null}
-            className="cursor-pointer rounded-full bg-gold px-8 py-2 text-sm font-medium text-white transition-colors hover:bg-gold-dark disabled:opacity-50"
+            className="flex cursor-pointer items-center gap-2 rounded-full bg-gold px-8 py-2 text-sm font-medium text-white transition-colors hover:bg-gold-dark disabled:opacity-50"
           >
+            {enCours === "enregistrement" && <Rouet />}
             {enCours === "enregistrement" ? "Publication…" : "Publier"}
           </button>
         </span>
