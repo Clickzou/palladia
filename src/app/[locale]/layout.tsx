@@ -6,7 +6,20 @@ import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BandeauCookies from "@/components/BandeauCookies";
+import PopupOffre from "@/components/PopupOffre";
+import { traduire } from "@/i18n/contenu";
 import "../globals.css";
+
+/**
+ * Offre mise en avant a l'arrivee sur le site. Le visuel porte l'offre
+ * elle-meme : seuls le bouton et les textes de substitution sont traduits.
+ * Passe `jusquAu`, la fenetre ne s'ouvre plus.
+ */
+const OFFRE_ETE = {
+  image: "/images/journee-hotel-piscine-scaled.jpg",
+  lien: "https://reservations.verticalbooking.com/premium/index.html?id_albergo=12425&dc=5376&lingua_int=fra&id_stile=19042",
+  jusquAu: "2026-08-31",
+};
 
 /* Polices du site d’origine : Spinnaker pour les titres, Roboto pour le texte. */
 const spinnaker = Spinnaker({
@@ -42,6 +55,8 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
 
+  const t = (texte: string) => traduire(texte, locale);
+
   return (
     <html lang={locale} className={`${spinnaker.variable} ${roboto.variable}`}>
       <body className="antialiased">
@@ -49,7 +64,52 @@ export default async function LocaleLayout({
           <Header />
           <main>{children}</main>
           <Footer />
-          <BandeauCookies />
+          <BandeauCookies
+            libelles={{
+              titre: t("Votre vie privée"),
+              texte: t(
+                "Nous utilisons des cookies pour mesurer l’audience du site et afficher certains contenus externes. Vous pouvez les accepter, les refuser, ou choisir précisément.",
+              ),
+              enSavoirPlus: t("En savoir plus"),
+              legende: t("Catégories de cookies"),
+              toutAccepter: t("Tout accepter"),
+              toutRefuser: t("Tout refuser"),
+              personnaliser: t("Personnaliser"),
+              enregistrer: t("Enregistrer mes choix"),
+              toujoursActifs: t("(toujours actifs)"),
+              categories: [
+                {
+                  titre: t("Nécessaires"),
+                  detail: t(
+                    "Indispensables au fonctionnement du site : navigation, préférence de langue, envoi des formulaires. Toujours actifs.",
+                  ),
+                },
+                {
+                  titre: t("Statistiques"),
+                  detail: t(
+                    "Mesure d’audience anonyme : pages consultées, provenance des visiteurs. Nous aide à améliorer le site.",
+                  ),
+                },
+                {
+                  titre: t("Contenus externes"),
+                  detail: t(
+                    "Vidéos YouTube et cartes intégrées. Sans votre accord, elles sont remplacées par une image cliquable.",
+                  ),
+                },
+              ],
+            }}
+          />
+          <PopupOffre
+            offre={{
+              ...OFFRE_ETE,
+              alt: traduire(
+                "Offre été : les pieds dans l’eau, la tête en vacances — chambre confort de 10h à 18h à 99 € TTC, glaces ou softs offerts, du 3 juillet au 31 août 2026",
+                locale,
+              ),
+              libelleBouton: traduire("Voir l’offre", locale),
+              fermer: traduire("Fermer", locale),
+            }}
+          />
         </NextIntlClientProvider>
       </body>
     </html>
