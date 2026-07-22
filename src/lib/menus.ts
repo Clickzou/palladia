@@ -2,7 +2,7 @@ import { createClient } from "./supabase/server";
 import { supabaseConfigure } from "./blog";
 import { restaurant } from "@/data/restaurant";
 
-/** Menu de la semaine : trois services, chacun avec ses choix. */
+/** Menu de la semaine : des parties — Entrée, Plat, Dessert… — et leurs choix. */
 export type MenuSemaine = {
   titre: string;
   sections: { titre: string; choix: string[] }[];
@@ -29,7 +29,11 @@ const SECOURS: Menus = {
 };
 
 /**
- * Menus du restaurant dans la langue demandee.
+ * Menus affiches sur le site, dans la langue demandee.
+ *
+ * On prend, pour chaque menu, la version la plus recente dont la date d'effet
+ * est passee : c'est la lecture qui decide, aucune tache planifiee n'a besoin
+ * de tourner pour qu'une carte programmee paraisse a l'heure dite.
  *
  * Deux filets de securite : sans traduction enregistree on sert le français,
  * et sans base joignable on sert la version du code. La carte d'un restaurant
@@ -39,7 +43,12 @@ export async function lireMenus(locale: string): Promise<Menus> {
   if (!supabaseConfigure) return SECOURS;
 
   const supabase = await createClient();
-  const { data, error } = await supabase.from("menus").select("cle, fr, en, es");
+  const { data, error } = await supabase
+    .from("menus_versions")
+    .select("cle, fr, en, es, publie_le")
+    .not("publie_le", "is", null)
+    .lte("publie_le", new Date().toISOString())
+    .order("publie_le", { ascending: false });
 
   if (error || !data?.length) {
     if (error) console.error("Lecture des menus impossible :", error.message);
@@ -49,8 +58,12 @@ export async function lireMenus(locale: string): Promise<Menus> {
   const choisir = (ligne: Record<string, unknown>) =>
     (locale !== "fr" ? (ligne[locale] as unknown) : null) ?? ligne.fr;
 
-  const semaine = data.find((l) => l.cle === "semaine");
-  const jour = data.find((l) => l.cle === "jour");
+  // Les versions arrivent de la plus recente a la plus ancienne : la premiere
+  // rencontree pour un menu est celle qui doit s'afficher.
+  const derniere = (cle: string) => data.find((l) => l.cle === cle);
+
+  const semaine = derniere("semaine");
+  const jour = derniere("jour");
 
   return {
     semaine: semaine ? (choisir(semaine) as MenuSemaine) : SECOURS.semaine,

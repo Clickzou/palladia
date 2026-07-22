@@ -4,19 +4,30 @@ import { useCallback, useEffect, useState } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
 import type { MenuJour, MenuSemaine } from "@/lib/menus";
+import {
+  annulerProgrammation,
+  enregistrerBrouillon,
+  lireEtat,
+  publierBrouillon,
+  type Cle,
+  type Etat,
+  type Langue,
+} from "@/lib/brouillon-menus";
 import { traduire } from "@/app/[locale]/adminpclickzou/actions";
 import Connexion from "./Connexion";
 import { ChampsJour, ChampsSemaine } from "./ChampsMenu";
 import CartesMenus from "@/components/restaurant/CartesMenus";
-
-type Ligne = { cle: "semaine" | "jour"; fr: unknown; en: unknown; es: unknown; modifie_le: string };
-type Langue = "fr" | "en" | "es";
 
 const LANGUES: { code: Langue; nom: string; ou: string }[] = [
   { code: "fr", nom: "Français", ou: "ou" },
   { code: "en", nom: "English", ou: "or" },
   { code: "es", nom: "Español", ou: "o" },
 ];
+
+const CLES: Cle[] = ["semaine", "jour"];
+
+const dateLisible = (iso: string) =>
+  new Date(iso).toLocaleString("fr-FR", { dateStyle: "long", timeStyle: "short" });
 
 /** Indicateur d'attente : la traduction prend une dizaine de secondes. */
 function Rouet() {
@@ -37,19 +48,23 @@ function Rouet() {
 /**
  * Tableau de bord des menus du restaurant.
  *
+ * On travaille sur un brouillon : traduire, corriger, enregistrer autant qu'on
+ * veut sans que rien ne change sur le site. « Publier » fait basculer ce
+ * brouillon en ligne, tout de suite ou a la date choisie.
+ *
  * Le français fait foi : c'est lui qu'on saisit, et c'est de lui que partent
  * les traductions. Les versions anglaise et espagnole restent modifiables —
- * une traduction automatique se trompe sur un nom de plat, et on doit pouvoir
- * la corriger sans attendre.
+ * une traduction automatique se trompe sur un nom de plat.
  */
 export default function EditeurMenus() {
   const [supabase] = useState(() => createClient());
   const [session, setSession] = useState<Session | null | undefined>(undefined);
-  const [lignes, setLignes] = useState<Record<string, Ligne> | null>(null);
+  const [etat, setEtat] = useState<Etat | null>(null);
   const [langue, setLangue] = useState<Langue>("fr");
   const [message, setMessage] = useState<{ ok: boolean; texte: string } | null>(null);
   const [enCours, setEnCours] = useState<string | null>(null);
   const [apercu, setApercu] = useState(false);
+  const [quand, setQuand] = useState("");
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -58,12 +73,12 @@ export default function EditeurMenus() {
   }, [supabase]);
 
   const charger = useCallback(async () => {
-    const { data, error } = await supabase.from("menus").select("cle, fr, en, es, modifie_le");
-    if (error) {
-      setMessage({ ok: false, texte: `Lecture impossible : ${error.message}` });
+    const r = await lireEtat(supabase);
+    if ("erreur" in r) {
+      setMessage({ ok: false, texte: r.erreur });
       return;
     }
-    setLignes(Object.fromEntries((data as Ligne[]).map((l) => [l.cle, l])));
+    setEtat(r);
   }, [supabase]);
 
   useEffect(() => {
@@ -73,58 +88,35 @@ export default function EditeurMenus() {
   if (session === undefined) return null;
   if (!session) return <Connexion supabase={supabase} />;
 
-  const majMenu = (cle: "semaine" | "jour", valeur: unknown) =>
-    setLignes((l) => (l ? { ...l, [cle]: { ...l[cle], [langue]: valeur } } : l));
+  const majMenu = (cle: Cle, valeur: unknown) =>
+    setEtat((e) =>
+      e ? { ...e, brouillon: { ...e.brouillon, [cle]: { ...e.brouillon[cle], [langue]: valeur } } } : e,
+    );
 
   /** Version affichée : la langue choisie, ou le français si rien n'existe encore. */
-  const valeur = (cle: "semaine" | "jour") =>
-    (lignes?.[cle]?.[langue] ?? lignes?.[cle]?.fr) as MenuSemaine | MenuJour | undefined;
+  const valeur = (cle: Cle) =>
+    (etat?.brouillon[cle]?.[langue] ?? etat?.brouillon[cle]?.fr) as MenuSemaine | MenuJour;
 
-  /**
-   * Ecrit les menus. Sans precision, les trois langues ; sinon celles
-   * demandees seulement — corriger l'anglais ne doit pas obliger a republier
-   * le reste.
-   */
-  const enregistrer = async (
-    quoi: Langue[] = ["fr", "en", "es"],
-    etat = { source: lignes, annonce: "Menus publiés. Ils sont en ligne." },
-  ) => {
-    const donnees = etat.source;
-    if (!donnees) return false;
-
+  const enregistrer = async (quoi: Langue[], annonce: string, source = etat) => {
+    if (!source) return;
     setEnCours("enregistrement");
     setMessage(null);
 
-    for (const cle of ["semaine", "jour"] as const) {
-      const l = donnees[cle];
-      const champs: Record<string, unknown> = { modifie_par: session.user.id };
-      for (const langue of quoi) champs[langue] = l[langue];
-
-      const { error } = await supabase.from("menus").update(champs).eq("cle", cle);
-
-      if (error) {
-        setMessage({ ok: false, texte: `Enregistrement refusé : ${error.message}` });
-        setEnCours(null);
-        return false;
-      }
-    }
-
-    await charger();
+    const erreur = await enregistrerBrouillon(supabase, source.brouillon, quoi, session.user.id);
     setEnCours(null);
-    setMessage({ ok: true, texte: etat.annonce });
-    return true;
+    setMessage(erreur ? { ok: false, texte: erreur } : { ok: true, texte: annonce });
   };
 
   const traduireTout = async () => {
-    if (!lignes) return;
+    if (!etat) return;
     setEnCours("traduction");
     setMessage(null);
 
     // Les deux menus partent ensemble : quatre traductions enchainees, c'etait
     // une demi-minute d'attente devant un formulaire fige.
     const [semaine, jour] = await Promise.all([
-      traduire(lignes.semaine.fr),
-      traduire(lignes.jour.fr),
+      traduire(etat.brouillon.semaine.fr),
+      traduire(etat.brouillon.jour.fr),
     ]);
 
     const rate = semaine.erreur ?? jour.erreur;
@@ -145,25 +137,71 @@ export default function EditeurMenus() {
       return;
     }
 
-    const apres = {
-      ...lignes,
-      semaine: { ...lignes.semaine, en: semaine.en, es: semaine.es },
-      jour: { ...lignes.jour, en: jour.en, es: jour.es },
+    const apres: Etat = {
+      ...etat,
+      brouillon: {
+        semaine: { ...etat.brouillon.semaine, en: semaine.en, es: semaine.es },
+        jour: { ...etat.brouillon.jour, en: jour.en, es: jour.es },
+      },
     };
-    setLignes(apres);
+    setEtat(apres);
     setLangue("en");
 
-    // Enregistrement immediat : une traduction perdue par un rechargement,
-    // c'est dix secondes d'attente et un appel a l'API pour rien.
-    //
-    // Le français part avec : les traductions viennent de lui, l'enregistrer
-    // plus tard laisserait le site afficher l'ancienne carte en français et la
-    // nouvelle en anglais.
-    await enregistrer(["fr", "en", "es"], {
-      source: apres,
-      annonce: "Traductions enregistrées. Relisez-les et corrigez si besoin.",
+    // Enregistre dans le brouillon, donc invisible du public : dix secondes
+    // d'attente perdues par un rechargement, ce serait dommage.
+    await enregistrer(
+      ["fr", "en", "es"],
+      "Traductions enregistrées dans le brouillon. Relisez-les avant de publier.",
+      apres,
+    );
+  };
+
+  const publier = async (immediat: boolean) => {
+    if (!etat) return;
+
+    const date = immediat ? new Date() : new Date(quand);
+    if (!immediat && (!quand || Number.isNaN(date.getTime()))) {
+      setMessage({ ok: false, texte: "Choisissez une date et une heure de publication." });
+      return;
+    }
+    if (!immediat && date.getTime() <= Date.now()) {
+      setMessage({ ok: false, texte: "La date de publication doit être dans le futur." });
+      return;
+    }
+
+    setEnCours("publication");
+    setMessage(null);
+
+    const erreur = await publierBrouillon(supabase, etat.brouillon, date, session.user.id);
+    if (erreur) {
+      setMessage({ ok: false, texte: erreur });
+      setEnCours(null);
+      return;
+    }
+
+    await charger();
+    setQuand("");
+    setEnCours(null);
+    setMessage({
+      ok: true,
+      texte: immediat
+        ? "Menus publiés. Ils sont en ligne."
+        : `Publication programmée pour le ${dateLisible(date.toISOString())}.`,
     });
   };
+
+  const annuler = async () => {
+    if (!etat?.programme?.publie_le) return;
+    setEnCours("annulation");
+    const erreur = await annulerProgrammation(supabase, etat.programme.publie_le);
+    await charger();
+    setEnCours(null);
+    setMessage(
+      erreur ? { ok: false, texte: erreur } : { ok: true, texte: "Publication programmée annulée." },
+    );
+  };
+
+  const occupe = enCours !== null;
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-14">
@@ -176,13 +214,9 @@ export default function EditeurMenus() {
       <header className="mt-4 flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="section-title">Menus du restaurant</h1>
-          {lignes?.semaine && (
+          {etat?.enLigne.semaine?.publie_le && (
             <p className="mt-2 text-sm text-muted">
-              Dernière modification le{" "}
-              {new Date(lignes.semaine.modifie_le).toLocaleString("fr-FR", {
-                dateStyle: "long",
-                timeStyle: "short",
-              })}
+              En ligne depuis le {dateLisible(etat.enLigne.semaine.publie_le)}
             </p>
           )}
         </div>
@@ -194,6 +228,25 @@ export default function EditeurMenus() {
           Se déconnecter
         </button>
       </header>
+
+      <p className="mt-6 border-l-2 border-gold bg-cream px-4 py-3 text-sm text-body">
+        Vous travaillez sur un <strong>brouillon</strong>. Rien de ce que vous saisissez ici n’est
+        visible par vos clients tant que vous n’avez pas publié.
+      </p>
+
+      {etat?.programme?.publie_le && (
+        <p className="mt-3 flex flex-wrap items-center gap-3 border-l-2 border-[#a33] bg-[#fdeaea] px-4 py-3 text-sm text-ink">
+          Une version paraîtra le {dateLisible(etat.programme.publie_le)}.
+          <button
+            type="button"
+            onClick={annuler}
+            disabled={occupe}
+            className="cursor-pointer underline underline-offset-4 hover:text-[#a33] disabled:opacity-50"
+          >
+            Annuler cette programmation
+          </button>
+        </p>
+      )}
 
       <div className="mt-8 flex flex-wrap items-center gap-3">
         {LANGUES.map((l) => (
@@ -211,39 +264,30 @@ export default function EditeurMenus() {
           </button>
         ))}
 
-        <span className="ml-auto flex gap-3">
+        <span className="ml-auto flex flex-wrap gap-3">
           <button
             type="button"
             onClick={traduireTout}
-            disabled={enCours !== null}
+            disabled={occupe}
             className="flex cursor-pointer items-center gap-2 rounded-full border border-gold px-6 py-2 text-sm text-gold transition-colors hover:bg-gold hover:text-white disabled:opacity-50"
           >
             {enCours === "traduction" && <Rouet />}
             {enCours === "traduction" ? "Traduction en cours…" : "Traduire depuis le français"}
           </button>
-          {langue !== "fr" && (
-            <button
-              type="button"
-              onClick={() =>
-                enregistrer([langue], {
-                  source: lignes,
-                  annonce: `Version ${LANGUES.find((l) => l.code === langue)?.nom} enregistrée.`,
-                })
-              }
-              disabled={enCours !== null}
-              className="cursor-pointer rounded-full border border-black/25 px-6 py-2 text-sm text-ink transition-colors hover:border-gold hover:text-gold disabled:opacity-50"
-            >
-              Enregistrer cette langue
-            </button>
-          )}
+
           <button
             type="button"
-            onClick={() => enregistrer()}
-            disabled={enCours !== null}
-            className="flex cursor-pointer items-center gap-2 rounded-full bg-gold px-8 py-2 text-sm font-medium text-white transition-colors hover:bg-gold-dark disabled:opacity-50"
+            onClick={() =>
+              enregistrer(
+                langue === "fr" ? ["fr"] : [langue],
+                `Version ${LANGUES.find((l) => l.code === langue)?.nom} enregistrée dans le brouillon.`,
+              )
+            }
+            disabled={occupe}
+            className="flex cursor-pointer items-center gap-2 rounded-full border border-black/25 px-6 py-2 text-sm text-ink transition-colors hover:border-gold hover:text-gold disabled:opacity-50"
           >
             {enCours === "enregistrement" && <Rouet />}
-            {enCours === "enregistrement" ? "Publication…" : "Publier"}
+            Enregistrer cette langue
           </button>
         </span>
       </div>
@@ -258,9 +302,7 @@ export default function EditeurMenus() {
       {message && (
         <p
           role={message.ok ? "status" : "alert"}
-          className={`mt-4 px-4 py-3 ${
-            message.ok ? "bg-cream text-ink" : "bg-[#fdeaea] text-[#a33]"
-          }`}
+          className={`mt-4 px-4 py-3 ${message.ok ? "bg-cream text-ink" : "bg-[#fdeaea] text-[#a33]"}`}
         >
           {message.texte}
         </p>
@@ -276,13 +318,10 @@ export default function EditeurMenus() {
 
       {/* Apercu du rendu reel : le meme composant que la page Restaurant, pour
           qu'il ne puisse pas deriver de ce que verront les clients. */}
-      {apercu && lignes && (
+      {apercu && etat && (
         <div className="mt-8 space-y-12 border-y border-black/10 bg-cream/60 py-10">
           {LANGUES.map((l) => {
-            const semaine = (lignes.semaine[l.code] ?? lignes.semaine.fr) as MenuSemaine;
-            const jour = (lignes.jour[l.code] ?? lignes.jour.fr) as MenuJour;
-            const traduit = l.code === "fr" || lignes.semaine[l.code];
-
+            const traduit = l.code === "fr" || etat.brouillon.semaine[l.code];
             return (
               <section key={l.code}>
                 <h3 className="px-6 text-sm tracking-wide text-muted uppercase">
@@ -290,7 +329,13 @@ export default function EditeurMenus() {
                   {!traduit && " — pas encore traduit, le français s’affichera"}
                 </h3>
                 <div className="mt-4 px-6">
-                  <CartesMenus semaine={semaine} jour={jour} ou={l.ou} />
+                  <CartesMenus
+                    semaine={
+                      (etat.brouillon.semaine[l.code] ?? etat.brouillon.semaine.fr) as MenuSemaine
+                    }
+                    jour={(etat.brouillon.jour[l.code] ?? etat.brouillon.jour.fr) as MenuJour}
+                    ou={l.ou}
+                  />
                 </div>
               </section>
             );
@@ -298,27 +343,73 @@ export default function EditeurMenus() {
         </div>
       )}
 
-      {!lignes ? (
+      {!etat ? (
         <p className="mt-12 text-muted">Chargement…</p>
       ) : (
-        <div className="mt-12 space-y-16">
-          <section>
-            <h2 className="titre-moyen text-ink">Menu de la semaine</h2>
-            <div className="mt-6">
-              <ChampsSemaine
-                menu={valeur("semaine") as MenuSemaine}
-                onChange={(m) => majMenu("semaine", m)}
-              />
-            </div>
-          </section>
+        <>
+          <div className="mt-12 space-y-16">
+            <section>
+              <h2 className="titre-moyen text-ink">Menu de la semaine</h2>
+              <div className="mt-6">
+                <ChampsSemaine
+                  menu={valeur("semaine") as MenuSemaine}
+                  onChange={(m) => majMenu("semaine", m)}
+                />
+              </div>
+            </section>
 
-          <section>
-            <h2 className="titre-moyen text-ink">Menu du jour</h2>
-            <div className="mt-6">
-              <ChampsJour menu={valeur("jour") as MenuJour} onChange={(m) => majMenu("jour", m)} />
+            <section>
+              <h2 className="titre-moyen text-ink">Menu du jour</h2>
+              <div className="mt-6">
+                <ChampsJour menu={valeur("jour") as MenuJour} onChange={(m) => majMenu("jour", m)} />
+              </div>
+            </section>
+          </div>
+
+          {/* Publication : la seule action qui rend le travail visible. */}
+          <section className="mt-16 border-t border-black/10 pt-10">
+            <h2 className="titre-moyen text-ink">Publier</h2>
+            <p className="mt-3 text-body">
+              Les trois langues partent ensemble. Pensez à enregistrer vos corrections avant.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-end gap-4">
+              <button
+                type="button"
+                onClick={() => publier(true)}
+                disabled={occupe}
+                className="flex cursor-pointer items-center gap-2 rounded-full bg-gold px-10 py-3 font-medium text-white transition-colors hover:bg-gold-dark disabled:opacity-50"
+              >
+                {enCours === "publication" && <Rouet />}
+                Publier maintenant
+              </button>
+
+              <span className="text-muted">ou</span>
+
+              <div>
+                <label className="block text-sm text-muted" htmlFor="quand">
+                  Programmer pour
+                </label>
+                <input
+                  id="quand"
+                  type="datetime-local"
+                  value={quand}
+                  onChange={(e) => setQuand(e.target.value)}
+                  className="mt-1 border border-black/20 bg-white px-3 py-2.5 text-body outline-none focus:border-gold"
+                />
+              </div>
+
+              <button
+                type="button"
+                onClick={() => publier(false)}
+                disabled={occupe || !quand}
+                className="cursor-pointer rounded-full border border-gold px-8 py-3 font-medium text-gold transition-colors hover:bg-gold hover:text-white disabled:opacity-50"
+              >
+                Programmer
+              </button>
             </div>
           </section>
-        </div>
+        </>
       )}
     </div>
   );

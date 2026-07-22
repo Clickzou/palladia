@@ -1,5 +1,7 @@
 /**
- * Verifie qu'un visiteur anonyme peut lire les menus mais pas les modifier.
+ * Verifie ce qu'un visiteur anonyme peut faire des menus : lire ce qui est en
+ * ligne, rien d'autre. Ni les brouillons, ni la carte programmee, ni la
+ * moindre ecriture.
  *
  * Le controle porte sur la donnee, jamais sur le code de retour : quand une
  * politique RLS ecarte une ligne, la mise a jour ne correspond a rien et
@@ -22,45 +24,58 @@ const cle = env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const entetes = { apikey: cle, Authorization: `Bearer ${cle}`, "Content-Type": "application/json" };
 
 const lire = async () =>
-  (await (await fetch(`${url}/rest/v1/menus?select=cle,fr`, { headers: entetes })).json());
+  await (
+    await fetch(`${url}/rest/v1/menus_versions?select=id,cle,fr,publie_le`, { headers: entetes })
+  ).json();
+
+let defauts = 0;
 
 const avant = await lire();
 if (!Array.isArray(avant) || !avant.length) {
-  console.error("Les menus sont illisibles anonymement — la page publique ne s’affichera pas.");
+  console.error("✗ Les menus sont illisibles anonymement — la page publique ne s’affichera pas.");
   process.exit(1);
 }
-console.log(`✓ lecture anonyme : ${avant.length} menus visibles`);
+console.log(`✓ lecture anonyme : ${avant.length} version(s) visible(s)`);
 
-/* Tentative d'ecriture, avec une valeur qu'on saurait reconnaitre. */
+/* Aucune version non encore effective ne doit filtrer : ni brouillon, ni
+   carte programmee pour la semaine prochaine. */
+const maintenant = Date.now();
+const fuite = avant.filter((v) => !v.publie_le || Date.parse(v.publie_le) > maintenant);
+if (fuite.length) {
+  defauts++;
+  console.error(`✗ ${fuite.length} version(s) non publiee(s) visible(s) du public`);
+} else {
+  console.log("✓ brouillons et versions programmees invisibles");
+}
+
+/* Tentative d'ecriture sur une version en ligne. */
 const TEMOIN = "TENTATIVE NON AUTORISEE";
-await fetch(`${url}/rest/v1/menus?cle=eq.jour`, {
+const cible = avant[0];
+await fetch(`${url}/rest/v1/menus_versions?id=eq.${cible.id}`, {
   method: "PATCH",
   headers: { ...entetes, Prefer: "return=minimal" },
   body: JSON.stringify({ fr: { titre: TEMOIN } }),
 }).catch(() => {});
 
 const apres = await lire();
-const touche = apres.find((l) => l.cle === "jour")?.fr?.titre === TEMOIN;
-
-if (touche) {
-  console.error(
-    "\n✗ FAILLE : un visiteur anonyme a modifie les menus.\n" +
-      "  Verifiez la politique d’update sur public.menus (elle doit viser `authenticated`)\n" +
-      "  et que les inscriptions publiques sont fermees dans Supabase.",
-  );
-  process.exit(1);
+if (apres.find((v) => v.id === cible.id)?.fr?.titre === TEMOIN) {
+  defauts++;
+  console.error("✗ FAILLE : un visiteur anonyme a modifie un menu en ligne.");
+} else {
+  console.log("✓ ecriture anonyme sans effet");
 }
 
-console.log("✓ ecriture anonyme sans effet : les menus sont proteges");
-
-/* Tentative d'insertion : aucune politique ne l'autorise, meme authentifie. */
-const insertion = await fetch(`${url}/rest/v1/menus`, {
+/* Insertion : aucune politique ne l'autorise a l'anonyme. */
+const insertion = await fetch(`${url}/rest/v1/menus_versions`, {
   method: "POST",
   headers: entetes,
-  body: JSON.stringify({ cle: "semaine", fr: { titre: TEMOIN } }),
+  body: JSON.stringify({ cle: "semaine", fr: { titre: TEMOIN }, publie_le: new Date().toISOString() }),
 });
-console.log(
-  insertion.status >= 400
-    ? "✓ insertion anonyme refusee"
-    : `✗ insertion anonyme acceptee (${insertion.status}) — a corriger`,
-);
+if (insertion.status < 400) {
+  defauts++;
+  console.error(`✗ insertion anonyme acceptee (${insertion.status})`);
+} else {
+  console.log("✓ insertion anonyme refusee");
+}
+
+process.exit(defauts ? 1 : 0);
