@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { traduire, traduireContenu } from "@/i18n/contenu";
+import { lireMenus } from "@/lib/menus";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { booking } from "@/config/site";
@@ -22,6 +23,9 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
   const { locale } = await params;
   const r = traduireContenu(rFr, locale);
   const t = (texte: string) => traduire(texte, locale);
+  // Les deux menus changent chaque semaine : ils viennent de la base, ou
+  // l'hotel les modifie depuis /admin, et non du dictionnaire.
+  const menus = await lireMenus(locale);
 
   return (
     <>
@@ -101,40 +105,40 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
           {/* Menu de la semaine. Le site titre chaque service en h4 doré 19 px
               et regroupe ses options dans un seul paragraphe, separees par « ou ». */}
           <article className="bg-white px-8 py-12 text-center shadow-sm">
-            <h2 className="titre-moyen text-ink">{r.menuSemaine.titre}</h2>
-            {r.menuSemaine.sections.map((s) => (
+            <h2 className="titre-moyen text-ink">{menus.semaine.titre}</h2>
+            {menus.semaine.sections.map((s) => (
               <div key={s.titre} className="mt-8">
                 <h4 className="titre-mini">{s.titre}</h4>
                 <p className="mt-3 whitespace-pre-line text-body">{s.choix.join(`\n${t("ou")}\n`)}</p>
               </div>
             ))}
-            <p className="mt-10 text-sm text-muted italic">{r.menuSemaine.note}</p>
+            <p className="mt-10 text-sm text-muted italic">{menus.semaine.note}</p>
           </article>
 
           {/* Menu du jour */}
           <article className="bg-white px-8 py-12 text-center shadow-sm">
-            <h2 className="titre-moyen text-ink">{r.menuJour.titre}</h2>
-            <h4 className="titre-mini mt-2">{r.menuJour.sousTitre}</h4>
+            <h2 className="titre-moyen text-ink">{menus.jour.titre}</h2>
+            <h4 className="titre-mini mt-2">{menus.jour.sousTitre}</h4>
 
-            <p className="mt-8 text-body">{r.menuJour.intro}</p>
-            {r.menuJour.formules.map((f) => (
+            <p className="mt-8 text-body">{menus.jour.intro}</p>
+            {menus.jour.formules.map((f) => (
               <div key={f.prix} className="mt-4">
                 <h4 className="titre-mini">{f.prix}</h4>
                 <p className="mt-1 text-body">{f.detail.replace(/\*\*/g, "")}</p>
               </div>
             ))}
 
-            <p className="mt-8 text-body">{r.menuJour.tarifsTitre}</p>
+            <p className="mt-8 text-body">{menus.jour.tarifsTitre}</p>
             <div className="mt-3 space-y-1 text-body">
-              {r.menuJour.tarifs.map((t) => (
+              {menus.jour.tarifs.map((t) => (
                 <p key={t}>{t}</p>
               ))}
             </div>
 
             <div className="mt-10 border-t border-black/10 pt-8">
-              <h4 className="titre-mini">{r.menuJour.enfant.titre}</h4>
-              <h4 className="titre-mini mt-4">{r.menuJour.enfant.prix}</h4>
-              <p className="mt-1 text-body">{r.menuJour.enfant.detail}</p>
+              <h4 className="titre-mini">{menus.jour.enfant.titre}</h4>
+              <h4 className="titre-mini mt-4">{menus.jour.enfant.prix}</h4>
+              <p className="mt-1 text-body">{menus.jour.enfant.detail}</p>
             </div>
           </article>
         </div>
