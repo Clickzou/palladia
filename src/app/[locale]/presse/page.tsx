@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
@@ -19,10 +19,11 @@ export async function generateMetadata({
 export default async function PressePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const presse = traduireContenu(presseFr, locale);
+  const t = (texte: string) => traduire(texte, locale);
 
   return (
     <>
-      <PageHeader breadcrumb="Presse" title={presse.title} subtitle={presse.subtitle} />
+      <PageHeader breadcrumb={t("Presse")} title={presse.title} subtitle={presse.subtitle} />
 
       <section className="grid gap-6 px-6 pb-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:px-[100px]">
         {presse.articles.map((a) => (
@@ -53,7 +54,7 @@ export default async function PressePage({ params }: { params: Promise<{ locale:
               rel="noopener"
               className="mt-6 self-center rounded-full bg-gold px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-gold-dark"
             >
-              Voir l’article
+              {t("Voir l’article")}
               <span className="sr-only"> : {a.titre}</span>
             </a>
           </article>
@@ -62,9 +63,9 @@ export default async function PressePage({ params }: { params: Promise<{ locale:
 
       {/* Instagram */}
       <section className="px-6 pb-24 text-center">
-        <h2 className="section-title">Sur Instagram</h2>
+        <h2 className="section-title">{t("Sur Instagram")}</h2>
         <h3 className="mt-4 font-normal tracking-wide text-ink-soft uppercase">
-          Nos dernières publications sur Instagram
+          {t("Nos dernières publications sur Instagram")}
         </h3>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
         <a
@@ -73,7 +74,7 @@ export default async function PressePage({ params }: { params: Promise<{ locale:
           rel="noopener"
           className="mt-10 inline-block rounded-full bg-[#d6336c] px-10 py-4 font-medium text-white transition-opacity hover:opacity-90"
         >
-          Suivez-nous sur Instagram
+          {t("Suivez-nous sur Instagram")}
         </a>
       </section>
     </>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { metadonnees } from "@/data/seo";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import PageLegale from "@/components/PageLegale";
 import { mentionsLegales as mFr } from "@/data/mentions-legales";
 
@@ -17,14 +17,15 @@ export async function generateMetadata({
 export default async function MentionsLegalesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const m = traduireContenu(mFr, locale);
+  const t = (texte: string) => traduire(texte, locale);
 
   return (
     <PageLegale
-      breadcrumb="Mentions légales"
+      breadcrumb={t("Mentions légales")}
       titre={m.titre}
       enTete={m.editeur}
       sections={[
-        { titre: "Informations complémentaires", paragraphes: m.complements },
+        { titre: t("Informations complémentaires"), paragraphes: m.complements },
         ...m.sections,
         { titre: m.rgpdTitre, paragraphes: [] },
         ...m.rgpd,

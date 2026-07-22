@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { traduire } from "@/i18n/contenu";
+import { ogLocale } from "@/data/seo";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import PageHeader from "@/components/PageHeader";
@@ -31,6 +32,17 @@ export async function generateMetadata({
         "x-default": `${SITE}${CHEMIN}`,
       },
     },
+    openGraph: {
+      title: traduire("Dîners & Spectacles à Toulouse - Le Palladia hôtel 4 étoiles", locale),
+      description: traduire(
+        "Partagez un moment convivial à l’Hôtel Palladia : humour, théâtre, concerts et musique classique accompagnés d’un dîner gastronomique.",
+        locale,
+      ),
+      url: locale === "fr" ? `${SITE}${CHEMIN}` : `${SITE}/${locale}${CHEMIN}`,
+      siteName: "Hôtel Palladia",
+      locale: ogLocale(locale),
+      type: "website",
+    },
   };
 }
 
@@ -40,14 +52,22 @@ export default async function DinerSpectaclesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const evenements = await prochainsEvenements();
+  // Le titre d’un spectacle est un nom propre : seules les mentions
+  // pratiques (« Dîner : 19h30 · Spectacle : 21h00 ») passent au dictionnaire.
+  const evenements = (await prochainsEvenements()).map((e) => ({
+    ...e,
+    sous_titre: e.sous_titre && traduire(e.sous_titre, locale),
+    lieu: e.lieu && traduire(e.lieu, locale),
+    description: e.description && traduire(e.description, locale),
+  }));
+  const t = (texte: string) => traduire(texte, locale);
 
   return (
     <>
       <PageHeader
-        breadcrumb="Dîner & Spectacle"
-        title="Dîners & Spectacle"
-        subtitle="Partagez un moment convivial à l’Hôtel Palladia"
+        breadcrumb={t("Dîner & Spectacle")}
+        title={t("Dîners & Spectacle")}
+        subtitle={t("Partagez un moment convivial à l’Hôtel Palladia")}
       />
 
       {/* Affiches des prochaines dates */}
@@ -80,7 +100,7 @@ export default async function DinerSpectaclesPage({
       )}
 
       <p className="px-6 pb-12 text-center tracking-wide text-ink-soft uppercase">
-        Ambiance assurée !
+        {t("Ambiance assurée !")}
       </p>
 
       {/* Programmation */}
@@ -88,16 +108,16 @@ export default async function DinerSpectaclesPage({
         {evenements.length === 0 ? (
           <div className="border border-gold/40 bg-cream px-8 py-14 text-center">
             <p className="text-lg text-ink">
-              La programmation de la prochaine saison est en préparation.
+              {t("La programmation de la prochaine saison est en préparation.")}
             </p>
             <p className="mt-3 text-body">
-              Contactez-nous pour être informé des prochaines dates.
+              {t("Contactez-nous pour être informé des prochaines dates.")}
             </p>
             <Link
               href="/devis"
               className="mt-8 inline-block rounded-full bg-gold px-9 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
             >
-              Nous contacter
+              {t("Nous contacter")}
             </Link>
           </div>
         ) : (
@@ -117,7 +137,7 @@ export default async function DinerSpectaclesPage({
                     rel="noopener"
                     className="mt-4 inline-block text-gold underline underline-offset-4 hover:text-gold-dark"
                   >
-                    Réserver ma place
+                    {t("Réserver ma place")}
                   </a>
                 )}
               </li>
@@ -128,7 +148,7 @@ export default async function DinerSpectaclesPage({
 
       {/* Reservation */}
       <section className="px-6 pb-20 text-center">
-        <h2 className="titre-mini text-ink-soft">Réservation</h2>
+        <h2 className="titre-mini text-ink-soft">{t("Réservation")}</h2>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <a
             href={booking.restaurant}
@@ -136,13 +156,13 @@ export default async function DinerSpectaclesPage({
             rel="noopener"
             className="rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
           >
-            Réservation
+            {t("Réservation")}
           </a>
           <Link
             href="/devis"
             className="rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
           >
-            Infos groupes
+            {t("Infos groupes")}
           </Link>
         </div>
       </section>

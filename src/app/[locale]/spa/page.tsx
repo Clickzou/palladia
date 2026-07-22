@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import { booking } from "@/config/site";
 import { spa as spaFr } from "@/data/spa";
@@ -19,10 +19,11 @@ export async function generateMetadata({
 export default async function SpaPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const spa = traduireContenu(spaFr, locale);
+  const t = (texte: string) => traduire(texte, locale);
 
   return (
     <>
-      <PageHeader breadcrumb="Spa" title={spa.title} subtitle={spa.subtitle} />
+      <PageHeader breadcrumb={t("Spa")} title={spa.title} subtitle={spa.subtitle} />
 
       <p className="mx-auto max-w-4xl px-6 pb-14 text-center leading-relaxed text-body">
         {spa.intro}
@@ -35,7 +36,7 @@ export default async function SpaPage({ params }: { params: Promise<{ locale: st
         <p className="leading-relaxed text-body">{spa.presentation}</p>
 
         <h2 className="mt-10 font-semibold tracking-wide text-ink uppercase">
-          Horaires d’ouverture :
+          {t("Horaires d’ouverture :")}
         </h2>
         <p className="mt-4 leading-relaxed text-body">
           {spa.horaires.join(", ")}.
@@ -56,7 +57,7 @@ export default async function SpaPage({ params }: { params: Promise<{ locale: st
             rel="noopener"
             className="rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
           >
-            Offres Clients Hôtel
+            {t("Offres Clients Hôtel")}
           </a>
           <a
             href={booking.spa}
@@ -64,7 +65,7 @@ export default async function SpaPage({ params }: { params: Promise<{ locale: st
             rel="noopener"
             className="rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
           >
-            Prestations Proposées
+            {t("Prestations Proposées")}
           </a>
         </div>
       </section>
@@ -99,8 +100,8 @@ export default async function SpaPage({ params }: { params: Promise<{ locale: st
               rel="noopener"
               className="mx-auto mt-8 rounded-full bg-gold px-9 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
             >
-              Réserver
-              <span className="sr-only"> le {f.nom}</span>
+              {t("Réserver")}
+              <span className="sr-only"> {t("le")} {f.nom}</span>
             </a>
           </article>
         ))}

@@ -8,7 +8,38 @@ const CHAMP =
   "w-full border border-black/20 bg-white px-4 py-3 text-body outline-none transition-colors focus:border-gold";
 const LABEL = "block text-sm text-ink";
 
-export default function FormulaireDevis({ type = "autre" }: { type?: string }) {
+/**
+ * Libelles deja traduits, fournis par la page : ce composant s'execute cote
+ * client et ne peut donc pas appeler `traduire` lui-meme.
+ */
+export type LibellesDevis = {
+  piege: string;
+  nom: string;
+  prenom: string;
+  telephone: string;
+  email: string;
+  entreprise: string;
+  entreprisePlaceholder: string;
+  budget: string;
+  budgetPlaceholder: string;
+  dateEvenement: string;
+  dateEvenementPlaceholder: string;
+  dateFlexible: string;
+  oui: string;
+  non: string;
+  message: string;
+  messagePlaceholder: string;
+  envoiEnCours: string;
+  envoyer: string;
+};
+
+export default function FormulaireDevis({
+  type = "autre",
+  libelles: l,
+}: {
+  type?: string;
+  libelles: LibellesDevis;
+}) {
   const locale = useLocale();
   const [etat, action, enCours] = useActionState<EtatDevis, FormData>(envoyerDevis, null);
 
@@ -31,63 +62,64 @@ export default function FormulaireDevis({ type = "autre" }: { type?: string }) {
       {/* Piège à robots, invisible et ignoré des lecteurs d’écran */}
       <div aria-hidden className="absolute left-[-9999px]">
         <label>
-          Ne pas remplir
+          {l.piege}
           <input type="text" name="site_web" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         <div>
-          <label className={LABEL} htmlFor="nom">Nom</label>
-          <input id="nom" name="nom" required placeholder="Nom" className={`mt-2 ${CHAMP}`} />
+          <label className={LABEL} htmlFor="nom">{l.nom}</label>
+          <input id="nom" name="nom" required placeholder={l.nom} className={`mt-2 ${CHAMP}`} />
         </div>
         <div>
-          <label className={LABEL} htmlFor="prenom">Prénom</label>
-          <input id="prenom" name="prenom" required placeholder="Prénom" className={`mt-2 ${CHAMP}`} />
-        </div>
-
-        <div>
-          <label className={LABEL} htmlFor="telephone">Téléphone</label>
-          <input id="telephone" name="telephone" type="tel" placeholder="Téléphone" className={`mt-2 ${CHAMP}`} />
-        </div>
-        <div>
-          <label className={LABEL} htmlFor="email">E-mail</label>
-          <input id="email" name="email" type="email" required placeholder="E-mail" className={`mt-2 ${CHAMP}`} />
+          <label className={LABEL} htmlFor="prenom">{l.prenom}</label>
+          <input id="prenom" name="prenom" required placeholder={l.prenom} className={`mt-2 ${CHAMP}`} />
         </div>
 
         <div>
-          <label className={LABEL} htmlFor="entreprise">Entreprise</label>
-          <input id="entreprise" name="entreprise" placeholder="Nom de votre entreprise" className={`mt-2 ${CHAMP}`} />
+          <label className={LABEL} htmlFor="telephone">{l.telephone}</label>
+          <input id="telephone" name="telephone" type="tel" placeholder={l.telephone} className={`mt-2 ${CHAMP}`} />
         </div>
         <div>
-          <label className={LABEL} htmlFor="budget">Budget de l’événement</label>
-          <input id="budget" name="budget" placeholder="Quel est votre budget approximatif ?" className={`mt-2 ${CHAMP}`} />
+          <label className={LABEL} htmlFor="email">{l.email}</label>
+          <input id="email" name="email" type="email" required placeholder={l.email} className={`mt-2 ${CHAMP}`} />
         </div>
 
         <div>
-          <label className={LABEL} htmlFor="date_evenement">Date de l’événement</label>
+          <label className={LABEL} htmlFor="entreprise">{l.entreprise}</label>
+          <input id="entreprise" name="entreprise" placeholder={l.entreprisePlaceholder} className={`mt-2 ${CHAMP}`} />
+        </div>
+        <div>
+          <label className={LABEL} htmlFor="budget">{l.budget}</label>
+          <input id="budget" name="budget" placeholder={l.budgetPlaceholder} className={`mt-2 ${CHAMP}`} />
+        </div>
+
+        <div>
+          <label className={LABEL} htmlFor="date_evenement">{l.dateEvenement}</label>
           <input
             id="date_evenement"
             name="date_evenement"
-            placeholder="Date souhaitée pour votre événement ?"
+            placeholder={l.dateEvenementPlaceholder}
             className={`mt-2 ${CHAMP}`}
           />
         </div>
         <div>
-          <label className={LABEL} htmlFor="date_flexible">Date flexible ?</label>
+          <label className={LABEL} htmlFor="date_flexible">{l.dateFlexible}</label>
+          {/* Les valeurs envoyees restent en français : c'est l'e-mail interne qui les lit. */}
           <select id="date_flexible" name="date_flexible" defaultValue="Oui" className={`mt-2 ${CHAMP}`}>
-            <option>Oui</option>
-            <option>Non</option>
+            <option value="Oui">{l.oui}</option>
+            <option value="Non">{l.non}</option>
           </select>
         </div>
 
         <div className="md:col-span-2">
-          <label className={LABEL} htmlFor="message">Message</label>
+          <label className={LABEL} htmlFor="message">{l.message}</label>
           <textarea
             id="message"
             name="message"
             rows={6}
-            placeholder="Veuillez indiquer des informations complémentaires si nécessaire"
+            placeholder={l.messagePlaceholder}
             className={`mt-2 ${CHAMP}`}
           />
         </div>
@@ -104,7 +136,7 @@ export default function FormulaireDevis({ type = "autre" }: { type?: string }) {
         disabled={enCours}
         className="mt-8 rounded-md bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark disabled:opacity-60"
       >
-        {enCours ? "Envoi en cours…" : "Envoyer"}
+        {enCours ? l.envoiEnCours : l.envoyer}
       </button>
     </form>
   );

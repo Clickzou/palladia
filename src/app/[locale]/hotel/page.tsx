@@ -5,7 +5,7 @@ import PageHeader from "@/components/PageHeader";
 import PhotoGrid from "@/components/PhotoGrid";
 import { booking } from "@/config/site";
 import { hotel as hotelFr } from "@/data/hotel";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import { PICTOS_SERVICES } from "@/components/icons-services";
 
 /** Titre et description dans la langue de la page, avec les alternatives hreflang. */
@@ -29,6 +29,7 @@ function Picto({ nom, className = "" }: { nom: string; className?: string }) {
 export default async function HotelPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const hotel = traduireContenu(hotelFr, locale);
+  const t = (texte: string) => traduire(texte, locale);
 
   // L’accessibilite PMR est presentee seule, centree, en fin de liste.
   const services = hotel.services.filter((s) => s.icone !== "pmr");
@@ -36,7 +37,7 @@ export default async function HotelPage({ params }: { params: Promise<{ locale: 
 
   return (
     <>
-      <PageHeader breadcrumb="Hôtel" title={hotel.title} subtitle={hotel.subtitle} />
+      <PageHeader breadcrumb={t("Hôtel")} title={hotel.title} subtitle={hotel.subtitle} />
 
       <p className="mx-auto max-w-4xl px-6 pb-14 text-center font-semibold text-ink">
         {hotel.chapo}
@@ -73,7 +74,7 @@ export default async function HotelPage({ params }: { params: Promise<{ locale: 
             playsInline
             preload="metadata"
             poster="/images/hotel/vue-4.jpg"
-            aria-label="Présentation en vidéo de l’Hôtel Palladia"
+            aria-label={t("Présentation en vidéo de l’Hôtel Palladia")}
           >
             <source src="/videos/hotel-presentation.mp4" type="video/mp4" />
           </video>
@@ -112,7 +113,7 @@ export default async function HotelPage({ params }: { params: Promise<{ locale: 
       <section className="bg-cream px-6 py-14">
         <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-6 sm:flex-row">
           <h2 className="titre-mini text-ink">
-            Préparez votre séjour
+            {t("Préparez votre séjour")}
           </h2>
           <a
             href={booking.premium}
@@ -120,7 +121,7 @@ export default async function HotelPage({ params }: { params: Promise<{ locale: 
             rel="noopener"
             className="rounded-md bg-gold px-8 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
           >
-            Réservez au meilleur prix
+            {t("Réservez au meilleur prix")}
           </a>
         </div>
       </section>

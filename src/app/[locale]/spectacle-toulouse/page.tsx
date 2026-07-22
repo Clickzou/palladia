@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { metadonnees } from "@/data/seo";
+import { traduire } from "@/i18n/contenu";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { booking } from "@/config/site";
@@ -21,23 +22,33 @@ export default async function SpectaclesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const evenements = await prochainsEvenements();
+  // Le titre d’un spectacle est un nom propre : seules les mentions
+  // pratiques (« Dîner : 19h30 · Spectacle : 21h00 ») passent au dictionnaire.
+  const evenements = (await prochainsEvenements()).map((e) => ({
+    ...e,
+    sous_titre: e.sous_titre && traduire(e.sous_titre, locale),
+    lieu: e.lieu && traduire(e.lieu, locale),
+    description: e.description && traduire(e.description, locale),
+  }));
+  const t = (texte: string) => traduire(texte, locale);
 
   return (
     <>
       <header className="px-6 pt-16 pb-10 text-center">
-        <h1 className="section-title">Nos spectacles au Palladia</h1>
+        <h1 className="section-title">{t("Nos spectacles au Palladia")}</h1>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
         <h2 className="mt-8 font-semibold tracking-wide text-ink uppercase">
-          Concert de musique classique, théâtre, jazz, dîner &amp; spectacle, brunchs
+          {t("Concert de musique classique, théâtre, jazz, dîner & spectacle, brunchs")}
         </h2>
         <p className="mx-auto mt-6 max-w-3xl text-body">
-          L’hôtel Palladia, s’inscrit dans l’air du temps et met la culture à l’honneur en
-          proposant une programmation riche et éclectique.
+          {t(
+            "L’hôtel Palladia, s’inscrit dans l’air du temps et met la culture à l’honneur en proposant une programmation riche et éclectique.",
+          )}
         </p>
         <p className="mx-auto mt-4 max-w-3xl text-body">
-          Pour cette saison artistique, évadez-vous vers des horizons très marqués entre
-          concerts, spectacles et théâtre.
+          {t(
+            "Pour cette saison artistique, évadez-vous vers des horizons très marqués entre concerts, spectacles et théâtre.",
+          )}
         </p>
       </header>
 
@@ -45,13 +56,13 @@ export default async function SpectaclesPage({
         {evenements.length === 0 ? (
           <div className="border border-gold/40 bg-cream px-8 py-16 text-center">
             <p className="text-lg text-ink">
-              La programmation de la prochaine saison est en préparation.
+              {t("La programmation de la prochaine saison est en préparation.")}
             </p>
             <Link
               href="/devis"
               className="mt-8 inline-block rounded-full bg-gold px-9 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
             >
-              Être informé des prochaines dates
+              {t("Être informé des prochaines dates")}
             </Link>
           </div>
         ) : (
@@ -91,7 +102,7 @@ export default async function SpectaclesPage({
                   rel="noopener"
                   className="mx-auto mt-8 rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
                 >
-                  Plus d’infos / Réservez
+                  {t("Plus d’infos / Réservez")}
                 </a>
               </div>
             </article>

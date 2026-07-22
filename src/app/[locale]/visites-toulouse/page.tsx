@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { metadonnees } from "@/data/seo";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import Faq from "@/components/Faq";
 import { tourisme as tFr } from "@/data/tourisme";
 
@@ -27,6 +27,8 @@ function EnGras({ texte }: { texte: string }) {
 export default async function TourismePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = traduireContenu(tFr, locale);
+  // `t` porte deja les donnees de la page : les libelles ecrits ici passent par `tr`.
+  const tr = (texte: string) => traduire(texte, locale);
 
   return (
     <>
@@ -45,12 +47,12 @@ export default async function TourismePage({ params }: { params: Promise<{ local
       {/* Carte interactive uMap */}
       <section className="bg-cream py-14">
         <h2 className="px-6 text-center text-lg font-semibold tracking-wide text-ink uppercase md:text-xl">
-          📖 Carte interactive des lieux incontournables à Toulouse
+          {tr("📖 Carte interactive des lieux incontournables à Toulouse")}
         </h2>
         <div className="mt-10">
           <iframe
             src={t.carteUrl}
-            title="Carte des points d’intérêt à Toulouse proches de l’Hôtel Palladia"
+            title={tr("Carte des points d’intérêt à Toulouse proches de l’Hôtel Palladia")}
             loading="lazy"
             className="h-[70vh] min-h-[420px] w-full border-0"
           />
@@ -62,7 +64,7 @@ export default async function TourismePage({ params }: { params: Promise<{ local
             rel="noopener"
             className="text-[#8b3a3a] underline underline-offset-4 hover:text-gold"
           >
-            Voir en plein écran
+            {tr("Voir en plein écran")}
           </a>
         </p>
       </section>
@@ -70,7 +72,7 @@ export default async function TourismePage({ params }: { params: Promise<{ local
       {/* Liste des lieux */}
       <section className="px-6 py-20">
         <h2 className="text-center text-lg font-semibold tracking-wide text-ink uppercase md:text-xl">
-          Liste des lieux incontournables à Toulouse
+          {tr("Liste des lieux incontournables à Toulouse")}
         </h2>
 
         <ul className="mx-auto mt-14 grid max-w-[1500px] gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -91,7 +93,7 @@ export default async function TourismePage({ params }: { params: Promise<{ local
                 rel="noopener"
                 className="mt-6 self-center rounded-full bg-gold px-7 py-2.5 text-sm font-medium text-white underline-offset-2 transition-colors hover:bg-gold-dark"
               >
-                Découvrir
+                {tr("Découvrir")}
                 <span className="sr-only"> {lieu.nom}</span>
               </a>
             </li>
@@ -102,7 +104,7 @@ export default async function TourismePage({ params }: { params: Promise<{ local
       {/* FAQ */}
       <section className="bg-cream px-6 py-20">
         <h2 className="mb-12 text-center text-lg font-semibold tracking-wide text-ink uppercase md:text-xl">
-          🙋 FAQ – Visiter Toulouse depuis l’Hôtel Palladia
+          {tr("🙋 FAQ – Visiter Toulouse depuis l’Hôtel Palladia")}
         </h2>
         <Faq items={t.faq} />
       </section>

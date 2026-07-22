@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { metadonnees } from "@/data/seo";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import { recrutement as rFr } from "@/data/recrutement";
 
 /** Titre et description dans la langue de la page, avec les alternatives hreflang. */
@@ -16,6 +16,7 @@ export async function generateMetadata({
 export default async function RecrutementPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const r = traduireContenu(rFr, locale);
+  const t = (texte: string) => traduire(texte, locale);
 
   return (
     <>
@@ -33,7 +34,7 @@ export default async function RecrutementPage({ params }: { params: Promise<{ lo
             <h2 className="text-lg font-semibold text-ink">{offre.poste}</h2>
             <p className="mt-5 leading-relaxed text-body">{offre.accroche}</p>
 
-            <h3 className="mt-8 text-body">Responsabilités :</h3>
+            <h3 className="mt-8 text-body">{t("Responsabilités :")}</h3>
             <ul className="mt-3 space-y-2 text-body">
               {offre.responsabilites.map((item) => (
                 <li key={item}>– {item}</li>
@@ -48,7 +49,7 @@ export default async function RecrutementPage({ params }: { params: Promise<{ lo
           </article>
         ))}
 
-        <p className="mt-12 font-semibold text-ink">📥 Envoyez votre candidature à :</p>
+        <p className="mt-12 font-semibold text-ink">{t("📥 Envoyez votre candidature à :")}</p>
         <p className="mt-2">
           👉{" "}
           <a

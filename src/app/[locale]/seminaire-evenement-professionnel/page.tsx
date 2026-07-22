@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -21,11 +21,12 @@ export async function generateMetadata({
 export default async function SeminairesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const s = traduireContenu(sFr, locale);
+  const t = (texte: string) => traduire(texte, locale);
 
   return (
     <>
       <PageHeader
-        breadcrumb="Séminaire événement professionnel"
+        breadcrumb={t("Séminaire événement professionnel")}
         title={s.title}
         subtitle={s.subtitle}
       />
@@ -45,7 +46,7 @@ export default async function SeminairesPage({ params }: { params: Promise<{ loc
             href="/devis"
             className="mt-10 inline-block rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
           >
-            Demandez un devis
+            {t("Demandez un devis")}
           </Link>
         </div>
 
@@ -61,7 +62,7 @@ export default async function SeminairesPage({ params }: { params: Promise<{ loc
 
       {/* Fiches techniques des salons */}
       <section className="px-3 pb-20">
-        <h2 className="titre-section">Fiches techniques de nos salons</h2>
+        <h2 className="titre-section">{t("Fiches techniques de nos salons")}</h2>
         <p className="mt-4 text-center tracking-wide text-ink-soft uppercase">{s.subtitle}</p>
         <div className="mx-auto mt-6 mb-14 h-px w-20 bg-gold" />
 
@@ -86,7 +87,7 @@ export default async function SeminairesPage({ params }: { params: Promise<{ loc
               <div className="relative aspect-[1024/474]">
                 <Image
                   src={salon.image}
-                  alt={`Salon ${salon.nom} de l’Hôtel Palladia`}
+                  alt={`${t("Salon")} ${salon.nom} ${t("de l’Hôtel Palladia")}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
@@ -102,19 +103,21 @@ export default async function SeminairesPage({ params }: { params: Promise<{ loc
 
       {/* Tableau des capacités */}
       <section className="px-6 pb-20">
-        <h2 className="titre-section">Résumé capacités des salles</h2>
+        <h2 className="titre-section">{t("Résumé capacités des salles")}</h2>
         <div className="mx-auto mt-6 mb-12 h-px w-20 bg-gold" />
 
         <div className="mx-auto max-w-5xl overflow-x-auto">
           <table className="w-full min-w-3xl border-collapse text-center">
             <caption className="sr-only">
-              Capacité d’accueil de chaque salle selon la configuration
+              {t("Capacité d’accueil de chaque salle selon la configuration")}
             </caption>
             <thead>
               <tr className="bg-ink-soft text-white">
                 <th scope="col" className="px-4 py-4 text-left font-semibold">
-                  Capacité des salles
-                  <span className="block text-xs font-normal opacity-80">Suivant le placement</span>
+                  {t("Capacité des salles")}
+                  <span className="block text-xs font-normal opacity-80">
+                    {t("Suivant le placement")}
+                  </span>
                 </th>
                 {s.configurations.map((c) => (
                   <th key={c} scope="col" className="px-3 py-4 text-sm font-medium">
@@ -148,7 +151,7 @@ export default async function SeminairesPage({ params }: { params: Promise<{ loc
             href="/devis"
             className="inline-block rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
           >
-            Demande de Devis Séminaire
+            {t("Demande de Devis Séminaire")}
           </Link>
         </div>
       </section>
@@ -254,7 +257,7 @@ export default async function SeminairesPage({ params }: { params: Promise<{ loc
       {/* FAQ */}
       <section className="bg-cream px-6 py-20">
         <h2 className="mb-12 text-center font-display text-2xl tracking-wide text-ink md:text-3xl">
-          🙋 FAQ séminaire Toulouse
+          {t("🙋 FAQ séminaire Toulouse")}
         </h2>
         <Faq items={s.faq} />
       </section>

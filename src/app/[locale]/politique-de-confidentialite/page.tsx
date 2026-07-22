@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { metadonnees } from "@/data/seo";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import PageLegale from "@/components/PageLegale";
 import { politiqueConfidentialite as pFr } from "@/data/politique-confidentialite";
 
@@ -20,7 +20,7 @@ export default async function ConfidentialitePage({ params }: { params: Promise<
 
   return (
     <PageLegale
-      breadcrumb="Politique de confidentialité"
+      breadcrumb={traduire("Politique de confidentialité", locale)}
       titre={p.titre}
       sections={p.sections}
     />

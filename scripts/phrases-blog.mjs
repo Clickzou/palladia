@@ -1,7 +1,7 @@
 /**
  * Liste les phrases des articles de blog qui n'ont pas encore de traduction.
  *
- * Les articles vivent dans Supabase, pas dans src/data : phrases-a-traduire.mjs
+ * Les articles vivent dans Supabase, pas dans src/data : phrases-donnees.mjs
  * ne les voit donc pas. Comme la page d'article passe son contenu par
  * traduireContenu(), il suffit d'alimenter le dictionnaire — aucune ligne
  * traduite n'est a inserer en base.
@@ -53,7 +53,7 @@ const phrases = new Map(); // texte -> slugs qui l'emploient
 const collecter = (v, slug) => {
   if (typeof v === "string") {
     const t = v.trim();
-    if (!t || t.length > 1200) return;
+    if (!t || t.length > 6000) return;
     if (/^(https?:|mailto:|tel:|\/|#)/.test(t)) return;
     if (/\.(jpe?g|png|webp|avif|pdf|svg|mp4)$/i.test(t)) return;
     if (!/[a-zàâçéèêëîïôûùüÿñæœ]/i.test(t)) return;

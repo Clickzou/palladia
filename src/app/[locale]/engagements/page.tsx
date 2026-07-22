@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
+import { traduire } from "@/i18n/contenu";
 
 /** Titre et description dans la langue de la page, avec les alternatives hreflang. */
 export async function generateMetadata({
@@ -13,19 +14,26 @@ export async function generateMetadata({
   return metadonnees("/engagements", locale);
 }
 
-export default function EngagementsPage() {
+export default async function EngagementsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = (texte: string) => traduire(texte, locale);
+
   return (
     <>
-      <PageHeader breadcrumb="Engagements" title="Engagements" />
+      <PageHeader breadcrumb={t("Engagements")} title={t("Engagements")} />
 
       <p className="px-6 pb-12 text-center text-body">
-        Ensemble protégeons la vie, protégeons la Terre
+        {t("Ensemble protégeons la vie, protégeons la Terre")}
       </p>
 
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 pb-20 md:grid-cols-[280px_1fr]">
         <Image
           src="/images/clef-verte.png"
-          alt="Label Clef Verte"
+          alt={t("Label Clef Verte")}
           width={280}
           height={280}
           className="mx-auto h-auto w-full max-w-[280px]"
@@ -33,22 +41,17 @@ export default function EngagementsPage() {
 
         <div className="space-y-6 leading-relaxed text-body">
           <p>
-            Nous accordons une place centrale au respect de l’environnement. Pour nous, pour vous
-            et pour les générations futures, nous mettons tout en œuvre afin de minimiser l’impact
-            de notre activité sur la faune et la flore qui nous entourent. L’avenir de la planète
-            et l’environnement dans lequel vivront nos enfants est un sujet qui nous concerne tous.
-            Des gestes simples quotidiens peuvent faire la différence.
+            {t(
+              "Nous accordons une place centrale au respect de l’environnement. Pour nous, pour vous et pour les générations futures, nous mettons tout en œuvre afin de minimiser l’impact de notre activité sur la faune et la flore qui nous entourent. L’avenir de la planète et l’environnement dans lequel vivront nos enfants est un sujet qui nous concerne tous. Des gestes simples quotidiens peuvent faire la différence.",
+            )}
           </p>
           <p>
-            Afin de concrétiser notre engagement et de nous inscrire dans une démarche
-            d’amélioration continue, notre établissement est labélisé Clef verte pour l’année 2026.
-            Ce label Clef Verte distingue les hébergements touristiques et les restaurants engagés
-            dans une démarche environnementale volontaire, performante et dynamique. Le label est
-            attribué annuellement par un jury indépendant constitué d’experts et de professionnels
-            du tourisme et de l’environnement. Il est en constante évolution.
+            {t(
+              "Afin de concrétiser notre engagement et de nous inscrire dans une démarche d’amélioration continue, notre établissement est labélisé Clef verte pour l’année 2026. Ce label Clef Verte distingue les hébergements touristiques et les restaurants engagés dans une démarche environnementale volontaire, performante et dynamique. Le label est attribué annuellement par un jury indépendant constitué d’experts et de professionnels du tourisme et de l’environnement. Il est en constante évolution.",
+            )}
           </p>
           <p className="font-semibold text-ink">
-            Ensemble protégeons la vie, protégeons la Terre.
+            {t("Ensemble protégeons la vie, protégeons la Terre.")}
           </p>
         </div>
       </section>
@@ -69,7 +72,7 @@ export default function EngagementsPage() {
             rel="noopener"
             className="rounded-full border-2 border-white bg-gold/90 px-10 py-4 font-medium text-white backdrop-blur transition-colors hover:bg-gold"
           >
-            Écogestes
+            {t("Écogestes")}
           </a>
           <a
             href="/documents/charte-environnementale.pdf"
@@ -77,7 +80,7 @@ export default function EngagementsPage() {
             rel="noopener"
             className="rounded-full border-2 border-white bg-gold/90 px-10 py-4 font-medium text-white backdrop-blur transition-colors hover:bg-gold"
           >
-            Charte environnementale
+            {t("Charte environnementale")}
           </a>
         </div>
       </section>

@@ -24,5 +24,5 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   const room = traduireContenu(getRoom(SLUG), locale);
   if (!room) notFound();
-  return <RoomPage room={room} />;
+  return <RoomPage room={room} locale={locale} />;
 }

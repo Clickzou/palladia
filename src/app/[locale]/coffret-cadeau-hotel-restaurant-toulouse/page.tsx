@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
@@ -23,7 +23,7 @@ export default async function CoffretsPage({ params }: { params: Promise<{ local
 
   return (
     <>
-      <PageHeader breadcrumb="Coffrets Cadeaux" title={c.title} />
+      <PageHeader breadcrumb={traduire("Coffrets Cadeaux", locale)} title={c.title} />
       <p className="px-6 pb-16 text-center text-body">{c.chapo}</p>
 
       {/* Coffrets */}

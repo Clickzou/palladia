@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { booking } from "@/config/site";
@@ -21,14 +21,15 @@ export async function generateMetadata({
 export default async function RestaurantPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const r = traduireContenu(rFr, locale);
+  const t = (texte: string) => traduire(texte, locale);
 
   return (
     <>
       <PageHeader
-        breadcrumb="Restaurant"
+        breadcrumb={t("Restaurant")}
         title={r.title}
         subtitle={r.subtitle}
-        ctaLabel="Réserver une table"
+        ctaLabel={t("Réserver une table")}
         ctaHref={booking.restaurant}
         external
       />
@@ -49,7 +50,7 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
             rel="noopener"
             className="mt-6 inline-block rounded-md bg-gold px-8 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
           >
-            Consulter la carte
+            {t("Consulter la carte")}
           </a>
 
           {/* Bloc d’introduction : lignes serrees, comme sur le site */}
@@ -64,7 +65,7 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
               href="/presse"
               className="font-semibold text-[#8b3a3a] underline underline-offset-4 hover:text-gold"
             >
-              Découvrez notre chef de Cuisine, {r.chef.name}
+              {t("Découvrez notre chef de Cuisine")}, {r.chef.name}
             </a>
           </p>
 
@@ -80,7 +81,7 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
         <div className="relative aspect-[3/4] w-full">
           <Image
             src="/images/restaurant/chef.jpg"
-            alt={`${r.chef.name}, chef de cuisine de l’Hôtel Palladia`}
+            alt={`${r.chef.name}, ${t("chef de cuisine de l’Hôtel Palladia")}`}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
@@ -90,9 +91,9 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
 
       {/* Menus */}
       <section className="bg-cream px-6 py-20">
-        <h2 className="section-title">Menu</h2>
+        <h2 className="section-title">{t("Menu")}</h2>
         <h3 className="mt-4 text-center text-[22px] font-normal text-body uppercase">
-          Découvrez notre menu de la semaine
+          {t("Découvrez notre menu de la semaine")}
         </h3>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
 
@@ -104,7 +105,7 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
             {r.menuSemaine.sections.map((s) => (
               <div key={s.titre} className="mt-8">
                 <h4 className="titre-mini">{s.titre}</h4>
-                <p className="mt-3 whitespace-pre-line text-body">{s.choix.join("\nou\n")}</p>
+                <p className="mt-3 whitespace-pre-line text-body">{s.choix.join(`\n${t("ou")}\n`)}</p>
               </div>
             ))}
             <p className="mt-10 text-sm text-muted italic">{r.menuSemaine.note}</p>
@@ -143,7 +144,7 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
       <section className="grid items-stretch md:grid-cols-2">
         <VideoYoutube
           id={r.bar.videoId}
-          titre="Le bar lounge de l’Hôtel Palladia"
+          titre={t("Le bar lounge de l’Hôtel Palladia")}
           poster="/images/restaurant/bar-lounge.jpg"
           className="min-h-[320px] md:min-h-[520px]"
         />
@@ -160,7 +161,7 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
             <p>{r.bar.horaires}</p>
           </div>
 
-          <h3 className="titre-mini mt-8 text-left">Modes de paiement acceptés</h3>
+          <h3 className="titre-mini mt-8 text-left">{t("Modes de paiement acceptés")}</h3>
           <p className="mt-2 text-body">{r.bar.paiement}</p>
         </div>
       </section>
@@ -180,7 +181,7 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
           rel="noopener"
           className="inline-block rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
         >
-          Réserver une table
+          {t("Réserver une table")}
         </a>
       </section>
       <section className="px-6 py-14 text-center">
@@ -190,7 +191,7 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
           rel="noopener"
           className="inline-block rounded-full bg-ink-soft px-10 py-4 font-medium text-white transition-colors hover:bg-ink"
         >
-          Voir la carte du restaurant
+          {t("Voir la carte du restaurant")}
         </a>
       </section>
     </>

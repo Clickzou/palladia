@@ -140,6 +140,10 @@ export type RouteSeo = keyof typeof seo;
  * L'URL canonique et les alternatives `hreflang` déclarent à Google que les
  * trois versions sont la même page, et laquelle servir à qui.
  */
+/** Code de langue OpenGraph attendu par Facebook et LinkedIn. */
+export const ogLocale = (locale: string) =>
+  ({ fr: "fr_FR", en: "en_GB", es: "es_ES" })[locale] ?? "fr_FR";
+
 export function metadonnees(route: RouteSeo, locale = "fr"): Metadata {
   const { titre, description } = seo[route];
   const chemin = route === "/" ? "" : route;
@@ -161,7 +165,7 @@ export function metadonnees(route: RouteSeo, locale = "fr"): Metadata {
       description: traduire(description, locale),
       url: locale === "fr" ? `${SITE}${chemin}` : `${SITE}/${locale}${chemin}`,
       siteName: "Hôtel Palladia",
-      locale: { fr: "fr_FR", en: "en_GB", es: "es_ES" }[locale] ?? "fr_FR",
+      locale: ogLocale(locale),
       type: "website",
     },
   };

@@ -6,6 +6,7 @@ import ArticleBlocs from "@/components/blog/ArticleBlocs";
 import { lireArticle } from "@/lib/blog";
 import { ratioImage } from "@/lib/images";
 import { traduireContenu } from "@/i18n/contenu";
+import { ogLocale } from "@/data/seo";
 
 /**
  * Article de blog. Les URLs sont a la racine (/zenith-de-toulouse-hotel-palladia)
@@ -36,8 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: article.seo_title ?? article.titre,
-      description: article.seo_description ?? article.chapo ?? undefined,
+      title: traduit.seo_title ?? traduit.titre,
+      description: traduit.seo_description ?? traduit.chapo ?? undefined,
+      url: locale === "fr" ? `${SITE}/${slug}` : `${SITE}/${locale}/${slug}`,
+      siteName: "Hôtel Palladia",
+      locale: ogLocale(locale),
       images: article.image_hero ?? article.image_vignette
         ? [(article.image_hero ?? article.image_vignette)!]
         : undefined,

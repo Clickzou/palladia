@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { Coffee, Croissant, Dog } from "lucide-react";
@@ -20,19 +20,20 @@ export async function generateMetadata({
 export default async function ChambresPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const rooms = traduireContenu(roomsFr, locale);
+  const t = (texte: string) => traduire(texte, locale);
 
   return (
     <>
       <PageHeader
-        breadcrumb="Chambres et Suites"
-        title="Chambres"
-        subtitle="4 catégories de chambres pour un total de 90 chambres"
+        breadcrumb={t("Chambres et Suites")}
+        title={t("Chambres")}
+        subtitle={t("4 catégories de chambres pour un total de 90 chambres")}
       />
 
       <p className="mx-auto max-w-4xl px-6 text-center leading-relaxed text-body">
-        Chaque chambre est conçue selon une approche esthétique unique, lui conférant une ambiance
-        raffinée et chaleureuse. De la Confort à la Suite, les 4 catégories vous permettent de
-        choisir la chambre qui correspond le mieux à vos exigences.
+        {t(
+          "Chaque chambre est conçue selon une approche esthétique unique, lui conférant une ambiance raffinée et chaleureuse. De la Confort à la Suite, les 4 catégories vous permettent de choisir la chambre qui correspond le mieux à vos exigences.",
+        )}
       </p>
 
       {/* Petit dejeuner */}
@@ -42,17 +43,18 @@ export default async function ChambresPage({ params }: { params: Promise<{ local
           <Coffee className="size-10" strokeWidth={1.2} />
         </span>
         <p className="mx-auto mt-8 max-w-3xl leading-relaxed text-gold">
-          Le petit déjeuner est servi au restaurant sous forme de buffet de 6h30 à 10h00 du lundi au
-          samedi.
+          {t(
+            "Le petit déjeuner est servi au restaurant sous forme de buffet de 6h30 à 10h00 du lundi au samedi.",
+          )}
           <br />
-          Dimanche et jours fériés le petit déjeuner est servi jusqu’à 11h00.
+          {t("Dimanche et jours fériés le petit déjeuner est servi jusqu’à 11h00.")}
         </p>
 
         <Link
           href="/devis?type=reservation_groupe"
           className="mt-10 inline-block rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
         >
-          Réservation Groupe ? Par ici →
+          {t("Réservation Groupe ? Par ici →")}
         </Link>
       </div>
 
@@ -82,8 +84,8 @@ export default async function ChambresPage({ params }: { params: Promise<{ local
                 href={`/${room.slug}`}
                 className="mx-auto mt-8 rounded-full bg-gold px-9 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
               >
-                Découvrir
-                <span className="sr-only"> la chambre {room.titreCourt}</span>
+                {t("Découvrir")}
+                <span className="sr-only"> {t("la chambre")} {room.titreCourt}</span>
               </Link>
             </div>
           </article>
@@ -95,8 +97,9 @@ export default async function ChambresPage({ params }: { params: Promise<{ local
         <Dog className="mx-auto size-10 text-gold" strokeWidth={1.2} />
         {/* Titre sur le site, malgre sa longueur : on garde le meme niveau */}
         <h3 className="mx-auto mt-6 max-w-3xl text-[15px] leading-relaxed font-normal text-body">
-          Les animaux de compagnie (de moins de 10 kg) sont autorisés, avec un supplément de 15 €
-          par jour, par animal, dans la limite de 1 animal par chambre sur demande uniquement.
+          {t(
+            "Les animaux de compagnie (de moins de 10 kg) sont autorisés, avec un supplément de 15 € par jour, par animal, dans la limite de 1 animal par chambre sur demande uniquement.",
+          )}
         </h3>
       </div>
     </>

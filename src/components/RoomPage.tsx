@@ -3,19 +3,22 @@ import { Link } from "@/i18n/navigation";
 import RoomGallery from "./RoomGallery";
 import { booking } from "@/config/site";
 import type { Room } from "@/data/rooms";
+import { traduire } from "@/i18n/contenu";
 import { IconBed, IconExpand, IconLock, IconTv, IconWifi } from "./icons";
 
 /**
  * Gabarit commun aux 4 pages chambres :
  * hero + bandeau caracteristiques + texte/galerie + CTA sejour + visuel de pied de page.
  */
-export default function RoomPage({ room }: { room: Room }) {
+export default function RoomPage({ room, locale }: { room: Room; locale: string }) {
+  const t = (texte: string) => traduire(texte, locale);
+
   const features = [
     { icon: <IconExpand />, label: room.surface },
-    { icon: <IconBed />, label: "Lit Queen\nou King size" },
-    { icon: <IconTv />, label: "Chaînes internationales\net Canal+" },
-    { icon: <IconWifi />, label: "WIFI\npar fibre optique" },
-    { icon: <IconLock />, label: "Coffre sécurisé" },
+    { icon: <IconBed />, label: t("Lit Queen\nou King size") },
+    { icon: <IconTv />, label: t("Chaînes internationales\net Canal+") },
+    { icon: <IconWifi />, label: t("WIFI\npar fibre optique") },
+    { icon: <IconLock />, label: t("Coffre sécurisé") },
   ];
 
   return (
@@ -62,9 +65,9 @@ export default function RoomPage({ room }: { room: Room }) {
       </div>
 
       {/* Fil d’Ariane */}
-      <nav aria-label="Fil d’Ariane" className="py-8 text-center text-sm">
+      <nav aria-label={t("Fil d’Ariane")} className="py-8 text-center text-sm">
         <Link href="/" className="text-[#8b3a3a] underline hover:text-gold">
-          Accueil
+          {t("Accueil")}
         </Link>
         <span className="mx-1 text-muted">»</span>
         <span className="font-semibold text-ink">{room.breadcrumb}</span>
@@ -104,7 +107,7 @@ export default function RoomPage({ room }: { room: Room }) {
       <section className="bg-cream px-6 py-14">
         <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-6 sm:flex-row">
           <h2 className="titre-mini text-ink">
-            Préparez votre séjour
+            {t("Préparez votre séjour")}
           </h2>
           <a
             href={booking.rooms}
@@ -112,7 +115,7 @@ export default function RoomPage({ room }: { room: Room }) {
             rel="noopener"
             className="rounded-md bg-gold px-8 py-4 text-base font-medium text-white transition-colors hover:bg-gold-dark"
           >
-            Réservez au meilleur prix
+            {t("Réservez au meilleur prix")}
           </a>
         </div>
       </section>
@@ -127,7 +130,7 @@ export default function RoomPage({ room }: { room: Room }) {
           playsInline
           preload="none"
           poster="/images/hotel/vue-3.jpg"
-          aria-label="L’Hôtel Palladia en vidéo"
+          aria-label={t("L’Hôtel Palladia en vidéo")}
         >
           <source src="/videos/hotel-presentation.mp4" type="video/mp4" />
         </video>
