@@ -299,13 +299,26 @@ export default function EditeurMenus() {
         </p>
       )}
 
+      {/* Le message suit l'ecran plutot que le haut de page : les boutons de
+          publication sont tout en bas d'un formulaire long, et une confirmation
+          affichee deux mille pixels plus haut passe inapercue. */}
       {message && (
-        <p
+        <div
           role={message.ok ? "status" : "alert"}
-          className={`mt-4 px-4 py-3 ${message.ok ? "bg-cream text-ink" : "bg-[#fdeaea] text-[#a33]"}`}
+          className={`fixed inset-x-4 bottom-4 z-50 mx-auto flex max-w-xl items-start gap-4 px-5 py-4 shadow-lg ${
+            message.ok ? "bg-ink text-white" : "bg-[#a33] text-white"
+          }`}
         >
-          {message.texte}
-        </p>
+          <p className="grow">{message.texte}</p>
+          <button
+            type="button"
+            onClick={() => setMessage(null)}
+            aria-label="Fermer"
+            className="shrink-0 cursor-pointer opacity-70 hover:opacity-100"
+          >
+            ✕
+          </button>
+        </div>
       )}
 
       <button
@@ -399,12 +412,16 @@ export default function EditeurMenus() {
                 />
               </div>
 
+              {/* Volontairement actif meme sans date : un bouton grise qui ne
+                  reagit pas laisse croire a une panne. Le controle explique
+                  ce qui manque. */}
               <button
                 type="button"
                 onClick={() => publier(false)}
-                disabled={occupe || !quand}
-                className="cursor-pointer rounded-full border border-gold px-8 py-3 font-medium text-gold transition-colors hover:bg-gold hover:text-white disabled:opacity-50"
+                disabled={occupe}
+                className="flex cursor-pointer items-center gap-2 rounded-full border border-gold px-8 py-3 font-medium text-gold transition-colors hover:bg-gold hover:text-white disabled:opacity-50"
               >
+                {enCours === "publication" && <Rouet />}
                 Programmer
               </button>
             </div>
