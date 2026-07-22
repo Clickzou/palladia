@@ -155,7 +155,11 @@ export default function EditeurMenus() {
 
     // Enregistrement immediat : une traduction perdue par un rechargement,
     // c'est dix secondes d'attente et un appel a l'API pour rien.
-    await enregistrer(["en", "es"], {
+    //
+    // Le français part avec : les traductions viennent de lui, l'enregistrer
+    // plus tard laisserait le site afficher l'ancienne carte en français et la
+    // nouvelle en anglais.
+    await enregistrer(["fr", "en", "es"], {
       source: apres,
       annonce: "Traductions enregistrées. Relisez-les et corrigez si besoin.",
     });
