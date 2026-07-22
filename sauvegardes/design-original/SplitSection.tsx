@@ -28,9 +28,7 @@ export default function SplitSection({
 }) {
   return (
     <section className="grid items-stretch md:grid-cols-2">
-      <div
-        className={`apparait-image relative min-h-[300px] overflow-hidden md:min-h-[520px] ${reversed ? "md:order-2" : ""}`}
-      >
+      <div className={`relative min-h-[300px] md:min-h-[520px] ${reversed ? "md:order-2" : ""}`}>
         <Image src={image} alt={imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
       </div>
 
@@ -50,14 +48,14 @@ export default function SplitSection({
             href={ctaHref}
             target="_blank"
             rel="noopener"
-            className="bouton-or mt-8 self-start px-8 py-3 text-sm font-semibold tracking-wider uppercase"
+            className="mt-8 self-start bg-gold px-8 py-3 text-sm font-semibold tracking-wider text-white uppercase transition-colors hover:bg-gold-dark"
           >
             {ctaLabel}
           </a>
         ) : (
           <Link
             href={ctaHref}
-            className="bouton-or mt-8 self-start px-8 py-3 text-sm font-semibold tracking-wider uppercase"
+            className="mt-8 self-start bg-gold px-8 py-3 text-sm font-semibold tracking-wider text-white uppercase transition-colors hover:bg-gold-dark"
           >
             {ctaLabel}
           </Link>

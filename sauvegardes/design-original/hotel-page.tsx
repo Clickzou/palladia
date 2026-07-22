@@ -23,7 +23,7 @@ export async function generateMetadata({
 function Picto({ nom, className = "" }: { nom: string; className?: string }) {
   const Icone = PICTOS_SERVICES[nom as keyof typeof PICTOS_SERVICES];
   if (!Icone) return null;
-  return <Icone className={`size-9 shrink-0 text-gold ${className}`} strokeWidth={1.5} />;
+  return <Icone className={`size-9 shrink-0 text-ink-soft ${className}`} strokeWidth={1.5} />;
 }
 
 export default async function HotelPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -81,38 +81,30 @@ export default async function HotelPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
 
-      {/* Services — grille pleine largeur, 100 px de marge.
-          Quatre colonnes separees par des filets : chaque service occupe une
-          cellule de meme gabarit, ce qui regle l'irregularite des intitules
-          longs sans reserver de vide sous les courts. */}
-      <section className="bg-cream py-24">
-        <div className="px-6 lg:px-[100px]">
-          <h2 className="section-title">{hotel.servicesTitre}</h2>
-          <div className="mx-auto mt-6 h-px w-20 bg-gold" />
+      {/* Services */}
+      <section className="bg-cream px-6 py-20">
+        <h2 className="section-title">{hotel.servicesTitre}</h2>
+        <div className="mx-auto mt-6 mb-16 h-px w-20 bg-gold" />
 
-          <ul className="mt-16 grid gap-x-12 gap-y-14 sm:grid-cols-2 xl:grid-cols-4">
-            {services.map((s) => (
-              <li key={s.nom} className="border-l-2 border-gold pl-6">
-                <Picto nom={s.icone} />
-                <h3 className="titre-mini mt-5 text-left text-ink">{s.nom}</h3>
-                <p className="mt-3 leading-relaxed text-body">{s.detail}</p>
-              </li>
-            ))}
-          </ul>
+        <ul className="mx-auto grid max-w-5xl gap-x-16 gap-y-12 md:grid-cols-2">
+          {services.map((s) => (
+            <li key={s.nom} className="flex gap-5">
+              <Picto nom={s.icone} />
+              <div>
+                <h3 className="titre-section">{s.nom}</h3>
+                <p className="mt-2 leading-relaxed text-body">{s.detail}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
 
-          {/* L'accessibilite ferme la grille, centree sur toute la largeur :
-              c'est un engagement de l'hotel, pas un service parmi douze. */}
-          {pmr && (
-            <div className="mt-20 text-center">
-              {/* Un filet centre plutot qu'une barre a gauche : ce bloc est
-                  centre, une barre laterale le desequilibrerait. */}
-              <div className="mx-auto mb-10 h-px w-20 bg-gold" />
-              <Picto nom="pmr" className="mx-auto" />
-              <h3 className="titre-mini mt-5 text-ink">{pmr.nom}</h3>
-              <p className="mx-auto mt-3 max-w-2xl leading-relaxed text-body">{pmr.detail}</p>
-            </div>
-          )}
-        </div>
+        {pmr && (
+          <div className="mx-auto mt-16 max-w-4xl text-center">
+            <Picto nom="pmr" className="mx-auto" />
+            <h3 className="titre-section mt-4">{pmr.nom}</h3>
+            <p className="mt-3 leading-relaxed text-body">{pmr.detail}</p>
+          </div>
+        )}
       </section>
 
       <PhotoGrid images={[...hotel.galerie]} columns={2} mode="paysage" />

@@ -20,7 +20,7 @@ export default function PageHeader({
   external?: boolean;
 }) {
   return (
-    <header className="px-6 pt-8 pb-12 text-center">
+    <header className="apparait-haut px-6 pt-8 pb-12 text-center">
       <nav aria-label="Fil d’Ariane" className="text-sm">
         <Link href="/" className="text-[#8b3a3a] underline hover:text-gold">
           Accueil
@@ -46,14 +46,14 @@ export default function PageHeader({
               href={ctaHref}
               target="_blank"
               rel="noopener"
-              className="inline-block rounded-md bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
+              className="bouton-or inline-block rounded-md px-9 py-4 font-medium"
             >
               {ctaLabel}
             </a>
           ) : (
             <Link
               href={ctaHref}
-              className="inline-block rounded-md bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
+              className="bouton-or inline-block rounded-md px-9 py-4 font-medium"
             >
               {ctaLabel}
             </Link>

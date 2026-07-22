@@ -58,52 +58,52 @@ export default function HeroCarousel({
           fill
           priority={i === 0}
           sizes="100vw"
+          quality={92}
           className={`object-cover transition-opacity duration-1000 ${
             i === index ? "opacity-100" : "opacity-0"
           }`}
         />
       ))}
 
-      <div className="absolute inset-0 bg-black/40" />
+      {/* Degrade plutot qu'un voile uniforme : l'image reste lisible en haut,
+          le texte reste lisible en bas, sans assombrir toute la photo. */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 via-45% to-black/10" />
 
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
-        <h1 className="titre-page text-white drop-shadow-lg">
+      {/* Second degrade, lateral : le texte est a gauche et les photos y sont
+          parfois claires (literie, mur blanc). Sans lui, le sous-titre dore
+          disparait sur certaines images du carrousel. */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/10 via-45% to-transparent" />
+
+      {/* Texte en bas a gauche, aligne sur la marge de 100 px du reste du site.
+          Centrer un titre sur une photo est la mise en page par defaut ; la
+          decaler laisse voir l'image et pose un rythme plus calme. */}
+      <div className="absolute inset-x-0 bottom-0 z-10 px-6 pb-20 text-white lg:px-[100px] lg:pb-24">
+        {subtitle && (
+          <p className="text-sm font-bold tracking-[0.25em] text-gold uppercase md:text-lg">
+            {subtitle}
+          </p>
+        )}
+        <h1 className="titre-page mt-4 max-w-4xl text-left text-white lg:text-[68px] lg:leading-[1.1]">
           {title}
         </h1>
-        {subtitle && (
-          <p className="mt-4 text-lg tracking-wide drop-shadow-md md:text-2xl">{subtitle}</p>
-        )}
+
+        {/* Un lien souligne plutot qu'une pastille pleine : la reservation
+            reste l'action principale, sans crier. */}
         <a
           href={ctaHref}
           target="_blank"
           rel="noopener"
-          className="mt-8 bg-gold px-10 py-4 text-sm font-semibold tracking-wider uppercase transition-colors hover:bg-gold-dark"
+          className="mt-8 inline-block border-b border-gold pb-1 text-sm font-medium tracking-[0.15em] uppercase transition-colors hover:text-gold"
         >
           {ctaLabel}
         </a>
       </div>
 
+      {/* Les commandes se regroupent en bas a droite : deux chevrons a
+          mi-hauteur au-dessus de la photo attiraient l'oeil avant le titre. */}
       {slides.length > 1 && (
-        <>
-          <button
-            type="button"
-            onClick={() => aller(-1)}
-            aria-label="Image précédente"
-            className="absolute top-1/2 left-2 z-20 flex size-12 -translate-y-1/2 items-center justify-center text-white/80 transition-all hover:scale-110 hover:text-gold md:left-6 md:size-14"
-          >
-            <IconChevronLeft className="size-8 fill-current drop-shadow-lg md:size-10" />
-          </button>
-
-          <button
-            type="button"
-            onClick={() => aller(1)}
-            aria-label="Image suivante"
-            className="absolute top-1/2 right-2 z-20 flex size-12 -translate-y-1/2 items-center justify-center text-white/80 transition-all hover:scale-110 hover:text-gold md:right-6 md:size-14"
-          >
-            <IconChevronRight className="size-8 fill-current drop-shadow-lg md:size-10" />
-          </button>
-
-          <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-3">
+        <div className="absolute right-6 bottom-8 z-20 flex items-center gap-6 lg:right-[100px]">
+          <div className="flex gap-2">
             {slides.map((slide, i) => (
               <button
                 key={slide.src}
@@ -114,13 +114,32 @@ export default function HeroCarousel({
                 }}
                 aria-label={`Image ${i + 1}`}
                 aria-current={i === index ? "true" : undefined}
-                className={`h-2 rounded-full transition-all ${
-                  i === index ? "w-8 bg-gold" : "w-2 bg-white/60 hover:bg-white"
+                className={`h-px transition-all ${
+                  i === index ? "w-10 bg-gold" : "w-5 bg-white/50 hover:bg-white"
                 }`}
               />
             ))}
           </div>
-        </>
+
+          <div className="flex gap-1">
+            <button
+              type="button"
+              onClick={() => aller(-1)}
+              aria-label="Image précédente"
+              className="flex size-9 items-center justify-center text-white/70 transition-colors hover:text-gold"
+            >
+              <IconChevronLeft className="size-5 fill-current" />
+            </button>
+            <button
+              type="button"
+              onClick={() => aller(1)}
+              aria-label="Image suivante"
+              className="flex size-9 items-center justify-center text-white/70 transition-colors hover:text-gold"
+            >
+              <IconChevronRight className="size-5 fill-current" />
+            </button>
+          </div>
+        </div>
       )}
     </section>
   );

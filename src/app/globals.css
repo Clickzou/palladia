@@ -137,3 +137,139 @@ h6 {
     padding-inline: 1.25rem;
   }
 }
+
+/* -----------------------------------------------------------------
+   Apparition au defilement.
+
+   Le composant RevelateurAnimations observe toute la page et pose la
+   classe `.est-visible` quand l'element entre dans le champ. Le mouvement
+   reste court : 24 px et 0,7 s. Au-dela, la page donne l'impression de
+   trainer, ce qui est l'inverse de l'effet recherche.
+   ----------------------------------------------------------------- */
+@layer components {
+  .apparait {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: var(--delai, 0s);
+    /* Evite que le navigateur recalcule la mise en page a chaque image. */
+    will-change: opacity, transform;
+  }
+
+  .apparait.est-visible {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  /*
+    Entree du haut de page, en CSS pur.
+
+    `.apparait` attend que le JavaScript s'execute : mesure faite, 301 ms
+    pendant lesquelles le titre de la page reste invisible. Inacceptable pour
+    l'element le plus haut de l'ecran. Cette variante s'anime des le premier
+    rendu, sans observateur, donc sans attente ni clignotement.
+  */
+  .apparait-haut {
+    animation: monter-en-fondu 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  /* Variante pour les visuels : une legere echelle en plus du fondu. */
+  .apparait-image {
+    opacity: 0;
+    transform: scale(1.04);
+    transition:
+      opacity 0.9s ease-out,
+      transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: var(--delai, 0s);
+  }
+
+  .apparait-image.est-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Zoom lent au survol d'une carte. `overflow-hidden` est porte par le
+     conteneur, pas par l'image. */
+  .survol-zoom {
+    transition: transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .group:hover .survol-zoom {
+    transform: scale(1.06);
+  }
+
+  /* Bouton dore : le fond fonce et le bouton se souleve d'un pixel.
+     Deux pixels suffiraient a faire « bouger » la page au survol. */
+  .bouton-or {
+    background-color: var(--color-gold);
+    color: #fff;
+    transition:
+      background-color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .bouton-or:hover {
+    background-color: var(--color-gold-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -8px rgb(0 0 0 / 0.35);
+  }
+
+  /* Lien souligne dont le trait se deploie de la gauche vers la droite. */
+  .lien-trait {
+    position: relative;
+    padding-bottom: 0.25rem;
+  }
+
+  .lien-trait::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--color-gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .lien-trait:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes monter-en-fondu {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+  Deux garde-fous.
+
+  1. Sans JavaScript, la classe `.est-visible` n'est jamais posee : tout le
+     contenu resterait invisible. La regle <noscript> le retablit.
+  2. Les personnes qui demandent moins d'animations (reglage systeme, souvent
+     pour cause de vertiges ou de migraines) voient la page sans mouvement.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .apparait,
+  .apparait-image,
+  .apparait-haut,
+  .survol-zoom,
+  .bouton-or,
+  .lien-trait::after {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

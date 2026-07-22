@@ -32,16 +32,23 @@ export default function PhotoGrid({
   if (mode === "paysage") {
     return (
       <div className={`grid grid-cols-1 ${cols}`}>
-        {images.map((img) => (
-          <Image
+        {images.map((img, i) => (
+          <div
             key={img.src}
-            src={img.src}
-            alt={img.alt}
-            width={1024}
-            height={683}
-            sizes={tailles}
-            className="h-auto w-full"
-          />
+            // Cascade plafonnee a 6 : au-dela, la derniere image d'une grande
+            // galerie attendrait plus d'une seconde.
+            style={{ "--delai": `${Math.min(i, 6) * 0.08}s` } as React.CSSProperties}
+            className="apparait-image group overflow-hidden"
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              width={1024}
+              height={683}
+              sizes={tailles}
+              className="survol-zoom h-auto w-full"
+            />
+          </div>
         ))}
       </div>
     );
@@ -49,14 +56,18 @@ export default function PhotoGrid({
 
   return (
     <div className={`grid grid-cols-1 ${cols}`}>
-      {images.map((img) => (
-        <div key={img.src} className="relative aspect-square overflow-hidden">
+      {images.map((img, i) => (
+        <div
+          key={img.src}
+          style={{ "--delai": `${Math.min(i, 6) * 0.08}s` } as React.CSSProperties}
+          className="apparait-image group relative aspect-square overflow-hidden"
+        >
           <Image
             src={img.src}
             alt={img.alt}
             fill
             sizes={tailles}
-            className="object-cover transition-transform duration-500 hover:scale-105"
+            className="survol-zoom object-cover"
           />
         </div>
       ))}

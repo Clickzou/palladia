@@ -7,8 +7,10 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     // 75 par defaut : suffisant pour une vignette, visible sur un bandeau
-    // plein ecran ou les aplats de ciel se pixellisent.
-    qualities: [75, 85],
+    // plein ecran ou les aplats de ciel se pixellisent. 92 est reserve au
+    // carrousel d'accueil, dont les sources sont deja compressees : les
+    // reencoder a 75 ajoutait une seconde perte, bien visible sur les degrades.
+    qualities: [75, 85, 92],
   },
 
   /**

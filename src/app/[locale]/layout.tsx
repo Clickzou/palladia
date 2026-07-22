@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import BandeauCookies from "@/components/BandeauCookies";
 import PopupOffre from "@/components/PopupOffre";
 import Analytics from "@/components/Analytics";
+import RevelateurAnimations from "@/components/RevelateurAnimations";
 import { traduire } from "@/i18n/contenu";
 import { booking, reserverEn } from "@/config/site";
 import "../globals.css";
@@ -61,7 +62,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${spinnaker.variable} ${roboto.variable}`}>
       <body className="antialiased">
+        {/* Sans JavaScript, rien ne pose `est-visible` : le contenu resterait
+            invisible. Cette regle le retablit avant meme le rendu. */}
+        <noscript>
+          <style>{`.apparait,.apparait-image{opacity:1!important;transform:none!important}.apparait-haut{animation:none!important}`}</style>
+        </noscript>
         <NextIntlClientProvider>
+          <RevelateurAnimations />
           <Header />
           <main>{children}</main>
           <Footer />
