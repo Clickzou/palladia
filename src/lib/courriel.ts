@@ -14,6 +14,17 @@ import { Resend } from "resend";
 const cle = process.env.RESEND_API_KEY;
 const expediteur = process.env.RESEND_FROM ?? "Hôtel Palladia <onboarding@resend.dev>";
 
+/**
+ * Adresse de deroutement, pour essayer les formulaires sans ecrire a l'hotel.
+ * Tant que le domaine n'est pas verifie, Resend refuse d'ailleurs tout autre
+ * destinataire que le proprietaire du compte : sans ce reglage, l'envoi ne
+ * peut pas etre teste du tout.
+ *
+ * A laisser vide en production — un deroutement oublie detournerait les
+ * demandes reelles. D'ou la trace ecrite a chaque envoi.
+ */
+const deroutement = process.env.COURRIEL_TEST?.trim();
+
 export const courrielConfigure = Boolean(cle);
 
 type Message = {
@@ -43,12 +54,20 @@ export async function envoyerCourriel({
   const echapper = (t: string) =>
     t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+  const vraisDestinataires = [...destinataires];
+  if (deroutement) {
+    console.warn(
+      `COURRIEL_TEST actif : notification deroutee vers ${deroutement} ` +
+        `au lieu de ${vraisDestinataires.join(", ")}.`,
+    );
+  }
+
   try {
     const { error } = await new Resend(cle).emails.send({
       from: expediteur,
-      to: [...destinataires],
+      to: deroutement ? [deroutement] : vraisDestinataires,
       replyTo: repondreA,
-      subject: sujet,
+      subject: deroutement ? `[TEST → ${vraisDestinataires.join(", ")}] ${sujet}` : sujet,
       text: lignes.join("\n"),
       html: lignes.map((l) => `<p>${echapper(l)}</p>`).join(""),
     });
