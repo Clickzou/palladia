@@ -1,10 +1,12 @@
--- Sauvegarde des menus du restaurant — 2026-07-22 15:27
+-- Carte d'origine du restaurant, reprise du site WordPress.
 --
--- Restauration : coller ce fichier dans l'editeur SQL de Supabase et lancer.
--- Les lignes existantes sont remplacees ; rien d'autre n'est touche.
+-- A lancer dans l'editeur SQL de Supabase pour remettre cette carte en
+-- ligne apres des essais. Elle est republiee comme nouvelle version :
+-- l'historique reste intact.
 
-update public.menus set
-  fr = $json${
+insert into public.menus_versions (cle, fr, en, es, publie_le) values (
+  'semaine',
+  $json${
   "note": "Nos préparations dépendent du marché. Il se peut que certains plats puissent varier, nous vous remercions de votre compréhension.",
   "titre": "Menu de la semaine",
   "sections": [
@@ -32,12 +34,14 @@ update public.menus set
     }
   ]
 }$json$::jsonb,
-  en = null,
-  es = null
-where cle = 'semaine';
+  null,
+  null,
+  now()
+);
 
-update public.menus set
-  fr = $json${
+insert into public.menus_versions (cle, fr, en, es, publie_le) values (
+  'jour',
+  $json${
   "intro": "2 formules au choix :",
   "titre": "Menu du jour",
   "enfant": {
@@ -63,6 +67,7 @@ update public.menus set
   "sousTitre": "Midi & soir",
   "tarifsTitre": "Tarifs des plats hors suppléments :"
 }$json$::jsonb,
-  en = null,
-  es = null
-where cle = 'jour';
+  null,
+  null,
+  now()
+);
