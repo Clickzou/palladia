@@ -111,7 +111,13 @@ export default function EditeurMenus() {
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-14">
-      <header className="flex flex-wrap items-center justify-between gap-4">
+      {/* Fil d'ariane de l'espace d'administration. Le chevron « » » est celui
+          qu'emploie le fil d'ariane du site public. */}
+      <p className="text-sm tracking-wide text-muted uppercase">
+        Tableau de bord Clickzou <span aria-hidden>»</span> Hôtel Palladia
+      </p>
+
+      <header className="mt-4 flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="section-title">Menus du restaurant</h1>
           {lignes?.semaine && (
