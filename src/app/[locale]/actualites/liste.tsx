@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import PageHeader from "@/components/PageHeader";
 import { listerArticlesPagines } from "@/lib/blog";
 import { social } from "@/config/site";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 
 /** Liste paginee des actualites, partagee par /actualites et /actualites/[page]. */
 export default async function ListeActualites({
@@ -12,18 +13,22 @@ export default async function ListeActualites({
   locale: string;
   page: number;
 }) {
-  const { articles, pages } = await listerArticlesPagines(locale, page);
+  const { articles: articlesFr, pages } = await listerArticlesPagines(locale, page);
+  // Les articles sont rediges en français : le titre et le chapo passent par le
+  // dictionnaire, comme le corps de l’article sur sa propre page.
+  const articles = traduireContenu(articlesFr, locale);
+  const t = (texte: string) => traduire(texte, locale);
 
   return (
     <>
       <PageHeader
-        breadcrumb="Actualités"
-        title="Actualités"
-        subtitle="Découvrez les actualités de l’Hôtel Palladia"
+        breadcrumb={t("Actualités")}
+        title={t("Actualités")}
+        subtitle={t("Découvrez les actualités de l’Hôtel Palladia")}
       />
 
       {articles.length === 0 ? (
-        <p className="px-6 pb-24 text-center text-muted">Aucun article pour le moment.</p>
+        <p className="px-6 pb-24 text-center text-muted">{t("Aucun article pour le moment.")}</p>
       ) : (
         <>
           <div className="mx-auto grid max-w-[1700px] gap-8 px-6 md:grid-cols-2 lg:grid-cols-3">
@@ -57,8 +62,8 @@ export default async function ListeActualites({
                     href={`/${a.slug}`}
                     className="mt-6 text-sm font-medium tracking-wide text-gold uppercase transition-colors hover:text-gold-dark"
                   >
-                    En savoir plus
-                    <span className="sr-only"> sur {a.titre}</span>
+                    {t("En savoir plus")}
+                    <span className="sr-only"> — {a.titre}</span>
                   </Link>
                 </div>
               </article>
@@ -67,13 +72,13 @@ export default async function ListeActualites({
 
           {/* Pagination */}
           {pages > 1 && (
-            <nav aria-label="Pagination" className="flex justify-center gap-4 px-6 py-16">
+            <nav aria-label={t("Pagination")} className="flex justify-center gap-4 px-6 py-16">
               {page > 1 && (
                 <Link
                   href={page - 1 === 1 ? "/actualites" : `/actualites/${page - 1}`}
                   className="text-ink underline underline-offset-4 hover:text-gold"
                 >
-                  « Précédent
+                  « {t("Précédent")}
                 </Link>
               )}
 
@@ -98,7 +103,7 @@ export default async function ListeActualites({
                   href={`/actualites/${page + 1}`}
                   className="text-ink underline underline-offset-4 hover:text-gold"
                 >
-                  Suivant »
+                  {t("Suivant")} »
                 </Link>
               )}
             </nav>
@@ -108,9 +113,9 @@ export default async function ListeActualites({
 
       {/* Instagram */}
       <section className="px-6 pb-24 text-center">
-        <h2 className="section-title">Sur Instagram</h2>
+        <h2 className="section-title">{t("Sur Instagram")}</h2>
         <h3 className="mt-4 font-normal tracking-wide text-ink-soft uppercase">
-          Nos dernières publications sur Instagram
+          {t("Nos dernières publications sur Instagram")}
         </h3>
         <div className="mx-auto mt-6 h-px w-20 bg-gold" />
         <a
@@ -119,7 +124,7 @@ export default async function ListeActualites({
           rel="noopener"
           className="mt-10 inline-block rounded-full bg-[#d6336c] px-10 py-4 font-medium text-white transition-opacity hover:opacity-90"
         >
-          Suivez-nous sur Instagram
+          {t("Suivez-nous sur Instagram")}
         </a>
       </section>
     </>

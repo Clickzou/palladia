@@ -20,6 +20,25 @@ export function traduire(texte: string, locale: string): string {
 }
 
 /**
+ * Champs dont la valeur pilote le rendu et non l'affichage : « gauche »,
+ * « moyen », « piscine » sont des jetons attendus tels quels par les
+ * composants. Les traduire casserait la mise en page ou ferait disparaitre
+ * une icone, d'ou cette liste plutot qu'une heuristique sur le texte.
+ */
+const CHAMPS_TECHNIQUES = new Set([
+  "position",
+  "place",
+  "taille_titre",
+  "ratio",
+  "icone",
+  "type",
+  "variante",
+  "slug",
+  "locale",
+  "statut",
+]);
+
+/**
  * Traduit recursivement toutes les chaines d'une structure de donnees.
  * Les cles, les URLs et les chemins d'images sont laisses intacts.
  */
@@ -36,7 +55,9 @@ export function traduireContenu<T>(valeur: T, locale: string): T {
     }
     if (Array.isArray(v)) return v.map(passe);
     if (v && typeof v === "object") {
-      return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, passe(x)]));
+      return Object.fromEntries(
+        Object.entries(v).map(([k, x]) => [k, CHAMPS_TECHNIQUES.has(k) ? x : passe(x)]),
+      );
     }
     return v;
   };
