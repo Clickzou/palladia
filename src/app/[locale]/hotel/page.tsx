@@ -3,7 +3,7 @@ import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import PhotoGrid from "@/components/PhotoGrid";
-import { booking } from "@/config/site";
+import { booking, reserverEn } from "@/config/site";
 import { hotel as hotelFr } from "@/data/hotel";
 import { traduire, traduireContenu } from "@/i18n/contenu";
 import { PICTOS_SERVICES } from "@/components/icons-services";
@@ -116,7 +116,7 @@ export default async function HotelPage({ params }: { params: Promise<{ locale: 
             {t("Préparez votre séjour")}
           </h2>
           <a
-            href={booking.premium}
+            href={reserverEn(booking.premium, locale)}
             target="_blank"
             rel="noopener"
             className="rounded-md bg-gold px-8 py-4 font-medium text-white transition-colors hover:bg-gold-dark"

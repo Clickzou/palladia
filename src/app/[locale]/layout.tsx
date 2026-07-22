@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import BandeauCookies from "@/components/BandeauCookies";
 import PopupOffre from "@/components/PopupOffre";
 import { traduire } from "@/i18n/contenu";
+import { booking, reserverEn } from "@/config/site";
 import "../globals.css";
 
 /**
@@ -17,7 +18,6 @@ import "../globals.css";
  */
 const OFFRE_ETE = {
   image: "/images/journee-hotel-piscine-scaled.jpg",
-  lien: "https://reservations.verticalbooking.com/premium/index.html?id_albergo=12425&dc=5376&lingua_int=fra&id_stile=19042",
   jusquAu: "2026-08-31",
 };
 
@@ -102,6 +102,7 @@ export default async function LocaleLayout({
           <PopupOffre
             offre={{
               ...OFFRE_ETE,
+              lien: reserverEn(booking.premium, locale),
               alt: traduire(
                 "Offre été : les pieds dans l’eau, la tête en vacances — chambre confort de 10h à 18h à 99 € TTC, glaces ou softs offerts, du 3 juillet au 31 août 2026",
                 locale,

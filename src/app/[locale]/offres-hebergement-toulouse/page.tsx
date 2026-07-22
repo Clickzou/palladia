@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
-import { booking } from "@/config/site";
+import { booking, reserverEn } from "@/config/site";
 import { offresEte as oFr } from "@/data/offres-ete";
 import PhotoGrid from "@/components/PhotoGrid";
 import { IconCheck } from "@/components/icons";
@@ -88,7 +88,7 @@ export default async function OffresEtePage({ params }: { params: Promise<{ loca
               )}
 
               <a
-                href={booking.premium}
+                href={reserverEn(booking.premium, locale)}
                 target="_blank"
                 rel="noopener"
                 className="mt-8 self-start rounded-full bg-gold px-9 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
@@ -143,7 +143,7 @@ export default async function OffresEtePage({ params }: { params: Promise<{ loca
         </a>
         <p className="mt-2 text-body">{o.reservation.siteWeb}</p>
         <a
-          href={booking.premium}
+          href={reserverEn(booking.premium, locale)}
           target="_blank"
           rel="noopener"
           className="mt-8 inline-block rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark"

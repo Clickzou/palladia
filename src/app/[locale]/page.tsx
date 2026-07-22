@@ -3,7 +3,7 @@ import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { booking } from "@/config/site";
+import { booking, reserverEn } from "@/config/site";
 import HeroCarousel from "@/components/HeroCarousel";
 import SplitSection from "@/components/SplitSection";
 import { IconPin, IconValise } from "@/components/icons";
@@ -54,7 +54,7 @@ export default async function HomePage({
         title={t("heroTitle")}
         subtitle={t("heroSubtitle")}
         ctaLabel={t("heroCta")}
-        ctaHref={booking.rooms}
+        ctaHref={reserverEn(booking.rooms, locale)}
       />
 
       {/* Introduction */}
@@ -109,7 +109,7 @@ export default async function HomePage({
         image="/images/chambres.jpg"
         imageAlt="Suite de l’Hôtel Palladia"
         ctaLabel={t("chambresCta")}
-        ctaHref={booking.rooms}
+        ctaHref={reserverEn(booking.rooms, locale)}
         external
       />
 

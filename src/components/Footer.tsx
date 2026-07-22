@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import LienCookies from "./LienCookies";
-import { booking, site, social } from "@/config/site";
+import { booking, reserverEn, site, social } from "@/config/site";
 import {
   IconFacebook,
   IconInstagram,
@@ -15,6 +15,7 @@ import {
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
 
   return (
     <>
@@ -50,7 +51,7 @@ export default function Footer() {
               {/* La page Contact a ete supprimee : le lien mene au formulaire */}
               <FooterLink href="/devis">{t("contact")}</FooterLink>
               <FooterLink href="/recrutement">{t("recrutement")}</FooterLink>
-              <FooterExtLink href={booking.rooms}>{t("resaChambre")}</FooterExtLink>
+              <FooterExtLink href={reserverEn(booking.rooms, locale)}>{t("resaChambre")}</FooterExtLink>
               <FooterExtLink href={booking.restaurant}>{t("resaRestaurant")}</FooterExtLink>
               <FooterExtLink href={booking.spa}>{t("resaSpa")}</FooterExtLink>
               <FooterLink href="/devis?type=salle_reunion">{t("devisSalle")}</FooterLink>

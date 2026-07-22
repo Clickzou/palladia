@@ -44,6 +44,24 @@ export const booking = {
   spa: "https://hotelpalladia.secretbox.fr/",
 } as const;
 
+/**
+ * Codes de langue de VerticalBooking. Ce ne sont ni les codes ISO du site ni
+ * ceux des balises `lang` du moteur : « es » et « spa » sont refuses, seul
+ * « esp » repond. Verifie sur le moteur de l'hotel le 22 juillet 2026.
+ */
+const LANGUE_MOTEUR: Record<string, string> = { fr: "fra", en: "eng", es: "esp" };
+
+/**
+ * Un lien de reservation dans la langue du visiteur : sans cela, un
+ * anglophone arrive sur un moteur en français. Les liens qui ne portent pas
+ * `lingua_int` (TheFork, Secretbox) sont rendus tels quels.
+ */
+export function reserverEn(lien: string, locale: string): string {
+  const langue = LANGUE_MOTEUR[locale];
+  if (!langue) return lien;
+  return lien.replace(/lingua_int=[a-z]+/, `lingua_int=${langue}`);
+}
+
 export const social = {
   facebook: "https://www.facebook.com/hotelpalladia/",
   linkedin: "https://www.linkedin.com/in/h%C3%B4tel-palladia-b2b50b153/",

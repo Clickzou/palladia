@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { booking, mainNav, site, social } from "@/config/site";
+import { booking, reserverEn, mainNav, site, social } from "@/config/site";
 import LocaleSwitcher from "./LocaleSwitcher";
 import {
   IconFacebook,
@@ -21,6 +21,7 @@ import {
 
 export default function Header() {
   const t = useTranslations();
+  const locale = useLocale();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -114,7 +115,7 @@ export default function Header() {
               <IconGift />
             </Link>
             <a
-              href={booking.premium}
+              href={reserverEn(booking.premium, locale)}
               target="_blank"
               rel="noopener"
               className="hidden bg-gold px-8 py-3 text-sm font-semibold tracking-wide text-white uppercase transition-colors hover:bg-gold-dark md:block"
@@ -161,7 +162,7 @@ export default function Header() {
               </div>
             ))}
             <a
-              href={booking.premium}
+              href={reserverEn(booking.premium, locale)}
               target="_blank"
               rel="noopener"
               className="m-6 block bg-gold px-6 py-3 text-center text-sm font-semibold uppercase"

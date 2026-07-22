@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import RoomGallery from "./RoomGallery";
-import { booking } from "@/config/site";
+import { booking, reserverEn } from "@/config/site";
 import type { Room } from "@/data/rooms";
 import { traduire } from "@/i18n/contenu";
 import { IconBed, IconExpand, IconLock, IconTv, IconWifi } from "./icons";
@@ -39,7 +39,7 @@ export default function RoomPage({ room, locale }: { room: Room; locale: string 
             {room.hero}
           </h1>
           <a
-            href={booking.rooms}
+            href={reserverEn(booking.rooms, locale)}
             target="_blank"
             rel="noopener"
             className="mt-8 bg-gold px-10 py-4 text-sm font-semibold tracking-wider uppercase transition-colors hover:bg-gold-dark"
@@ -110,7 +110,7 @@ export default function RoomPage({ room, locale }: { room: Room; locale: string 
             {t("Préparez votre séjour")}
           </h2>
           <a
-            href={booking.rooms}
+            href={reserverEn(booking.rooms, locale)}
             target="_blank"
             rel="noopener"
             className="rounded-md bg-gold px-8 py-4 text-base font-medium text-white transition-colors hover:bg-gold-dark"
