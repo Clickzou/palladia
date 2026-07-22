@@ -24,6 +24,12 @@ export function ChampsSemaine({
   const majSection = (i: number, section: MenuSemaine["sections"][number]) =>
     onChange({ ...menu, sections: menu.sections.map((s, n) => (n === i ? section : s)) });
 
+  const retirerSection = (i: number) =>
+    onChange({ ...menu, sections: menu.sections.filter((_, n) => n !== i) });
+
+  const ajouterSection = () =>
+    onChange({ ...menu, sections: [...menu.sections, { titre: "", choix: [""] }] });
+
   return (
     <div className="space-y-8">
       <div>
@@ -37,14 +43,29 @@ export function ChampsSemaine({
 
       {menu.sections.map((section, i) => (
         <fieldset key={i} className="border border-black/10 p-5">
-          <legend className="px-2 text-sm font-semibold text-ink">Service {i + 1}</legend>
+          {/* L'encadre porte le nom saisi : « Entrée », « Plat »… « Partie 2 »
+              n'aurait rien dit a qui compose la carte. */}
+          <legend className="px-2 text-sm font-semibold text-ink">
+            {section.titre.trim() || "Nouvelle partie"}
+          </legend>
 
-          <label className={ETIQUETTE}>Intitulé — Entrée, Plat, Dessert…</label>
-          <input
-            value={section.titre}
-            onChange={(e) => majSection(i, { ...section, titre: e.target.value })}
-            className={`mt-1 ${CHAMP}`}
-          />
+          <div className="flex items-end gap-2">
+            <div className="grow">
+              <label className={ETIQUETTE}>Intitulé — Entrée, Plat, Dessert, Fromage…</label>
+              <input
+                value={section.titre}
+                onChange={(e) => majSection(i, { ...section, titre: e.target.value })}
+                className={`mt-1 ${CHAMP}`}
+              />
+            </div>
+            <button
+              type="button"
+              onClick={() => retirerSection(i)}
+              className="shrink-0 cursor-pointer px-3 py-2 text-sm text-muted hover:text-[#a33]"
+            >
+              Supprimer cette partie
+            </button>
+          </div>
 
           <label className={`${ETIQUETTE} mt-5`}>
             Choix proposés — un par bloc. Le retour à la ligne dans un plat est conservé tel quel.
@@ -86,6 +107,14 @@ export function ChampsSemaine({
           </button>
         </fieldset>
       ))}
+
+      <button
+        type="button"
+        onClick={ajouterSection}
+        className="cursor-pointer rounded-full border border-gold px-6 py-2 text-sm text-gold transition-colors hover:bg-gold hover:text-white"
+      >
+        + Ajouter une partie
+      </button>
 
       <div>
         <label className={ETIQUETTE}>Mention en bas d’encadré</label>
