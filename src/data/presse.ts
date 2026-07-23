@@ -1,8 +1,23 @@
+/** Une parution : le média, son titre, le lien, et la capture de l’article. */
+type Parution = {
+  media: string;
+  titre: string;
+  url: string;
+  /** `null` tant que le visuel reste à récupérer : la carte affiche le titre. */
+  image: string | null;
+};
+
 /**
  * Revues de presse. Les visuels sont des captures des articles publiés ;
  * `image: null` signifie qu’elle reste à récupérer.
  */
-export const presse = {
+export const presse: {
+  metaTitle: string;
+  metaDescription: string;
+  title: string;
+  subtitle: string;
+  articles: Parution[];
+} = {
   metaTitle: "Presse - Le Palladia hôtel 4 étoiles Toulouse",
   metaDescription:
     "Découvrez les actualités de l’Hôtel Palladia à Toulouse dans les différentes revues de presse.",
@@ -15,7 +30,9 @@ export const presse = {
       titre:
         "Hôtel Palladia Toulouse : une nouvelle expérience hôtelière signée Design D’S-Pace",
       url: "https://www.tendancehotellerie.fr/articles-breves/communique-de-presse/25741-article/hotel-palladia-toulouse-une-nouvelle-experience-hoteliere-signee-design-d-s-pace",
-      image: null,
+      // Le visuel de l'article : une chambre redecoree par Design D'S-Pace,
+      // fournie par l'hotel. Cette carte etait la seule sans image.
+      image: "/images/presse/tendance-hotellerie.jpg",
     },
     {
       media: "La Dépêche",
@@ -45,4 +62,4 @@ export const presse = {
       image: "/images/presse/bernieshoot.png",
     },
   ],
-} as const;
+};
