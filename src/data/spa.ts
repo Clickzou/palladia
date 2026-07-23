@@ -15,6 +15,16 @@ export const spa = {
   presentation:
     "Le SPA de 300m2 est situé dans le Batiment 2, sur le site de l’hôtel PALLADIA. Découvrez cet espace entièrement dédié à la détente et à la beauté. Nous vous précisons que le Spa est ouvert à tous et n’est pas réservé à l’unique clientèle de l’hôtel Palladia.",
 
+  /**
+   * Grille tarifaire reservee aux clients de l'hotel. Elle etait hebergee dans
+   * la mediatheque WordPress (TARIF-SPA-04-2025.pdf) : reprise ici, elle ne
+   * dependra plus d'un serveur qu'on ne maitrise pas.
+   */
+  tarifsPdf: "/documents/tarifs-spa.pdf",
+
+  /** Le spa a son propre site : c'est lui qui detaille les prestations. */
+  siteSpa: "https://le-spa-toulouse.com/15-hotel-spa",
+
   horaires: [
     "Lundi de 13h00 à 19h00",
     "Mardi de 14h00 à 19h00",

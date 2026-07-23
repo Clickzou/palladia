@@ -50,9 +50,13 @@ export default async function SpaPage({ params }: { params: Promise<{ locale: st
           {spa.telephone}
         </a>
 
+        {/* Ces deux boutons menaient tous deux a la billetterie Secretbox. Le
+            site d'origine ouvrait, lui, la grille tarifaire reservee aux
+            clients de l'hotel et le site du spa — deux destinations que la
+            reprise avait confondues. */}
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <a
-            href={booking.spa}
+            href={spa.tarifsPdf}
             target="_blank"
             rel="noopener"
             className="rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
@@ -60,7 +64,7 @@ export default async function SpaPage({ params }: { params: Promise<{ locale: st
             {t("Offres Clients Hôtel")}
           </a>
           <a
-            href={booking.spa}
+            href={spa.siteSpa}
             target="_blank"
             rel="noopener"
             className="rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"

@@ -3,7 +3,6 @@ import { metadonnees } from "@/data/seo";
 import { traduire } from "@/i18n/contenu";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { booking } from "@/config/site";
 import { formaterDate, prochainsEvenements } from "@/lib/evenements";
 
 /** Titre et description dans la langue de la page, avec les alternatives hreflang. */
@@ -96,14 +95,19 @@ export default async function SpectaclesPage({
                 {e.description && <p className="mt-4 text-sm text-muted">{e.description}</p>}
                 {e.lieu && <p className="mt-6 text-body">{e.lieu}</p>}
 
-                <a
-                  href={e.lien_billetterie ?? booking.restaurant}
-                  target="_blank"
-                  rel="noopener"
-                  className="mx-auto mt-8 rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
-                >
-                  {t("Plus d’infos / Réservez")}
-                </a>
+                {/* Sans billetterie renseignee, pas de bouton : le repli vers
+                    la reservation du restaurant envoyait qui voulait une place
+                    de spectacle sur un formulaire de table. */}
+                {e.lien_billetterie && (
+                  <a
+                    href={e.lien_billetterie}
+                    target="_blank"
+                    rel="noopener"
+                    className="mx-auto mt-8 rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
+                  >
+                    {t("Plus d’infos / Réservez")}
+                  </a>
+                )}
               </div>
             </article>
           ))

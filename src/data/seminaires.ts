@@ -11,7 +11,7 @@
 export const seminaires = {
   metaTitle: "Séminaires - Le Palladia hôtel 4 étoiles Toulouse",
   metaDescription:
-    "Hôtel séminaire à Toulouse : un amphithéâtre de 285 places, 16 salles de réunion à la lumière du jour et un parking gratuit de 300 places.",
+    "Hôtel séminaire à Toulouse : un amphithéâtre de 285 places, 16 salles de réunion à la lumière du jour et un parking gratuit de 250 places.",
   title: "Votre hôtel séminaire à Toulouse",
   subtitle: "Pour vos séminaires et conférences à Toulouse",
 
@@ -25,9 +25,9 @@ export const seminaires = {
   ],
 
   presentation: [
-    "L’Hôtel Palladia propose une gamme très variée de salles de réunion et de services haut de gamme, l’un des plus beaux hotel seminaire Toulouse pouvant accueillir les évènements les plus prestigieux aussi bien que les réunions et cocktails.",
+    "L’Hôtel Palladia propose une gamme très variée de salles de réunion et de services haut de gamme, l’un des plus beaux hôtel séminaire Toulouse pouvant accueillir les évènements les plus prestigieux aussi bien que les réunions et cocktails.",
     "L’Hôtel Palladia est le seul hôtel a posséder un amphithéâtre de 285 places sur Toulouse et 16 salles de réunion à la lumière du jour, idéal pour des séminaires résidentiels.",
-    "Un grand parking de 300 places est à la disposition des clients de l’hôtel. Elégance du décor et fonctionnalité des installations font de l’hôtel Palladia un endroit idéal pour vos séminaires et vos réceptions à Toulouse.",
+    "Un grand parking de 250 places est à la disposition des clients de l’hôtel. Élégance du décor et fonctionnalité des installations font de l’hôtel Palladia un endroit idéal pour vos séminaires et vos réceptions à Toulouse.",
     "Réactivité et souplesse de notre équipe commerciale permettent une adaptation à tous vos besoins pour la réussite de vos manifestations professionnelles ou privées, évènementielles, caritatives…",
   ],
 
@@ -36,7 +36,7 @@ export const seminaires = {
     { nom: "Amphithéâtre",     places: "285 places", detail: "285 places",              image: "/images/salons/amphitheatre.jpg" },
     { nom: "Salon Opéra",      places: "350 places", detail: "Superficie : 500 m²",     image: "/images/salons/opera.jpg" },
     { nom: "Capitouls",        places: "200 places", detail: "Superficie : 265 m²",     image: "/images/salons/capitoul.jpg" },
-    { nom: "St Nicolas",       places: "6 places",   detail: "Superficie : 16 m²",      image: "/images/salons/st-nicolas.png" },
+    { nom: "Saint Nicolas",    places: "6 places",   detail: "Superficie : 16 m²",      image: "/images/salons/st-nicolas.png" },
     { nom: "Saint Georges",    places: "6 places",   detail: "Superficie : 15 m²",      image: "/images/salons/saint-georges.png" },
     { nom: "VIP",              places: "2 places",   detail: "Superficie : 14 m²",      image: "/images/salons/vip.jpg" },
     { nom: "Dalbade",          places: "18 places",  detail: "Superficie : 33 m²",      image: "/images/salons/dalbade.jpg" },
@@ -175,7 +175,7 @@ export const seminaires = {
           num: "4.1",
           titre: "Une accessibilité optimale",
           texte:
-            "L’Hôtel Palladia, situé dans le quartier de « Purpan », est facilement accessible depuis l’aéroport de Toulouse-Blagnac, à quelques minutes de la gare de Toulouse-Matabiau et du périphérique. Cette accessibilité facilite les déplacements de vos participants, qu’ils viennent de Toulouse ou d’ailleurs. L’hôtel dispose de 300 places de parking gratuites.",
+            "L’Hôtel Palladia, situé dans le quartier de « Purpan », est facilement accessible depuis l’aéroport de Toulouse-Blagnac, à quelques minutes de la gare de Toulouse-Matabiau et du périphérique. Cette accessibilité facilite les déplacements de vos participants, qu’ils viennent de Toulouse ou d’ailleurs. L’hôtel dispose de 250 places de parking gratuites.",
         },
         {
           num: "4.2",

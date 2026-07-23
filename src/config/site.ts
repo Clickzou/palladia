@@ -29,6 +29,11 @@ export const destinataires = {
   ],
   /** Messages de la page Contact : accueil general, pas le service commercial */
   contact: ["info@hotelpalladia.com"],
+  /**
+   * Reservations de groupe. Le site d'origine les adressait la par un lien
+   * mailto depuis la page Chambres — elles ne passent pas par le commercial.
+   */
+  reservation: ["reservation@hotelpalladia.com"],
   /** Candidatures spontanees et reponses aux offres */
   recrutement: ["candidature@hotelpalladia.com"],
   /** Inscriptions a la lettre d'information */

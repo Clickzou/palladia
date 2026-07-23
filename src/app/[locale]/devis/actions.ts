@@ -76,8 +76,17 @@ export async function envoyerDevis(
   };
   const type = champ("type") || "autre";
 
+  /**
+   * Une reservation de groupe n'est pas une demande de devis evenementiel :
+   * elle se traite a la reception, pas au service commercial. Le site
+   * d'origine l'envoyait deja a `reservation@` — par un lien mailto, que
+   * cette action remplace.
+   */
+  const pourQui =
+    type === "reservation_groupe" ? destinataires.reservation : destinataires.devis;
+
   await envoyerCourriel({
-    destinataires: destinataires.devis,
+    destinataires: pourQui,
     sujet: `Demande de devis — ${intitules[type] ?? type} — ${prenom} ${nom}`,
     repondreA: email,
     lignes: [

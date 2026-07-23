@@ -9,11 +9,13 @@ export const coffrets = {
   title: "Nos coffrets cadeaux hôtel restaurant & spa",
   chapo: "Faites plaisir ou faites vous plaisir ! Choisissez parmi nos différents coffrets cadeaux",
 
+  /** Accueil de la boutique : le bouton general, en bas de page. */
   boutique: "https://hotelpalladia.secretbox.fr/produits",
 
   offres: [
     {
       nom: "Bien-être",
+      lien: "https://hotelpalladia.secretbox.fr/bien-etre-1.html",
       prix: "299 €",
       pour: "pour 2 personnes",
       image: "/images/coffrets/bien-etre.jpg",
@@ -25,6 +27,7 @@ export const coffrets = {
     },
     {
       nom: "Plaisir & Détente",
+      lien: "https://hotelpalladia.secretbox.fr/plaisir-et-detente.html",
       prix: "365 €",
       pour: "pour 2 personnes",
       image: "/images/coffrets/plaisir-detente.jpg",
@@ -38,6 +41,7 @@ export const coffrets = {
     },
     {
       nom: "Forfait Palladia",
+      lien: "https://hotelpalladia.secretbox.fr/forfait-palladia.html",
       prix: "440 €",
       pour: "pour 2 personnes",
       image: "/images/coffrets/forfait-palladia.jpg",
@@ -51,6 +55,7 @@ export const coffrets = {
     },
     {
       nom: "Détente & Gourmandise",
+      lien: "https://hotelpalladia.secretbox.fr/restaurant-spa.html",
       prix: "70 €",
       pour: "pour 1 personne",
       image: "/images/coffrets/detente-gourmandise.jpg",
@@ -62,6 +67,7 @@ export const coffrets = {
     },
     {
       nom: "Tolosa",
+      lien: "https://hotelpalladia.secretbox.fr/tolosa.html",
       prix: "80 €",
       pour: "pour 2 personnes",
       image: "/images/coffrets/tolosa.jpg",

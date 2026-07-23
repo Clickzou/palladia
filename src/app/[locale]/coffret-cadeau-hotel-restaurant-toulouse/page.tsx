@@ -48,8 +48,10 @@ export default async function CoffretsPage({ params }: { params: Promise<{ local
                 {o.prix} {o.pour}
               </p>
 
+              {/* Chaque coffret a sa page sur la boutique : renvoyer tout le
+                  monde a l'accueil obligeait a le retrouver soi-meme. */}
               <a
-                href={c.boutique}
+                href={o.lien}
                 target="_blank"
                 rel="noopener"
                 className="mx-auto mt-6 rounded-full bg-gold px-9 py-3 font-medium text-white transition-colors hover:bg-gold-dark"

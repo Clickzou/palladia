@@ -161,6 +161,15 @@ export default function Header() {
                   ))}
               </div>
             ))}
+            {/* Les coffrets n'existaient au menu que par le picto cadeau, en
+                lg:block : sur un telephone, la page etait injoignable. */}
+            <Link
+              href="/coffret-cadeau-hotel-restaurant-toulouse"
+              onClick={() => setOpen(false)}
+              className="block px-6 py-3 text-sm tracking-wide uppercase hover:text-gold"
+            >
+              {t("nav.coffrets")}
+            </Link>
             <a
               href={reserverEn(booking.premium, locale)}
               target="_blank"
