@@ -49,6 +49,27 @@ const nextConfig: NextConfig = {
         destination: "/carte-room-service",
         permanent: true,
       },
+
+      /**
+       * Adresse courte de la plaquette evenementiel, a donner aux clients :
+       * hotelpalladia.com/plaquette-seminaires. Elle se dicte au telephone, et
+       * survivra a la prochaine version du document — c'est le fichier qu'on
+       * remplacera, pas le lien deja diffuse.
+       *
+       * Temporaire (307) et non permanente : un 308 se grave dans le cache des
+       * navigateurs, et repointer ce lien un jour vers une autre destination
+       * deviendrait impossible pour qui l'a deja ouvert.
+       */
+      {
+        source: "/plaquette-seminaires",
+        destination: "/documents/plaquette-seminaires.pdf",
+        permanent: false,
+      },
+      {
+        source: "/:locale(en|es)/plaquette-seminaires",
+        destination: "/documents/plaquette-seminaires.pdf",
+        permanent: false,
+      },
     ];
   },
 };
