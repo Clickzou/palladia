@@ -7,6 +7,7 @@ import Image from "next/image";
 import { booking } from "@/config/site";
 import { restaurant as rFr } from "@/data/restaurant";
 import PageHeader from "@/components/PageHeader";
+import { Link } from "@/i18n/navigation";
 import PhotoGrid from "@/components/PhotoGrid";
 import VideoYoutube from "@/components/VideoYoutube";
 
@@ -42,21 +43,37 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
       {/* Presentation + portrait du chef */}
       <section className="mx-auto grid max-w-[1800px] items-start gap-12 px-8 pb-20 lg:grid-cols-2 lg:gap-16">
         <div>
-          <Image
-            src="/images/restaurant/picto-carte.png"
-            alt=""
-            width={90}
-            height={90}
-            className="h-20 w-auto"
-          />
-          <a
-            href="/carte-restaurant.pdf"
-            target="_blank"
-            rel="noopener"
-            className="mt-6 inline-block rounded-md bg-gold px-8 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
-          >
-            {t("Consulter la carte")}
-          </a>
+          {/* Deux acces de meme rang, alignes sur une ligne : le picto « Carte
+              Room service » — cliquable comme sur le site d'origine, ou sa
+              reprise sans lien avait fait disparaitre le seul acces a cette
+              carte — et le bouton de la carte du restaurant. Empiles, ils
+              donnaient un picto flottant au-dessus d'un bouton sans rapport. */}
+          <div className="flex flex-wrap items-center gap-8">
+            <Link
+              href="/carte-room-service"
+              className="group flex shrink-0 flex-col items-center gap-1"
+            >
+              <Image
+                src="/images/restaurant/picto-carte.png"
+                alt=""
+                width={90}
+                height={90}
+                className="h-20 w-auto transition-opacity group-hover:opacity-70"
+              />
+              <span className="text-sm text-gold underline underline-offset-4">
+                {t("Carte du room service")}
+              </span>
+            </Link>
+
+            <a
+              href="/carte-restaurant.pdf"
+              target="_blank"
+              rel="noopener"
+              className="rounded-md bg-gold px-8 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
+            >
+              {t("Consulter la carte")}
+            </a>
+          </div>
 
           {/* Bloc d’introduction : lignes serrees, comme sur le site */}
           <div className="mt-10 leading-relaxed text-body">
@@ -66,12 +83,14 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
           </div>
 
           <p className="mt-8">
-            <a
+            {/* Link plutot que <a> : en <a>, un visiteur anglophone quittait sa
+                langue des ce lien et retombait sur la page française. */}
+            <Link
               href="/presse"
               className="font-semibold text-[#8b3a3a] underline underline-offset-4 hover:text-gold"
             >
               {t("Découvrez notre chef de Cuisine")}, {r.chef.name}
-            </a>
+            </Link>
           </p>
 
           <div className="mt-8 space-y-4">
@@ -151,7 +170,7 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
           {t("Réserver une table")}
         </a>
       </section>
-      <section className="px-6 py-14 text-center">
+      <section className="flex flex-wrap justify-center gap-4 px-6 py-14 text-center">
         <a
           href="/carte-restaurant.pdf"
           target="_blank"
@@ -160,6 +179,12 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
         >
           {t("Voir la carte du restaurant")}
         </a>
+        <Link
+          href="/carte-room-service"
+          className="inline-block rounded-full border border-ink-soft px-10 py-4 font-medium text-ink transition-colors hover:bg-ink-soft hover:text-white"
+        >
+          {t("Voir la carte du room service")}
+        </Link>
       </section>
     </>
   );

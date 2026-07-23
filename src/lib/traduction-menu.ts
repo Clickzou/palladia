@@ -20,6 +20,7 @@ Règles :
 - Garde en français les termes culinaires consacrés que la clientèle
   internationale reconnaît : sabayon, tartare, pak-choï, kalamansi, shimeji.
 - Conserve les prix, les symboles € et la ponctuation tels quels.
+- Conserve tel quel tout numéro : poste téléphonique, grammage d'un plat.
 - Conserve les retours à la ligne exactement où ils sont : ils commandent la
   mise en page.
 - Conserve le balisage **gras** s'il y en a.

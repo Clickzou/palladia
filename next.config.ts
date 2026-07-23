@@ -35,6 +35,20 @@ const nextConfig: NextConfig = {
         destination: "/:locale/seminaire-evenement-professionnel",
         permanent: true,
       },
+
+      /**
+       * Carte du room service. Ces adresses sont celles des images servies par
+       * WordPress ; elles ne sont plus joignables depuis que le domaine pointe
+       * ici, et ce sont elles qu'imprime le QR code appose dans les chambres.
+       * Le rediriger vaut mieux que de reimprimer 90 chambres — et il n'y a
+       * plus d'annee ni de mois dans l'adresse, donc plus rien a casser a la
+       * prochaine carte.
+       */
+      {
+        source: "/wp-content/uploads/:annee/:mois/:fichier(ROOM-SERVICE.*)",
+        destination: "/carte-room-service",
+        permanent: true,
+      },
     ];
   },
 };

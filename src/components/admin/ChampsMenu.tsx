@@ -1,6 +1,6 @@
 "use client";
 
-import type { MenuJour, MenuSemaine } from "@/lib/menus";
+import type { CarteSnack, MenuJour, MenuSemaine } from "@/lib/menus";
 
 const CHAMP =
   "w-full border border-black/20 bg-white px-3 py-2 text-body outline-none transition-colors focus:border-gold";
@@ -125,6 +125,208 @@ export function ChampsSemaine({
           className={`mt-1 ${CHAMP}`}
         />
       </div>
+    </div>
+  );
+}
+
+/**
+ * Carte du room service.
+ *
+ * Le numero a composer est un champ a part : c'est la seule facon de commander,
+ * et il change si le standard change. Chaque plat porte son prix — pas de
+ * formule ni de choix a composer, contrairement aux menus du restaurant.
+ */
+export function ChampsSnack({
+  carte,
+  onChange,
+}: {
+  carte: CarteSnack;
+  onChange: (c: CarteSnack) => void;
+}) {
+  const majSection = (i: number, section: CarteSnack["sections"][number]) =>
+    onChange({ ...carte, sections: carte.sections.map((s, n) => (n === i ? section : s)) });
+
+  return (
+    <div className="space-y-8">
+      <div className="grid gap-4 sm:grid-cols-[1fr_8rem]">
+        <div>
+          <label className={ETIQUETTE}>Titre de la carte</label>
+          <input
+            value={carte.titre}
+            onChange={(e) => onChange({ ...carte, titre: e.target.value })}
+            className={`mt-1 ${CHAMP}`}
+          />
+        </div>
+        <div>
+          <label className={ETIQUETTE}>Numéro à composer</label>
+          <input
+            value={carte.poste}
+            placeholder="9"
+            onChange={(e) => onChange({ ...carte, poste: e.target.value })}
+            className={`mt-1 ${CHAMP}`}
+          />
+        </div>
+      </div>
+
+      <div>
+        <label className={ETIQUETTE}>Jours de service</label>
+        <input
+          value={carte.disponibilite}
+          placeholder="Dimanche et jours fériés inclus"
+          onChange={(e) => onChange({ ...carte, disponibilite: e.target.value })}
+          className={`mt-1 ${CHAMP}`}
+        />
+      </div>
+
+      {carte.sections.map((section, i) => (
+        <fieldset key={i} className="border border-black/10 p-5">
+          <legend className="px-2 text-sm font-semibold text-ink">
+            {section.titre.trim() || "Nouvelle partie"}
+          </legend>
+
+          <div className="flex items-end gap-2">
+            <div className="grow">
+              <label className={ETIQUETTE}>Intitulé — Le salé, Le sucré…</label>
+              <input
+                value={section.titre}
+                onChange={(e) => majSection(i, { ...section, titre: e.target.value })}
+                className={`mt-1 ${CHAMP}`}
+              />
+            </div>
+            <button
+              type="button"
+              onClick={() =>
+                onChange({ ...carte, sections: carte.sections.filter((_, n) => n !== i) })
+              }
+              className="shrink-0 cursor-pointer px-3 py-2 text-sm text-muted hover:text-[#a33]"
+            >
+              Supprimer cette partie
+            </button>
+          </div>
+
+          <label className={`${ETIQUETTE} mt-5`}>Plats et prix</label>
+          <div className="mt-1 space-y-2">
+            {section.plats.map((plat, n) => (
+              <div key={n} className="grid gap-2 sm:grid-cols-[1fr_7rem_auto]">
+                <input
+                  value={plat.nom}
+                  placeholder="Croque Monsieur Gourmand"
+                  onChange={(e) =>
+                    majSection(i, {
+                      ...section,
+                      plats: section.plats.map((p, m) =>
+                        m === n ? { ...p, nom: e.target.value } : p,
+                      ),
+                    })
+                  }
+                  className={CHAMP}
+                />
+                <input
+                  value={plat.prix}
+                  placeholder="14 €"
+                  onChange={(e) =>
+                    majSection(i, {
+                      ...section,
+                      plats: section.plats.map((p, m) =>
+                        m === n ? { ...p, prix: e.target.value } : p,
+                      ),
+                    })
+                  }
+                  className={CHAMP}
+                />
+                <button
+                  type="button"
+                  aria-label={`Supprimer le plat ${n + 1}`}
+                  onClick={() =>
+                    majSection(i, { ...section, plats: section.plats.filter((_, m) => m !== n) })
+                  }
+                  className="cursor-pointer px-3 text-muted hover:text-[#a33]"
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={() =>
+              majSection(i, { ...section, plats: [...section.plats, { nom: "", prix: "" }] })
+            }
+            className="mt-3 cursor-pointer text-sm text-gold underline underline-offset-4"
+          >
+            + Ajouter un plat
+          </button>
+
+          <label className={`${ETIQUETTE} mt-5`}>
+            Mention sous cette partie — laissez vide s’il n’y en a pas
+          </label>
+          <input
+            value={section.note}
+            placeholder="Tous nos plats sont servis avec une salade verte"
+            onChange={(e) => majSection(i, { ...section, note: e.target.value })}
+            className={`mt-1 ${CHAMP}`}
+          />
+        </fieldset>
+      ))}
+
+      <button
+        type="button"
+        onClick={() =>
+          onChange({ ...carte, sections: [...carte.sections, { titre: "", plats: [], note: "" }] })
+        }
+        className="cursor-pointer rounded-full border border-gold px-6 py-2 text-sm text-gold transition-colors hover:bg-gold hover:text-white"
+      >
+        + Ajouter une partie
+      </button>
+
+      <div>
+        <label className={ETIQUETTE}>Délai de préparation annoncé</label>
+        <input
+          value={carte.attente}
+          placeholder="30 mn d’attente"
+          onChange={(e) => onChange({ ...carte, attente: e.target.value })}
+          className={`mt-1 ${CHAMP}`}
+        />
+      </div>
+
+      <fieldset className="border border-black/10 p-5">
+        <legend className="px-2 text-sm font-semibold text-ink">Mentions de bas de carte</legend>
+        <div className="mt-2 space-y-2">
+          {carte.mentions.map((mention, i) => (
+            <div key={i} className="flex gap-2">
+              <input
+                value={mention}
+                placeholder="Prix TTC, service compris"
+                onChange={(e) =>
+                  onChange({
+                    ...carte,
+                    mentions: carte.mentions.map((m, n) => (n === i ? e.target.value : m)),
+                  })
+                }
+                className={CHAMP}
+              />
+              <button
+                type="button"
+                aria-label={`Supprimer la mention ${i + 1}`}
+                onClick={() =>
+                  onChange({ ...carte, mentions: carte.mentions.filter((_, n) => n !== i) })
+                }
+                className="shrink-0 cursor-pointer px-3 text-muted hover:text-[#a33]"
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={() => onChange({ ...carte, mentions: [...carte.mentions, ""] })}
+          className="mt-3 cursor-pointer text-sm text-gold underline underline-offset-4"
+        >
+          + Ajouter une mention
+        </button>
+      </fieldset>
     </div>
   );
 }

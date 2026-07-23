@@ -66,6 +66,16 @@ export const seo = {
     description:
       "Ouvert tous les jours de 10h00 à 23h00, fermé dimanche et jours fériés. Modes de paiement acceptés : Cartes de crédit, espèces...",
   },
+  /**
+   * Cette carte n'existait que sous forme d'image sur WordPress : elle
+   * n'apparaissait dans aucun resultat de recherche, et il n'y a donc ici
+   * aucun libelle acquis a preserver.
+   */
+  "/carte-room-service": {
+    titre: "Carte room service 24h/24 - Le Palladia hôtel 4 étoiles Toulouse",
+    description:
+      "La carte du room service de l’hôtel Palladia à Toulouse, servie 24h/24 dans votre chambre, dimanche et jours fériés inclus.",
+  },
   "/spa": {
     titre: "Spa - Le Palladia hôtel 4 étoiles Toulouse",
     description:

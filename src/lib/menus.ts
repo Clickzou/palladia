@@ -20,12 +20,28 @@ export type MenuJour = {
   enfant: { titre: string; prix: string; detail: string };
 };
 
-export type Menus = { semaine: MenuSemaine; jour: MenuJour };
+/**
+ * Carte du room service : le plat et son prix, sans choix a composer.
+ *
+ * `poste` est le numero a composer depuis la chambre — c'est la seule facon de
+ * commander. `attente` et `mentions` reprennent le bas de la carte imprimee.
+ */
+export type CarteSnack = {
+  titre: string;
+  poste: string;
+  disponibilite: string;
+  sections: { titre: string; plats: { nom: string; prix: string }[]; note: string }[];
+  attente: string;
+  mentions: string[];
+};
+
+export type Menus = { semaine: MenuSemaine; jour: MenuJour; snack: CarteSnack };
 
 /** Les menus figes dans le code, servis tant que la base n'a rien. */
 const SECOURS: Menus = {
   semaine: restaurant.menuSemaine as unknown as MenuSemaine,
   jour: restaurant.menuJour as unknown as MenuJour,
+  snack: restaurant.carteSnack as unknown as CarteSnack,
 };
 
 /**
@@ -64,9 +80,11 @@ export async function lireMenus(locale: string): Promise<Menus> {
 
   const semaine = derniere("semaine");
   const jour = derniere("jour");
+  const snack = derniere("snack");
 
   return {
     semaine: semaine ? (choisir(semaine) as MenuSemaine) : SECOURS.semaine,
     jour: jour ? (choisir(jour) as MenuJour) : SECOURS.jour,
+    snack: snack ? (choisir(snack) as CarteSnack) : SECOURS.snack,
   };
 }

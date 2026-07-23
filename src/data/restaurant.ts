@@ -77,6 +77,45 @@ export const restaurant = {
     },
   },
 
+  /**
+   * Carte du room service, servie 24h/24 depuis la chambre. Comme les deux
+   * menus ci-dessus, elle vit en base : cette copie n'est que le filet de
+   * securite si la base ne repond pas.
+   */
+  carteSnack: {
+    titre: "Carte snack 24h/24",
+    poste: "9",
+    disponibilite: "Dimanche et jours fériés inclus",
+    sections: [
+      {
+        titre: "Le salé",
+        plats: [
+          { nom: "Croque Monsieur Gourmand", prix: "14 €" },
+          { nom: "Pizza végétarienne", prix: "16 €" },
+          { nom: "Gaspacho et ses croutons", prix: "7 €" },
+          { nom: "Paté Régional", prix: "10 €" },
+          { nom: "Hachis parmentier de canard 340 gr", prix: "19 €" },
+        ],
+        note: "Tous nos plats sont servis avec une salade verte",
+      },
+      {
+        titre: "Le sucré",
+        plats: [
+          { nom: "Assiette de fromages", prix: "8 €" },
+          { nom: "Yaourt ou Fromage blanc avec coulis", prix: "5 €" },
+          { nom: "Tiramisu", prix: "8 €" },
+        ],
+        note: "",
+      },
+    ],
+    attente: "30 mn d’attente",
+    mentions: [
+      "Prix TTC, service compris",
+      "Produits sous réserve de disponibilité",
+      "Photos non contractuelles",
+    ],
+  },
+
   bar: {
     titre: "Le Bar Lounge",
     /** youtube.com/watch?v=NJUSVNeyRdU */

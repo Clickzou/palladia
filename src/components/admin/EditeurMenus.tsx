@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
-import type { MenuJour, MenuSemaine } from "@/lib/menus";
+import type { CarteSnack as TypeCarteSnack, MenuJour, MenuSemaine } from "@/lib/menus";
 import {
   annulerProgrammation,
   enregistrerBrouillon,
@@ -15,16 +15,15 @@ import {
 } from "@/lib/brouillon-menus";
 import { traduire } from "@/app/[locale]/adminpclickzou/actions";
 import Connexion from "./Connexion";
-import { ChampsJour, ChampsSemaine } from "./ChampsMenu";
+import { ChampsJour, ChampsSemaine, ChampsSnack } from "./ChampsMenu";
 import CartesMenus from "@/components/restaurant/CartesMenus";
+import CarteSnack from "@/components/restaurant/CarteSnack";
 
 const LANGUES: { code: Langue; nom: string; ou: string }[] = [
   { code: "fr", nom: "Français", ou: "ou" },
   { code: "en", nom: "English", ou: "or" },
   { code: "es", nom: "Español", ou: "o" },
 ];
-
-const CLES: Cle[] = ["semaine", "jour"];
 
 const dateLisible = (iso: string) =>
   new Date(iso).toLocaleString("fr-FR", { dateStyle: "long", timeStyle: "short" });
@@ -93,9 +92,12 @@ export default function EditeurMenus() {
       e ? { ...e, brouillon: { ...e.brouillon, [cle]: { ...e.brouillon[cle], [langue]: valeur } } } : e,
     );
 
-  /** Version affichée : la langue choisie, ou le français si rien n'existe encore. */
-  const valeur = (cle: Cle) =>
-    (etat?.brouillon[cle]?.[langue] ?? etat?.brouillon[cle]?.fr) as MenuSemaine | MenuJour;
+  /**
+   * Version affichée : la langue choisie, ou le français si rien n'existe
+   * encore. Chaque carte a sa forme propre — l'appelant sait laquelle il
+   * demande, et c'est lui qui la nomme.
+   */
+  const valeur = (cle: Cle): unknown => etat?.brouillon[cle]?.[langue] ?? etat?.brouillon[cle]?.fr;
 
   const enregistrer = async (quoi: Langue[], annonce: string, source = etat) => {
     if (!source) return;
@@ -112,14 +114,15 @@ export default function EditeurMenus() {
     setEnCours("traduction");
     setMessage(null);
 
-    // Les deux menus partent ensemble : quatre traductions enchainees, c'etait
-    // une demi-minute d'attente devant un formulaire fige.
-    const [semaine, jour] = await Promise.all([
+    // Les trois cartes partent ensemble : six traductions enchainees, ce
+    // serait une minute d'attente devant un formulaire fige.
+    const [semaine, jour, snack] = await Promise.all([
       traduire(etat.brouillon.semaine.fr),
       traduire(etat.brouillon.jour.fr),
+      traduire(etat.brouillon.snack.fr),
     ]);
 
-    const rate = semaine.erreur ?? jour.erreur;
+    const rate = semaine.erreur ?? jour.erreur ?? snack.erreur;
     if (rate) {
       setMessage({ ok: false, texte: rate });
       setEnCours(null);
@@ -128,7 +131,7 @@ export default function EditeurMenus() {
 
     // Une reponse sans erreur mais sans traduction laissait croire au succes,
     // et le formulaire retombait sur le français sans rien dire.
-    if (!semaine.en || !semaine.es || !jour.en || !jour.es) {
+    if (!semaine.en || !semaine.es || !jour.en || !jour.es || !snack.en || !snack.es) {
       setMessage({
         ok: false,
         texte: "La traduction n’a rien renvoyé. Réessayez ; si cela persiste, prévenez Clickzou.",
@@ -142,6 +145,7 @@ export default function EditeurMenus() {
       brouillon: {
         semaine: { ...etat.brouillon.semaine, en: semaine.en, es: semaine.es },
         jour: { ...etat.brouillon.jour, en: jour.en, es: jour.es },
+        snack: { ...etat.brouillon.snack, en: snack.en, es: snack.es },
       },
     };
     setEtat(apres);
@@ -341,13 +345,18 @@ export default function EditeurMenus() {
                   {l.nom}
                   {!traduit && " — pas encore traduit, le français s’affichera"}
                 </h3>
-                <div className="mt-4 px-6">
+                <div className="mt-4 space-y-10 px-6">
                   <CartesMenus
                     semaine={
                       (etat.brouillon.semaine[l.code] ?? etat.brouillon.semaine.fr) as MenuSemaine
                     }
                     jour={(etat.brouillon.jour[l.code] ?? etat.brouillon.jour.fr) as MenuJour}
                     ou={l.ou}
+                  />
+                  <CarteSnack
+                    carte={
+                      (etat.brouillon.snack[l.code] ?? etat.brouillon.snack.fr) as TypeCarteSnack
+                    }
                   />
                 </div>
               </section>
@@ -377,13 +386,39 @@ export default function EditeurMenus() {
                 <ChampsJour menu={valeur("jour") as MenuJour} onChange={(m) => majMenu("jour", m)} />
               </div>
             </section>
+
+            <section>
+              <h2 className="titre-moyen text-ink">Carte du room service</h2>
+              {/* C'est la page qu'atteint le QR code des chambres : le rappeler
+                  evite qu'on la prenne pour une carte de second plan. */}
+              <p className="mt-3 text-body">
+                Servie 24h/24 en chambre. C’est la page que vos clients ouvrent en scannant le QR
+                code de leur chambre, à l’adresse{" "}
+                <a
+                  href="/carte-room-service"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-gold underline underline-offset-4"
+                >
+                  hotelpalladia.com/carte-room-service
+                </a>
+                .
+              </p>
+              <div className="mt-6">
+                <ChampsSnack
+                  carte={valeur("snack") as TypeCarteSnack}
+                  onChange={(c) => majMenu("snack", c)}
+                />
+              </div>
+            </section>
           </div>
 
           {/* Publication : la seule action qui rend le travail visible. */}
           <section className="mt-16 border-t border-black/10 pt-10">
             <h2 className="titre-moyen text-ink">Publier</h2>
             <p className="mt-3 text-body">
-              Les trois langues partent ensemble. Pensez à enregistrer vos corrections avant.
+              Les trois cartes et les trois langues partent ensemble. Pensez à enregistrer vos
+              corrections avant.
             </p>
 
             <div className="mt-8 flex flex-wrap items-end gap-4">

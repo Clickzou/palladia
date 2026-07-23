@@ -13,6 +13,14 @@
   --color-body: #030303d1;
   --color-muted: #4d4b4b;
 
+  /* Couleurs de la carte imprimee du restaurant (Carte-restaurant-Printemps.pdf),
+     relevees au pixel sur le document. Elles habillent les pages de cartes, pour
+     que l'ecran et le papier se ressemblent. */
+  --color-sapin: #3e5342;
+  --color-sapin-clair: #55705a;
+  --color-sable: #f5f2e7;
+  --color-or-carte: #d3922a;
+
   --font-display: var(--font-spinnaker), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
 }

@@ -2,7 +2,8 @@
 
 import type { SupabaseClient } from "@supabase/supabase-js";
 
-export type Cle = "semaine" | "jour";
+/** `snack` est la carte du room service : meme mecanique, autre page. */
+export type Cle = "semaine" | "jour" | "snack";
 export type Langue = "fr" | "en" | "es";
 
 export type Version = {
@@ -24,7 +25,7 @@ export type Etat = {
   programme: Version | undefined;
 };
 
-const CLES: Cle[] = ["semaine", "jour"];
+const CLES: Cle[] = ["semaine", "jour", "snack"];
 
 /**
  * Etat complet des menus pour le tableau de bord.
@@ -59,7 +60,13 @@ export async function lireEtat(supabase: SupabaseClient): Promise<Etat | { erreu
 
     // Pas de brouillon : on repart de la carte en ligne.
     const source = enLigne[cle];
-    if (!source) return { erreur: `Aucun menu « ${cle} » en base.` };
+    // Une carte absente de la base signifie une migration non appliquee : le
+    // dire, plutot que de laisser chercher une panne du tableau de bord.
+    if (!source) {
+      return {
+        erreur: `Aucune carte « ${cle} » en base : la migration correspondante n’a pas été appliquée. Prévenez Clickzou.`,
+      };
+    }
 
     const { data: cree, error: erreurCreation } = await supabase
       .from("menus_versions")
