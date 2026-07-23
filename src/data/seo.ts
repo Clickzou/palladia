@@ -121,6 +121,15 @@ export const seo = {
     description:
       "Séminaire, soirée entreprise, mariage ou journée d’étude, demandez un devis pour votre événement à l’Hôtel Palladia à Toulouse.",
   },
+  /**
+   * Le site d'origine n'avait pas de page : le bouton ouvrait un courriel
+   * pre-rempli. Aucun libelle acquis a preserver, donc.
+   */
+  "/reservation-groupe": {
+    titre: "Réservation de groupe - Le Palladia hôtel 4 étoiles Toulouse",
+    description:
+      "Réservez pour un groupe à l’Hôtel Palladia à Toulouse : indiquez vos dates et le nombre de personnes, notre service réservation vous répond rapidement.",
+  },
   "/contact": {
     // Le WordPress avait bien une page /contact, mais vide : titre et
     // description sont repris de ses metadonnees, le contenu est nouveau.

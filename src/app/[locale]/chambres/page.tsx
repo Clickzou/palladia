@@ -50,8 +50,11 @@ export default async function ChambresPage({ params }: { params: Promise<{ local
           {t("Dimanche et jours fériés le petit déjeuner est servi jusqu’à 11h00.")}
         </p>
 
+        {/* Le devis evenementiel reclamait un budget et une date unique : on
+            n'y decrivait pas un sejour. Ce bouton mene desormais au formulaire
+            de reservation de groupe, qui part a la reception. */}
         <Link
-          href="/devis?type=reservation_groupe"
+          href="/reservation-groupe"
           className="mt-10 inline-block rounded-full bg-gold px-9 py-4 font-medium text-white transition-colors hover:bg-gold-dark"
         >
           {t("Réservation Groupe ? Par ici →")}
