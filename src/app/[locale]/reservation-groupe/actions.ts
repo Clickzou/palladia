@@ -90,14 +90,9 @@ export async function envoyerReservationGroupe(
 
   if (error) {
     console.error("Enregistrement de la demande de groupe impossible :", error.message);
-    return {
-      ok: false,
-      message:
-        "Votre demande n’a pas pu être enregistrée. Merci de réessayer ou de nous appeler au 05 62 12 01 20.",
-    };
   }
 
-  await envoyerCourriel({
+  const prevenu = await envoyerCourriel({
     destinataires: destinataires.reservation,
     sujet: `Réservation de groupe — ${personnes} personnes du ${enClair(arrivee)} au ${enClair(depart)} — ${prenom} ${nom}`,
     repondreA: email,
@@ -114,6 +109,20 @@ export async function envoyerReservationGroupe(
       champ("message") || "(aucun message)",
     ],
   });
+
+  /**
+   * La demande compte comme reçue des lors que l'hotel en est prevenu, meme si
+   * la base l'a refusee — c'est le courriel qui declenche la reponse au
+   * client. Ne renvoyer une erreur que si les deux canaux ont echoue : un
+   * prospect perdu coute plus cher qu'une ligne manquante dans le suivi.
+   */
+  if (error && !prevenu) {
+    return {
+      ok: false,
+      message:
+        "Votre demande n’a pas pu être envoyée. Merci de réessayer ou de nous appeler au 05 62 12 01 20.",
+    };
+  }
 
   return {
     ok: true,
