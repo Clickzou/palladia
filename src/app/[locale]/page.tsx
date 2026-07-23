@@ -47,7 +47,9 @@ const BANDEAU = [
  */
 const CARROUSEL = [
   { src: "/images/hd/chambre-luxe.jpg", alt: "Chambre de luxe à l’Hôtel Palladia" },
-  { src: "/images/hd/piscine.jpg", alt: "La piscine extérieure de l’Hôtel Palladia" },
+  // Photo fournie par l'hotel le 23 juillet 2026 : plein soleil et transats
+  // actuels, quand l'ancienne vue datait d'avant leur remplacement.
+  { src: "/images/piscine-palladia.jpg", alt: "La piscine extérieure de l’Hôtel Palladia" },
   {
     src: "/images/hd/amphitheatre.jpg",
     alt: "L’amphithéâtre de 285 places de l’Hôtel Palladia",
