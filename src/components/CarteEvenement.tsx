@@ -19,6 +19,7 @@ export default function CarteEvenement({
   imageAlt,
   ctaLabel,
   href,
+  document,
   delai = "0s",
 }: {
   title: string;
@@ -27,6 +28,11 @@ export default function CarteEvenement({
   imageAlt: string;
   ctaLabel: string;
   href: string;
+  /**
+   * Second acces, vers un document a telecharger. Il passe au-dessus du calque
+   * qui rend la carte cliquable : sans cela, le lien principal l'intercepterait.
+   */
+  document?: { label: string; href: string };
   /** Decalage d'apparition, pour que les cartes arrivent l'une apres l'autre. */
   delai?: string;
 }) {
@@ -59,15 +65,29 @@ export default function CarteEvenement({
         <p className="mt-3 line-clamp-4 leading-relaxed text-body">{text}</p>
         {/* Une fleche qui avance au survol : le seul indice qu'il s'agit d'un
             lien, puisque la carte entiere est cliquable. */}
-        <p className="mt-5 flex items-center gap-2 text-sm font-medium tracking-[0.12em] text-gold uppercase">
-          {ctaLabel}
-          <span
-            aria-hidden="true"
-            className="inline-block transition-transform duration-500 group-hover:translate-x-1.5"
-          >
-            →
-          </span>
-        </p>
+        <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium tracking-[0.12em] text-gold uppercase">
+          <p className="flex items-center gap-2">
+            {ctaLabel}
+            <span
+              aria-hidden="true"
+              className="inline-block transition-transform duration-500 group-hover:translate-x-1.5"
+            >
+              →
+            </span>
+          </p>
+
+          {document && (
+            <a
+              href={document.href}
+              target="_blank"
+              rel="noopener"
+              className="relative z-10 flex items-center gap-2 underline underline-offset-4 hover:text-gold-dark"
+            >
+              {document.label}
+              <span aria-hidden="true">↓</span>
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );

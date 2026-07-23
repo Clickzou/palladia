@@ -46,10 +46,18 @@ const BANDEAU = [
  * par un fichier recupere depuis une page web, qui sera toujours une vignette.
  */
 const CARROUSEL = [
-  { src: "/images/hd/chambre-luxe.jpg", alt: "Chambre de luxe à l’Hôtel Palladia" },
+  // La chambre renovee ouvre le carrousel : c'est la nouveaute de l'hotel, et
+  // la premiere vue est la seule que tout visiteur voit a coup sur.
+  {
+    src: "/images/chambre-luxe-hotel-toulouse-palladia.jpg",
+    alt: "Chambre rénovée de l’Hôtel Palladia",
+  },
   // Photo fournie par l'hotel le 23 juillet 2026 : plein soleil et transats
   // actuels, quand l'ancienne vue datait d'avant leur remplacement.
   { src: "/images/piscine-palladia.jpg", alt: "La piscine extérieure de l’Hôtel Palladia" },
+  // L'ancienne premiere vue, decalee ici : deux chambres en tete de carrousel
+  // se seraient suivies, alors que l'ordre alterne les univers de l'hotel.
+  { src: "/images/hd/chambre-luxe.jpg", alt: "Chambre de luxe à l’Hôtel Palladia" },
   {
     src: "/images/hd/amphitheatre.jpg",
     alt: "L’amphithéâtre de 285 places de l’Hôtel Palladia",
@@ -198,7 +206,8 @@ export default async function HomePage({
             image="/images/mariages.jpg"
             imageAlt={a("Réception de mariage")}
             ctaLabel={t("mariagesCta")}
-            href="/devis"
+            href="/devis?type=mariage"
+            document={{ label: t("mariagesPlaquette"), href: "/plaquette-mariage" }}
             delai="0.12s"
           />
           <CarteEvenement

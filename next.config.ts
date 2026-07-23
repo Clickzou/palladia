@@ -70,6 +70,18 @@ const nextConfig: NextConfig = {
         destination: "/documents/plaquette-seminaires.pdf",
         permanent: false,
       },
+
+      /** Meme principe pour la plaquette mariage. */
+      {
+        source: "/plaquette-mariage",
+        destination: "/documents/plaquette-mariage.pdf",
+        permanent: false,
+      },
+      {
+        source: "/:locale(en|es)/plaquette-mariage",
+        destination: "/documents/plaquette-mariage.pdf",
+        permanent: false,
+      },
     ];
   },
 };
