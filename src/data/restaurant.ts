@@ -7,6 +7,23 @@
  * ci-dessous correspond deja au schema prevu.
  */
 
+/**
+ * Fermeture annuelle, annoncee en bandeau en tete de page Restaurant.
+ *
+ * `jusquau` est le dernier jour de fermeture, au format AAAA-MM-JJ : le bandeau
+ * s'efface tout seul le lendemain matin, personne n'a a y repenser. Pour ne rien
+ * annoncer, ou retirer l'annonce avant la date, mettre `texte` a "".
+ *
+ * La date ne s'affiche pas : c'est `texte` qui la porte, ecrite pour un lecteur.
+ * Les deux doivent donc etre changees ensemble. Type pose a la main plutot que
+ * deduit : sans lui, `texte === ""` serait une comparaison impossible pour
+ * TypeScript, et le seul moyen de tout couper deviendrait une erreur.
+ */
+const fermeture: { texte: string; jusquau: string } = {
+  texte: "Restaurant fermé du lundi 3 août au 22 août inclus",
+  jusquau: "2026-08-22",
+};
+
 export const restaurant = {
   metaTitle: "Restaurant - Le Palladia hôtel 4 étoiles Toulouse",
   metaDescription:
@@ -23,6 +40,8 @@ export const restaurant = {
   ],
 
   chef: { name: "Jeremy Gabarrot", href: "/actualites" },
+
+  fermeture,
 
   horaires: [
     { texte: "Restaurant ouvert du lundi au vendredi de 12h à 14h00 et de 19h à 21h45", fort: true },

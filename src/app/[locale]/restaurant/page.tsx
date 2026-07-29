@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { traduire, traduireContenu } from "@/i18n/contenu";
 import { lireMenus } from "@/lib/menus";
+import { dateDuJourAParis } from "@/lib/dates";
 import CartesMenus from "@/components/restaurant/CartesMenus";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
@@ -29,6 +30,14 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
   // l'hotel les modifie depuis /admin, et non du dictionnaire.
   const menus = await lireMenus(locale);
 
+  // Fermeture annuelle : la date est relue a chaque affichage — la page n'est
+  // pas prerendue, ses menus venant de la base — et le bandeau disparait donc
+  // de lui-meme au lendemain du dernier jour, sans mise en ligne.
+  // On lit la date sur les donnees françaises et non sur `r` : traduite, elle
+  // resterait juste, mais elle n'a rien a faire dans un dictionnaire.
+  const fermetureEnCours =
+    rFr.fermeture.texte !== "" && dateDuJourAParis() <= rFr.fermeture.jusquau;
+
   return (
     <>
       <PageHeader
@@ -39,6 +48,18 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
         ctaHref={booking.restaurant}
         external
       />
+
+      {/* Fermeture annuelle : au-dessus de la presentation, avant le bouton de
+          reservation de fin de page, pour qu'aucun visiteur ne reserve une
+          table pour une date ou le restaurant est ferme. */}
+      {fermetureEnCours && (
+        <p
+          role="status"
+          className="mx-auto mb-12 max-w-[900px] border-y border-gold bg-cream px-6 py-4 text-center font-semibold tracking-wide text-ink sm:rounded-md sm:border"
+        >
+          {r.fermeture.texte}
+        </p>
+      )}
 
       {/* Presentation + portrait du chef */}
       <section className="mx-auto grid max-w-[1800px] items-start gap-12 px-8 pb-20 lg:grid-cols-2 lg:gap-16">
