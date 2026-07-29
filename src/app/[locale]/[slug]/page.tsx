@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import ArticleBlocs from "@/components/blog/ArticleBlocs";
 import { lireArticle } from "@/lib/blog";
 import { ratioImage } from "@/lib/images";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import { ogLocale } from "@/data/seo";
 
 /**
@@ -61,13 +61,13 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <article>
       <header className="px-6 pt-8 pb-10 text-center">
-        <nav aria-label="Fil d’Ariane" className="text-sm">
+        <nav aria-label={traduire("Fil d’Ariane", locale)} className="text-sm">
           <Link href="/" className="text-[#8b3a3a] underline hover:text-gold">
-            Accueil
+            {traduire("Accueil", locale)}
           </Link>
           <span className="mx-1 text-muted">»</span>
           <Link href="/actualites" className="text-[#8b3a3a] underline hover:text-gold">
-            Actualités
+            {traduire("Actualités", locale)}
           </Link>
           <span className="mx-1 text-muted">»</span>
           <span className="font-semibold text-ink">{article.titre}</span>

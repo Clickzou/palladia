@@ -1,10 +1,17 @@
+import { getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { traduire } from "@/i18n/contenu";
 
 /**
  * En-tete editorial commun aux pages de rubrique (Restaurant, Spa, Seminaires...) :
  * fil d’Ariane, titre dore, sous-titre, filet et bouton d’action facultatif.
+ *
+ * Le libelle « Accueil » etait ecrit en dur : les treize pages qui reprennent
+ * cet en-tete affichaient un fil d’Ariane français en anglais et en espagnol.
+ * La langue n'est pas passee en propriete — aucun appelant ne la transmettait —
+ * mais lue depuis la requete, comme le fait deja `generateMetadata`.
  */
-export default function PageHeader({
+export default async function PageHeader({
   breadcrumb,
   title,
   subtitle,
@@ -19,11 +26,14 @@ export default function PageHeader({
   ctaHref?: string;
   external?: boolean;
 }) {
+  const locale = await getLocale();
+  const t = (texte: string) => traduire(texte, locale);
+
   return (
     <header className="apparait-haut px-6 pt-8 pb-12 text-center">
-      <nav aria-label="Fil d’Ariane" className="text-sm">
+      <nav aria-label={t("Fil d’Ariane")} className="text-sm">
         <Link href="/" className="text-[#8b3a3a] underline hover:text-gold">
-          Accueil
+          {t("Accueil")}
         </Link>
         <span className="mx-1 text-muted">»</span>
         <span className="font-semibold text-ink">{breadcrumb}</span>
