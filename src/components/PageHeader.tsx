@@ -1,6 +1,8 @@
 import { getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { traduire } from "@/i18n/contenu";
+import DonneesStructurees from "@/components/DonneesStructurees";
+import { schemaFilAriane } from "@/data/donnees-structurees";
 
 /**
  * En-tete editorial commun aux pages de rubrique (Restaurant, Spa, Seminaires...) :
@@ -31,6 +33,10 @@ export default async function PageHeader({
 
   return (
     <header className="apparait-haut px-6 pt-8 pb-12 text-center">
+      {/* Le meme fil d’Ariane, en JSON-LD : sans lui Google affiche l’URL
+          brute sous le titre du resultat au lieu du chemin de navigation. */}
+      <DonneesStructurees schema={schemaFilAriane([{ nom: breadcrumb }], locale)} />
+
       <nav aria-label={t("Fil d’Ariane")} className="text-sm">
         <Link href="/" className="text-[#8b3a3a] underline hover:text-gold">
           {t("Accueil")}
