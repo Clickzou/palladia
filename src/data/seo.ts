@@ -5,12 +5,17 @@ import { traduire } from "@/i18n/contenu";
 const SITE = "https://www.hotelpalladia.com";
 
 /**
- * Titres et descriptions de reference, repris a l'identique du site
- * WordPress en ligne.
+ * Titres et descriptions de reference, repris du site WordPress en ligne.
  *
  * Ce sont ces libelles qui sont indexes par Google et affiches dans les
- * resultats de recherche : les modifier ferait perdre le benefice du
- * referencement acquis. Ils font donc autorite sur toute reformulation.
+ * resultats de recherche : ils font autorite sur toute reformulation de
+ * confort, pour ne pas perdre le benefice du referencement acquis.
+ *
+ * Quatre d'entre eux ont ete reecrits le 31 aout 2026, apres un audit qui les
+ * a trouves hors du gabarit d'affichage de Google — au-dela de 65 signes le
+ * titre est coupe, en deca de 25 il ne porte aucun terme de recherche. La
+ * reecriture garde les termes porteurs en tete de titre. Toute autre
+ * modification reste a arbitrer plutot qu'a decider seul.
  */
 export const seo = {
   "/": {
