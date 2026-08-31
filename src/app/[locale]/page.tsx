@@ -9,6 +9,9 @@ import HeroCarousel from "@/components/HeroCarousel";
 import SectionPhare from "@/components/SectionPhare";
 import CarteEvenement from "@/components/CarteEvenement";
 import { IconPin, IconValise } from "@/components/icons";
+import DonneesStructurees from "@/components/DonneesStructurees";
+import VideoFond from "@/components/VideoFond";
+import { schemaHotel } from "@/data/donnees-structurees";
 
 export async function generateMetadata({
   params,
@@ -83,6 +86,10 @@ export default async function HomePage({
 
   return (
     <>
+      {/* Fiche de l’etablissement pour Google : classement, adresse,
+          equipements. Posee ici seulement, l’accueil representant l’hotel. */}
+      <DonneesStructurees schema={schemaHotel(locale)} />
+
       <HeroCarousel
         slides={CARROUSEL.map((img) => ({ src: img.src, alt: a(img.alt) }))}
         title={t("heroTitle")}
@@ -230,24 +237,12 @@ export default async function HomePage({
           <p className="mt-6 leading-relaxed text-body">{t("videoText")}</p>
         </div>
         <div className="apparait-image relative min-h-[320px] overflow-hidden md:min-h-[520px]">
-          {/*
-            Lecture automatique, en sourdine et en boucle : le navigateur
-            l’autorise a ces conditions. `playsInline` evite le passage en
-            plein ecran force sur iPhone, `poster` affiche un visuel pendant
-            le chargement.
-          */}
-          <video
-            className="absolute inset-0 size-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
+          <VideoFond
+            src="/videos/hotel-palladia.mp4"
             poster="/images/bandeau-3.jpg"
-            aria-label={a("Visite en vidéo de l’Hôtel Palladia")}
-          >
-            <source src="/videos/hotel-palladia.mp4" type="video/mp4" />
-          </video>
+            className="absolute inset-0 size-full object-cover"
+            ariaLabel={a("Visite en vidéo de l’Hôtel Palladia")}
+          />
         </div>
       </section>
 

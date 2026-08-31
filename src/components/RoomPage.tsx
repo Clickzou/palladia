@@ -4,6 +4,9 @@ import RoomGallery from "./RoomGallery";
 import { booking, reserverEn } from "@/config/site";
 import type { Room } from "@/data/rooms";
 import { traduire } from "@/i18n/contenu";
+import DonneesStructurees from "@/components/DonneesStructurees";
+import VideoFond from "@/components/VideoFond";
+import { schemaFilAriane } from "@/data/donnees-structurees";
 import { IconBed, IconExpand, IconLock, IconTv, IconWifi } from "./icons";
 
 /**
@@ -65,6 +68,7 @@ export default function RoomPage({ room, locale }: { room: Room; locale: string 
       </div>
 
       {/* Fil d’Ariane */}
+      <DonneesStructurees schema={schemaFilAriane([{ nom: room.breadcrumb }], locale)} />
       <nav aria-label={t("Fil d’Ariane")} className="py-8 text-center text-sm">
         <Link href="/" className="text-[#8b3a3a] underline hover:text-gold">
           {t("Accueil")}
@@ -122,18 +126,12 @@ export default function RoomPage({ room, locale }: { room: Room; locale: string 
 
       {/* Video de presentation, pleine largeur */}
       <section className="relative h-[60vh] min-h-[380px] w-full overflow-hidden">
-        <video
-          className="absolute inset-0 size-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
+        <VideoFond
+          src="/videos/hotel-presentation.mp4"
           poster="/images/hotel/vue-3.jpg"
-          aria-label={t("L’Hôtel Palladia en vidéo")}
-        >
-          <source src="/videos/hotel-presentation.mp4" type="video/mp4" />
-        </video>
+          className="absolute inset-0 size-full object-cover"
+          ariaLabel={t("L’Hôtel Palladia en vidéo")}
+        />
       </section>
     </>
   );

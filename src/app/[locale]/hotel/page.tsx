@@ -3,6 +3,7 @@ import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import PhotoGrid from "@/components/PhotoGrid";
+import VideoFond from "@/components/VideoFond";
 import { booking, reserverEn } from "@/config/site";
 import { hotel as hotelFr } from "@/data/hotel";
 import { traduire, traduireContenu } from "@/i18n/contenu";
@@ -66,18 +67,12 @@ export default async function HotelPage({ params }: { params: Promise<{ locale: 
         </div>
 
         <div className="relative min-h-[420px] w-full overflow-hidden lg:min-h-full">
-          <video
-            className="absolute inset-0 size-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
+          <VideoFond
+            src="/videos/hotel-presentation.mp4"
             poster="/images/hotel/vue-4.jpg"
-            aria-label={t("Présentation en vidéo de l’Hôtel Palladia")}
-          >
-            <source src="/videos/hotel-presentation.mp4" type="video/mp4" />
-          </video>
+            className="absolute inset-0 size-full object-cover"
+            ariaLabel={t("Présentation en vidéo de l’Hôtel Palladia")}
+          />
         </div>
       </section>
 
