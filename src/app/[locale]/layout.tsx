@@ -6,22 +6,10 @@ import { routing } from "@/i18n/routing";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BandeauCookies from "@/components/BandeauCookies";
-import PopupOffre from "@/components/PopupOffre";
 import Analytics from "@/components/Analytics";
 import RevelateurAnimations from "@/components/RevelateurAnimations";
 import { traduire } from "@/i18n/contenu";
-import { booking, reserverEn } from "@/config/site";
 import "../globals.css";
-
-/**
- * Offre mise en avant a l'arrivee sur le site. Le visuel porte l'offre
- * elle-meme : seuls le bouton et les textes de substitution sont traduits.
- * Passe `jusquAu`, la fenetre ne s'ouvre plus.
- */
-const OFFRE_ETE = {
-  image: "/images/journee-hotel-piscine-scaled.jpg",
-  jusquAu: "2026-08-31",
-};
 
 /* Polices du site d’origine : Spinnaker pour les titres, Roboto pour le texte. */
 const spinnaker = Spinnaker({
@@ -105,18 +93,6 @@ export default async function LocaleLayout({
                   ),
                 },
               ],
-            }}
-          />
-          <PopupOffre
-            offre={{
-              ...OFFRE_ETE,
-              lien: reserverEn(booking.premium, locale),
-              alt: traduire(
-                "Offre été : les pieds dans l’eau, la tête en vacances — chambre confort de 10h à 18h à 99 € TTC, glaces ou softs offerts, du 3 juillet au 31 août 2026",
-                locale,
-              ),
-              libelleBouton: traduire("Voir l’offre", locale),
-              fermer: traduire("Fermer", locale),
             }}
           />
           <Analytics id={process.env.NEXT_PUBLIC_GA_ID} />
