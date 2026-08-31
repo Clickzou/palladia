@@ -65,8 +65,8 @@ export default function Header() {
             <Image
               src="/images/logo-palladia.png"
               alt={site.name}
-              width={150}
-              height={96}
+              width={497}
+              height={160}
               priority
               className="h-16 w-auto lg:h-20"
             />
