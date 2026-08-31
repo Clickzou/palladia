@@ -26,11 +26,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const entrees: MetadataRoute.Sitemap = [];
 
-  const ajouter = (route: string, priorite: number, frequence: "daily" | "weekly" | "monthly") => {
+  /**
+   * `lastModified` n'est renseigné que là où une vraie date existe.
+   *
+   * Il valait auparavant la date du déploiement pour les 141 URLs : une page
+   * réellement modifiée ne se distinguait plus des autres, et Google finit par
+   * ignorer un champ qui bouge partout à chaque mise en ligne. Un champ absent
+   * vaut mieux qu'un champ faux.
+   */
+  const ajouter = (
+    route: string,
+    priorite: number,
+    frequence: "daily" | "weekly" | "monthly",
+    modifiee?: string,
+  ) => {
     for (const locale of routing.locales) {
       entrees.push({
         url: url(route, locale),
-        lastModified: new Date(),
+        ...(modifiee ? { lastModified: new Date(modifiee) } : {}),
         changeFrequency: frequence,
         priority: priorite,
         alternates: {
@@ -57,9 +70,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Articles du blog, à la racine comme sur WordPress
-  for (const { slug, locale } of articles) {
+  for (const { slug, locale, date_publication } of articles) {
     if (locale !== routing.defaultLocale) continue; // évite les doublons
-    ajouter(`/${slug}`, 0.6, "monthly");
+    ajouter(`/${slug}`, 0.6, "monthly", date_publication);
   }
 
   return entrees;

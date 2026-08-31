@@ -120,12 +120,14 @@ export async function lireArticle(
 }
 
 /** Slugs publiés, pour la génération statique et le sitemap. */
-export async function listerSlugs(): Promise<{ slug: string; locale: string }[]> {
+export async function listerSlugs(): Promise<
+  { slug: string; locale: string; date_publication: string }[]
+> {
   if (!supabaseConfigure) return [];
   const supabase = await createClient();
   const { data } = await supabase
     .from("articles")
-    .select("slug, locale")
+    .select("slug, locale, date_publication")
     .eq("statut", "publie");
 
   return data ?? [];
