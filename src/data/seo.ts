@@ -19,7 +19,7 @@ export const seo = {
       "Le Palladia Toulouse : Hôtel luxe 4 étoiles, 90 chambres & suites, SPA, piscine, restaurant, bar lounge, salles et salons pour séminaires.",
   },
   "/hotel": {
-    titre: "Hôtel - Hôtel Palladia",
+    titre: "Hôtel 4 étoiles à Toulouse — Le Palladia",
     // Le site ne renseigne pas de description sur cette page : on en fournit
     // une plutot que de laisser Google en composer une.
     description:
@@ -87,7 +87,7 @@ export const seo = {
       "Concert de Musique Classique, théâtre, Jazz, Dîner & Spectacle, Brunchs. L’hôtel Palladia met la culture à l’honneur.",
   },
   "/visites-toulouse": {
-    titre: "Visiter Toulouse : les lieux et visites incontournables à Toulouse",
+    titre: "Visiter Toulouse : les lieux incontournables de la Ville rose",
     description:
       "Découvrez les 34 meilleures idées de visites à faire et lieux à visiter à Toulouse : monuments, musées, balades et activités à Toulouse.",
   },
@@ -107,12 +107,12 @@ export const seo = {
       "Découvrez les coffrets cadeaux exclusifs du Palladia. Expériences gastronomiques, bien-être et séjours de luxe vous attendent.",
   },
   "/recrutement": {
-    titre: "Recrutement Hôtel Palladia Toulouse | Offres d’Emploi en Hôtellerie",
+    titre: "Recrutement et offres d’emploi — Hôtel Palladia Toulouse",
     description:
       "Rejoignez l’Hôtel Palladia à Toulouse ! Découvrez nos offres d’emploi en hôtellerie et restauration. Postulez dès maintenant.",
   },
   "/actualites": {
-    titre: "Actualités Le Palladia 4*: Luxe et Gastronomie au Coeur de la Ville",
+    titre: "Actualités de l’Hôtel Palladia — Luxe et gastronomie à Toulouse",
     description:
       "Découvrez les dernières nouveautés du Palladia 4*, un univers de luxe et de saveurs uniques. Vivez l’expérience d’exception.",
   },
