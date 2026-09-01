@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { traduireContenu } from "@/i18n/contenu";
+import { traduire, traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { booking, reserverEn } from "@/config/site";
@@ -75,7 +75,7 @@ export default async function OffresEtePage({ params }: { params: Promise<{ loca
 
               {offre.inclus.length > 0 && (
                 <>
-                  <h3 className="mt-6 font-semibold text-ink">Inclus :</h3>
+                  <h3 className="mt-6 font-semibold text-ink">{traduire("Inclus :", locale)}</h3>
                   <ul className="mt-3 space-y-2">
                     {offre.inclus.map((item) => (
                       <li key={item} className="flex gap-3 text-body">
