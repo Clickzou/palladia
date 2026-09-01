@@ -3,7 +3,7 @@ import { traduireContenu } from "@/i18n/contenu";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { booking, reserverEn } from "@/config/site";
-import { offresEte as oFr } from "@/data/offres-ete";
+import { offresSaison as oFr } from "@/data/offres-saison";
 import PhotoGrid from "@/components/PhotoGrid";
 import { IconCheck } from "@/components/icons";
 

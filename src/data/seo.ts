@@ -31,9 +31,9 @@ export const seo = {
       "L’Hôtel Palladia, établissement 4 étoiles indépendant fondé en 1992 à Toulouse : 90 chambres, piscine extérieure, spa, restaurant et parking gratuit.",
   },
   "/offres-hebergement-toulouse": {
-    titre: "Offre hébergement été toulouse - Palladia Hôtel 4 étoiles",
+    titre: "Offre hébergement automne toulouse - Palladia Hôtel 4 étoiles",
     description:
-      "Découvrez nos offres et promotions pour votre hébergement à Toulouse pour cet été. Hôtel 4 étoile à Toulouse avec piscine.",
+      "Découvrez nos offres et promotions pour votre hébergement à Toulouse pour cet automne. Hôtel 4 étoile à Toulouse avec piscine.",
   },
   "/chambres": {
     titre: "Découvrez les Chambres & Suites de Luxe de l’Hôtel Palladia 4*",
