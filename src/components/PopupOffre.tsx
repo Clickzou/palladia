@@ -1,25 +1,64 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 import { lireConsentement } from "@/lib/consentement";
 
 /**
  * Fenetre promotionnelle de l'offre en cours, reprise de la popup Elementor.
  *
  * Elle s'ouvre cinq secondes apres l'arrivee, une seule fois par jour et par
- * visiteur, et s'efface d'elle-meme passee la date de fin de l'offre :
- * personne n'a a penser a la retirer du site fin aout.
+ * visiteur, et s'efface d'elle-meme passee `jusquAu` : personne n'a a penser
+ * a la retirer du site le jour ou l'offre se termine.
  */
 export type Offre = {
   image: string;
+  /**
+   * Dimensions reelles du visuel. Elles fixent ses proportions, dont la
+   * fenetre deduit sa largeur pour ne jamais depasser la hauteur de l'ecran :
+   * une affiche carree, elle, sortait du cadre sur un portable.
+   */
+  largeur: number;
+  hauteur: number;
   alt: string;
   libelleBouton: string;
+  /** Adresse interne (« /spectacle-toulouse ») ou lien externe complet. */
   lien: string;
   fermer: string;
   /** Dernier jour d'affichage, au format AAAA-MM-JJ. */
   jusquAu: string;
 };
+
+/**
+ * Une offre du site s'ouvre dans le meme onglet, en gardant la langue de la
+ * page ; une reservation, hebergee ailleurs, s'ouvre a cote pour ne pas faire
+ * perdre le site au visiteur.
+ */
+function LienOffre({
+  lien,
+  className,
+  auClic,
+  children,
+}: {
+  lien: string;
+  className: string;
+  auClic: () => void;
+  children: React.ReactNode;
+}) {
+  if (lien.startsWith("/")) {
+    return (
+      <Link href={lien} className={className} onClick={auClic}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={lien} target="_blank" rel="noopener" className={className}>
+      {children}
+    </a>
+  );
+}
 
 const CLE = "palladia-popup-offre";
 const DELAI = 5000;
@@ -28,6 +67,8 @@ export default function PopupOffre({ offre }: { offre: Offre }) {
   const [visible, setVisible] = useState(false);
   const boite = useRef<HTMLDivElement>(null);
   const fermeture = useRef<HTMLButtonElement>(null);
+  // Declaree avant les effets, qui la referencent pour la touche Echap.
+  const fermer = useCallback(() => setVisible(false), []);
 
   useEffect(() => {
     const aujourdhui = new Date().toISOString().slice(0, 10);
@@ -88,9 +129,7 @@ export default function PopupOffre({ offre }: { offre: Offre }) {
       document.removeEventListener("keydown", auClavier);
       document.body.style.overflow = defilement;
     };
-  }, [visible]);
-
-  const fermer = () => setVisible(false);
+  }, [visible, fermer]);
 
   if (!visible) return null;
 
@@ -106,7 +145,12 @@ export default function PopupOffre({ offre }: { offre: Offre }) {
         role="dialog"
         aria-modal="true"
         aria-label={offre.alt}
-        className="relative w-full max-w-[640px] bg-white shadow-2xl"
+        className="relative bg-white shadow-2xl"
+        // Le bloc du bouton occupe environ 6,5 rem sous le visuel : on les
+        // retranche avant de convertir la hauteur disponible en largeur.
+        style={{
+          width: `min(100%, 640px, calc((92vh - 6.5rem) * ${offre.largeur / offre.hauteur}))`,
+        }}
       >
         <button
           ref={fermeture}
@@ -126,27 +170,26 @@ export default function PopupOffre({ offre }: { offre: Offre }) {
           </svg>
         </button>
 
-        <a href={offre.lien} target="_blank" rel="noopener" className="block">
+        <LienOffre lien={offre.lien} auClic={fermer} className="block">
           <Image
             src={offre.image}
             alt={offre.alt}
-            width={1280}
-            height={800}
+            width={offre.largeur}
+            height={offre.hauteur}
             priority
             sizes="(max-width: 680px) 100vw, 640px"
             className="h-auto w-full"
           />
-        </a>
+        </LienOffre>
 
         <div className="border border-gold/40 p-4">
-          <a
-            href={offre.lien}
-            target="_blank"
-            rel="noopener"
+          <LienOffre
+            lien={offre.lien}
+            auClic={fermer}
             className="mx-auto block w-fit rounded-full bg-gold px-10 py-3 font-medium text-white transition-colors hover:bg-gold-dark"
           >
             {offre.libelleBouton}
-          </a>
+          </LienOffre>
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ import CarteEvenement from "@/components/CarteEvenement";
 import { IconPin, IconValise } from "@/components/icons";
 import DonneesStructurees from "@/components/DonneesStructurees";
 import VideoFond from "@/components/VideoFond";
+import PopupOffre from "@/components/PopupOffre";
 import { schemaHotel } from "@/data/donnees-structurees";
 
 export async function generateMetadata({
@@ -74,6 +75,23 @@ const CARROUSEL = [
     alt: "Chambre Prestige avec terrasse de l’Hôtel Palladia",
   },
 ];
+
+/**
+ * Fenetre promotionnelle affichee a l'arrivee sur l'accueil, et nulle part
+ * ailleurs : elle envoie vers la page des spectacles, ou l'ouvrir n'aurait
+ * aucun sens. Le visuel porte l'annonce, seuls le bouton et les textes de
+ * substitution sont traduits.
+ *
+ * `jusquAu` est la date de la derniere representation annoncee : passe ce
+ * jour, la fenetre ne s'ouvre plus, sans que personne ait a y penser.
+ */
+const POPUP_SPECTACLES = {
+  image: "/images/popup-spectacles.jpg",
+  largeur: 2700,
+  hauteur: 2700,
+  lien: "/spectacle-toulouse",
+  jusquAu: "2026-12-12",
+};
 
 export default async function HomePage({
   params,
@@ -273,6 +291,17 @@ export default async function HomePage({
           </Link>
         </div>
       </section>
+
+      <PopupOffre
+        offre={{
+          ...POPUP_SPECTACLES,
+          alt: a(
+            "Programme des spectacles de l’Hôtel Palladia : 4 soirées, 4 univers — humour, magie, gospel et concert, d’octobre à décembre 2026",
+          ),
+          libelleBouton: a("Voir le programme"),
+          fermer: a("Fermer"),
+        }}
+      />
     </>
   );
 }
