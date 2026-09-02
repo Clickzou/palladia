@@ -16,6 +16,29 @@ const TITRE_MAX = 65;
 const DESC_MIN = 70;
 const DESC_MAX = 165;
 
+/**
+ * Visuels dont l'`alt` vide est le bon balisage, et non un oubli :
+ *  - fond de section, pose derriere un texte deja present dans la page ;
+ *  - pictogramme qui ne fait que redoubler l'intitule qu'il accompagne ;
+ *  - affiche de video, dont le bouton porte deja « Lire la video : … ».
+ * Les decrire ferait entendre deux fois la meme chose a un lecteur d'ecran.
+ * La liste vise le fichier : elle vaut donc pour les trois langues.
+ */
+const DECORATIFS = [
+  "/images/engagements-fond.jpg",
+  "/images/restaurant/picto-carte.png",
+  "/images/restaurant/bar-lounge.jpg",
+  "/images/salons/st-nicolas.png",
+];
+
+/** `next/image` reecrit la source en /_next/image?url=…, encodee. */
+const decoratif = (balise) => {
+  const src = decodeURIComponent(
+    (balise.match(/url=([^&"]*)/) ?? balise.match(/src="([^"]*)/) ?? [])[1] ?? "",
+  );
+  return DECORATIFS.some((f) => src.endsWith(f));
+};
+
 const decoder = (t) =>
   t
     .replace(/&amp;/g, "&")
@@ -75,7 +98,7 @@ const analyser = async (url) => {
     h2: titres(2),
     h3: titres(3),
     images,
-    sansAlt: images.filter((i) => !/\balt="[^"]/.test(i)).length,
+    sansAlt: images.filter((i) => !/\balt="[^"]/.test(i) && !decoratif(i)).length,
     liens: [...corps.matchAll(/<a\b[^>]*href="([^"#][^"]*)"/g)].map((m) => m[1]),
     jsonLd: [...h.matchAll(/type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(
       (m) => m[1],

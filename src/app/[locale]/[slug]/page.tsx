@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import ArticleBlocs from "@/components/blog/ArticleBlocs";
 import { lireArticle } from "@/lib/blog";
 import { ratioImage } from "@/lib/images";
+import type { BlocContenu } from "@/lib/supabase/types";
 import { traduire, traduireContenu } from "@/i18n/contenu";
 import { ogLocale } from "@/data/seo";
 
@@ -57,6 +58,19 @@ export default async function ArticlePage({ params }: Props) {
   if (!source) notFound();
 
   const article = traduireContenu(source, locale);
+
+  const SITE = "https://www.hotelpalladia.com";
+  const prefixe = locale === "fr" ? SITE : `${SITE}/${locale}`;
+
+  /**
+   * Questions du ou des blocs `sections` marques `faq`. Seules celles qui
+   * portent une reponse sont retenues : un balisage FAQPage sans reponse est
+   * rejete par Google.
+   */
+  const questions = article.blocs
+    .filter((b) => b.type === "sections" && (b.contenu as BlocContenu["sections"]).faq)
+    .flatMap((b) => (b.contenu as BlocContenu["sections"]).sections)
+    .filter((s): s is { titre: string; intro: string } => Boolean(s.intro));
 
   return (
     <article>
@@ -124,6 +138,53 @@ export default async function ArticlePage({ params }: Props) {
           }),
         }}
       />
+
+      {/*
+        Fil d’Ariane : il est affiche en tete d’article depuis l’origine, mais
+        Google ne pouvait pas le lire. Sans ce balisage il affiche l’URL brute
+        dans ses resultats plutot que « Accueil › Actualités › … ».
+      */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { nom: traduire("Accueil", locale), url: prefixe },
+              { nom: traduire("Actualités", locale), url: `${prefixe}/actualites` },
+              { nom: article.titre, url: `${prefixe}/${slug}` },
+            ].map((e, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: e.nom,
+              item: e.url,
+            })),
+          }),
+        }}
+      />
+
+      {/*
+        Foire aux questions : un bloc `sections` marque `faq` decrit des
+        questions et leurs reponses. Google en fait un accordeon dans ses
+        resultats, ce qui elargit la place occupee par la page.
+      */}
+      {questions.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: questions.map((q) => ({
+                "@type": "Question",
+                name: q.titre,
+                acceptedAnswer: { "@type": "Answer", text: q.intro },
+              })),
+            }),
+          }}
+        />
+      )}
     </article>
   );
 }

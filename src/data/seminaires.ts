@@ -31,6 +31,18 @@ export const seminaires = {
     "Réactivité et souplesse de notre équipe commerciale permettent une adaptation à tous vos besoins pour la réussite de vos manifestations professionnelles ou privées, évènementielles, caritatives…",
   ],
 
+  /**
+   * Renvoi vers l'article qui detaille les formats d'evenement. Cette page et
+   * l'article se repondent : elle donne les salles et leurs capacites, il
+   * donne les formats. Le lien est pose ici pour que l'ancre soit traduite
+   * comme le reste du contenu.
+   */
+  lienFormats: {
+    avant: "Séminaire, réunion, formation, conférence, cocktail ou soirée d’entreprise :",
+    ancre: "découvrez nos formats d’événements professionnels",
+    apres: "et choisissez celui qui correspond à votre projet.",
+  },
+
   /** Fiches techniques des salons, dans l’ordre du site. */
   salons: [
     { nom: "Amphithéâtre",     places: "285 places", detail: "285 places",              image: "/images/salons/amphitheatre.jpg" },

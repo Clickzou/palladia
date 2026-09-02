@@ -123,6 +123,10 @@
     1748,
     1240
   ],
+  "/images/blog/acces-spa-hotel-toulouse.jpg": [
+    2048,
+    1221
+  ],
   "/images/blog/accord-met-et-vin-banniere.webp": [
     1920,
     664
@@ -130,6 +134,14 @@
   "/images/blog/Actu-programmation-culturelle-site-.jpg": [
     1920,
     664
+  ],
+  "/images/blog/adelya-carte-fidelite.jpg": [
+    1200,
+    1600
+  ],
+  "/images/blog/adelya-palladia.jpg": [
+    2048,
+    708
   ],
   "/images/blog/amphitheatre-hotel-palladia-renove.webp": [
     1920,
@@ -143,6 +155,14 @@
     1920,
     2560
   ],
+  "/images/blog/amphitheatre-toulouse-palladia-hotel-1024x474.png": [
+    1024,
+    474
+  ],
+  "/images/blog/banniere--1024x576.png": [
+    1024,
+    576
+  ],
   "/images/blog/banniere-.png": [
     1920,
     1080
@@ -155,6 +175,26 @@
     1920,
     663
   ],
+  "/images/blog/banniere-dvd.jpg": [
+    2048,
+    947
+  ],
+  "/images/blog/buffet-cocktail-entreprise-hotel-palladia.jpg": [
+    1920,
+    1357
+  ],
+  "/images/blog/capacites-salles-reunion-hotel-palladia.png": [
+    776,
+    765
+  ],
+  "/images/blog/chambre-prestige-terrasse-hotel-palladia-qkfk1p8sbhmn5uuicifbw9l0nn7s8ly5deoamujlxs.jpg": [
+    400,
+    200
+  ],
+  "/images/blog/chambre-prestige-terrasse-hotel-palladia.jpg": [
+    2048,
+    1221
+  ],
   "/images/blog/chambre-prestige-terrasse.jpg": [
     1920,
     1145
@@ -162,6 +202,14 @@
   "/images/blog/cle-verte-jardin.jpg": [
     1920,
     664
+  ],
+  "/images/blog/cocktail-entreprise-terrasse-hotel-palladia.jpg": [
+    1920,
+    1357
+  ],
+  "/images/blog/conference-amphitheatre-hotel-palladia.jpg": [
+    1920,
+    1357
   ],
   "/images/blog/cravate-club-le-grenier-toulouse-scaled.jpg": [
     1920,
@@ -191,13 +239,29 @@
     1920,
     1610
   ],
+  "/images/blog/formation-journee-etude-hotel-palladia.jpg": [
+    1920,
+    1357
+  ],
+  "/images/blog/formats-evenements-hotel-palladia-banniere.jpg": [
+    1920,
+    664
+  ],
   "/images/blog/Fred-Klasinski.jpg": [
     150,
     150
   ],
+  "/images/blog/gardien-du-temple-toulouse-2048x708.webp": [
+    2048,
+    708
+  ],
   "/images/blog/gardien-du-temple-toulouse.webp": [
     1920,
     664
+  ],
+  "/images/blog/hotel-piscine-4-etoiles-toulouse.jpg": [
+    2000,
+    922
   ],
   "/images/blog/hotel-proche-aeroport-toulouse.jpg": [
     1920,
@@ -231,6 +295,10 @@
     680,
     306
   ],
+  "/images/blog/journee-hotel-piscine.jpg": [
+    2048,
+    1280
+  ],
   "/images/blog/laure-averous-commerciale-hotel-palladia.jpg": [
     200,
     200
@@ -246,6 +314,10 @@
   "/images/blog/mariage-hotel-palladia-toulouse.jpg": [
     1920,
     663
+  ],
+  "/images/blog/networking-terrasse-hotel-palladia.jpg": [
+    1920,
+    1357
   ],
   "/images/blog/offre-famille-ete-2025-VB-1.jpg": [
     1200,
@@ -263,13 +335,25 @@
     1920,
     663
   ],
+  "/images/blog/P1680477okok-1024x576.jpg": [
+    1024,
+    576
+  ],
   "/images/blog/P1680477okok.jpg": [
     1920,
     1080
   ],
+  "/images/blog/P1680591okok-1024x576.jpg": [
+    1024,
+    576
+  ],
   "/images/blog/P1680591okok.jpg": [
     1920,
     1080
+  ],
+  "/images/blog/P1680987ok-1024x576.jpg": [
+    1024,
+    576
   ],
   "/images/blog/P1680987ok.jpg": [
     1920,
@@ -283,9 +367,21 @@
     200,
     200
   ],
+  "/images/blog/piscine-hotel-4-etoiles-palladia.jpg": [
+    2000,
+    922
+  ],
+  "/images/blog/plats-restaurant-palladia-toulouse-00007.jpg": [
+    1800,
+    1200
+  ],
   "/images/blog/port-saint-sauveur.jpg": [
     1920,
     900
+  ],
+  "/images/blog/repas-saint-valentin-toulouse-palladia-2048x708.jpg": [
+    2048,
+    708
   ],
   "/images/blog/repas-saint-valentin-toulouse-palladia-scaled.jpg": [
     1920,
@@ -295,6 +391,14 @@
     1920,
     663
   ],
+  "/images/blog/restaurant-hotel-palladia-7-qpb89rvhw1j77agicinb9if1nmjp5zap1jl63ww4pc.jpg": [
+    400,
+    200
+  ],
+  "/images/blog/reveillon-toulouse-2048x708.jpg": [
+    2048,
+    708
+  ],
   "/images/blog/reveillon-toulouse-scaled.jpg": [
     1920,
     664
@@ -303,17 +407,81 @@
     1920,
     663
   ],
+  "/images/blog/salle-de-reunion-dalbade-palladia-1024x474.jpg": [
+    1024,
+    474
+  ],
   "/images/blog/salle-de-reunion-dalbade-palladia.jpg": [
     1920,
     888
+  ],
+  "/images/blog/salle-de-reunion-daurade-palladia-1024x474.jpg": [
+    1024,
+    474
+  ],
+  "/images/blog/salle-de-reunion-velane-palladia-1024x474.jpg": [
+    1024,
+    474
+  ],
+  "/images/blog/salle-reunion-comite-direction-hotel-palladia.jpg": [
+    1920,
+    1357
+  ],
+  "/images/blog/salle-seminaire-saint-georges-toulouse-1024x474.png": [
+    1024,
+    474
+  ],
+  "/images/blog/salle-seminaire-saint-nicolas-toulouse-1024x474.png": [
+    1024,
+    474
+  ],
+  "/images/blog/salle-seminaire-table-en-u-hotel-palladia.jpg": [
+    1920,
+    1357
+  ],
+  "/images/blog/Salon-Capitouls-.jpg": [
+    768,
+    355
+  ],
+  "/images/blog/salon-croix-baragnon-hotel-palladia-toulouse.jpg": [
+    2048,
+    947
+  ],
+  "/images/blog/salon-filatiers-hotel-palladia-toulouse-1024x474.jpg": [
+    1024,
+    474
+  ],
+  "/images/blog/salon-opera-hotel-palladia-toulouse-1024x474.jpg": [
+    1024,
+    474
   ],
   "/images/blog/salon-opera-hotel-palladia-toulouse.jpg": [
     1920,
     888
   ],
+  "/images/blog/salon-perchepinte-hotel-palladia-toulouse.jpg": [
+    2048,
+    947
+  ],
+  "/images/blog/salon-vip-02-1024x474.jpg": [
+    1024,
+    474
+  ],
   "/images/blog/seminaire-amphitheatre.webp": [
     2048,
     708
+  ],
+  "/images/blog/soiree-entreprise-diner-hotel-palladia.jpg": [
+    1920,
+    1357
+  ],
+  "/images/blog/soiree-entreprise-salle-reception-hotel-palladia.jpg": [
+    1920,
+    1357
+  ],
+  "/images/blog/soiree-theme-hotel-palladia-1-1024x611.jpg": [
+    1024,
+    611
   ],
   "/images/blog/soiree-theme-hotel-palladia-1.jpg": [
     1920,
@@ -322,6 +490,18 @@
   "/images/blog/spectacle-toulouse-hotel-palladia.jpg": [
     1315,
     797
+  ],
+  "/images/blog/staycation-palladia-toulouse.jpg": [
+    2048,
+    708
+  ],
+  "/images/blog/staycation-toulouse.jpg": [
+    903,
+    387
+  ],
+  "/images/blog/team-building-palladia-qpsd38jgol4yy1s91g95mjgc5ona8ug1odq4kemq4w.jpg": [
+    400,
+    200
   ],
   "/images/blog/temps-forts-palladia.webp": [
     1920,
@@ -447,6 +627,22 @@
     32,
     32
   ],
+  "/images/hd/amphitheatre.jpg": [
+    2560,
+    1810
+  ],
+  "/images/hd/chambre-luxe.jpg": [
+    2000,
+    922
+  ],
+  "/images/hd/chambre-prestige-terrasse.jpg": [
+    2048,
+    1221
+  ],
+  "/images/hd/piscine.jpg": [
+    2000,
+    922
+  ],
   "/images/hero-1.jpg": [
     1920,
     885
@@ -499,6 +695,10 @@
     1920,
     1145
   ],
+  "/images/journee-hotel-piscine-scaled.jpg": [
+    2560,
+    1600
+  ],
   "/images/logo-independant.png": [
     300,
     272
@@ -526,6 +726,18 @@
   "/images/offres/zenith.jpg": [
     1024,
     640
+  ],
+  "/images/partage-hotel-palladia.jpg": [
+    1200,
+    630
+  ],
+  "/images/piscine-hotel-palladia.jpg": [
+    816,
+    376
+  ],
+  "/images/piscine-palladia.jpg": [
+    1200,
+    900
   ],
   "/images/presse/actu-toulouse.png": [
     862,
@@ -703,6 +915,22 @@
     1024,
     474
   ],
+  "/images/sejour-automne-palladia.jpg": [
+    2000,
+    875
+  ],
+  "/images/sejour-en-famille-palladia.jpg": [
+    2000,
+    875
+  ],
+  "/images/spa-hotel-palladia-toulouse.jpg": [
+    816,
+    376
+  ],
+  "/images/spa-hotel-palladia.jpg": [
+    678,
+    452
+  ],
   "/images/spa.jpg": [
     1920,
     1145
@@ -790,5 +1018,9 @@
   "/images/spectacles/olivier-max.jpg": [
     724,
     1024
+  ],
+  "/images/vue-6.avif": [
+    640,
+    427
   ]
 }

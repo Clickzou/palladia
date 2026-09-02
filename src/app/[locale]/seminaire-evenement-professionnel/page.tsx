@@ -57,6 +57,18 @@ export default async function SeminairesPage({ params }: { params: Promise<{ loc
               {p}
             </p>
           ))}
+          {/* Renvoi vers l'article des formats : cette page dit ce que sont les
+              salles, l'article dit ce qu'on y organise. */}
+          <p>
+            {s.lienFormats.avant}{" "}
+            <Link
+              href="/formats-evenements-professionnels-toulouse"
+              className="text-[#8b3a3a] underline underline-offset-2 hover:text-gold"
+            >
+              {s.lienFormats.ancre}
+            </Link>{" "}
+            {s.lienFormats.apres}
+          </p>
         </div>
       </section>
 

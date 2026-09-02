@@ -155,6 +155,14 @@ export type BlocContenu = {
     taille_titre?: "normal" | "moyen" | "grand";
     intro?: string;
     fond_gris?: boolean;
+    /**
+     * Marque le bloc comme une foire aux questions : chaque sous-section est
+     * une question, son `intro` la reponse. La page d'article en tire des
+     * donnees structurees `FAQPage`, que Google affiche en accordeon dans ses
+     * resultats. Le rendu, lui, ne change pas : les reponses restent visibles,
+     * sans quoi le balisage decrirait un contenu introuvable dans la page.
+     */
+    faq?: boolean;
     /** Gabarit etendu (1880 px) plutot que la largeur de contenu (1140 px) */
     large?: boolean;
     /** Deux colonnes plutot qu'une seule pile */
