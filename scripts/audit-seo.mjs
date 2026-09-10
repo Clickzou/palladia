@@ -178,10 +178,26 @@ for (const chemin of chemins) {
   }
 }
 
-/* Liens internes casses. */
+/*
+  Liens internes casses.
+
+  Un lien vers le site lui-meme peut etre ecrit en absolu : il echappait alors
+  a ce controle, et c'est ainsi qu'un bouton de l'article afterwork a pointe
+  des mois vers /wp-content/uploads/… de l'ancien WordPress, en 403. On les
+  ramene a leur chemin pour les verifier, et on les signale : ils doivent etre
+  relatifs, sans quoi ils cassent aussi la navigation entre langues.
+*/
+const SITE = "https://www.hotelpalladia.com";
 const internes = new Set();
-for (const a of pages.values()) {
-  for (const l of a.liens) if (l.startsWith("/")) internes.add(l.split("?")[0]);
+for (const [page, a] of pages) {
+  for (const l of a.liens) {
+    if (l.startsWith("/")) {
+      internes.add(l.split("?")[0]);
+    } else if (l.startsWith(SITE)) {
+      ajouter("moyen", page, `lien vers le site ecrit en absolu : ${l}`);
+      internes.add((l.slice(SITE.length) || "/").split("?")[0]);
+    }
+  }
 }
 for (const l of internes) {
   const r = await lire(`${BASE}${l}`);
