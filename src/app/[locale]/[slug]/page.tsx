@@ -74,7 +74,9 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <article>
-      <header className="px-6 pt-8 pb-10 text-center">
+      {/* `apparait-haut` s'anime des le premier rendu, sans attendre
+          l'observateur : c'est l'element le plus haut de l'ecran. */}
+      <header className="apparait-haut px-6 pt-8 pb-10 text-center">
         <nav aria-label={traduire("Fil d’Ariane", locale)} className="text-sm">
           <Link href="/" className="text-[#8b3a3a] underline hover:text-gold">
             {traduire("Accueil", locale)}
@@ -107,7 +109,7 @@ export default async function ArticlePage({ params }: Props) {
         // Comme sur le site d’origine : pleine largeur, aux proportions
         // naturelles du fichier.
         <div
-          className="relative w-full"
+          className="apparait-haut relative w-full overflow-hidden"
           style={{ aspectRatio: ratioImage(article.image_hero, "1920 / 664") }}
         >
           <Image

@@ -43,6 +43,17 @@ export const seminaires = {
     apres: "et choisissez celui qui correspond à votre projet.",
   },
 
+  /**
+   * Renvoi vers l'article consacre au seminaire residentiel. Meme partage des
+   * roles : la page decrit les salles, l'article decrit le sejour complet —
+   * reunions, hebergement, repas, activites et soiree au meme endroit.
+   */
+  lienResidentiel: {
+    avant: "Votre événement se déroule sur plusieurs jours ?",
+    ancre: "Voyez comment s’organise un séminaire résidentiel à Toulouse",
+    apres: "de la première réunion à la soirée qui la clôt.",
+  },
+
   /** Fiches techniques des salons, dans l’ordre du site. */
   salons: [
     { nom: "Amphithéâtre",     places: "285 places", detail: "285 places",              image: "/images/salons/amphitheatre.jpg" },

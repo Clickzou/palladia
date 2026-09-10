@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import CarrouselLarge from "@/components/CarrouselLarge";
-import { IconBed, IconCheck, IconExpand, IconGift, IconLock, IconTv, IconWifi } from "@/components/icons";
+import { IconBed, IconCheck, IconGift, IconLock, IconTv, IconWifi } from "@/components/icons";
 import {
   Armchair as IconFauteuil,
   Bike as IconVelo,
@@ -90,7 +90,15 @@ function TitreSection({
   children: React.ReactNode;
   taille?: keyof typeof TAILLES;
 }) {
-  return <h2 className={`${TAILLES[taille]} mb-8`}>{children}</h2>;
+  // Filet dore sous l'intitule : c'est la signature des sections du site,
+  // que les articles etaient les seuls a ne pas porter. Le gabarit
+  // « sous-titre » en est dispense, ce n'est pas un titre dore.
+  return (
+    <div className="apparait mb-8">
+      <h2 className={TAILLES[taille]}>{children}</h2>
+      {taille !== "sous-titre" && <div className="mx-auto mt-6 h-px w-20 bg-gold" />}
+    </div>
+  );
 }
 
 /**
@@ -158,16 +166,23 @@ function Liste({ items }: { items: string[] }) {
 function BlocTexte({ c }: { c: BlocContenu["texte"] }) {
   return (
     <section className={c.fond_gris ? "bg-cream py-10" : "py-10"}>
-      <div className={c.large ? "conteneur-large" : "conteneur"}>
+      <div className={`apparait ${c.large ? "conteneur-large" : "conteneur"}`}>
         {c.titre && <TitreSection taille={c.taille_titre}>{c.titre}</TitreSection>}
         <Paragraphes items={c.paragraphes} centre={c.centre} />
         {c.liste && <Liste items={c.liste} />}
         {c.note && (
-          <p className={`mt-8 text-body italic ${c.centre ? "text-center" : ""}`}>{c.note}</p>
+          // Ligne de chute : le filet dore la detache du corps du texte.
+          <p
+            className={`mt-8 border-t border-gold/30 pt-6 text-body italic ${
+              c.centre ? "mx-auto max-w-3xl text-center" : ""
+            }`}
+          >
+            {c.note}
+          </p>
         )}
         {c.image && (
           <div
-            className="relative mx-auto mt-10 w-full max-w-[775px]"
+            className="apparait-image relative mx-auto mt-10 w-full max-w-[775px] overflow-hidden"
             style={{ aspectRatio: ratioImage(c.image, "16 / 9") }}
           >
             <Image
@@ -207,8 +222,14 @@ function ColonneTexte({ c }: { c: BlocContenu["texte_image"] }) {
 function SousSections({ sections }: { sections: NonNullable<BlocContenu["texte_image"]["sections"]> }) {
   return (
     <>
-      {sections.map((s) => (
-        <div key={s.titre} className="mt-8 first:mt-6">
+      {sections.map((s, n) => (
+        <div
+          key={s.titre}
+          style={{ "--delai": `${n * 0.08}s` } as React.CSSProperties}
+          // Filet dore a gauche : il aere la pile et rattache chaque
+          // sous-section a son intitule sans ajouter d'encadre.
+          className="apparait mt-8 border-l-2 border-gold/30 pl-5 first:mt-6"
+        >
           <h3 className="titre-mini text-left">{s.titre}</h3>
           {s.intro && (
             <p className="mt-3 leading-relaxed text-body">
@@ -246,11 +267,13 @@ function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
               : "md:grid-cols-2"
           }`}
         >
-          <div className={c.position === "gauche" ? "md:order-2" : ""}>
+          <div className={`apparait ${c.position === "gauche" ? "md:order-2" : ""}`}>
             <ColonneTexte c={c} />
           </div>
           <div
-            className={`relative w-full ${c.position === "gauche" ? "md:order-1" : ""}`}
+            className={`apparait-image group relative w-full overflow-hidden ${
+              c.position === "gauche" ? "md:order-1" : ""
+            }`}
             style={{ aspectRatio: c.ratio ?? ratioImage(c.image) }}
           >
             <Image
@@ -258,7 +281,7 @@ function BlocTexteImage({ c }: { c: BlocContenu["texte_image"] }) {
               alt={c.alt}
               fill
               sizes={c.large ? "(max-width: 768px) 100vw, 850px" : "(max-width: 768px) 100vw, 550px"}
-              className="object-cover"
+              className="survol-zoom object-cover"
             />
           </div>
         </div>
@@ -279,19 +302,27 @@ function BlocDemiEcran({ c }: { c: BlocContenu["texte_image"] }) {
   return (
     <section className={`grid items-stretch md:grid-cols-2 ${c.fond_gris ? "bg-cream" : ""}`}>
       <div
-        className={`relative min-h-[280px] ${c.position === "gauche" ? "" : "md:order-2"}`}
+        className={`apparait-image group relative min-h-[280px] overflow-hidden ${
+          c.position === "gauche" ? "" : "md:order-2"
+        }`}
       >
         <Image
           src={c.image}
           alt={c.alt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover"
+          className="survol-zoom object-cover"
         />
       </div>
 
-      <div className="flex flex-col justify-center px-8 py-14 lg:px-16">
-        {c.titre && <h2 className="titre-bloc mb-6 text-left">{c.titre}</h2>}
+      <div className="apparait flex flex-col justify-center px-8 py-14 lg:px-16">
+        {c.titre && (
+          <h2 className="titre-bloc mb-6 text-left">
+            {c.titre}
+            {/* Filet dore sous l'intitule, comme sur les sections du site. */}
+            <span className="mt-4 block h-px w-16 bg-gold" />
+          </h2>
+        )}
         <ColonneTexte c={c} />
       </div>
     </section>
@@ -305,7 +336,7 @@ function BlocSections({ c }: { c: BlocContenu["sections"] }) {
       <div className={c.large ? "conteneur-large" : "conteneur"}>
         {c.titre && <TitreSection taille={c.taille_titre}>{c.titre}</TitreSection>}
         {c.intro && (
-          <p className="mb-10 text-center leading-relaxed text-body">
+          <p className="apparait mx-auto mb-10 max-w-3xl text-center leading-relaxed text-body">
             <RichText texte={c.intro} />
           </p>
         )}
@@ -337,21 +368,23 @@ function BlocCartes({ c }: { c: BlocContenu["cartes"] }) {
       <div className="px-6 lg:px-[100px]">
         {c.titre && <TitreSection taille={c.taille_titre}>{c.titre}</TitreSection>}
         <div className={`grid gap-6 sm:grid-cols-2 ${cols}`}>
-          {c.cartes.map((carte) => (
+          {c.cartes.map((carte, n) => (
             <article
               key={carte.titre}
-              className="flex flex-col border border-gold/40 bg-white px-4 pt-6 pb-8"
+              // Les cartes se revelent l'une apres l'autre, de gauche a droite.
+              style={{ "--delai": `${n * 0.12}s` } as React.CSSProperties}
+              className="apparait group flex flex-col border border-gold/40 bg-white px-4 pt-6 pb-8 transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-gold hover:shadow-[0_18px_40px_-24px_rgb(0_0_0/0.45)]"
             >
               {!c.titre_sous_image && <div className="mb-5">{titre(carte)}</div>}
 
               {carte.image && (
-                <div className="relative h-[350px]">
+                <div className="relative h-[350px] overflow-hidden">
                   <Image
                     src={carte.image}
                     alt={carte.alt ?? ""}
                     fill
                     sizes="(max-width: 640px) 100vw, 25vw"
-                    className="object-cover"
+                    className="survol-zoom object-cover"
                   />
                 </div>
               )}
@@ -378,7 +411,7 @@ function BlocCartes({ c }: { c: BlocContenu["cartes"] }) {
 function BlocBandeau({ c }: { c: BlocContenu["bandeau"] }) {
   return (
     // Mesure du site : Roboto 19 px, capitales, blanc, 50/30 px de padding
-    <section className="bg-gold px-6 pt-[50px] pb-[30px] text-center text-white">
+    <section className="apparait bg-gold px-6 pt-[50px] pb-[30px] text-center text-white">
       <h3 className="text-[19px] font-normal uppercase">
         {c.texte}
         {c.accent && <strong className="font-semibold"> {c.accent}</strong>}
@@ -395,8 +428,10 @@ function BlocBandeauImage({ c }: { c: BlocContenu["bandeau_image"] }) {
   return (
     <section className="relative px-6 py-20">
       <Image src={c.image} alt="" fill sizes="100vw" className="object-cover" />
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="relative z-10 mx-auto max-w-4xl text-center text-white">
+      {/* Degrade plutot qu'un voile uniforme : le visuel reste lisible en
+          haut et en bas, le texte garde son contraste au centre. */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/65 to-black/45" />
+      <div className="apparait relative z-10 mx-auto max-w-4xl text-center text-white">
         <h2 className="titre-moyen text-white">{c.titre}</h2>
         {c.paragraphes && (
           <div className="mt-6 space-y-4 leading-relaxed">
@@ -440,7 +475,9 @@ function BlocCarrousel({ c }: { c: BlocContenu["carrousel"] }) {
     return (
       <section className={c.pleine_largeur ? "" : "py-10"}>
         <div
-          className={`relative mx-auto w-full ${c.pleine_largeur ? "" : "max-w-[800px]"}`}
+          className={`apparait-image relative mx-auto w-full overflow-hidden ${
+            c.pleine_largeur ? "" : "max-w-[800px]"
+          }`}
           style={{ aspectRatio: ratioImage(img.src, "16 / 9") }}
         >
           <Image
@@ -465,12 +502,16 @@ function BlocCarrousel({ c }: { c: BlocContenu["carrousel"] }) {
 function BlocListeCochee({ c }: { c: BlocContenu["liste_cochee"] }) {
   return (
     <section className={c.fond_gris ? "bg-cream py-20" : "py-10"}>
-      <div className="mx-auto max-w-4xl px-6 text-center">
+      <div className="apparait mx-auto max-w-4xl px-6 text-center">
       {c.titre && <TitreSection>{c.titre}</TitreSection>}
       {c.intro && <p className="whitespace-pre-line leading-relaxed text-body">{c.intro}</p>}
       <ul className="mt-6 space-y-2">
-        {c.items.map((i) => (
-          <li key={i} className="flex items-center justify-center gap-2 text-body">
+        {c.items.map((i, n) => (
+          <li
+            key={i}
+            style={{ "--delai": `${n * 0.07}s` } as React.CSSProperties}
+            className="apparait flex items-center justify-center gap-2 text-body"
+          >
             <IconCheck className="size-4 fill-gold" /> {i}
           </li>
         ))}
@@ -539,11 +580,23 @@ function BlocMenu({ c }: { c: BlocContenu["menu"] }) {
 
 function BlocCitation({ c }: { c: BlocContenu["citation"] }) {
   return (
-    <section className="mx-auto max-w-3xl px-6 py-10 text-center">
-      <blockquote className="font-display text-xl text-ink italic md:text-2xl">
-        « {c.texte} »
-      </blockquote>
-      {c.auteur && <p className="mt-4 text-muted">{c.auteur}</p>}
+    // Exergue : guillemet dore en filigrane pour ouvrir, filet pour fermer.
+    <section className="apparait mx-auto max-w-3xl px-6 pt-20 pb-14 text-center">
+      <div className="relative">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 font-display text-[110px] leading-none text-gold/20 select-none"
+        >
+          “
+        </span>
+        <blockquote className="relative font-display text-xl leading-relaxed text-ink italic md:text-2xl">
+          « {c.texte} »
+        </blockquote>
+        <div className="mx-auto mt-8 h-px w-16 bg-gold/50" />
+        {c.auteur && (
+          <p className="mt-5 text-sm tracking-[0.12em] text-muted uppercase">{c.auteur}</p>
+        )}
+      </div>
     </section>
   );
 }
@@ -604,8 +657,7 @@ function BlocEquipe({ c }: { c: BlocContenu["equipe"] }) {
 /** Rangée de boutons d’action centrés. */
 /** Rangee de boutons dores centres, partagee par plusieurs blocs. */
 function Boutons({ boutons }: { boutons: BlocContenu["bouton"]["boutons"] }) {
-  const style =
-    "rounded-full bg-gold px-10 py-4 font-medium text-white transition-colors hover:bg-gold-dark";
+  const style = "bouton-or rounded-full px-10 py-4 font-medium";
 
   return (
     <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -634,6 +686,18 @@ function BlocBouton({ c }: { c: BlocContenu["bouton"] }) {
 
 /** Rangée de pictos chiffrés (capacité, parking, services). */
 function BlocCaracteristiques({ c }: { c: BlocContenu["caracteristiques"] }) {
+  // Autant de colonnes que d'items : a trois colonnes fixes, une serie de
+  // quatre ou cinq laissait une derniere rangee incomplete et decentree.
+  const n = c.items.length;
+  const grille =
+    n >= 5
+      ? "max-w-6xl sm:grid-cols-3 lg:grid-cols-5"
+      : n === 4
+        ? "max-w-5xl sm:grid-cols-2 lg:grid-cols-4"
+        : n === 2
+          ? "max-w-3xl sm:grid-cols-2"
+          : "max-w-5xl sm:grid-cols-3";
+
   return (
     <section className="px-6 py-14">
       {/* Le site en fait un titre de section, pas un simple intitule */}
@@ -642,13 +706,19 @@ function BlocCaracteristiques({ c }: { c: BlocContenu["caracteristiques"] }) {
           {c.titre}
         </h2>
       )}
-      <ul className="mx-auto grid max-w-5xl gap-10 sm:grid-cols-3">
-        {c.items.map((i) => (
-          <li key={i.label} className="text-center">
-            <span className="flex justify-center text-gold">
+      <ul className={`mx-auto grid gap-10 ${grille}`}>
+        {c.items.map((i, rang) => (
+          <li
+            key={i.label}
+            style={{ "--delai": `${rang * 0.1}s` } as React.CSSProperties}
+            className="apparait group text-center"
+          >
+            {/* Pastille cremeuse derriere le picto : elle pose l'icone et
+                donne un point d'appui a la grille. */}
+            <span className="mx-auto flex size-20 items-center justify-center rounded-full bg-cream text-gold ring-1 ring-gold/25 transition-[transform,box-shadow] duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_14px_30px_-18px_rgb(0_0_0/0.5)]">
               {ICONES[i.icone ?? ""] ?? <IconCheck className="size-10 fill-current" />}
             </span>
-            <p className="mt-4 text-body">{i.label}</p>
+            <p className="mt-5 text-body">{i.label}</p>
           </li>
         ))}
       </ul>

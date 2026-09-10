@@ -69,6 +69,18 @@ export default async function SeminairesPage({ params }: { params: Promise<{ loc
             </Link>{" "}
             {s.lienFormats.apres}
           </p>
+          {/* Renvoi vers l'article du seminaire residentiel : la page decrit
+              les salles, l'article decrit le sejour d'un bout a l'autre. */}
+          <p>
+            {s.lienResidentiel.avant}{" "}
+            <Link
+              href="/seminaire-residentiel-toulouse"
+              className="text-[#8b3a3a] underline underline-offset-2 hover:text-gold"
+            >
+              {s.lienResidentiel.ancre}
+            </Link>{" "}
+            {s.lienResidentiel.apres}
+          </p>
         </div>
       </section>
 
