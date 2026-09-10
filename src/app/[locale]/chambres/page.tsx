@@ -36,6 +36,20 @@ export default async function ChambresPage({ params }: { params: Promise<{ local
         )}
       </p>
 
+      {/* Renvoi vers les offres. L'ancre est neutre en saison : la page est
+          permanente, ses offres tournent au fil de l'annee — « nos offres
+          d'automne » serait faux trois mois plus tard. */}
+      <p className="mx-auto mt-6 max-w-4xl px-6 text-center leading-relaxed text-body">
+        {t("Vous préparez un séjour à Toulouse ?")}{" "}
+        <Link
+          href="/offres-hebergement-toulouse"
+          className="text-[#8b3a3a] underline underline-offset-2 hover:text-gold"
+        >
+          {t("Consultez nos offres d’hébergement du moment")}
+        </Link>{" "}
+        {t("elles changent au fil de la saison.")}
+      </p>
+
       {/* Petit dejeuner */}
       <div className="px-6 py-14 text-center">
         <span className="mx-auto flex w-fit items-end gap-1 text-gold">
