@@ -4,6 +4,7 @@ import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { booking, reserverEn } from "@/config/site";
 import { offresSaison as oFr } from "@/data/offres-saison";
+import { offresEnCours } from "@/lib/offres";
 import PhotoGrid from "@/components/PhotoGrid";
 import { IconCheck } from "@/components/icons";
 
@@ -29,6 +30,9 @@ function EnGras({ texte }: { texte: string }) {
 export default async function OffresEtePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const o = traduireContenu(oFr, locale);
+  // Les offres viennent de la base, filtrees sur leur fenetre d'affichage :
+  // une offre echue n'arrive tout simplement pas jusqu'ici.
+  const offres = traduireContenu(await offresEnCours(), locale);
 
   return (
     <>
@@ -47,12 +51,23 @@ export default async function OffresEtePage({ params }: { params: Promise<{ loca
         </p>
       </header>
 
+      {/* Entre deux saisons, la page n'a rien a annoncer : elle le dit, plutot
+          que de laisser une offre perimee ou un blanc. */}
+      {offres.length === 0 && (
+        <p className="mx-auto mt-12 max-w-3xl px-6 text-center leading-relaxed text-body">
+          {o.aucuneOffre}
+        </p>
+      )}
+
       {/* Offres, alternées texte / affiche */}
-      {o.offres.map((offre, i) => {
+      {offres.map((offre, i) => {
         const afficheAdroite = i % 2 === 0;
 
         return (
-          <section key={offre.slug} className="grid items-stretch bg-cream md:grid-cols-2">
+          <section
+            key={offre.slug}
+            className={`grid items-stretch bg-cream ${offre.affiche ? "md:grid-cols-2" : ""}`}
+          >
             <div
               className={`flex flex-col justify-center px-8 py-14 lg:px-16 ${
                 afficheAdroite ? "" : "md:order-2"
@@ -61,7 +76,11 @@ export default async function OffresEtePage({ params }: { params: Promise<{ loca
               <h2 className="section-title text-ink">
                 {offre.titre}
               </h2>
-              <h3 className="mt-3 font-semibold tracking-wide text-gold uppercase">{offre.prix}</h3>
+              {offre.prix && (
+                <h3 className="mt-3 font-semibold tracking-wide text-gold uppercase">
+                  {offre.prix}
+                </h3>
+              )}
 
               <div className="mt-6 space-y-4 leading-relaxed text-body">
                 {offre.paragraphes.map((p) => (
@@ -98,16 +117,24 @@ export default async function OffresEtePage({ params }: { params: Promise<{ loca
               </a>
             </div>
 
-            {/* L’affiche occupe toute la moitie, sans marge, comme sur le site. */}
-            <div className={`relative min-h-[320px] md:min-h-[560px] ${afficheAdroite ? "" : "md:order-1"}`}>
-              <Image
-                src={offre.affiche}
-                alt={offre.afficheAlt}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
+            {/* L’affiche occupe toute la moitie, sans marge, comme sur le site.
+                Une offre peut arriver sans visuel : la colonne disparait alors
+                plutot que d'afficher un cadre vide. */}
+            {offre.affiche && (
+              <div
+                className={`relative min-h-[320px] md:min-h-[560px] ${
+                  afficheAdroite ? "" : "md:order-1"
+                }`}
+              >
+                <Image
+                  src={offre.affiche}
+                  alt={offre.affiche_alt ?? `${traduire("Offre", locale)} ${offre.titre}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
           </section>
         );
       })}

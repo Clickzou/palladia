@@ -1,21 +1,29 @@
 /**
- * Page « Offre automne » — offres d’hébergement de la saison en cours.
+ * Page « Nos offres » — textes permanents, et repli des offres.
  *
- * Ces offres sont datées (automne 2026, vacances de la Toussaint) : elles
- * devront basculer vers Supabase avec une période de validité, comme la table
- * `evenements`, pour ne pas rester affichées une fois la saison passée. C’est
- * exactement le défaut relevé sur l’ancien site (offre famille 2025 encore en
- * ligne en 2026).
+ * Les offres elles-mêmes vivent désormais dans Supabase, table `offres`, avec
+ * une fenêtre d’affichage : une offre échue disparaît d’elle-même (voir
+ * supabase/migrations/0069_offres.sql et src/lib/offres.ts). Le tableau
+ * `offres` ci-dessous ne sert plus qu’au repli tant que la migration n’est pas
+ * jouée — il est à supprimer ensuite.
+ *
+ * Ce qui reste ici est ce qui ne dépend d’aucune saison : le titre de la page,
+ * les arguments de la réservation en direct, les coordonnées, le bandeau
+ * photo. Le titre et le chapô étaient datés (« automne 2026 ») ; ils ne le
+ * sont plus, sans quoi il aurait fallu les réécrire chaque trimestre — au même
+ * titre que le libellé du menu, qui annonçait « Offre automne » sur toutes les
+ * pages du site.
  */
 export const offresSaison = {
-  metaTitle: "Offres hébergement automne 2026 - Hôtel Palladia 4 étoiles Toulouse",
-  metaDescription:
-    "Séjour en famille, séjour automne et offre spéciale Zénith : découvrez les offres d’automne de l’Hôtel Palladia à Toulouse.",
-  title: "Nos offres hébergement automne 2026",
+  title: "Nos offres d’hébergement à Toulouse",
   chapo:
-    "Profitez d’**offres exclusives pour vos séjours d’automne à Toulouse**. Que vous voyagiez en famille pendant les vacances de la Toussaint, en couple ou à l’occasion d’un spectacle au Zénith de Toulouse, l’Hôtel Palladia vous propose des conditions privilégiées pour découvrir la Ville Rose dans un cadre confortable et raffiné.",
+    "Profitez d’**offres exclusives pour vos séjours à Toulouse**. Que vous voyagiez en famille, en couple, pour affaires ou à l’occasion d’un spectacle au Zénith, l’Hôtel Palladia vous propose des conditions privilégiées pour découvrir la Ville Rose dans un cadre confortable et raffiné.",
 
-  /** Période de validité commune, pour un futur passage en base. */
+  /** Affiché entre deux saisons, quand aucune offre n’est en cours. */
+  aucuneOffre:
+    "Aucune offre n’est en cours pour le moment. Nos meilleurs tarifs restent garantis en réservation directe, et notre équipe reste à votre écoute pour préparer votre séjour.",
+
+  /** Période de validité du repli, reprise dans la table `offres`. */
   validite: { debut: "2026-10-16", fin: "2026-11-02" },
 
   offres: [
