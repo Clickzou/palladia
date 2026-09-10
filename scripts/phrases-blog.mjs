@@ -1,10 +1,15 @@
 /**
- * Liste les phrases des articles de blog qui n'ont pas encore de traduction.
+ * Liste les phrases stockees en base qui n'ont pas encore de traduction :
+ * articles de blog et offres d'hebergement.
  *
- * Les articles vivent dans Supabase, pas dans src/data : phrases-donnees.mjs
- * ne les voit donc pas. Comme la page d'article passe son contenu par
+ * Ces contenus vivent dans Supabase, pas dans src/data : phrases-donnees.mjs
+ * ne les voit donc pas. Comme les pages passent leur contenu par
  * traduireContenu(), il suffit d'alimenter le dictionnaire — aucune ligne
  * traduite n'est a inserer en base.
+ *
+ * Les offres y sont entrees en meme temps que la table `offres` (0069) : sans
+ * cela, une offre saisie dans Supabase serait retombee silencieusement en
+ * français, faute d'un script pour la signaler.
  *
  *   node scripts/phrases-blog.mjs en
  *   node scripts/phrases-blog.mjs es --slug=nom-de-l-article
@@ -72,8 +77,30 @@ for (const a of articles) {
   collecter((article_blocs ?? []).sort((x, y) => x.ordre - y.ordre).map((b) => b.contenu), slug);
 }
 
+/**
+ * Offres d'hebergement. On interroge la table entiere et non la vue
+ * `offres_en_cours` : une offre programmee pour la saison suivante doit etre
+ * traduite avant d'apparaitre, pas le jour ou elle s'affiche.
+ */
+const repOffres = await fetch(
+  `${url}/rest/v1/offres?select=slug,titre,prix,paragraphes,conditions,inclus,affiche_alt&order=position`,
+  { headers: { apikey: cle, Authorization: `Bearer ${cle}` } },
+);
+// La table peut ne pas exister sur un environnement qui n'a pas joue 0069 :
+// on le signale sans faire echouer le relevé des articles.
+const offres = repOffres.ok ? await repOffres.json() : [];
+if (!repOffres.ok) console.error(`Offres illisibles (${repOffres.status}) — relevé partiel.`);
+
+for (const o of offres) {
+  if (slugVoulu && o.slug !== slugVoulu) continue;
+  const { slug, ...champs } = o;
+  collecter(champs, `offre:${slug}`);
+}
+
 const total = slugVoulu ? 1 : articles.length;
-console.error(`${total} article(s), ${phrases.size} phrases sans traduction en ${langue}`);
+console.error(
+  `${total} article(s), ${offres.length} offre(s), ${phrases.size} phrases sans traduction en ${langue}`,
+);
 console.log(
   JSON.stringify(Object.fromEntries([...phrases].map(([t, s]) => [t, [...s].join(", ")])), null, 2),
 );
