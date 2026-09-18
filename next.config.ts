@@ -51,6 +51,25 @@ const nextConfig: NextConfig = {
       },
 
       /**
+       * Plaquette seminaires. Le lien que le service commercial colle dans ses
+       * mails est celui de l'ancienne mediatheque WordPress : depuis que le
+       * domaine pointe ici, il rend un 403, et chaque devis parti avec lui
+       * menait dans le vide. Le nom du fichier a change a chaque version du
+       * document (PLAQUETTE-SEMINAIRE, Presentation-Seminaire, plaquette-2023),
+       * d'ou la casse alternee et le second motif : tous aboutissent au PDF
+       * courant, quelle que soit l'annee et le mois dans l'adresse.
+       *
+       * 307 et non 308, pour la meme raison que les adresses courtes plus bas :
+       * un permanent se graverait dans le cache des navigateurs.
+       */
+      {
+        source:
+          "/wp-content/uploads/:annee/:mois/:fichier(.*[Ss][Ee][Mm][Ii][Nn][Aa][Ii][Rr][Ee].*\.pdf|plaquette-2023.*\.pdf)",
+        destination: "/documents/plaquette-seminaires.pdf",
+        permanent: false,
+      },
+
+      /**
        * Adresse courte de la plaquette evenementiel, a donner aux clients :
        * hotelpalladia.com/plaquette-seminaires. Elle se dicte au telephone, et
        * survivra a la prochaine version du document — c'est le fichier qu'on
