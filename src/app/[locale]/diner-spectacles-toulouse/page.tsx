@@ -103,6 +103,17 @@ export default async function DinerSpectaclesPage({
       <p className="px-6 pb-12 text-center tracking-wide text-ink-soft uppercase">
         {t("Ambiance assurée !")}
       </p>
+      {evenements.length > 0 && (
+        <p className="-mt-6 px-6 pb-12 text-center text-body">
+          {t("Pour choisir votre soirée, lisez notre guide :")}{" "}
+          <Link
+            href="/sortir-a-toulouse-spectacles"
+            className="text-ink underline underline-offset-4 hover:text-gold"
+          >
+            {t("sortir à Toulouse, nos spectacles de la saison")}
+          </Link>
+        </p>
+      )}
 
       {/* Programmation */}
       <section className="mx-auto max-w-4xl px-6 pb-16">

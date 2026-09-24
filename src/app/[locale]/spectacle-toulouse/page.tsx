@@ -49,6 +49,19 @@ export default async function SpectaclesPage({
             "Pour cette saison artistique, évadez-vous vers des horizons très marqués entre concerts, spectacles et théâtre.",
           )}
         </p>
+        {/* Lien vers l’article de saison : son adresse ne porte pas d’annee,
+            il est reecrit a chaque programmation plutot qu’archive. */}
+        {evenements.length > 0 && (
+          <p className="mx-auto mt-4 max-w-3xl text-body">
+            {t("Pour choisir votre soirée, lisez notre guide :")}{" "}
+            <Link
+              href="/sortir-a-toulouse-spectacles"
+              className="text-ink underline underline-offset-4 hover:text-gold"
+            >
+              {t("sortir à Toulouse, nos spectacles de la saison")}
+            </Link>
+          </p>
+        )}
       </header>
 
       <section className="mx-auto max-w-5xl space-y-8 px-6 pb-24">

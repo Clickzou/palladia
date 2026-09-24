@@ -504,7 +504,11 @@ function BlocListeCochee({ c }: { c: BlocContenu["liste_cochee"] }) {
     <section className={c.fond_gris ? "bg-cream py-20" : "py-10"}>
       <div className="apparait mx-auto max-w-4xl px-6 text-center">
       {c.titre && <TitreSection>{c.titre}</TitreSection>}
-      {c.intro && <p className="whitespace-pre-line leading-relaxed text-body">{c.intro}</p>}
+      {c.intro && (
+        <p className="whitespace-pre-line leading-relaxed text-body">
+          <RichText texte={c.intro} />
+        </p>
+      )}
       <ul className="mt-6 space-y-2">
         {c.items.map((i, n) => (
           <li
@@ -512,11 +516,19 @@ function BlocListeCochee({ c }: { c: BlocContenu["liste_cochee"] }) {
             style={{ "--delai": `${n * 0.07}s` } as React.CSSProperties}
             className="apparait flex items-center justify-center gap-2 text-body"
           >
-            <IconCheck className="size-4 fill-gold" /> {i}
+            {/* Le texte reste un seul enfant du flex, gras et liens compris. */}
+            <IconCheck className="size-4 shrink-0 fill-gold" />{" "}
+            <span>
+              <RichText texte={i} />
+            </span>
           </li>
         ))}
       </ul>
-      {c.conclusion && <p className="mt-8 leading-relaxed text-body">{c.conclusion}</p>}
+      {c.conclusion && (
+        <p className="mt-8 leading-relaxed text-body">
+          <RichText texte={c.conclusion} />
+        </p>
+      )}
       </div>
     </section>
   );
