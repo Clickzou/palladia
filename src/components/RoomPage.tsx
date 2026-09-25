@@ -42,7 +42,7 @@ export default function RoomPage({ room, locale }: { room: Room; locale: string 
             {room.hero}
           </h1>
           <a
-            href={reserverEn(booking.rooms, locale)}
+            href={reserverEn(booking.premium, locale)}
             target="_blank"
             rel="noopener"
             className="mt-8 bg-gold px-10 py-4 text-sm font-semibold tracking-wider uppercase transition-colors hover:bg-gold-dark"
@@ -114,7 +114,7 @@ export default function RoomPage({ room, locale }: { room: Room; locale: string 
             {t("Préparez votre séjour")}
           </h2>
           <a
-            href={reserverEn(booking.rooms, locale)}
+            href={reserverEn(booking.premium, locale)}
             target="_blank"
             rel="noopener"
             className="rounded-md bg-gold px-8 py-4 text-base font-medium text-white transition-colors hover:bg-gold-dark"

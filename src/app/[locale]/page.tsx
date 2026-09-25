@@ -113,7 +113,7 @@ export default async function HomePage({
         title={t("heroTitle")}
         subtitle={t("heroSubtitle")}
         ctaLabel={t("heroCta")}
-        ctaHref={reserverEn(booking.rooms, locale)}
+        ctaHref={reserverEn(booking.premium, locale)}
       />
 
       {/* Introduction */}
@@ -182,7 +182,7 @@ export default async function HomePage({
         image="/images/chambres.jpg"
         imageAlt={a("Suite de l’Hôtel Palladia")}
         ctaLabel={t("chambresCta")}
-        ctaHref={reserverEn(booking.rooms, locale)}
+        ctaHref={reserverEn(booking.premium, locale)}
         external
         lienSecondaire={{ label: t("suitesCta"), href: "/chambres" }}
       />

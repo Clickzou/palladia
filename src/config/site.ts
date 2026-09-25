@@ -41,10 +41,11 @@ export const destinataires = {
 } as const;
 
 export const booking = {
-  /** Moteur VerticalBooking — reservation chambre */
-  rooms:
-    "https://reservations.verticalbooking.com/reservations/index.html?id_stile=10751&lingua_int=fra&id_albergo=12425&dc=5376&countryCode=FR",
-  /** Page offres premium VerticalBooking */
+  /**
+   * Moteur de reservation VerticalBooking, le seul a utiliser. L'ancien moteur
+   * (`/reservations/index.html?id_stile=10751`), repris du site WordPress, a ete
+   * retire a la demande de VerticalBooking le 25 septembre 2026.
+   */
   premium:
     "https://reservations.verticalbooking.com/premium/index.html?id_albergo=12425&dc=5376&lingua_int=fra&id_stile=19042",
   /** Reservation restaurant TheFork (avec suivi de provenance) */

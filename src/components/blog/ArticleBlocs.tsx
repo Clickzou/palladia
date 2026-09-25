@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { reserverEn } from "@/config/site";
 import CarrouselLarge from "@/components/CarrouselLarge";
 import { IconBed, IconCheck, IconGift, IconLock, IconTv, IconWifi } from "@/components/icons";
 import {
@@ -670,12 +672,14 @@ function BlocEquipe({ c }: { c: BlocContenu["equipe"] }) {
 /** Rangee de boutons dores centres, partagee par plusieurs blocs. */
 function Boutons({ boutons }: { boutons: BlocContenu["bouton"]["boutons"] }) {
   const style = "bouton-or rounded-full px-10 py-4 font-medium";
+  // Le lien du moteur est stocke en francais : on le rend dans la langue du visiteur.
+  const locale = useLocale();
 
   return (
     <div className="mt-10 flex flex-wrap justify-center gap-4">
       {boutons.map((b) =>
         b.externe ? (
-          <a key={b.href} href={b.href} target="_blank" rel="noopener" className={style}>
+          <a key={b.href} href={reserverEn(b.href, locale)} target="_blank" rel="noopener" className={style}>
             {b.label}
           </a>
         ) : (

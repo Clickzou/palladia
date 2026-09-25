@@ -51,7 +51,7 @@ export default function Footer() {
               {/* La page Contact a ete supprimee : le lien mene au formulaire */}
               <FooterLink href="/contact">{t("contact")}</FooterLink>
               <FooterLink href="/recrutement">{t("recrutement")}</FooterLink>
-              <FooterExtLink href={reserverEn(booking.rooms, locale)}>{t("resaChambre")}</FooterExtLink>
+              <FooterExtLink href={reserverEn(booking.premium, locale)}>{t("resaChambre")}</FooterExtLink>
               <FooterExtLink href={booking.restaurant}>{t("resaRestaurant")}</FooterExtLink>
               <FooterExtLink href={booking.spa}>{t("resaSpa")}</FooterExtLink>
               <FooterLink href="/devis?type=salle_reunion">{t("devisSalle")}</FooterLink>
