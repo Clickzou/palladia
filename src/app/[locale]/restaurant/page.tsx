@@ -3,6 +3,7 @@ import { traduire, traduireContenu } from "@/i18n/contenu";
 import { lireMenus } from "@/lib/menus";
 import { dateDuJourAParis } from "@/lib/dates";
 import CartesMenus from "@/components/restaurant/CartesMenus";
+import DecorFestif from "@/components/restaurant/DecorFestif";
 import { metadonnees } from "@/data/seo";
 import Image from "next/image";
 import { booking } from "@/config/site";
@@ -137,8 +138,11 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
       {/* Menu des fetes : avant les menus de la semaine, parce qu'il se reserve
           a l'avance et par courriel, la ou les autres se decouvrent a table. */}
       {menuFeteEnCours && (
-        <section className="px-6 pb-20">
-          <article className="mx-auto max-w-3xl border border-gold px-8 py-12 text-center">
+        <section className="fond-festif relative px-6 py-20 sm:py-24">
+          <DecorFestif />
+          {/* Double filet dore : la bordure, puis un contour en retrait, comme
+              sur un carton de menu. */}
+          <article className="relative mx-auto max-w-3xl border border-gold bg-white px-8 py-12 text-center shadow-[0_24px_60px_-24px_rgb(0_0_0/0.45)] outline outline-1 -outline-offset-[10px] outline-gold/50">
             <h2 className="section-title">{r.menuFete.titre}</h2>
             <p className="mt-3 text-[22px] text-ink">{r.menuFete.prix}</p>
             <div className="mx-auto mt-6 h-px w-20 bg-gold" />

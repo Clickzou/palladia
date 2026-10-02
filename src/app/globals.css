@@ -261,6 +261,55 @@ h6 {
 }
 
 /*
+  Section du Menu Festif (page Restaurant) : fond dore, plus clair en haut,
+  et decor anime pose derriere la carte par <DecorFestif />.
+*/
+.fond-festif {
+  background: radial-gradient(ellipse 120% 80% at 50% 0%, #dcb26a 0%, var(--color-gold) 50%, var(--color-gold-dark) 100%);
+}
+
+/* Etoile qui s'allume et s'eteint lentement. Elle ne disparait jamais tout a
+   fait : un decor qui clignote attirerait l'œil hors de la carte. */
+.etoile-festive {
+  opacity: 0.2;
+  animation: scintiller 5s ease-in-out infinite;
+}
+
+/* Flocon : le conteneur fait la hauteur de la section, et c'est lui qui
+   descend — un pourcentage de `translateY` se mesure sur l'element lui-meme. */
+.flocon-festif {
+  opacity: 0;
+  animation: tomber 20s linear infinite;
+}
+
+@keyframes scintiller {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1) rotate(15deg);
+  }
+}
+
+@keyframes tomber {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -2%, 0);
+  }
+  10%,
+  85% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(24px, 100%, 0);
+  }
+}
+
+/*
   Deux garde-fous.
 
   1. Sans JavaScript, la classe `.est-visible` n'est jamais posee : tout le
@@ -279,5 +328,16 @@ h6 {
     transform: none !important;
     transition: none !important;
     animation: none !important;
+  }
+
+  /* Decor festif : les etoiles restent, immobiles ; les flocons, qui n'ont
+     de sens qu'en mouvement, disparaissent. */
+  .etoile-festive {
+    opacity: 0.5;
+    animation: none;
+  }
+
+  .flocon-festif {
+    display: none;
   }
 }
