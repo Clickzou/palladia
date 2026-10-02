@@ -50,6 +50,39 @@ export const restaurant = {
     { texte: "Dimanche et jours fériés le petit déjeuner est servi jusqu’à 11h00.", fort: false },
   ],
 
+  /**
+   * Menu des fetes de fin d'annee, annonce au-dessus des menus de la semaine.
+   *
+   * Comme la fermeture annuelle, il s'efface tout seul : `jusquau` est le
+   * dernier jour ou il est servi, au format AAAA-MM-JJ. Il s'affiche des
+   * maintenant, avant son premier jour de service, parce qu'un repas de fin
+   * d'annee se reserve des semaines a l'avance — c'est `intro` qui porte les
+   * dates, ecrites pour un lecteur.
+   *
+   * Chaque partie suit la forme du menu de la semaine : plusieurs `choix` sont
+   * une alternative, separee par « ou » a l'affichage.
+   */
+  menuFete: {
+    titre: "Le Menu Festif",
+    prix: "60 € / personne",
+    jusquau: "2027-01-15",
+    intro: [
+      "Pour vos repas de fin d’année entre collègues et amis, découvrez notre Menu Festif, disponible du 23 novembre 2026 au 15 janvier 2027.",
+      "Profitez d’un moment convivial et gourmand autour d’un menu spécialement imaginé pour célébrer les fêtes de fin d’année.",
+    ],
+    sections: [
+      { titre: "Entrée", choix: ["Foie gras au pain d’épices et pomme"] },
+      { titre: "Plat", choix: ["Saumon, sauce citronnée", "Pintade sauce suprême"] },
+      {
+        titre: "Accompagnement",
+        choix: ["Pomme Anna parfumée à la truffe\net châtaignes rôties"],
+      },
+      { titre: "Dessert", choix: ["Bûche au chocolat lactée\net fruits exotiques"] },
+      { titre: "Boissons", choix: ["Un verre de vin, en accord avec vos mets\nEaux et café"] },
+    ],
+    reservation: { libelle: "Réservation uniquement auprès du service commercial :", email: "salesmanager@hotelpalladia.com" },
+  },
+
   menuSemaine: {
     titre: "Menu de la semaine",
     sections: [

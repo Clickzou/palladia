@@ -38,6 +38,10 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
   const fermetureEnCours =
     rFr.fermeture.texte !== "" && dateDuJourAParis() <= rFr.fermeture.jusquau;
 
+  // Menu des fetes : meme principe, il se retire seul au lendemain du dernier
+  // jour de service.
+  const menuFeteEnCours = dateDuJourAParis() <= rFr.menuFete.jusquau;
+
   return (
     <>
       <PageHeader
@@ -129,6 +133,43 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
           />
         </div>
       </section>
+
+      {/* Menu des fetes : avant les menus de la semaine, parce qu'il se reserve
+          a l'avance et par courriel, la ou les autres se decouvrent a table. */}
+      {menuFeteEnCours && (
+        <section className="px-6 pb-20">
+          <article className="mx-auto max-w-3xl border border-gold px-8 py-12 text-center">
+            <h2 className="section-title">{r.menuFete.titre}</h2>
+            <p className="mt-3 text-[22px] text-ink">{r.menuFete.prix}</p>
+            <div className="mx-auto mt-6 h-px w-20 bg-gold" />
+
+            <div className="mt-8 space-y-4 leading-relaxed text-body">
+              {r.menuFete.intro.map((p) => (
+                <p key={p.slice(0, 30)}>{p}</p>
+              ))}
+            </div>
+
+            {r.menuFete.sections.map((s) => (
+              <div key={s.titre} className="mt-8">
+                <h3 className="titre-mini">{s.titre}</h3>
+                <p className="mt-3 whitespace-pre-line text-body">
+                  {s.choix.join(`\n${t("ou")}\n`)}
+                </p>
+              </div>
+            ))}
+
+            <p className="mt-10 font-semibold text-ink">
+              {r.menuFete.reservation.libelle}{" "}
+              <a
+                href={`mailto:${r.menuFete.reservation.email}`}
+                className="text-gold underline underline-offset-4 hover:text-gold-dark"
+              >
+                {r.menuFete.reservation.email}
+              </a>
+            </p>
+          </article>
+        </section>
+      )}
 
       {/* Menus */}
       <section className="bg-cream px-6 py-20">
