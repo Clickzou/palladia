@@ -135,8 +135,22 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
         </div>
       </section>
 
-      {/* Menu des fetes : avant les menus de la semaine, parce qu'il se reserve
-          a l'avance et par courriel, la ou les autres se decouvrent a table. */}
+      {/* Menus */}
+      <section className="bg-cream px-6 py-20">
+        <h2 className="section-title">{t("Menu")}</h2>
+        <h3 className="mt-4 text-center text-[22px] font-normal text-body uppercase">
+          {t("Découvrez notre menu de la semaine")}
+        </h3>
+        <div className="mx-auto mt-6 h-px w-20 bg-gold" />
+
+        <div className="mt-14">
+          <CartesMenus semaine={menus.semaine} jour={menus.jour} ou={t("ou")} />
+        </div>
+      </section>
+
+      {/* Menu des fetes : sous les menus de la semaine, a la demande de
+          l'hotel — le menu de la semaine reste ce que le visiteur voit en
+          premier. */}
       {menuFeteEnCours && (
         <section className="fond-festif relative px-6 py-20 sm:py-24">
           <DecorFestif />
@@ -174,19 +188,6 @@ export default async function RestaurantPage({ params }: { params: Promise<{ loc
           </article>
         </section>
       )}
-
-      {/* Menus */}
-      <section className="bg-cream px-6 py-20">
-        <h2 className="section-title">{t("Menu")}</h2>
-        <h3 className="mt-4 text-center text-[22px] font-normal text-body uppercase">
-          {t("Découvrez notre menu de la semaine")}
-        </h3>
-        <div className="mx-auto mt-6 h-px w-20 bg-gold" />
-
-        <div className="mt-14">
-          <CartesMenus semaine={menus.semaine} jour={menus.jour} ou={t("ou")} />
-        </div>
-      </section>
 
       {/* Bar Lounge */}
       <section className="grid items-stretch md:grid-cols-2">

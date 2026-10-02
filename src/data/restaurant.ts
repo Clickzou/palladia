@@ -51,7 +51,7 @@ export const restaurant = {
   ],
 
   /**
-   * Menu des fetes de fin d'annee, annonce au-dessus des menus de la semaine.
+   * Menu des fetes de fin d'annee, annonce sous les menus de la semaine.
    *
    * Comme la fermeture annuelle, il s'efface tout seul : `jusquau` est le
    * dernier jour ou il est servi, au format AAAA-MM-JJ. Il s'affiche des
