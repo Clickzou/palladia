@@ -29,6 +29,9 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.hotelpalladia.com"),
   icons: { icon: "/images/favicon.png" },
+  // Validation Search Console de https://www.hotelpalladia.com/ (05/10/2026).
+  // Ne pas retirer : Google retire la propriété si la balise disparaît.
+  verification: { google: "pIiAF9jhWcnOAOQgJvrA2cqS3c0Am1Gq2uWtqiJlTew" },
 };
 
 export function generateStaticParams() {
