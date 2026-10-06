@@ -1,0 +1,2077 @@
+{
+  "version": 1,
+  "depot": "Clickzou/palladia",
+  "site": "https://www.hotelpalladia.com",
+  "propriete_search_console": "https://www.hotelpalladia.com/",
+  "genere_le": "2026-10-06T21:02:31.616Z",
+  "periodes": {
+    "j90": {
+      "du": "2026-07-06",
+      "au": "2026-10-03"
+    },
+    "j28": {
+      "du": "2026-09-06",
+      "au": "2026-10-03"
+    }
+  },
+  "quota_contenus_mois": null,
+  "inventaire": "complet",
+  "arbitrage": {
+    "decision": "optimiser",
+    "explication_client": "15 de vos articles sont déjà vus dans Google mais restent loin de la première place. Les améliorer rapporte plus vite que d'en publier de nouveaux : c'est notre priorité ce mois-ci.",
+    "stats": {
+      "articles_mesures": 28,
+      "articles_90j_et_plus": 16,
+      "invisibles": 0,
+      "taux_invisibles": 0,
+      "en_zone_refresh": 15,
+      "articles_moins_90j": 4
+    },
+    "recommandations": [
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/diner-spectacles-toulouse",
+        "titre": "Dîners & Spectacles",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "diner spectacle toulouse",
+            "impressions": 527,
+            "clics": 15,
+            "position": 9.1
+          },
+          {
+            "requete": "palladia toulouse",
+            "impressions": 264,
+            "clics": 1,
+            "position": 2
+          },
+          {
+            "requete": "hotel palladia toulouse",
+            "impressions": 223,
+            "clics": 1,
+            "position": 2
+          }
+        ],
+        "j90": {
+          "impressions": 3879,
+          "clics": 135,
+          "position": 8.9
+        },
+        "j28": {
+          "impressions": 1718,
+          "clics": 77,
+          "position": 6.6
+        },
+        "raison": "(a) position 8.9 sur 90 j, 3879 affichages, 135 clics.",
+        "pourquoi_client": "Cet article a été vu 3 879 fois dans Google en 3 mois, mais il est en 9e position, en bas de la première page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 1
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/reveillon-toulouse",
+        "titre": "Réveillon à Toulouse",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "soirée nouvel an toulouse 2026",
+            "impressions": 102,
+            "clics": 5,
+            "position": 6
+          },
+          {
+            "requete": "reveillon 2017 toulouse",
+            "impressions": 81,
+            "clics": 0,
+            "position": 7.2
+          },
+          {
+            "requete": "restaurant toulouse reveillon",
+            "impressions": 70,
+            "clics": 0,
+            "position": 12.8
+          }
+        ],
+        "j90": {
+          "impressions": 2184,
+          "clics": 110,
+          "position": 8.3
+        },
+        "j28": {
+          "impressions": 1092,
+          "clics": 78,
+          "position": 7.2
+        },
+        "raison": "(a) position 8.3 sur 90 j, 2184 affichages, 110 clics.",
+        "pourquoi_client": "Cet article a été vu 2 184 fois dans Google en 3 mois, mais il est en 8e position, en bas de la première page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 2
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/zenith-de-toulouse-hotel-palladia",
+        "titre": "Zenith de Toulouse & Hôtel Palladia",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "hotel zenith toulouse",
+            "impressions": 89,
+            "clics": 0,
+            "position": 19.3
+          },
+          {
+            "requete": "hotel toulouse proche zenith",
+            "impressions": 83,
+            "clics": 0,
+            "position": 13.7
+          },
+          {
+            "requete": "hotel toulouse a cote du zenith",
+            "impressions": 62,
+            "clics": 0,
+            "position": 13.4
+          }
+        ],
+        "j90": {
+          "impressions": 1353,
+          "clics": 4,
+          "position": 13.7
+        },
+        "j28": {
+          "impressions": 496,
+          "clics": 2,
+          "position": 11.9
+        },
+        "raison": "(a) position 13.7 sur 90 j, 1353 affichages, 4 clics.",
+        "pourquoi_client": "Cet article a été vu 1 353 fois dans Google en 3 mois, mais il est en 14e position, en deuxième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 3
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/choisir-lieu-seminaire-toulouse",
+        "titre": "Comment choisir le meilleur lieu pour organiser un séminaire à Toulouse ?",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "seminaire toulouse",
+            "impressions": 152,
+            "clics": 0,
+            "position": 9.9
+          },
+          {
+            "requete": "séminaire toulouse",
+            "impressions": 150,
+            "clics": 0,
+            "position": 14.7
+          },
+          {
+            "requete": "hotel seminaire toulouse",
+            "impressions": 98,
+            "clics": 0,
+            "position": 11.6
+          }
+        ],
+        "j90": {
+          "impressions": 1191,
+          "clics": 0,
+          "position": 16.5
+        },
+        "j28": {
+          "impressions": 72,
+          "clics": 0,
+          "position": 10.2
+        },
+        "raison": "(a) position 16.5 sur 90 j, 1191 affichages, 0 clics.",
+        "pourquoi_client": "Cet article a été vu 1 191 fois dans Google en 3 mois, mais il est en 17e position, en deuxième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 4
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/saint-valentin-toulouse",
+        "titre": "Soirée Saint-Valentin",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "hotel toulouse saint valentin",
+            "impressions": 91,
+            "clics": 1,
+            "position": 2.3
+          },
+          {
+            "requete": "soirée st valentin toulouse",
+            "impressions": 86,
+            "clics": 0,
+            "position": 2.8
+          },
+          {
+            "requete": "restaurant saint valentin toulouse",
+            "impressions": 83,
+            "clics": 0,
+            "position": 21
+          }
+        ],
+        "j90": {
+          "impressions": 984,
+          "clics": 2,
+          "position": 18.3
+        },
+        "j28": {
+          "impressions": 261,
+          "clics": 1,
+          "position": 17.6
+        },
+        "raison": "(a) position 18.3 sur 90 j, 984 affichages, 2 clics.",
+        "pourquoi_client": "Cet article a été vu 984 fois dans Google en 3 mois, mais il est en 18e position, en deuxième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 5
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/sejour-en-famille-a-toulouse-hotel-palladia",
+        "titre": "Séjour en famille à Toulouse",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "hotel famille toulouse",
+            "impressions": 120,
+            "clics": 1,
+            "position": 6.4
+          },
+          {
+            "requete": "chambre familiale toulouse",
+            "impressions": 83,
+            "clics": 0,
+            "position": 23.5
+          },
+          {
+            "requete": "hotel toulouse chambre familiale",
+            "impressions": 41,
+            "clics": 0,
+            "position": 16.7
+          }
+        ],
+        "j90": {
+          "impressions": 844,
+          "clics": 8,
+          "position": 10.9
+        },
+        "j28": {
+          "impressions": 291,
+          "clics": 1,
+          "position": 12.7
+        },
+        "raison": "(a) position 10.9 sur 90 j, 844 affichages, 8 clics.",
+        "pourquoi_client": "Cet article a été vu 844 fois dans Google en 3 mois, mais il est en 11e position, en deuxième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 6
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/mariage-hotel-palladia-toulouse",
+        "titre": "Mariage Hôtel Palladia Toulouse",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "hôtel mariage toulouse",
+            "impressions": 172,
+            "clics": 0,
+            "position": 5.4
+          },
+          {
+            "requete": "mariage à la plage toulouse",
+            "impressions": 112,
+            "clics": 0,
+            "position": 44.3
+          },
+          {
+            "requete": "hotel mariage toulouse",
+            "impressions": 103,
+            "clics": 0,
+            "position": 10.6
+          }
+        ],
+        "j90": {
+          "impressions": 704,
+          "clics": 7,
+          "position": 17.3
+        },
+        "j28": {
+          "impressions": 198,
+          "clics": 4,
+          "position": 14.3
+        },
+        "raison": "(a) position 17.3 sur 90 j, 704 affichages, 7 clics.",
+        "pourquoi_client": "Cet article a été vu 704 fois dans Google en 3 mois, mais il est en 17e position, en deuxième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 7
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/amphitheatre-hotel-palladia-renove",
+        "titre": "L’amphithéâtre de l'hôtel Palladia rénové",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "amphitheatre toulouse",
+            "impressions": 64,
+            "clics": 0,
+            "position": 40.8
+          },
+          {
+            "requete": "hotel palladia spectacle",
+            "impressions": 64,
+            "clics": 0,
+            "position": 24.6
+          },
+          {
+            "requete": "hotel palladia restaurant",
+            "impressions": 40,
+            "clics": 0,
+            "position": 74.9
+          }
+        ],
+        "j90": {
+          "impressions": 703,
+          "clics": 10,
+          "position": 26.2
+        },
+        "j28": {
+          "impressions": 241,
+          "clics": 6,
+          "position": 23.5
+        },
+        "raison": "(a) position 26.2 sur 90 j, 703 affichages, 10 clics.",
+        "pourquoi_client": "Cet article a été vu 703 fois dans Google en 3 mois, mais il est en 26e position, en troisième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 8
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/afterwork-toulouse",
+        "titre": "Afterwork Toulouse - Hôtel Palladia",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "afterwork toulouse",
+            "impressions": 266,
+            "clics": 0,
+            "position": 27.8
+          },
+          {
+            "requete": "afterwork toulouse",
+            "impressions": 161,
+            "clics": 0,
+            "position": 18.9
+          },
+          {
+            "requete": "hotel palladia spectacle",
+            "impressions": 24,
+            "clics": 0,
+            "position": 69.4
+          }
+        ],
+        "j90": {
+          "impressions": 520,
+          "clics": 1,
+          "position": 27.1
+        },
+        "j28": {
+          "impressions": 153,
+          "clics": 0,
+          "position": 28.2
+        },
+        "raison": "(a) position 27.1 sur 90 j, 520 affichages, 1 clics.",
+        "pourquoi_client": "Cet article a été vu 520 fois dans Google en 3 mois, mais il est en 27e position, en troisième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 9
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/adelya",
+        "titre": "Adelya : La fidélisation client réinventée pour l’hôtellerie et la restauration",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "adelya fidelite",
+            "impressions": 38,
+            "clics": 0,
+            "position": 4.5
+          },
+          {
+            "requete": "staycation",
+            "impressions": 37,
+            "clics": 0,
+            "position": 8.9
+          },
+          {
+            "requete": "comment je peux choper un séjour gratuit à l'hôtel grâce à un programme de fidélité ?",
+            "impressions": 26,
+            "clics": 0,
+            "position": 7.4
+          }
+        ],
+        "j90": {
+          "impressions": 369,
+          "clics": 1,
+          "position": 17.8
+        },
+        "j28": {
+          "impressions": 123,
+          "clics": 0,
+          "position": 18.3
+        },
+        "raison": "(a) position 17.8 sur 90 j, 369 affichages, 1 clics.",
+        "pourquoi_client": "Cet article a été vu 369 fois dans Google en 3 mois, mais il est en 18e position, en deuxième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 10
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/ou-dormir-proche-aeroport-toulouse",
+        "titre": "Où dormir près de l’aéroport de Toulouse : pourquoi choisir l’Hôtel Palladia ?",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "hotel palladia toulouse airport",
+            "impressions": 67,
+            "clics": 0,
+            "position": 2.9
+          },
+          {
+            "requete": "hotel palladia toulouse airport",
+            "impressions": 41,
+            "clics": 0,
+            "position": 1.7
+          },
+          {
+            "requete": "hotel aeroport toulouse",
+            "impressions": 8,
+            "clics": 0,
+            "position": 17.4
+          }
+        ],
+        "j90": {
+          "impressions": 366,
+          "clics": 1,
+          "position": 9.5
+        },
+        "j28": {
+          "impressions": 130,
+          "clics": 1,
+          "position": 14.7
+        },
+        "raison": "(a) position 9.5 sur 90 j, 366 affichages, 1 clics.",
+        "pourquoi_client": "Cet article a été vu 366 fois dans Google en 3 mois, mais il est en 10e position, en bas de la première page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 11
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/les-temps-forts-de-lhotel-palladia",
+        "titre": "Les temps Forts de l’Hôtel PALLADIA",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "hotel palladia spectacle",
+            "impressions": 51,
+            "clics": 0,
+            "position": 49.7
+          },
+          {
+            "requete": "reveillon 2017 toulouse",
+            "impressions": 20,
+            "clics": 0,
+            "position": 71.5
+          },
+          {
+            "requete": "reveillon 2017 toulouse",
+            "impressions": 6,
+            "clics": 0,
+            "position": 67.8
+          }
+        ],
+        "j90": {
+          "impressions": 222,
+          "clics": 8,
+          "position": 28.8
+        },
+        "j28": {
+          "impressions": 119,
+          "clics": 5,
+          "position": 20.8
+        },
+        "raison": "(a) position 28.8 sur 90 j, 222 affichages, 8 clics.",
+        "pourquoi_client": "Cet article a été vu 222 fois dans Google en 3 mois, mais il est en 29e position, en troisième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 12
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/hotel-palladia-x-orchestre-de-chambre-de-toulouse",
+        "titre": "L’Orchestre de chambre de Toulouse",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "hotel palladia spectacle",
+            "impressions": 54,
+            "clics": 0,
+            "position": 47.6
+          },
+          {
+            "requete": "hotel palladia spectacle",
+            "impressions": 5,
+            "clics": 0,
+            "position": 17.8
+          },
+          {
+            "requete": "hôtels à musiciens",
+            "impressions": 1,
+            "clics": 0,
+            "position": 12
+          }
+        ],
+        "j90": {
+          "impressions": 121,
+          "clics": 3,
+          "position": 25.9
+        },
+        "j28": {
+          "impressions": 48,
+          "clics": 2,
+          "position": 17.6
+        },
+        "raison": "(a) position 25.9 sur 90 j, 121 affichages, 3 clics.",
+        "pourquoi_client": "Cet article a été vu 121 fois dans Google en 3 mois, mais il est en 26e position, en troisième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 13
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/actualites/4",
+        "titre": null,
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "hotel mariage toulouse",
+            "impressions": 77,
+            "clics": 0,
+            "position": 15.3
+          },
+          {
+            "requete": "palladia",
+            "impressions": 1,
+            "clics": 0,
+            "position": 2
+          }
+        ],
+        "j90": {
+          "impressions": 98,
+          "clics": 0,
+          "position": 16.3
+        },
+        "j28": {
+          "impressions": 50,
+          "clics": 0,
+          "position": 19.2
+        },
+        "raison": "(a) position 16.3 sur 90 j, 98 affichages, 0 clics.",
+        "pourquoi_client": "Cet article a été vu 98 fois dans Google en 3 mois, mais il est en 16e position, en deuxième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 14
+      },
+      {
+        "regle": "a",
+        "action": "refresh",
+        "chemin": "/formats-evenements-professionnels-toulouse",
+        "titre": "Nos formats d’événements",
+        "cible": null,
+        "requetes": [
+          {
+            "requete": "configuration théâtre ou classe pour une journée de formation de 100 personnes",
+            "impressions": 3,
+            "clics": 0,
+            "position": 6
+          },
+          {
+            "requete": "hébergement conférence",
+            "impressions": 3,
+            "clics": 0,
+            "position": 1.7
+          },
+          {
+            "requete": "séminaire avec hébergement",
+            "impressions": 3,
+            "clics": 0,
+            "position": 18
+          }
+        ],
+        "j90": {
+          "impressions": 76,
+          "clics": 1,
+          "position": 11.4
+        },
+        "j28": {
+          "impressions": 76,
+          "clics": 1,
+          "position": 11.4
+        },
+        "raison": "(a) position 11.4 sur 90 j, 76 affichages, 1 clics.",
+        "pourquoi_client": "Cet article a été vu 76 fois dans Google en 3 mois, mais il est en 11e position, en deuxième page de Google, où l'on clique très peu. Le retravailler pour le faire monter rapporte plus qu'un nouvel article.",
+        "rang": 15
+      },
+      {
+        "regle": "c",
+        "action": "fusion",
+        "chemin": "/staycation-toulouse",
+        "titre": "L'Escapade Parfaite pour un Staycation",
+        "cible": {
+          "chemin": "/staycation-toulouse",
+          "titre": "L'Escapade Parfaite pour un Staycation"
+        },
+        "requetes": [
+          {
+            "requete": "staycation toulouse",
+            "impressions": 604,
+            "clics": 4,
+            "position": 7.2
+          },
+          {
+            "requete": "staycation toulouse",
+            "impressions": 173,
+            "clics": 0,
+            "position": 6.6
+          },
+          {
+            "requete": "hotel palladia toulouse",
+            "impressions": 163,
+            "clics": 0,
+            "position": 1.9
+          }
+        ],
+        "j90": {
+          "impressions": 6282,
+          "clics": 19,
+          "position": 33
+        },
+        "j28": {
+          "impressions": 1958,
+          "clics": 5,
+          "position": 34.3
+        },
+        "raison": "(c) requête « staycation toulouse » (788 affichages sur 90 j) partagée avec /staycation-toulouse.",
+        "pourquoi_client": "Cet article et « L'Escapade Parfaite pour un Staycation » répondent à la même recherche, « staycation toulouse » (788 affichages en 3 mois), et se font concurrence dans Google. Nous les regroupons en un seul article plus complet, qui a plus de chances de monter.",
+        "rang": 16
+      },
+      {
+        "regle": "c",
+        "action": "fusion",
+        "chemin": "/le-jardin-du-barry-a-toulouse-le-poumon-vert-de-la-cartoucherie",
+        "titre": "Le Jardin du Barry à Toulouse : le poumon vert de la Cartoucherie",
+        "cible": {
+          "chemin": "/le-jardin-du-barry-a-toulouse-le-poumon-vert-de-la-cartoucherie",
+          "titre": "Le Jardin du Barry à Toulouse : le poumon vert de la Cartoucherie"
+        },
+        "requetes": [
+          {
+            "requete": "jardin du barry",
+            "impressions": 401,
+            "clics": 0,
+            "position": 8
+          },
+          {
+            "requete": "jardins du barry",
+            "impressions": 165,
+            "clics": 1,
+            "position": 8.5
+          },
+          {
+            "requete": "jardin du barry toulouse",
+            "impressions": 149,
+            "clics": 2,
+            "position": 7.6
+          }
+        ],
+        "j90": {
+          "impressions": 1912,
+          "clics": 15,
+          "position": 7.6
+        },
+        "j28": {
+          "impressions": 656,
+          "clics": 5,
+          "position": 7.6
+        },
+        "raison": "(c) requête « jardin du barry toulouse » (187 affichages sur 90 j) partagée avec /le-jardin-du-barry-a-toulouse-le-poumon-vert-de-la-cartoucherie.",
+        "pourquoi_client": "Cet article et « Le Jardin du Barry à Toulouse : le poumon vert de la Cartoucherie » répondent à la même recherche, « jardin du barry toulouse » (187 affichages en 3 mois), et se font concurrence dans Google. Nous les regroupons en un seul article plus complet, qui a plus de chances de monter.",
+        "rang": 17
+      },
+      {
+        "regle": "c",
+        "action": "fusion",
+        "chemin": "/seminaire-residentiel-toulouse",
+        "titre": "Séminaire résidentiel à Toulouse",
+        "cible": {
+          "chemin": "/choisir-lieu-seminaire-toulouse",
+          "titre": "Comment choisir le meilleur lieu pour organiser un séminaire à Toulouse ?"
+        },
+        "requetes": [
+          {
+            "requete": "hotel seminaire toulouse",
+            "impressions": 63,
+            "clics": 0,
+            "position": 47.1
+          },
+          {
+            "requete": "hotel séminaire toulouse",
+            "impressions": 45,
+            "clics": 0,
+            "position": 48.3
+          },
+          {
+            "requete": "séminaire résidentiel",
+            "impressions": 27,
+            "clics": 0,
+            "position": 14
+          }
+        ],
+        "j90": {
+          "impressions": 400,
+          "clics": 0,
+          "position": 33.7
+        },
+        "j28": {
+          "impressions": 400,
+          "clics": 0,
+          "position": 33.7
+        },
+        "raison": "(c) requête « hotel seminaire toulouse » (161 affichages sur 90 j) partagée avec /choisir-lieu-seminaire-toulouse.",
+        "pourquoi_client": "Cet article et « Comment choisir le meilleur lieu pour organiser un séminaire à Toulouse ? » répondent à la même recherche, « hotel seminaire toulouse » (161 affichages en 3 mois), et se font concurrence dans Google. Nous les regroupons en un seul article plus complet, qui a plus de chances de monter.",
+        "rang": 18
+      },
+      {
+        "regle": "c",
+        "action": "fusion",
+        "chemin": "/lhotel-palladia-un-voyage-dans-lexcellence-hoteliere-et-levenementiel-a-toulouse",
+        "titre": "Un Voyage dans l'Excellence Hôtelière",
+        "cible": {
+          "chemin": "/lhotel-palladia-un-voyage-dans-lexcellence-hoteliere-et-levenementiel-a-toulouse",
+          "titre": "Un Voyage dans l'Excellence Hôtelière"
+        },
+        "requetes": [
+          {
+            "requete": "georges miatto",
+            "impressions": 52,
+            "clics": 4,
+            "position": 5
+          },
+          {
+            "requete": "271 avenue de grande bretagne 31300 toulouse",
+            "impressions": 19,
+            "clics": 0,
+            "position": 15.6
+          },
+          {
+            "requete": "hotel palladia",
+            "impressions": 19,
+            "clics": 0,
+            "position": 5.9
+          }
+        ],
+        "j90": {
+          "impressions": 884,
+          "clics": 21,
+          "position": 7.4
+        },
+        "j28": {
+          "impressions": 294,
+          "clics": 6,
+          "position": 6.6
+        },
+        "raison": "(c) requête « georges miatto » (65 affichages sur 90 j) partagée avec /lhotel-palladia-un-voyage-dans-lexcellence-hoteliere-et-levenementiel-a-toulouse.",
+        "pourquoi_client": "Cet article et « Un Voyage dans l'Excellence Hôtelière » répondent à la même recherche, « georges miatto » (65 affichages en 3 mois), et se font concurrence dans Google. Nous les regroupons en un seul article plus complet, qui a plus de chances de monter.",
+        "rang": 19
+      }
+    ],
+    "deja_au_journal": {}
+  },
+  "requetes_mal_couvertes": [
+    {
+      "requete": "salle de réunion toulouse",
+      "impressions": 614,
+      "meilleure_position": 21,
+      "meilleure_page": "/seminaire-evenement-professionnel",
+      "page_dediee": false,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "visiter toulouse",
+      "impressions": 594,
+      "meilleure_position": 25.3,
+      "meilleure_page": "/visites-toulouse",
+      "page_dediee": true,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "hotel spa toulouse campagne",
+      "impressions": 472,
+      "meilleure_position": 23,
+      "meilleure_page": "/spa",
+      "page_dediee": true,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "salle seminaire toulouse",
+      "impressions": 383,
+      "meilleure_position": 24.4,
+      "meilleure_page": "/seminaire-evenement-professionnel",
+      "page_dediee": true,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "petit déjeuner hotel toulouse",
+      "impressions": 302,
+      "meilleure_position": 25.6,
+      "meilleure_page": "/",
+      "page_dediee": false,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "hôtel campagne toulouse",
+      "impressions": 278,
+      "meilleure_position": 36.1,
+      "meilleure_page": "/",
+      "page_dediee": false,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "hotel yoga toulouse",
+      "impressions": 269,
+      "meilleure_position": 50.2,
+      "meilleure_page": "/",
+      "page_dediee": false,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "hotel séminaire toulouse gare",
+      "impressions": 245,
+      "meilleure_position": 20.3,
+      "meilleure_page": "/choisir-lieu-seminaire-toulouse",
+      "page_dediee": true,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "massage trio toulouse",
+      "impressions": 208,
+      "meilleure_position": 21.8,
+      "meilleure_page": "/spa",
+      "page_dediee": false,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "que faire à toulouse",
+      "impressions": 201,
+      "meilleure_position": 29.7,
+      "meilleure_page": "/visites-toulouse",
+      "page_dediee": true,
+      "informationnelle": true,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "hotel 4 etoile",
+      "impressions": 194,
+      "meilleure_position": 65.4,
+      "meilleure_page": "/",
+      "page_dediee": false,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "toulouse massage",
+      "impressions": 184,
+      "meilleure_position": 52.7,
+      "meilleure_page": "/spa",
+      "page_dediee": false,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "louer salle de réunion toulouse",
+      "impressions": 165,
+      "meilleure_position": 23.8,
+      "meilleure_page": "/seminaire-evenement-professionnel",
+      "page_dediee": false,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "hotel 4 étoiles toulouse",
+      "impressions": 163,
+      "meilleure_position": 22.6,
+      "meilleure_page": "/",
+      "page_dediee": false,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    },
+    {
+      "requete": "hotel écoresponsable toulouse",
+      "impressions": 160,
+      "meilleure_position": 23.9,
+      "meilleure_page": "/engagements",
+      "page_dediee": false,
+      "informationnelle": false,
+      "candidate_nouvel_article": false
+    }
+  ],
+  "pages_money_a_soutenir": [
+    {
+      "chemin": "/",
+      "impressions": 74746,
+      "clics": 4351,
+      "position": 9.1,
+      "requetes": [
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 3967,
+          "clics": 924,
+          "position": 2
+        },
+        {
+          "requete": "palladia",
+          "impressions": 2446,
+          "clics": 181,
+          "position": 8
+        },
+        {
+          "requete": "hotel spa toulouse",
+          "impressions": 2362,
+          "clics": 19,
+          "position": 10.9
+        }
+      ]
+    },
+    {
+      "chemin": "/spa",
+      "impressions": 41131,
+      "clics": 871,
+      "position": 9.6,
+      "requetes": [
+        {
+          "requete": "spa toulouse",
+          "impressions": 4019,
+          "clics": 8,
+          "position": 12.3
+        },
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 2741,
+          "clics": 38,
+          "position": 1.8
+        },
+        {
+          "requete": "spa toulouse",
+          "impressions": 2475,
+          "clics": 31,
+          "position": 10.7
+        }
+      ]
+    },
+    {
+      "chemin": "/restaurant",
+      "impressions": 20731,
+      "clics": 498,
+      "position": 5.4,
+      "requetes": [
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 2966,
+          "clics": 22,
+          "position": 1.8
+        },
+        {
+          "requete": "palladia toulouse",
+          "impressions": 1479,
+          "clics": 19,
+          "position": 1.7
+        },
+        {
+          "requete": "hotel palladia",
+          "impressions": 1059,
+          "clics": 4,
+          "position": 1.6
+        }
+      ]
+    },
+    {
+      "chemin": "/chambres",
+      "impressions": 14488,
+      "clics": 43,
+      "position": 5.6,
+      "requetes": [
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 2521,
+          "clics": 10,
+          "position": 1.8
+        },
+        {
+          "requete": "palladia toulouse",
+          "impressions": 1275,
+          "clics": 3,
+          "position": 1.8
+        },
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 1067,
+          "clics": 0,
+          "position": 1.8
+        }
+      ]
+    },
+    {
+      "chemin": "/hotel",
+      "impressions": 14095,
+      "clics": 32,
+      "position": 4.6,
+      "requetes": [
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 2938,
+          "clics": 6,
+          "position": 1.8
+        },
+        {
+          "requete": "palladia toulouse",
+          "impressions": 1404,
+          "clics": 3,
+          "position": 1.7
+        },
+        {
+          "requete": "hotel palladia",
+          "impressions": 1136,
+          "clics": 1,
+          "position": 1.7
+        }
+      ]
+    },
+    {
+      "chemin": "/spectacle-toulouse",
+      "impressions": 13600,
+      "clics": 110,
+      "position": 4.6,
+      "requetes": [
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 2939,
+          "clics": 13,
+          "position": 1.8
+        },
+        {
+          "requete": "palladia toulouse",
+          "impressions": 1484,
+          "clics": 6,
+          "position": 1.8
+        },
+        {
+          "requete": "hotel palladia",
+          "impressions": 1142,
+          "clics": 2,
+          "position": 1.6
+        }
+      ]
+    },
+    {
+      "chemin": "/seminaire-evenement-professionnel",
+      "impressions": 12465,
+      "clics": 42,
+      "position": 19.7,
+      "requetes": [
+        {
+          "requete": "salle de séminaire toulouse",
+          "impressions": 622,
+          "clics": 0,
+          "position": 21
+        },
+        {
+          "requete": "hotel seminaire toulouse",
+          "impressions": 577,
+          "clics": 0,
+          "position": 17.9
+        },
+        {
+          "requete": "salle de réunion toulouse",
+          "impressions": 503,
+          "clics": 0,
+          "position": 23.5
+        }
+      ]
+    },
+    {
+      "chemin": "/contact",
+      "impressions": 8117,
+      "clics": 24,
+      "position": 6.9,
+      "requetes": [
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 1810,
+          "clics": 4,
+          "position": 2
+        },
+        {
+          "requete": "palladia toulouse",
+          "impressions": 746,
+          "clics": 2,
+          "position": 2.2
+        },
+        {
+          "requete": "le palladia",
+          "impressions": 479,
+          "clics": 0,
+          "position": 1.9
+        }
+      ]
+    },
+    {
+      "chemin": "/visites-toulouse",
+      "impressions": 7366,
+      "clics": 11,
+      "position": 15.5,
+      "requetes": [
+        {
+          "requete": "visiter toulouse",
+          "impressions": 442,
+          "clics": 0,
+          "position": 25.3
+        },
+        {
+          "requete": "activités à découvrir à toulouse",
+          "impressions": 270,
+          "clics": 0,
+          "position": 11.4
+        },
+        {
+          "requete": "que faire à toulouse",
+          "impressions": 197,
+          "clics": 0,
+          "position": 29.7
+        }
+      ]
+    },
+    {
+      "chemin": "/en",
+      "impressions": 2085,
+      "clics": 41,
+      "position": 5.9,
+      "requetes": [
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 169,
+          "clics": 8,
+          "position": 3.1
+        },
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 165,
+          "clics": 3,
+          "position": 2
+        },
+        {
+          "requete": "palladia hotel toulouse",
+          "impressions": 110,
+          "clics": 1,
+          "position": 2.2
+        }
+      ]
+    }
+  ],
+  "suivi_effets": [],
+  "articles": [
+    {
+      "chemin": "/staycation-toulouse",
+      "titre": "L'Escapade Parfaite pour un Staycation",
+      "publie_le": "2025-03-05",
+      "j90": {
+        "impressions": 6282,
+        "clics": 19,
+        "position": 33
+      },
+      "j28": {
+        "impressions": 1958,
+        "clics": 5,
+        "position": 34.3
+      },
+      "requetes": [
+        {
+          "requete": "staycation toulouse",
+          "impressions": 604,
+          "clics": 4,
+          "position": 7.2
+        },
+        {
+          "requete": "staycation toulouse",
+          "impressions": 173,
+          "clics": 0,
+          "position": 6.6
+        },
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 163,
+          "clics": 0,
+          "position": 1.9
+        }
+      ]
+    },
+    {
+      "chemin": "/diner-spectacles-toulouse",
+      "titre": "Dîners & Spectacles",
+      "publie_le": "2024-03-21",
+      "j90": {
+        "impressions": 3879,
+        "clics": 135,
+        "position": 8.9
+      },
+      "j28": {
+        "impressions": 1718,
+        "clics": 77,
+        "position": 6.6
+      },
+      "requetes": [
+        {
+          "requete": "diner spectacle toulouse",
+          "impressions": 527,
+          "clics": 15,
+          "position": 9.1
+        },
+        {
+          "requete": "palladia toulouse",
+          "impressions": 264,
+          "clics": 1,
+          "position": 2
+        },
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 223,
+          "clics": 1,
+          "position": 2
+        }
+      ]
+    },
+    {
+      "chemin": "/reveillon-toulouse",
+      "titre": "Réveillon à Toulouse",
+      "publie_le": "2025-08-20",
+      "j90": {
+        "impressions": 2184,
+        "clics": 110,
+        "position": 8.3
+      },
+      "j28": {
+        "impressions": 1092,
+        "clics": 78,
+        "position": 7.2
+      },
+      "requetes": [
+        {
+          "requete": "soirée nouvel an toulouse 2026",
+          "impressions": 102,
+          "clics": 5,
+          "position": 6
+        },
+        {
+          "requete": "reveillon 2017 toulouse",
+          "impressions": 81,
+          "clics": 0,
+          "position": 7.2
+        },
+        {
+          "requete": "restaurant toulouse reveillon",
+          "impressions": 70,
+          "clics": 0,
+          "position": 12.8
+        }
+      ]
+    },
+    {
+      "chemin": "/le-jardin-du-barry-a-toulouse-le-poumon-vert-de-la-cartoucherie",
+      "titre": "Le Jardin du Barry à Toulouse : le poumon vert de la Cartoucherie",
+      "publie_le": "2024-05-29",
+      "j90": {
+        "impressions": 1912,
+        "clics": 15,
+        "position": 7.6
+      },
+      "j28": {
+        "impressions": 656,
+        "clics": 5,
+        "position": 7.6
+      },
+      "requetes": [
+        {
+          "requete": "jardin du barry",
+          "impressions": 401,
+          "clics": 0,
+          "position": 8
+        },
+        {
+          "requete": "jardins du barry",
+          "impressions": 165,
+          "clics": 1,
+          "position": 8.5
+        },
+        {
+          "requete": "jardin du barry toulouse",
+          "impressions": 149,
+          "clics": 2,
+          "position": 7.6
+        }
+      ]
+    },
+    {
+      "chemin": "/zenith-de-toulouse-hotel-palladia",
+      "titre": "Zenith de Toulouse & Hôtel Palladia",
+      "publie_le": "2024-03-07",
+      "j90": {
+        "impressions": 1353,
+        "clics": 4,
+        "position": 13.7
+      },
+      "j28": {
+        "impressions": 496,
+        "clics": 2,
+        "position": 11.9
+      },
+      "requetes": [
+        {
+          "requete": "hotel zenith toulouse",
+          "impressions": 89,
+          "clics": 0,
+          "position": 19.3
+        },
+        {
+          "requete": "hotel toulouse proche zenith",
+          "impressions": 83,
+          "clics": 0,
+          "position": 13.7
+        },
+        {
+          "requete": "hotel toulouse a cote du zenith",
+          "impressions": 62,
+          "clics": 0,
+          "position": 13.4
+        }
+      ]
+    },
+    {
+      "chemin": "/choisir-lieu-seminaire-toulouse",
+      "titre": "Comment choisir le meilleur lieu pour organiser un séminaire à Toulouse ?",
+      "publie_le": "2026-06-10",
+      "j90": {
+        "impressions": 1191,
+        "clics": 0,
+        "position": 16.5
+      },
+      "j28": {
+        "impressions": 72,
+        "clics": 0,
+        "position": 10.2
+      },
+      "requetes": [
+        {
+          "requete": "seminaire toulouse",
+          "impressions": 152,
+          "clics": 0,
+          "position": 9.9
+        },
+        {
+          "requete": "séminaire toulouse",
+          "impressions": 150,
+          "clics": 0,
+          "position": 14.7
+        },
+        {
+          "requete": "hotel seminaire toulouse",
+          "impressions": 98,
+          "clics": 0,
+          "position": 11.6
+        }
+      ]
+    },
+    {
+      "chemin": "/saint-valentin-toulouse",
+      "titre": "Soirée Saint-Valentin",
+      "publie_le": "2024-01-07",
+      "j90": {
+        "impressions": 984,
+        "clics": 2,
+        "position": 18.3
+      },
+      "j28": {
+        "impressions": 261,
+        "clics": 1,
+        "position": 17.6
+      },
+      "requetes": [
+        {
+          "requete": "hotel toulouse saint valentin",
+          "impressions": 91,
+          "clics": 1,
+          "position": 2.3
+        },
+        {
+          "requete": "soirée st valentin toulouse",
+          "impressions": 86,
+          "clics": 0,
+          "position": 2.8
+        },
+        {
+          "requete": "restaurant saint valentin toulouse",
+          "impressions": 83,
+          "clics": 0,
+          "position": 21
+        }
+      ]
+    },
+    {
+      "chemin": "/lhotel-palladia-un-voyage-dans-lexcellence-hoteliere-et-levenementiel-a-toulouse",
+      "titre": "Un Voyage dans l'Excellence Hôtelière",
+      "publie_le": "2025-01-31",
+      "j90": {
+        "impressions": 884,
+        "clics": 21,
+        "position": 7.4
+      },
+      "j28": {
+        "impressions": 294,
+        "clics": 6,
+        "position": 6.6
+      },
+      "requetes": [
+        {
+          "requete": "georges miatto",
+          "impressions": 52,
+          "clics": 4,
+          "position": 5
+        },
+        {
+          "requete": "271 avenue de grande bretagne 31300 toulouse",
+          "impressions": 19,
+          "clics": 0,
+          "position": 15.6
+        },
+        {
+          "requete": "hotel palladia",
+          "impressions": 19,
+          "clics": 0,
+          "position": 5.9
+        }
+      ]
+    },
+    {
+      "chemin": "/sejour-en-famille-a-toulouse-hotel-palladia",
+      "titre": "Séjour en famille à Toulouse",
+      "publie_le": "2026-09-10",
+      "j90": {
+        "impressions": 844,
+        "clics": 8,
+        "position": 10.9
+      },
+      "j28": {
+        "impressions": 291,
+        "clics": 1,
+        "position": 12.7
+      },
+      "requetes": [
+        {
+          "requete": "hotel famille toulouse",
+          "impressions": 120,
+          "clics": 1,
+          "position": 6.4
+        },
+        {
+          "requete": "chambre familiale toulouse",
+          "impressions": 83,
+          "clics": 0,
+          "position": 23.5
+        },
+        {
+          "requete": "hotel toulouse chambre familiale",
+          "impressions": 41,
+          "clics": 0,
+          "position": 16.7
+        }
+      ]
+    },
+    {
+      "chemin": "/mariage-hotel-palladia-toulouse",
+      "titre": "Mariage Hôtel Palladia Toulouse",
+      "publie_le": "2024-03-21",
+      "j90": {
+        "impressions": 704,
+        "clics": 7,
+        "position": 17.3
+      },
+      "j28": {
+        "impressions": 198,
+        "clics": 4,
+        "position": 14.3
+      },
+      "requetes": [
+        {
+          "requete": "hôtel mariage toulouse",
+          "impressions": 172,
+          "clics": 0,
+          "position": 5.4
+        },
+        {
+          "requete": "mariage à la plage toulouse",
+          "impressions": 112,
+          "clics": 0,
+          "position": 44.3
+        },
+        {
+          "requete": "hotel mariage toulouse",
+          "impressions": 103,
+          "clics": 0,
+          "position": 10.6
+        }
+      ]
+    },
+    {
+      "chemin": "/amphitheatre-hotel-palladia-renove",
+      "titre": "L’amphithéâtre de l'hôtel Palladia rénové",
+      "publie_le": "2024-09-06",
+      "j90": {
+        "impressions": 703,
+        "clics": 10,
+        "position": 26.2
+      },
+      "j28": {
+        "impressions": 241,
+        "clics": 6,
+        "position": 23.5
+      },
+      "requetes": [
+        {
+          "requete": "amphitheatre toulouse",
+          "impressions": 64,
+          "clics": 0,
+          "position": 40.8
+        },
+        {
+          "requete": "hotel palladia spectacle",
+          "impressions": 64,
+          "clics": 0,
+          "position": 24.6
+        },
+        {
+          "requete": "hotel palladia restaurant",
+          "impressions": 40,
+          "clics": 0,
+          "position": 74.9
+        }
+      ]
+    },
+    {
+      "chemin": "/afterwork-toulouse",
+      "titre": "Afterwork Toulouse - Hôtel Palladia",
+      "publie_le": "2024-03-21",
+      "j90": {
+        "impressions": 520,
+        "clics": 1,
+        "position": 27.1
+      },
+      "j28": {
+        "impressions": 153,
+        "clics": 0,
+        "position": 28.2
+      },
+      "requetes": [
+        {
+          "requete": "afterwork toulouse",
+          "impressions": 266,
+          "clics": 0,
+          "position": 27.8
+        },
+        {
+          "requete": "afterwork toulouse",
+          "impressions": 161,
+          "clics": 0,
+          "position": 18.9
+        },
+        {
+          "requete": "hotel palladia spectacle",
+          "impressions": 24,
+          "clics": 0,
+          "position": 69.4
+        }
+      ]
+    },
+    {
+      "chemin": "/seminaire-residentiel-toulouse",
+      "titre": "Séminaire résidentiel à Toulouse",
+      "publie_le": "2026-09-10",
+      "j90": {
+        "impressions": 400,
+        "clics": 0,
+        "position": 33.7
+      },
+      "j28": {
+        "impressions": 400,
+        "clics": 0,
+        "position": 33.7
+      },
+      "requetes": [
+        {
+          "requete": "hotel seminaire toulouse",
+          "impressions": 63,
+          "clics": 0,
+          "position": 47.1
+        },
+        {
+          "requete": "hotel séminaire toulouse",
+          "impressions": 45,
+          "clics": 0,
+          "position": 48.3
+        },
+        {
+          "requete": "séminaire résidentiel",
+          "impressions": 27,
+          "clics": 0,
+          "position": 14
+        }
+      ]
+    },
+    {
+      "chemin": "/adelya",
+      "titre": "Adelya : La fidélisation client réinventée pour l’hôtellerie et la restauration",
+      "publie_le": "2025-04-11",
+      "j90": {
+        "impressions": 369,
+        "clics": 1,
+        "position": 17.8
+      },
+      "j28": {
+        "impressions": 123,
+        "clics": 0,
+        "position": 18.3
+      },
+      "requetes": [
+        {
+          "requete": "adelya fidelite",
+          "impressions": 38,
+          "clics": 0,
+          "position": 4.5
+        },
+        {
+          "requete": "staycation",
+          "impressions": 37,
+          "clics": 0,
+          "position": 8.9
+        },
+        {
+          "requete": "comment je peux choper un séjour gratuit à l'hôtel grâce à un programme de fidélité ?",
+          "impressions": 26,
+          "clics": 0,
+          "position": 7.4
+        }
+      ]
+    },
+    {
+      "chemin": "/ou-dormir-proche-aeroport-toulouse",
+      "titre": "Où dormir près de l’aéroport de Toulouse : pourquoi choisir l’Hôtel Palladia ?",
+      "publie_le": "2025-09-11",
+      "j90": {
+        "impressions": 366,
+        "clics": 1,
+        "position": 9.5
+      },
+      "j28": {
+        "impressions": 130,
+        "clics": 1,
+        "position": 14.7
+      },
+      "requetes": [
+        {
+          "requete": "hotel palladia toulouse airport",
+          "impressions": 67,
+          "clics": 0,
+          "position": 2.9
+        },
+        {
+          "requete": "hotel palladia toulouse airport",
+          "impressions": 41,
+          "clics": 0,
+          "position": 1.7
+        },
+        {
+          "requete": "hotel aeroport toulouse",
+          "impressions": 8,
+          "clics": 0,
+          "position": 17.4
+        }
+      ]
+    },
+    {
+      "chemin": "/les-temps-forts-de-lhotel-palladia",
+      "titre": "Les temps Forts de l’Hôtel PALLADIA",
+      "publie_le": "2024-11-14",
+      "j90": {
+        "impressions": 222,
+        "clics": 8,
+        "position": 28.8
+      },
+      "j28": {
+        "impressions": 119,
+        "clics": 5,
+        "position": 20.8
+      },
+      "requetes": [
+        {
+          "requete": "hotel palladia spectacle",
+          "impressions": 51,
+          "clics": 0,
+          "position": 49.7
+        },
+        {
+          "requete": "reveillon 2017 toulouse",
+          "impressions": 20,
+          "clics": 0,
+          "position": 71.5
+        },
+        {
+          "requete": "reveillon 2017 toulouse",
+          "impressions": 6,
+          "clics": 0,
+          "position": 67.8
+        }
+      ]
+    },
+    {
+      "chemin": "/sortir-a-toulouse-spectacles",
+      "titre": "Sortir à Toulouse : les spectacles de fin d’année à l’Hôtel Palladia",
+      "publie_le": "2026-09-24",
+      "j90": {
+        "impressions": 201,
+        "clics": 19,
+        "position": 7.6
+      },
+      "j28": {
+        "impressions": 201,
+        "clics": 19,
+        "position": 7.6
+      },
+      "requetes": [
+        {
+          "requete": "hotel palladia spectacle",
+          "impressions": 3,
+          "clics": 0,
+          "position": 29.7
+        },
+        {
+          "requete": "soirée spectacle toulouse",
+          "impressions": 3,
+          "clics": 0,
+          "position": 34
+        },
+        {
+          "requete": "spectacle fin d'année 2026",
+          "impressions": 1,
+          "clics": 1,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "chemin": "/hotel-palladia-x-orchestre-de-chambre-de-toulouse",
+      "titre": "L’Orchestre de chambre de Toulouse",
+      "publie_le": "2024-03-21",
+      "j90": {
+        "impressions": 121,
+        "clics": 3,
+        "position": 25.9
+      },
+      "j28": {
+        "impressions": 48,
+        "clics": 2,
+        "position": 17.6
+      },
+      "requetes": [
+        {
+          "requete": "hotel palladia spectacle",
+          "impressions": 54,
+          "clics": 0,
+          "position": 47.6
+        },
+        {
+          "requete": "hotel palladia spectacle",
+          "impressions": 5,
+          "clics": 0,
+          "position": 17.8
+        },
+        {
+          "requete": "hôtels à musiciens",
+          "impressions": 1,
+          "clics": 0,
+          "position": 12
+        }
+      ]
+    },
+    {
+      "chemin": "/actualites/4",
+      "titre": null,
+      "publie_le": null,
+      "j90": {
+        "impressions": 98,
+        "clics": 0,
+        "position": 16.3
+      },
+      "j28": {
+        "impressions": 50,
+        "clics": 0,
+        "position": 19.2
+      },
+      "requetes": [
+        {
+          "requete": "hotel mariage toulouse",
+          "impressions": 77,
+          "clics": 0,
+          "position": 15.3
+        },
+        {
+          "requete": "palladia",
+          "impressions": 1,
+          "clics": 0,
+          "position": 2
+        }
+      ]
+    },
+    {
+      "chemin": "/formats-evenements-professionnels-toulouse",
+      "titre": "Nos formats d’événements",
+      "publie_le": "2026-09-02",
+      "j90": {
+        "impressions": 76,
+        "clics": 1,
+        "position": 11.4
+      },
+      "j28": {
+        "impressions": 76,
+        "clics": 1,
+        "position": 11.4
+      },
+      "requetes": [
+        {
+          "requete": "configuration théâtre ou classe pour une journée de formation de 100 personnes",
+          "impressions": 3,
+          "clics": 0,
+          "position": 6
+        },
+        {
+          "requete": "hébergement conférence",
+          "impressions": 3,
+          "clics": 0,
+          "position": 1.7
+        },
+        {
+          "requete": "séminaire avec hébergement",
+          "impressions": 3,
+          "clics": 0,
+          "position": 18
+        }
+      ]
+    },
+    {
+      "chemin": "/actualites/3",
+      "titre": null,
+      "publie_le": null,
+      "j90": {
+        "impressions": 36,
+        "clics": 1,
+        "position": 9.2
+      },
+      "j28": {
+        "impressions": 4,
+        "clics": 0,
+        "position": 6.8
+      },
+      "requetes": [
+        {
+          "requete": "hotel palladia spectacle",
+          "impressions": 18,
+          "clics": 0,
+          "position": 10.9
+        }
+      ]
+    },
+    {
+      "chemin": "/en/actualites/4",
+      "titre": null,
+      "publie_le": null,
+      "j90": {
+        "impressions": 32,
+        "clics": 0,
+        "position": 24.3
+      },
+      "j28": {
+        "impressions": 31,
+        "clics": 0,
+        "position": 22
+      },
+      "requetes": [
+        {
+          "requete": "palladia toulouse",
+          "impressions": 9,
+          "clics": 0,
+          "position": 10.8
+        },
+        {
+          "requete": "hotel palladia toulouse",
+          "impressions": 4,
+          "clics": 0,
+          "position": 13.8
+        },
+        {
+          "requete": "hotel palladia",
+          "impressions": 3,
+          "clics": 0,
+          "position": 11.3
+        }
+      ]
+    },
+    {
+      "chemin": "/actualites/2",
+      "titre": null,
+      "publie_le": null,
+      "j90": {
+        "impressions": 20,
+        "clics": 1,
+        "position": 8.2
+      },
+      "j28": {
+        "impressions": 10,
+        "clics": 0,
+        "position": 7.4
+      },
+      "requetes": [
+        {
+          "requete": "villa palladia",
+          "impressions": 2,
+          "clics": 0,
+          "position": 17
+        }
+      ]
+    },
+    {
+      "chemin": "/theatre-le-grenier-de-toulouse",
+      "titre": "Spectacles humour : Cravate Club",
+      "publie_le": "2024-03-21",
+      "j90": {
+        "impressions": 15,
+        "clics": 0,
+        "position": 9
+      },
+      "j28": {
+        "impressions": 4,
+        "clics": 0,
+        "position": 6.5
+      },
+      "requetes": [
+        {
+          "requete": "hotel palladia spectacle",
+          "impressions": 4,
+          "clics": 0,
+          "position": 17
+        }
+      ]
+    },
+    {
+      "chemin": "/en/actualites/2",
+      "titre": null,
+      "publie_le": null,
+      "j90": {
+        "impressions": 10,
+        "clics": 0,
+        "position": 8.1
+      },
+      "j28": {
+        "impressions": 4,
+        "clics": 0,
+        "position": 6.8
+      },
+      "requetes": []
+    },
+    {
+      "chemin": "/en/actualites/3",
+      "titre": null,
+      "publie_le": null,
+      "j90": {
+        "impressions": 7,
+        "clics": 0,
+        "position": 7.9
+      },
+      "j28": {
+        "impressions": 0,
+        "clics": 0,
+        "position": null
+      },
+      "requetes": [
+        {
+          "requete": "palladia toulouse hotel",
+          "impressions": 2,
+          "clics": 0,
+          "position": 11
+        },
+        {
+          "requete": "palladia official website",
+          "impressions": 1,
+          "clics": 0,
+          "position": 6
+        }
+      ]
+    },
+    {
+      "chemin": "/es/actualites/2",
+      "titre": null,
+      "publie_le": null,
+      "j90": {
+        "impressions": 1,
+        "clics": 0,
+        "position": 1
+      },
+      "j28": {
+        "impressions": 1,
+        "clics": 0,
+        "position": 1
+      },
+      "requetes": []
+    },
+    {
+      "chemin": "/es/actualites/3",
+      "titre": null,
+      "publie_le": null,
+      "j90": {
+        "impressions": 1,
+        "clics": 0,
+        "position": 26
+      },
+      "j28": {
+        "impressions": 0,
+        "clics": 0,
+        "position": null
+      },
+      "requetes": []
+    }
+  ]
+}
