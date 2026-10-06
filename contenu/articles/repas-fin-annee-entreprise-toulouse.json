@@ -1,0 +1,455 @@
+{
+  "slug": "repas-fin-annee-entreprise-toulouse",
+  "datePublication": "2026-10-13",
+  "motCle": "repas de fin d'année entreprise toulouse",
+  "motsClesSecondaires": ["soirée d'entreprise toulouse", "repas de noël entreprise toulouse", "salle repas entreprise toulouse"],
+  "image_hero": "/images/blog/soiree-entreprise-diner-hotel-palladia.jpg",
+  "image_vignette": "/images/blog/soiree-entreprise-diner-hotel-palladia.jpg",
+  "titre": {
+    "fr": "Repas de fin d’année d’entreprise à Toulouse : formules et organisation",
+    "en": "End-of-year company dinner in Toulouse: formats and planning",
+    "es": "Comida de fin de año de empresa en Toulouse: fórmulas y organización"
+  },
+  "chapo": {
+    "fr": "Un déjeuner entre collègues au restaurant, un dîner qui réunit toute l’entreprise ou une vraie soirée avec animation : à l’Hôtel Palladia, le repas de fin d’année se dimensionne selon votre équipe, de la table privatisée au salon de 500 m².",
+    "en": "A lunch with colleagues at the restaurant, a dinner that brings the whole company together or a full evening with entertainment: at the Hôtel Palladia, the end-of-year meal is sized to your team, from a private table to a 500 m² function room.",
+    "es": "Un almuerzo entre compañeros en el restaurante, una cena que reúne a toda la empresa o una auténtica velada con animación: en el Hôtel Palladia, la comida de fin de año se adapta a su equipo, desde la mesa privatizada hasta el salón de 500 m²."
+  },
+  "seo_title": {
+    "fr": "Repas de fin d’année d’entreprise à Toulouse | Palladia",
+    "en": "End-of-year company dinner in Toulouse | Hôtel Palladia",
+    "es": "Comida de fin de año de empresa en Toulouse | Palladia"
+  },
+  "seo_description": {
+    "fr": "Restaurant privatisé, salon jusqu’à 300 convives, animation et chambres sur place : organisez le repas de fin d’année de votre entreprise à Toulouse.",
+    "en": "Private dining, a function room for up to 300 guests, entertainment and rooms on site: plan your company’s end-of-year dinner in Toulouse.",
+    "es": "Restaurante privatizado, salón de hasta 300 comensales, animación y habitaciones in situ: organice la comida de fin de año de su empresa en Toulouse."
+  },
+  "aRetenir": [
+    {
+      "fr": "Pour une petite équipe, le restaurant de l’hôtel peut privatiser un espace ; pour toute l’entreprise, le salon Opéra reçoit jusqu’à 300 convives en banquet.",
+      "en": "For a small team, the hotel restaurant can set aside a private area; for the whole company, the Opéra room seats up to 300 guests at banquet tables.",
+      "es": "Para un equipo pequeño, el restaurante del hotel puede privatizar un espacio; para toda la empresa, el salón Opéra acoge hasta 300 comensales en banquete."
+    },
+    {
+      "fr": "Le Menu Festif de la saison des fêtes se réserve uniquement auprès du service commercial ; ses dates et son détail sont sur la page Restaurant.",
+      "en": "The festive-season Menu Festif can only be booked through the sales team; its dates and details are on the Restaurant page.",
+      "es": "El Menu Festif de la temporada de fiestas se reserva únicamente a través del servicio comercial; sus fechas y su detalle figuran en la página del Restaurante."
+    },
+    {
+      "fr": "Parking gratuit de 250 places, tram à une minute à pied et 90 chambres sur place : personne n’a à reprendre la route après la soirée.",
+      "en": "Free 250-space car park, the tram one minute’s walk away and 90 rooms on site: nobody has to drive home after the party.",
+      "es": "Aparcamiento gratuito de 250 plazas, tranvía a un minuto a pie y 90 habitaciones in situ: nadie tiene que volver a la carretera después de la velada."
+    }
+  ],
+  "pilier": { "href": "/seminaire-evenement-professionnel", "ancre": "séminaires et événements professionnels" },
+  "blocs": [
+    {
+      "type": "texte",
+      "contenu": {
+        "centre": true,
+        "paragraphes": [
+          {
+            "fr": "Où organiser un repas de fin d’année d’entreprise à Toulouse ? À l’Hôtel Palladia, dans le quartier de Purpan, trois formats coexistent : une table privatisée au [restaurant de l’hôtel](/restaurant) pour une équipe réduite, un salon de réception pour réunir toute l’entreprise, ou une soirée complète, avec animation et chambres pour ceux qui ne veulent pas reprendre la route.",
+            "en": "Where should you hold a company end-of-year dinner in Toulouse? At the Hôtel Palladia, in the Purpan district, three formats are available: a private table at the [hotel restaurant](/restaurant) for a small team, a function room to bring the whole company together, or a full evening, with entertainment and rooms for those who would rather not drive home.",
+            "es": "¿Dónde organizar una comida de fin de año de empresa en Toulouse? En el Hôtel Palladia, en el barrio de Purpan, conviven tres formatos: una mesa privatizada en el [restaurante del hotel](/restaurant) para un equipo reducido, un salón de recepción para reunir a toda la empresa, o una velada completa, con animación y habitaciones para quienes prefieren no volver a coger el coche."
+          },
+          {
+            "fr": "Le bon choix dépend surtout de trois données : le nombre de convives, le moment de la journée et ce que vous attendez de l’événement, simple moment convivial ou véritable temps fort de l’année.",
+            "en": "The right choice depends mainly on three things: the number of guests, the time of day and what you expect from the event, whether a simple friendly get-together or a genuine highlight of the year.",
+            "es": "La elección adecuada depende sobre todo de tres datos: el número de comensales, el momento del día y lo que espera del evento, ya sea un simple momento de convivencia o un auténtico punto álgido del año."
+          },
+          {
+            "fr": "Voici comment chaque format s’organise, ce qu’il faut prévoir et les questions à poser avant de réserver.",
+            "en": "Here is how each format works, what to plan for and the questions to ask before you book.",
+            "es": "A continuación le explicamos cómo se organiza cada formato, qué hay que prever y qué preguntas plantear antes de reservar."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "gauche",
+        "image": "/images/blog/soiree-entreprise-diner-hotel-palladia.jpg",
+        "alt": {
+          "fr": "Convives attablés autour de tables rondes lors d’un dîner d’entreprise dans un salon de l’Hôtel Palladia à Toulouse",
+          "en": "Guests seated at round tables during a company dinner in a function room at the Hôtel Palladia in Toulouse",
+          "es": "Comensales sentados en mesas redondas durante una cena de empresa en un salón del Hôtel Palladia en Toulouse"
+        },
+        "titre": {
+          "fr": "Trois formats selon la taille de votre équipe",
+          "en": "Three formats depending on the size of your team",
+          "es": "Tres formatos según el tamaño de su equipo"
+        },
+        "paragraphes": [
+          {
+            "fr": "**Le repas au restaurant.** Pour une équipe de taille réduite, le restaurant de l’hôtel peut privatiser un espace. C’est la formule la plus simple : la cuisine du Sud-Ouest de saison du chef Jeremy Gabarrot, un service à table et un cadre déjà en place, sans décoration à prévoir.",
+            "en": "**Dinner at the restaurant.** For a smaller team, the hotel restaurant can set aside a private area. It is the simplest option: chef Jeremy Gabarrot’s seasonal South-West cuisine, table service and a ready-made setting, with no decoration to organise.",
+            "es": "**La comida en el restaurante.** Para un equipo reducido, el restaurante del hotel puede privatizar un espacio. Es la fórmula más sencilla: la cocina de temporada del Suroeste del chef Jeremy Gabarrot, servicio en mesa y un entorno ya preparado, sin decoración que prever."
+          },
+          {
+            "fr": "**Le repas en salon de réception.** Quand toute l’entreprise se retrouve, le repas passe dans un salon dédié. En banquet, le salon Opéra, 500 m² en bord de piscine, accueille jusqu’à 300 convives, et le salon Capitouls jusqu’à 200.",
+            "en": "**Dinner in a function room.** When the whole company gets together, the meal moves into a dedicated room. At banquet tables, the Opéra room, 500 m² beside the pool, seats up to 300 guests, and the Capitouls room up to 200.",
+            "es": "**La comida en un salón de recepción.** Cuando se reúne toda la empresa, la comida se traslada a un salón dedicado. En banquete, el salón Opéra, de 500 m² junto a la piscina, acoge hasta 300 comensales, y el salón Capitouls hasta 200."
+          },
+          {
+            "fr": "**La soirée complète.** Repas, animation, piste de danse, puis une chambre à l’étage pour ceux qui le souhaitent : c’est le format qui transforme un dîner en événement dont on parle encore en janvier.",
+            "en": "**The full evening.** Dinner, entertainment, a dance floor, then a room upstairs for those who want one: this is the format that turns a dinner into an event people are still talking about in January.",
+            "es": "**La velada completa.** Cena, animación, pista de baile y después una habitación en el piso de arriba para quien lo desee: es el formato que convierte una cena en un evento del que todavía se habla en enero."
+          }
+        ],
+        "conclusion": {
+          "fr": "Vous hésitez encore sur la forme à donner à l’événement ? Notre article sur les [formats d’événements professionnels](/formats-evenements-professionnels-toulouse) compare toutes les possibilités, de la réunion à la soirée d’entreprise.",
+          "en": "Still unsure what shape to give the event? Our article on [business event formats](/formats-evenements-professionnels-toulouse) compares every option, from meetings to company parties.",
+          "es": "¿Aún duda sobre la forma que dar al evento? Nuestro artículo sobre los [formatos de eventos profesionales](/formats-evenements-professionnels-toulouse) compara todas las posibilidades, de la reunión a la fiesta de empresa."
+        }
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "droite",
+        "image": "/images/restaurant/salle-10.jpg",
+        "alt": {
+          "fr": "Assiette de magret et légumes de saison servie au restaurant de l’Hôtel Palladia à Toulouse",
+          "en": "Plate of duck breast and seasonal vegetables served at the Hôtel Palladia restaurant in Toulouse",
+          "es": "Plato de magret y verduras de temporada servido en el restaurante del Hôtel Palladia en Toulouse"
+        },
+        "titre": {
+          "fr": "Le Menu Festif : le repas de fin d’année au restaurant",
+          "en": "The Menu Festif: the end-of-year meal at the restaurant",
+          "es": "El Menu Festif: la comida de fin de año en el restaurante"
+        },
+        "paragraphes": [
+          {
+            "fr": "Pendant la saison des fêtes, le restaurant propose un Menu Festif pensé pour les repas de fin d’année entre collègues et entre amis. Ses dates, sa composition et son tarif changent d’une saison à l’autre : ils sont toujours à jour sur la page du restaurant.",
+            "en": "During the festive season, the restaurant offers a Menu Festif designed for end-of-year meals with colleagues and friends. Its dates, dishes and price change from one season to the next: they are always up to date on the restaurant page.",
+            "es": "Durante la temporada de fiestas, el restaurante propone un Menu Festif pensado para las comidas de fin de año entre compañeros y entre amigos. Sus fechas, su composición y su precio cambian de una temporada a otra: siempre están actualizados en la página del restaurante."
+          },
+          {
+            "fr": "Particularité à connaître : ce menu se réserve uniquement auprès du service commercial de l’hôtel, et non par la réservation en ligne du restaurant. C’est ce qui permet d’organiser la table, l’horaire et, si besoin, un espace réservé à votre groupe.",
+            "en": "One detail worth knowing: this menu can only be booked through the hotel’s sales team, not through the restaurant’s online booking. That is what makes it possible to arrange the table, the time and, if needed, an area reserved for your group.",
+            "es": "Un detalle que conviene saber: este menú se reserva únicamente a través del servicio comercial del hotel, y no mediante la reserva en línea del restaurante. Es lo que permite organizar la mesa, el horario y, si es necesario, un espacio reservado para su grupo."
+          },
+          {
+            "fr": "Le reste de l’année, le restaurant est ouvert du lundi au vendredi midi et soir, ainsi que le samedi soir. Un repas d’équipe peut donc aussi se caler un vendredi midi, en dehors des soirées de décembre souvent très demandées.",
+            "en": "The rest of the year, the restaurant is open Monday to Friday for lunch and dinner, and on Saturday evenings. A team meal can therefore also be arranged for a Friday lunchtime, away from the December evenings that are often in high demand.",
+            "es": "El resto del año, el restaurante abre de lunes a viernes a mediodía y por la noche, así como el sábado por la noche. Una comida de equipo también puede organizarse un viernes a mediodía, fuera de las noches de diciembre, a menudo muy solicitadas."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "gauche",
+        "image": "/images/bandeau-hall.jpg",
+        "alt": {
+          "fr": "Salon de réception de l’Hôtel Palladia préparé pour une soirée, avec scène, buffets et éclairage scénique",
+          "en": "Function room at the Hôtel Palladia set up for an evening event, with a stage, buffets and stage lighting",
+          "es": "Salón de recepción del Hôtel Palladia preparado para una velada, con escenario, bufés e iluminación escénica"
+        },
+        "titre": {
+          "fr": "Réunir toute l’entreprise : salons et capacités",
+          "en": "Bringing the whole company together: rooms and capacities",
+          "es": "Reunir a toda la empresa: salones y capacidades"
+        },
+        "paragraphes": [
+          {
+            "fr": "Au-delà d’une grande tablée, le repas change de dimension : il faut une salle à soi, une sonorisation pour le mot de la direction, parfois une scène et une piste de danse.",
+            "en": "Beyond a long table, the meal changes scale: you need a room of your own, a sound system for the management’s speech, and sometimes a stage and a dance floor.",
+            "es": "Más allá de una gran mesa, la comida cambia de dimensión: hace falta una sala propia, sonorización para las palabras de la dirección y, a veces, un escenario y una pista de baile."
+          },
+          {
+            "fr": "Le salon Opéra, de 500 m², est le plus grand espace de réception de l’hôtel. Il accueille jusqu’à 300 convives en banquet, 180 en configuration cabaret et 350 en cocktail. Le salon Capitouls reçoit jusqu’à 200 personnes, en banquet comme en cocktail.",
+            "en": "The 500 m² Opéra room is the hotel’s largest function space. It seats up to 300 guests at banquet tables, 180 in cabaret layout and 350 for a standing reception. The Capitouls room holds up to 200 people, both seated at banquet tables and for a standing reception.",
+            "es": "El salón Opéra, de 500 m², es el mayor espacio de recepción del hotel. Acoge hasta 300 comensales en banquete, 180 en configuración cabaret y 350 en cóctel. El salón Capitouls recibe hasta 200 personas, tanto en banquete como en cóctel."
+          },
+          {
+            "fr": "Tous les salons, leurs surfaces et leurs configurations figurent sur notre page [séminaires et événements professionnels](/seminaire-evenement-professionnel).",
+            "en": "All the rooms, their sizes and their layouts are listed on our [seminars and business events](/seminaire-evenement-professionnel) page.",
+            "es": "Todos los salones, sus superficies y sus configuraciones figuran en nuestra página de [seminarios y eventos profesionales](/seminaire-evenement-professionnel)."
+          }
+        ]
+      }
+    },
+    {
+      "type": "sections",
+      "contenu": {
+        "deux_colonnes": true,
+        "titre": {
+          "fr": "Banquet, cabaret ou cocktail : quelle configuration choisir ?",
+          "en": "Banquet, cabaret or standing reception: which layout should you choose?",
+          "es": "Banquete, cabaret o cóctel: ¿qué configuración elegir?"
+        },
+        "intro": {
+          "fr": "La disposition de la salle change l’ambiance du repas bien plus qu’on ne l’imagine. Chaque configuration répond à un objectif différent.",
+          "en": "The room layout changes the atmosphere of the meal far more than you might think. Each layout serves a different purpose.",
+          "es": "La disposición de la sala cambia el ambiente de la comida mucho más de lo que se imagina. Cada configuración responde a un objetivo distinto."
+        },
+        "sections": [
+          {
+            "titre": { "fr": "Le banquet", "en": "Banquet", "es": "El banquete" },
+            "intro": {
+              "fr": "Des tables rondes et un service à l’assiette : le format classique du dîner assis. Il convient quand le repas est le cœur de la soirée et que les prises de parole restent brèves.",
+              "en": "Round tables and plated service: the classic seated dinner. It works best when the meal is the heart of the evening and speeches are kept short.",
+              "es": "Mesas redondas y servicio al plato: el formato clásico de la cena sentada. Conviene cuando la comida es el centro de la velada y las intervenciones son breves."
+            }
+          },
+          {
+            "titre": { "fr": "Le cabaret", "en": "Cabaret", "es": "El cabaret" },
+            "intro": {
+              "fr": "Des tables tournées vers une scène : le bon choix si la soirée comprend un spectacle, une remise de trophées ou une projection. Le salon Opéra accueille alors 180 personnes.",
+              "en": "Tables facing a stage: the right choice if the evening includes a show, an awards ceremony or a screening. The Opéra room then seats 180 people.",
+              "es": "Mesas orientadas hacia un escenario: la opción adecuada si la velada incluye un espectáculo, una entrega de premios o una proyección. El salón Opéra acoge entonces a 180 personas."
+            }
+          },
+          {
+            "titre": { "fr": "Le cocktail dînatoire", "en": "Standing buffet reception", "es": "El cóctel cena" },
+            "intro": {
+              "fr": "Des buffets et des mange-debout : le format le plus souple pour mélanger des services qui se croisent peu le reste de l’année, avec la plus grande capacité, jusqu’à 350 personnes dans le salon Opéra.",
+              "en": "Buffets and high tables: the most flexible format for mixing departments that rarely meet the rest of the year, with the largest capacity, up to 350 people in the Opéra room.",
+              "es": "Bufés y mesas altas: el formato más flexible para mezclar departamentos que apenas se cruzan el resto del año, con la mayor capacidad, hasta 350 personas en el salón Opéra."
+            }
+          },
+          {
+            "titre": { "fr": "Le déjeuner privatisé", "en": "Private lunch", "es": "El almuerzo privatizado" },
+            "intro": {
+              "fr": "Une formule plus courte, en semaine, pour les entreprises qui préfèrent ne pas empiéter sur les soirées de leurs équipes en période de fêtes.",
+              "en": "A shorter weekday option for companies that prefer not to take up their staff’s evenings during the festive season.",
+              "es": "Una fórmula más corta, entre semana, para las empresas que prefieren no ocupar las noches de sus equipos en época de fiestas."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "fond_gris": true,
+        "titre": {
+          "fr": "Animer la soirée sans la surcharger",
+          "en": "Livening up the evening without overloading it",
+          "es": "Animar la velada sin sobrecargarla"
+        },
+        "paragraphes": [
+          {
+            "fr": "Un repas de fin d’année réussi tient souvent à un seul moment : celui dont tout le monde parle le lendemain à la machine à café.",
+            "en": "A successful end-of-year dinner often comes down to a single moment: the one everyone talks about at the coffee machine the next day.",
+            "es": "Una comida de fin de año lograda suele depender de un solo momento: aquel del que todo el mundo habla al día siguiente junto a la máquina de café."
+          },
+          {
+            "fr": "Selon votre projet, différentes animations peuvent s’intégrer à la soirée : soirée casino, blind test musical, quiz et défis entre équipes, soirée à thème ou DJ pour terminer sur la piste. Mieux vaut en choisir une seule et lui laisser de la place que d’en enchaîner trois.",
+            "en": "Depending on your plans, various kinds of entertainment can be built into the evening: a casino night, a music quiz, team quizzes and challenges, a themed evening or a DJ to finish on the dance floor. It is better to pick just one and give it room than to string three together.",
+            "es": "Según su proyecto, pueden integrarse distintas animaciones en la velada: noche de casino, blind test musical, concursos y retos entre equipos, velada temática o DJ para terminar en la pista. Más vale elegir una sola y darle espacio que encadenar tres."
+          },
+          {
+            "fr": "L’hôtel programme aussi ses propres dîners-spectacles au fil de la saison. Venir en équipe à l’une de ces soirées est une autre façon de marquer la fin d’année, sans rien avoir à organiser soi-même.",
+            "en": "The hotel also runs its own dinner shows throughout the season. Coming as a team to one of these evenings is another way to mark the end of the year, with nothing to organise yourself.",
+            "es": "El hotel también programa sus propias cenas espectáculo a lo largo de la temporada. Venir en equipo a una de estas veladas es otra forma de celebrar el fin de año, sin tener que organizar nada uno mismo."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "titre": {
+          "fr": "Après le repas : rester dormir sur place",
+          "en": "After dinner: staying the night on site",
+          "es": "Después de la comida: quedarse a dormir in situ"
+        },
+        "paragraphes": [
+          {
+            "fr": "Une soirée de fin d’année se termine rarement tôt. L’hôtel compte 90 chambres, de la chambre Confort de 27 m² à la Junior Suite de 47 m² : les collaborateurs qui viennent de loin, ou qui préfèrent ne pas conduire, montent simplement se coucher.",
+            "en": "An end-of-year party rarely finishes early. The hotel has 90 rooms, from the 27 m² Comfort room to the 47 m² Junior Suite: staff who have come from far away, or who would rather not drive, simply head upstairs to bed.",
+            "es": "Una velada de fin de año rara vez termina temprano. El hotel cuenta con 90 habitaciones, desde la habitación Confort de 27 m² hasta la Junior Suite de 47 m²: los colaboradores que vienen de lejos, o que prefieren no conducir, simplemente suben a acostarse."
+          },
+          {
+            "fr": "Pour un groupe, les chambres se demandent par notre formulaire de [réservation de groupe](/reservation-groupe), qui centralise la demande en un seul envoi.",
+            "en": "For a group, rooms are requested through our [group booking](/reservation-groupe) form, which brings the whole request together in a single submission.",
+            "es": "Para un grupo, las habitaciones se solicitan mediante nuestro formulario de [reserva de grupo](/reservation-groupe), que centraliza la petición en un único envío."
+          },
+          {
+            "fr": "Ceux qui rentrent chez eux ont le choix : le parking gratuit de 250 places, avec bornes de recharge électrique, est devant l’hôtel, et le tram passe à une minute à pied.",
+            "en": "Those heading home have options: the free 250-space car park, with electric charging points, is right in front of the hotel, and the tram stops one minute’s walk away.",
+            "es": "Quienes vuelven a casa tienen dónde elegir: el aparcamiento gratuito de 250 plazas, con puntos de recarga eléctrica, está delante del hotel, y el tranvía pasa a un minuto a pie."
+          }
+        ]
+      }
+    },
+    {
+      "type": "liste_cochee",
+      "contenu": {
+        "fond_gris": true,
+        "titre": {
+          "fr": "Les questions à poser avant de réserver",
+          "en": "Questions to ask before you book",
+          "es": "Las preguntas que conviene plantear antes de reservar"
+        },
+        "intro": {
+          "fr": "Préparer ces réponses avant le premier échange fait gagner un temps précieux, à vous comme à l’équipe commerciale.",
+          "en": "Having these answers ready before the first conversation saves valuable time, for you and for the sales team.",
+          "es": "Preparar estas respuestas antes del primer contacto ahorra un tiempo valioso, tanto a usted como al equipo comercial."
+        },
+        "items": [
+          {
+            "fr": "Combien de convives, et la liste est-elle arrêtée ou encore susceptible d’évoluer ?",
+            "en": "How many guests, and is the list final or still likely to change?",
+            "es": "¿Cuántos comensales, y la lista está cerrada o todavía puede cambiar?"
+          },
+          {
+            "fr": "Déjeuner ou soirée, et à quelle heure l’événement doit-il se terminer ?",
+            "en": "Lunch or evening, and what time should the event finish?",
+            "es": "¿Almuerzo o velada, y a qué hora debe terminar el evento?"
+          },
+          {
+            "fr": "Repas assis, configuration cabaret ou cocktail dînatoire ?",
+            "en": "Seated dinner, cabaret layout or standing buffet reception?",
+            "es": "¿Comida sentada, configuración cabaret o cóctel cena?"
+          },
+          {
+            "fr": "Faut-il une sonorisation, un écran ou une scène pour les prises de parole ?",
+            "en": "Do you need a sound system, a screen or a stage for speeches?",
+            "es": "¿Hace falta sonorización, pantalla o escenario para las intervenciones?"
+          },
+          {
+            "fr": "Prévoyez-vous une animation, et laquelle ?",
+            "en": "Are you planning any entertainment, and if so what kind?",
+            "es": "¿Prevé alguna animación, y cuál?"
+          },
+          {
+            "fr": "Combien de chambres faut-il prévoir pour la nuit ?",
+            "en": "How many rooms are needed for the night?",
+            "es": "¿Cuántas habitaciones hay que prever para la noche?"
+          },
+          {
+            "fr": "Des régimes alimentaires particuliers sont-ils à signaler ?",
+            "en": "Are there any special dietary requirements to flag?",
+            "es": "¿Hay que señalar algún régimen alimentario particular?"
+          }
+        ],
+        "conclusion": {
+          "fr": "Avec ces éléments, notre équipe commerciale peut vous adresser une proposition précise.",
+          "en": "With this information, our sales team can send you a precise proposal.",
+          "es": "Con estos elementos, nuestro equipo comercial puede enviarle una propuesta precisa."
+        }
+      }
+    },
+    {
+      "type": "sections",
+      "contenu": {
+        "faq": true,
+        "taille_titre": "moyen",
+        "titre": {
+          "fr": "Questions fréquentes sur le repas de fin d’année d’entreprise",
+          "en": "Frequently asked questions about company end-of-year dinners",
+          "es": "Preguntas frecuentes sobre la comida de fin de año de empresa"
+        },
+        "sections": [
+          {
+            "titre": {
+              "fr": "Où organiser un repas de fin d’année d’entreprise à Toulouse ?",
+              "en": "Where can you hold a company end-of-year dinner in Toulouse?",
+              "es": "¿Dónde organizar una comida de fin de año de empresa en Toulouse?"
+            },
+            "intro": {
+              "fr": "À l’Hôtel Palladia, hôtel 4 étoiles du quartier de Purpan, le repas peut se tenir au restaurant de l’hôtel, dans un espace privatisé, ou dans un salon de réception comme le salon Opéra, qui accueille jusqu’à 300 convives en banquet. Le parking gratuit et les 90 chambres sur place simplifient l’organisation.",
+              "en": "At the Hôtel Palladia, a 4-star hotel in the Purpan district, the meal can take place at the hotel restaurant, in a private area, or in a function room such as the Opéra room, which seats up to 300 guests at banquet tables. The free car park and the 90 rooms on site make planning easier.",
+              "es": "En el Hôtel Palladia, hotel de 4 estrellas del barrio de Purpan, la comida puede celebrarse en el restaurante del hotel, en un espacio privatizado, o en un salón de recepción como el salón Opéra, que acoge hasta 300 comensales en banquete. El aparcamiento gratuito y las 90 habitaciones in situ simplifican la organización."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Combien de personnes peut-on accueillir pour un repas assis ?",
+              "en": "How many people can be seated for a dinner?",
+              "es": "¿Cuántas personas se pueden acoger para una comida sentada?"
+            },
+            "intro": {
+              "fr": "En banquet, le salon Opéra accueille jusqu’à 300 convives et le salon Capitouls jusqu’à 200. En configuration cabaret, le salon Opéra reçoit 180 personnes ; en cocktail, jusqu’à 350.",
+              "en": "At banquet tables, the Opéra room seats up to 300 guests and the Capitouls room up to 200. In cabaret layout, the Opéra room holds 180 people; for a standing reception, up to 350.",
+              "es": "En banquete, el salón Opéra acoge hasta 300 comensales y el salón Capitouls hasta 200. En configuración cabaret, el salón Opéra recibe a 180 personas; en cóctel, hasta 350."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Comment réserver le Menu Festif pour un groupe ?",
+              "en": "How do you book the Menu Festif for a group?",
+              "es": "¿Cómo reservar el Menu Festif para un grupo?"
+            },
+            "intro": {
+              "fr": "Le Menu Festif se réserve uniquement auprès du service commercial de l’hôtel. Ses dates, sa composition et son tarif sont indiqués sur la page Restaurant pendant la saison des fêtes.",
+              "en": "The Menu Festif can only be booked through the hotel’s sales team. Its dates, dishes and price are shown on the Restaurant page during the festive season.",
+              "es": "El Menu Festif se reserva únicamente a través del servicio comercial del hotel. Sus fechas, su composición y su precio se indican en la página del Restaurante durante la temporada de fiestas."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Peut-on prévoir une animation pendant le repas ?",
+              "en": "Can entertainment be arranged during the dinner?",
+              "es": "¿Se puede prever una animación durante la comida?"
+            },
+            "intro": {
+              "fr": "Oui, selon votre projet : soirée casino, blind test, quiz entre équipes, soirée à thème ou DJ. L’équipe commerciale vous aide à choisir celle qui convient à votre groupe.",
+              "en": "Yes, depending on your plans: casino night, music quiz, team quizzes, themed evening or DJ. The sales team will help you choose the one that suits your group.",
+              "es": "Sí, según su proyecto: noche de casino, blind test, concursos entre equipos, velada temática o DJ. El equipo comercial le ayuda a elegir la que mejor se adapte a su grupo."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Les collaborateurs peuvent-ils dormir sur place ?",
+              "en": "Can staff stay the night at the hotel?",
+              "es": "¿Pueden los colaboradores dormir en el hotel?"
+            },
+            "intro": {
+              "fr": "Oui. L’hôtel compte 90 chambres et suites. Pour un groupe, la demande se fait par le formulaire de réservation de groupe.",
+              "en": "Yes. The hotel has 90 rooms and suites. For a group, requests are made through the group booking form.",
+              "es": "Sí. El hotel cuenta con 90 habitaciones y suites. Para un grupo, la solicitud se hace mediante el formulario de reserva de grupo."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Comment venir à l’hôtel ?",
+              "en": "How do you get to the hotel?",
+              "es": "¿Cómo llegar al hotel?"
+            },
+            "intro": {
+              "fr": "L’Hôtel Palladia se trouve au 271 avenue de Grande-Bretagne, à Toulouse, à une minute à pied du tram. Son parking de 250 places est gratuit et équipé de bornes de recharge électrique.",
+              "en": "The Hôtel Palladia is at 271 avenue de Grande-Bretagne in Toulouse, one minute’s walk from the tram. Its 250-space car park is free and has electric charging points.",
+              "es": "El Hôtel Palladia se encuentra en el 271 de la avenue de Grande-Bretagne, en Toulouse, a un minuto a pie del tranvía. Su aparcamiento de 250 plazas es gratuito y dispone de puntos de recarga eléctrica."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "centre": true,
+        "taille_titre": "moyen",
+        "titre": {
+          "fr": "Parlons de votre repas de fin d’année",
+          "en": "Let’s talk about your end-of-year dinner",
+          "es": "Hablemos de su comida de fin de año"
+        },
+        "paragraphes": [
+          {
+            "fr": "Indiquez-nous le nombre de convives, la date envisagée et le format qui vous tente : nous revenons vers vous avec une proposition adaptée à votre équipe.",
+            "en": "Tell us the number of guests, the date you have in mind and the format you prefer: we will come back to you with a proposal tailored to your team.",
+            "es": "Indíquenos el número de comensales, la fecha prevista y el formato que le interesa: le responderemos con una propuesta adaptada a su equipo."
+          }
+        ],
+        "boutons": [
+          {
+            "label": { "fr": "Demander un devis", "en": "Request a quote", "es": "Solicitar un presupuesto" },
+            "href": "/devis"
+          }
+        ]
+      }
+    }
+  ]
+}
