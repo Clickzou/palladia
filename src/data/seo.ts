@@ -71,8 +71,11 @@ export const seo = {
   },
   "/restaurant": {
     titre: "Restaurant - Le Palladia hôtel 4 étoiles Toulouse",
+    // Reecrite le 6 octobre 2026 (validee par JC) : l'ancienne description,
+    // reprise de WordPress, donnait les horaires du bar lounge et faisait
+    // croire le restaurant ouvert le samedi midi. Horaires de la page.
     description:
-      "Ouvert tous les jours de 10h00 à 23h00, fermé dimanche et jours fériés. Modes de paiement acceptés : Cartes de crédit, espèces...",
+      "Restaurant de l’hôtel Palladia à Toulouse : cuisine française et du Sud-Ouest de saison. Ouvert du lundi au vendredi midi et soir, et le samedi soir. Réservation en ligne.",
   },
   /**
    * Cette carte n'existait que sous forme d'image sur WordPress : elle
