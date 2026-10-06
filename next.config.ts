@@ -14,6 +14,30 @@ const nextConfig: NextConfig = {
   },
 
   /**
+   * Articles « fichiers » (contenu/articles/*.json) et corrections du client :
+   * lus sur disque à l'exécution (src/lib/articles-fichiers), ils doivent
+   * accompagner chaque fonction serveur déployée.
+   */
+  outputFileTracingIncludes: {
+    "/**": ["./contenu/**/*.json"],
+  },
+
+  /**
+   * Aperçu signé des articles programmés : jamais indexé, et la signature ne
+   * part pas dans l'en-tête Referer des liens sortants.
+   */
+  async headers() {
+    const entetes = [
+      { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+      { key: "Referrer-Policy", value: "no-referrer" },
+    ];
+    return [
+      { source: "/blog/apercu/:slug*", headers: entetes },
+      { source: "/:locale(en|es)/blog/apercu/:slug*", headers: entetes },
+    ];
+  },
+
+  /**
    * Redirections 301 depuis les URLs heritees de WordPress.
    * Le slug /suite-junior-2/ avait ete cree automatiquement par WordPress
    * lors d'une recreation de page ; on le ramene vers l'URL propre.

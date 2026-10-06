@@ -1,5 +1,14 @@
 import { createClient } from "./supabase/server";
 import type { Article, ArticleComplet, Bloc } from "./supabase/types";
+import { articleFichier, articlesFichiersPublies, dateAtteinte, versArticleComplet } from "./articles-fichiers";
+
+/**
+ * Le blog réunit deux sources :
+ *   - les articles en base Supabase (historiques, inchangés) ;
+ *   - les articles « fichiers » de `contenu/articles/` (depuis le 06/10/2026,
+ *     publiables par un simple commit — voir src/lib/articles-fichiers).
+ * La base l'emporte si un même slug existait des deux côtés.
+ */
 
 /**
  * Tant que les variables Supabase ne sont pas renseignees (.env.local), le blog
@@ -29,8 +38,8 @@ async function langueDisponible(supabase: Awaited<ReturnType<typeof createClient
   return count ? locale : "fr";
 }
 
-/** Liste des articles publiés d’une langue, du plus récent au plus ancien. */
-export async function listerArticles(locale: string): Promise<Article[]> {
+/** Articles publiés en base, dans l’ordre voulu par l’hôtel. */
+async function articlesEnBase(locale: string): Promise<Article[]> {
   if (!supabaseConfigure) return [];
   const supabase = await createClient();
   const { data, error } = await supabase
@@ -38,6 +47,8 @@ export async function listerArticles(locale: string): Promise<Article[]> {
     .select("*")
     .eq("locale", await langueDisponible(supabase, locale))
     .eq("statut", "publie")
+    // `position` fixe l’ordre voulu par l’hotel ; les articles qui n’en ont
+    // pas sont classes ensuite, du plus recent au plus ancien.
     .order("position", { ascending: true, nullsFirst: false })
     .order("date_publication", { ascending: false });
 
@@ -49,52 +60,46 @@ export async function listerArticles(locale: string): Promise<Article[]> {
 }
 
 /**
+ * Liste des articles publiés d’une langue.
+ *
+ * Les articles fichiers publiés passent EN TÊTE, du plus récent au plus
+ * ancien : ce sont les plus récents du site (l’hôtel classe ses nouveautés en
+ * premier, cf. la position 1 donnée à chaque nouvel article en base). Les
+ * articles en base suivent, dans leur ordre `position` inchangé.
+ */
+export async function listerArticles(locale: string): Promise<Article[]> {
+  const base = await articlesEnBase(locale);
+  const enBase = new Set(base.map((a) => a.slug));
+  const fichiers = articlesFichiersPublies()
+    .filter((a) => !enBase.has(a.slug))
+    .map((a) => {
+      const { blocs: _blocs, ...article } = versArticleComplet(a, locale);
+      void _blocs;
+      return article as Article;
+    });
+  return [...fichiers, ...base];
+}
+
+/**
  * Une page d’articles, avec le nombre total de pages.
- * La pagination est faite côté base : seules les 6 lignes utiles remontent.
+ * La liste est fusionnée puis découpée ici : une vingtaine de lignes au plus,
+ * sans colonne lourde (les blocs ne sont pas chargés).
  */
 export async function listerArticlesPagines(
   locale: string,
   page = 1,
 ): Promise<{ articles: Article[]; pages: number; page: number }> {
-  if (!supabaseConfigure) return { articles: [], pages: 0, page: 1 };
-
-  const supabase = await createClient();
+  const tous = await listerArticles(locale);
   const debut = (page - 1) * ARTICLES_PAR_PAGE;
-
-  const { data, count, error } = await supabase
-    .from("articles")
-    .select("*", { count: "exact" })
-    .eq("locale", await langueDisponible(supabase, locale))
-    .eq("statut", "publie")
-    // `position` fixe l’ordre voulu par l’hotel ; les articles qui n’en ont
-    // pas sont classes ensuite, du plus recent au plus ancien.
-    .order("position", { ascending: true, nullsFirst: false })
-    .order("date_publication", { ascending: false })
-    .range(debut, debut + ARTICLES_PAR_PAGE - 1);
-
-  if (error) {
-    console.error("Lecture des articles impossible :", error.message);
-    return { articles: [], pages: 0, page };
-  }
-
   return {
-    articles: data ?? [],
-    pages: Math.ceil((count ?? 0) / ARTICLES_PAR_PAGE),
+    articles: tous.slice(debut, debut + ARTICLES_PAR_PAGE),
+    pages: Math.ceil(tous.length / ARTICLES_PAR_PAGE),
     page,
   };
 }
 
-/**
- * Un article et ses blocs, ou null s’il n’existe pas / n’est pas publié.
- *
- * Faute de version traduite, on sert la version française plutôt qu’une page
- * introuvable : l’adresse reste la même dans les trois langues, et le contenu
- * éditorial est traduit à l’affichage par le dictionnaire.
- */
-export async function lireArticle(
-  slug: string,
-  locale: string,
-): Promise<ArticleComplet | null> {
+/** Un article en base et ses blocs, ou null. */
+async function lireArticleEnBase(slug: string, locale: string): Promise<ArticleComplet | null> {
   if (!supabaseConfigure) return null;
   const supabase = await createClient();
 
@@ -119,16 +124,40 @@ export async function lireArticle(
   };
 }
 
+/**
+ * Un article et ses blocs, ou null s’il n’existe pas / n’est pas publié.
+ *
+ * En base, faute de version traduite, on sert la version française plutôt
+ * qu’une page introuvable : le contenu éditorial est traduit à l’affichage par
+ * le dictionnaire. Un article fichier, lui, porte ses trois langues ; s’il est
+ * programmé (date future), il reste introuvable : 404.
+ */
+export async function lireArticle(
+  slug: string,
+  locale: string,
+): Promise<ArticleComplet | null> {
+  const enBase = await lireArticleEnBase(slug, locale);
+  if (enBase) return enBase;
+  const fichier = articleFichier(slug);
+  return fichier && dateAtteinte(fichier) ? versArticleComplet(fichier, locale) : null;
+}
+
 /** Slugs publiés, pour la génération statique et le sitemap. */
 export async function listerSlugs(): Promise<
   { slug: string; locale: string; date_publication: string }[]
 > {
-  if (!supabaseConfigure) return [];
-  const supabase = await createClient();
-  const { data } = await supabase
-    .from("articles")
-    .select("slug, locale, date_publication")
-    .eq("statut", "publie");
-
-  return data ?? [];
+  let base: { slug: string; locale: string; date_publication: string }[] = [];
+  if (supabaseConfigure) {
+    const supabase = await createClient();
+    const { data } = await supabase
+      .from("articles")
+      .select("slug, locale, date_publication")
+      .eq("statut", "publie");
+    base = data ?? [];
+  }
+  const enBase = new Set(base.map((a) => a.slug));
+  const fichiers = articlesFichiersPublies()
+    .filter((a) => !enBase.has(a.slug))
+    .map((a) => ({ slug: a.slug, locale: "fr", date_publication: a.datePublication }));
+  return [...base, ...fichiers];
 }
