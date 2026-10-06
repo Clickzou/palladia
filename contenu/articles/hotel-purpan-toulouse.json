@@ -1,0 +1,460 @@
+{
+  "slug": "hotel-purpan-toulouse",
+  "datePublication": "2026-10-27",
+  "motCle": "hôtel purpan toulouse",
+  "motsClesSecondaires": [
+    "hotel purpan",
+    "hotel toulouse purpan",
+    "restaurant purpan",
+    "spa purpan"
+  ],
+  "image_hero": "/images/bandeau-exterieur.jpg",
+  "image_vignette": "/images/bandeau-exterieur.jpg",
+  "titre": {
+    "fr": "Hôtel à Purpan : dormir près du CHU, du Zénith et de l’aéroport",
+    "en": "Hotel in Purpan: staying near the hospital, the Zénith and the airport",
+    "es": "Hotel en Purpan: dormir cerca del hospital, del Zénith y del aeropuerto"
+  },
+  "chapo": {
+    "fr": "Rendre visite à un proche hospitalisé, assister à un concert au Zénith, prendre un vol tôt le matin : à Purpan, l’Hôtel Palladia accueille ces séjours de quelques nuits avec un parking gratuit, le tram au pied de l’hôtel et un room service ouvert jour et nuit.",
+    "en": "Visiting a relative in hospital, going to a concert at the Zénith, catching an early flight: in Purpan, the Hôtel Palladia caters for these short stays with free parking, the tram right by the hotel and room service day and night.",
+    "es": "Visitar a un familiar hospitalizado, asistir a un concierto en el Zénith, tomar un vuelo de madrugada: en Purpan, el Hôtel Palladia acoge estas estancias de pocas noches con aparcamiento gratuito, el tranvía junto al hotel y servicio de habitaciones día y noche."
+  },
+  "seo_title": {
+    "fr": "Hôtel à Purpan, Toulouse : près du CHU, du Zénith et de Blagnac",
+    "en": "Hotel in Purpan, Toulouse: near the hospital, Zénith and airport",
+    "es": "Hotel en Purpan, Toulouse: cerca del hospital, Zénith y aeropuerto"
+  },
+  "seo_description": {
+    "fr": "Hôtel 4 étoiles à Purpan : tram à une minute, parking gratuit, room service 24h/24, près du CHU, du Zénith et de l’aéroport de Toulouse-Blagnac.",
+    "en": "4-star hotel in Purpan: tram one minute away, free parking, 24-hour room service, close to the hospital, the Zénith and Toulouse-Blagnac airport.",
+    "es": "Hotel de 4 estrellas en Purpan: tranvía a un minuto, aparcamiento gratuito, servicio de habitaciones 24 h, cerca del hospital, del Zénith y del aeropuerto."
+  },
+  "aRetenir": [
+    {
+      "fr": "L’Hôtel Palladia est au 271 avenue de Grande-Bretagne, dans le quartier de Purpan, à une minute à pied du tram.",
+      "en": "The Hôtel Palladia is at 271 avenue de Grande-Bretagne, in the Purpan district, one minute’s walk from the tram.",
+      "es": "El Hôtel Palladia está en el 271 de la avenue de Grande-Bretagne, en el barrio de Purpan, a un minuto a pie del tranvía."
+    },
+    {
+      "fr": "Le site hospitalier de Purpan du CHU de Toulouse, le Zénith et la Cartoucherie sont dans le même secteur ; l’aéroport de Toulouse-Blagnac est facilement accessible.",
+      "en": "Toulouse University Hospital’s Purpan site, the Zénith and the Cartoucherie are in the same area; Toulouse-Blagnac airport is easy to reach.",
+      "es": "El centro hospitalario de Purpan del CHU de Toulouse, el Zénith y la Cartoucherie están en la misma zona; el aeropuerto de Toulouse-Blagnac es de fácil acceso."
+    },
+    {
+      "fr": "Parking gratuit de 250 places, room service 24 h/24 et chambre Prestige entièrement adaptée aux personnes en situation de handicap.",
+      "en": "Free 250-space car park, 24-hour room service and a Prestige room fully adapted for guests with disabilities.",
+      "es": "Aparcamiento gratuito de 250 plazas, servicio de habitaciones 24 h y una habitación Prestige totalmente adaptada a personas con discapacidad."
+    }
+  ],
+  "pilier": {
+    "href": "/chambres",
+    "ancre": "chambres"
+  },
+  "blocs": [
+    {
+      "type": "texte",
+      "contenu": {
+        "centre": true,
+        "paragraphes": [
+          {
+            "fr": "Vous cherchez un hôtel à Purpan, à Toulouse ? L’Hôtel Palladia, hôtel 4 étoiles indépendant, se trouve au 271 avenue de Grande-Bretagne, au cœur de ce quartier de l’ouest toulousain. Le tram est à une minute à pied, le parking de 250 places est gratuit, et le Zénith, la Cartoucherie et l’aéroport de Toulouse-Blagnac sont tout proches.",
+            "en": "Looking for a hotel in Purpan, Toulouse? The Hôtel Palladia, an independent 4-star hotel, stands at 271 avenue de Grande-Bretagne, in the heart of this district in western Toulouse. The tram is one minute’s walk away, the 250-space car park is free, and the Zénith, the Cartoucherie and Toulouse-Blagnac airport are all close by.",
+            "es": "¿Busca un hotel en Purpan, en Toulouse? El Hôtel Palladia, hotel independiente de 4 estrellas, se encuentra en el 271 de la avenue de Grande-Bretagne, en el corazón de este barrio del oeste de Toulouse. El tranvía está a un minuto a pie, el aparcamiento de 250 plazas es gratuito, y el Zénith, la Cartoucherie y el aeropuerto de Toulouse-Blagnac quedan muy cerca."
+          },
+          {
+            "fr": "Purpan est un quartier que l’on rejoint souvent pour une raison précise : un rendez-vous à l’hôpital, un concert, un déplacement professionnel, un vol à prendre. Voici ce qu’il faut savoir pour y loger sereinement.",
+            "en": "People often come to Purpan for a specific reason: a hospital appointment, a concert, a business trip, a flight to catch. Here is what you need to know to stay there with peace of mind.",
+            "es": "A Purpan se suele venir por un motivo concreto: una cita en el hospital, un concierto, un viaje de trabajo, un vuelo que tomar. Esto es lo que conviene saber para alojarse allí con tranquilidad."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "gauche",
+        "image": "/images/bandeau-exterieur.jpg",
+        "alt": {
+          "fr": "Portail d’entrée de l’Hôtel Palladia, avenue de Grande-Bretagne, dans le quartier de Purpan à Toulouse",
+          "en": "Entrance gates of the Hôtel Palladia on avenue de Grande-Bretagne, in the Purpan district of Toulouse",
+          "es": "Portal de entrada del Hôtel Palladia, avenue de Grande-Bretagne, en el barrio de Purpan de Toulouse"
+        },
+        "titre": {
+          "fr": "Purpan, un quartier de l’ouest toulousain",
+          "en": "Purpan, a district in western Toulouse",
+          "es": "Purpan, un barrio del oeste de Toulouse"
+        },
+        "paragraphes": [
+          {
+            "fr": "Purpan s’étend à l’ouest de Toulouse, entre le centre-ville et Blagnac. Son nom est d’abord associé à l’hôpital, mais le quartier conserve aussi un vestige de la Toulouse antique : l’amphithéâtre romain de Purpan-Ancely, que l’on appelle les arènes de Purpan.",
+            "en": "Purpan lies to the west of Toulouse, between the city centre and Blagnac. Its name is best known for the hospital, but the district also preserves a remnant of ancient Toulouse: the Roman amphitheatre of Purpan-Ancely, known as the Purpan arena.",
+            "es": "Purpan se extiende al oeste de Toulouse, entre el centro de la ciudad y Blagnac. Su nombre se asocia ante todo al hospital, pero el barrio conserva también un vestigio de la Toulouse antigua: el anfiteatro romano de Purpan-Ancely, conocido como las arenas de Purpan."
+          },
+          {
+            "fr": "C’est d’ailleurs à cette Toulouse romaine, Palladia Tolosa, que l’hôtel doit son nom.",
+            "en": "It is to this Roman Toulouse, Palladia Tolosa, that the hotel owes its name.",
+            "es": "Es precisamente a esta Toulouse romana, Palladia Tolosa, a la que el hotel debe su nombre."
+          },
+          {
+            "fr": "Aujourd’hui, le quartier est résidentiel et calme le soir, tout en restant bien relié au reste de la ville : le tram passe à une minute de l’hôtel, et le centre historique se trouve à une dizaine de minutes en voiture.",
+            "en": "Today the district is residential and quiet in the evening, while staying well connected to the rest of the city: the tram stops one minute from the hotel, and the historic centre is around ten minutes away by car.",
+            "es": "Hoy el barrio es residencial y tranquilo por la noche, sin dejar de estar bien conectado con el resto de la ciudad: el tranvía pasa a un minuto del hotel y el centro histórico está a unos diez minutos en coche."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "fond_gris": true,
+        "titre": {
+          "fr": "Dormir près de l’hôpital Purpan",
+          "en": "Staying near Purpan hospital",
+          "es": "Dormir cerca del hospital de Purpan"
+        },
+        "paragraphes": [
+          {
+            "fr": "Le site hospitalier de Purpan, l’un des grands sites du CHU de Toulouse, se trouve dans le même quartier que l’hôtel. Pour les proches d’un patient, pour une consultation matinale ou pour un examen qui oblige à arriver tôt, loger à proximité évite les traversées de la ville et la recherche d’une place de stationnement.",
+            "en": "The Purpan site, one of the main sites of Toulouse University Hospital (CHU), is in the same district as the hotel. For a patient’s family, for an early consultation or for a test that requires arriving early, staying nearby saves crossing the city and hunting for a parking space.",
+            "es": "El centro hospitalario de Purpan, uno de los grandes sitios del CHU de Toulouse, se encuentra en el mismo barrio que el hotel. Para los allegados de un paciente, para una consulta a primera hora o para una prueba que obliga a llegar temprano, alojarse cerca evita atravesar la ciudad y buscar aparcamiento."
+          },
+          {
+            "fr": "Le trajet exact jusqu’à un service dépend du bâtiment concerné : vérifiez l’itinéraire sur le site du [CHU de Toulouse](https://www.chu-toulouse.fr/) ou sur celui de [Tisséo](https://www.tisseo.fr/), le réseau de transports de l’agglomération.",
+            "en": "The exact route to a given department depends on the building: check the way on the [Toulouse University Hospital](https://www.chu-toulouse.fr/) website or on that of [Tisséo](https://www.tisseo.fr/), the local public transport network.",
+            "es": "El trayecto exacto hasta un servicio depende del edificio: compruebe el itinerario en la web del [CHU de Toulouse](https://www.chu-toulouse.fr/) o en la de [Tisséo](https://www.tisseo.fr/), la red de transporte del área metropolitana."
+          }
+        ]
+      }
+    },
+    {
+      "type": "liste_cochee",
+      "contenu": {
+        "titre": {
+          "fr": "Les services qui comptent pendant ces séjours",
+          "en": "The services that matter on these stays",
+          "es": "Los servicios que cuentan en estas estancias"
+        },
+        "items": [
+          {
+            "fr": "Un parking gratuit de 250 places devant l’hôtel",
+            "en": "A free 250-space car park in front of the hotel",
+            "es": "Un aparcamiento gratuito de 250 plazas delante del hotel"
+          },
+          {
+            "fr": "Un room service ouvert 24 h/24 et 7 j/7, pour dîner en chambre à l’heure où l’on rentre",
+            "en": "Room service 24 hours a day, 7 days a week, so you can dine in your room whenever you get back",
+            "es": "Un servicio de habitaciones abierto las 24 horas, los 7 días de la semana, para cenar en la habitación a la hora en que se vuelve"
+          },
+          {
+            "fr": "Une chambre Prestige entièrement adaptée aux personnes en situation de handicap, des toilettes et des ascenseurs accessibles en fauteuil roulant",
+            "en": "A Prestige room fully adapted for guests with disabilities, plus wheelchair-accessible toilets and lifts",
+            "es": "Una habitación Prestige totalmente adaptada a personas con discapacidad, y aseos y ascensores accesibles en silla de ruedas"
+          },
+          {
+            "fr": "Le wifi gratuit par fibre optique, pour rester joignable et travailler à distance",
+            "en": "Free fibre-optic wifi, to stay reachable and work remotely",
+            "es": "Wifi gratuito por fibra óptica, para seguir localizable y trabajar a distancia"
+          },
+          {
+            "fr": "Les animaux acceptés",
+            "en": "Pets welcome",
+            "es": "Se admiten animales"
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "droite",
+        "image": "/images/chambres/junior-hero.jpg",
+        "alt": {
+          "fr": "Junior Suite de 47 m² de l’Hôtel Palladia à Toulouse, avec lit double, canapé et coin bureau",
+          "en": "47 m² Junior Suite at the Hôtel Palladia in Toulouse, with double bed, sofa and desk area",
+          "es": "Junior Suite de 47 m² del Hôtel Palladia en Toulouse, con cama doble, sofá y zona de escritorio"
+        },
+        "titre": {
+          "fr": "Des chambres pour quelques nuits ou un séjour plus long",
+          "en": "Rooms for a few nights or a longer stay",
+          "es": "Habitaciones para unas noches o una estancia más larga"
+        },
+        "paragraphes": [
+          {
+            "fr": "L’hôtel compte 90 chambres. Les chambres Confort et Prestige mesurent 27 m² ; la Junior Suite et La Suite offrent 47 m², avec pour La Suite une chambre et un salon séparés et une terrasse privative.",
+            "en": "The hotel has 90 rooms. The Comfort and Prestige rooms measure 27 m²; the Junior Suite and La Suite offer 47 m², with La Suite having a separate bedroom and lounge and a private terrace.",
+            "es": "El hotel cuenta con 90 habitaciones. Las habitaciones Confort y Prestige miden 27 m²; la Junior Suite y La Suite ofrecen 47 m², y La Suite dispone además de dormitorio y salón separados y de una terraza privada."
+          },
+          {
+            "fr": "Quand un séjour se prolonge, l’espace compte : un bureau pour travailler, un coin salon pour recevoir un proche, une literie de qualité pour vraiment récupérer.",
+            "en": "When a stay goes on, space matters: a desk to work at, a seating area to welcome a relative, quality bedding to properly recover.",
+            "es": "Cuando una estancia se alarga, el espacio importa: un escritorio para trabajar, una zona de estar para recibir a un familiar, una ropa de cama de calidad para descansar de verdad."
+          },
+          {
+            "fr": "Le petit-déjeuner est servi en buffet au restaurant, de 6 h 30 à 10 h du lundi au samedi, et jusqu’à 11 h le dimanche et les jours fériés.",
+            "en": "Breakfast is served as a buffet in the restaurant, from 6.30 am to 10 am Monday to Saturday, and until 11 am on Sundays and public holidays.",
+            "es": "El desayuno se sirve en bufé en el restaurante, de 6:30 a 10:00 de lunes a sábado, y hasta las 11:00 los domingos y festivos."
+          }
+        ],
+        "conclusion": {
+          "fr": "Toutes les catégories sont présentées sur notre page [chambres](/chambres).",
+          "en": "All room categories are presented on our [rooms](/chambres) page.",
+          "es": "Todas las categorías se presentan en nuestra página de [habitaciones](/chambres)."
+        }
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "titre": {
+          "fr": "Se restaurer à Purpan sans reprendre la voiture",
+          "en": "Eating in Purpan without getting back in the car",
+          "es": "Comer en Purpan sin volver a coger el coche"
+        },
+        "paragraphes": [
+          {
+            "fr": "Le [restaurant de l’hôtel](/restaurant) sert une cuisine du Sud-Ouest de saison, signée par le chef Jeremy Gabarrot. Il est ouvert du lundi au vendredi, midi et soir, ainsi que le samedi soir, avec un menu du jour en deux ou trois plats.",
+            "en": "The [hotel restaurant](/restaurant) serves seasonal South-West cuisine by chef Jeremy Gabarrot. It is open Monday to Friday for lunch and dinner, and on Saturday evenings, with a two- or three-course menu of the day.",
+            "es": "El [restaurante del hotel](/restaurant) ofrece una cocina de temporada del Suroeste, firmada por el chef Jeremy Gabarrot. Abre de lunes a viernes, a mediodía y por la noche, así como el sábado por la noche, con un menú del día de dos o tres platos."
+          },
+          {
+            "fr": "Le bar lounge accueille les clients tous les jours sauf le dimanche et les jours fériés, et le room service prend le relais à toute heure.",
+            "en": "The lounge bar welcomes guests every day except Sundays and public holidays, and room service takes over at any hour.",
+            "es": "El bar lounge recibe a los clientes todos los días excepto los domingos y festivos, y el servicio de habitaciones toma el relevo a cualquier hora."
+          },
+          {
+            "fr": "Les jours où le restaurant est fermé, le dimanche notamment, le room service reste la solution la plus simple pour dîner sans ressortir.",
+            "en": "On days when the restaurant is closed, Sundays in particular, room service remains the simplest way to dine without going out again.",
+            "es": "Los días en que el restaurante está cerrado, en particular el domingo, el servicio de habitaciones sigue siendo la forma más sencilla de cenar sin volver a salir."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "gauche",
+        "image": "/images/spa/vue-2.jpg",
+        "alt": {
+          "fr": "Jacuzzi du spa de l’Hôtel Palladia à Purpan, Toulouse",
+          "en": "Jacuzzi in the Hôtel Palladia spa in Purpan, Toulouse",
+          "es": "Jacuzzi del spa del Hôtel Palladia en Purpan, Toulouse"
+        },
+        "titre": {
+          "fr": "Après une journée chargée : le spa",
+          "en": "After a long day: the spa",
+          "es": "Después de un día intenso: el spa"
+        },
+        "paragraphes": [
+          {
+            "fr": "Le [spa de l’hôtel](/spa) s’étend sur 300 m², avec jacuzzi, hammam, massages et soins du visage. Il est ouvert 7 jours sur 7, hors jours fériés, et pas seulement aux clients de l’hôtel : les habitants du quartier peuvent eux aussi réserver un soin. L’entrée est réservée aux plus de 16 ans.",
+            "en": "The [hotel spa](/spa) covers 300 m², with a jacuzzi, hammam, massages and facials. It is open 7 days a week, except public holidays, and not only to hotel guests: local residents can book a treatment too. Entry is for over-16s only.",
+            "es": "El [spa del hotel](/spa) ocupa 300 m², con jacuzzi, hammam, masajes y tratamientos faciales. Abre los 7 días de la semana, salvo festivos, y no solo para los clientes del hotel: los vecinos del barrio también pueden reservar un tratamiento. La entrada está reservada a mayores de 16 años."
+          },
+          {
+            "fr": "De juin à fin septembre, la piscine extérieure complète l’ensemble, et un espace fitness permet de garder ses habitudes sportives pendant le séjour.",
+            "en": "From June to the end of September, the outdoor pool completes the picture, and a fitness area lets you keep up your exercise routine during your stay.",
+            "es": "De junio a finales de septiembre, la piscina exterior completa el conjunto, y un espacio fitness permite mantener los hábitos deportivos durante la estancia."
+          }
+        ]
+      }
+    },
+    {
+      "type": "sections",
+      "contenu": {
+        "deux_colonnes": true,
+        "fond_gris": true,
+        "titre": {
+          "fr": "Ce qu’il y a autour de l’hôtel",
+          "en": "What’s around the hotel",
+          "es": "Qué hay alrededor del hotel"
+        },
+        "intro": {
+          "fr": "Purpan est aussi un bon point de départ pour plusieurs adresses de l’ouest toulousain.",
+          "en": "Purpan is also a good starting point for several places in western Toulouse.",
+          "es": "Purpan es también un buen punto de partida hacia varios lugares del oeste de Toulouse."
+        },
+        "sections": [
+          {
+            "titre": {
+              "fr": "Le Zénith de Toulouse",
+              "en": "The Zénith de Toulouse",
+              "es": "El Zénith de Toulouse"
+            },
+            "intro": {
+              "fr": "La grande salle de concerts et de spectacles se trouve sur la même avenue de Grande-Bretagne. Notre [article consacré au Zénith](/zenith-de-toulouse-hotel-palladia) explique comment combiner concert et nuit à l’hôtel.",
+              "en": "The large concert and show venue is on the same avenue de Grande-Bretagne. Our [article about the Zénith](/zenith-de-toulouse-hotel-palladia) explains how to combine a concert with a night at the hotel.",
+              "es": "La gran sala de conciertos y espectáculos se encuentra en la misma avenue de Grande-Bretagne. Nuestro [artículo dedicado al Zénith](/zenith-de-toulouse-hotel-palladia) explica cómo combinar concierto y noche en el hotel."
+            }
+          },
+          {
+            "titre": {
+              "fr": "La Cartoucherie et les Jardins du Barry",
+              "en": "The Cartoucherie and the Jardins du Barry",
+              "es": "La Cartoucherie y los Jardins du Barry"
+            },
+            "intro": {
+              "fr": "Le quartier de la Cartoucherie et les 8 hectares des Jardins du Barry se trouvent à quelques minutes de l’hôtel, pour une promenade au vert entre deux rendez-vous.",
+              "en": "The Cartoucherie district and the 8-hectare Jardins du Barry are a few minutes from the hotel, for a green stroll between two appointments.",
+              "es": "El barrio de la Cartoucherie y las 8 hectáreas de los Jardins du Barry están a pocos minutos del hotel, para un paseo por la naturaleza entre dos citas."
+            }
+          },
+          {
+            "titre": {
+              "fr": "La Coulée verte du Touch",
+              "en": "The Coulée verte du Touch",
+              "es": "La Coulée verte du Touch"
+            },
+            "intro": {
+              "fr": "Une voie verte de 9,5 km, à parcourir à pied ou à vélo, dont l’itinéraire commence dans le quartier.",
+              "en": "A 9.5 km greenway, to walk or cycle, whose route starts in the district.",
+              "es": "Una vía verde de 9,5 km, para recorrer a pie o en bicicleta, cuyo itinerario empieza en el barrio."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Blagnac et l’aéroport",
+              "en": "Blagnac and the airport",
+              "es": "Blagnac y el aeropuerto"
+            },
+            "intro": {
+              "fr": "L’aéroport de Toulouse-Blagnac est facilement accessible depuis l’hôtel, tout comme le musée Aeroscopia. Une navette aéroport est proposée sur réservation, sous réserve de disponibilité ; notre article [dormir près de l’aéroport de Toulouse](/ou-dormir-proche-aeroport-toulouse) détaille ce type de séjour.",
+              "en": "Toulouse-Blagnac airport is easy to reach from the hotel, as is the Aeroscopia museum. An airport shuttle is available on request, subject to availability; our article on [staying near Toulouse airport](/ou-dormir-proche-aeroport-toulouse) covers this kind of stay in detail.",
+              "es": "El aeropuerto de Toulouse-Blagnac es de fácil acceso desde el hotel, al igual que el museo Aeroscopia. Se ofrece un traslado al aeropuerto bajo reserva y según disponibilidad; nuestro artículo [dormir cerca del aeropuerto de Toulouse](/ou-dormir-proche-aeroport-toulouse) detalla este tipo de estancia."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Le centre historique",
+              "en": "The historic centre",
+              "es": "El centro histórico"
+            },
+            "intro": {
+              "fr": "La place du Capitole, la basilique Saint-Sernin et les bords de Garonne sont à une dizaine de minutes en voiture, ou accessibles en transports en commun.",
+              "en": "Place du Capitole, the Basilica of Saint-Sernin and the banks of the Garonne are around ten minutes away by car, or reachable by public transport.",
+              "es": "La plaza del Capitole, la basílica de Saint-Sernin y las orillas del Garona están a unos diez minutos en coche, o accesibles en transporte público."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "sections",
+      "contenu": {
+        "faq": true,
+        "taille_titre": "moyen",
+        "titre": {
+          "fr": "Questions fréquentes sur l’hôtel à Purpan",
+          "en": "Frequently asked questions about the hotel in Purpan",
+          "es": "Preguntas frecuentes sobre el hotel en Purpan"
+        },
+        "sections": [
+          {
+            "titre": {
+              "fr": "Où dormir à Purpan, à Toulouse ?",
+              "en": "Where can you stay in Purpan, Toulouse?",
+              "es": "¿Dónde dormir en Purpan, en Toulouse?"
+            },
+            "intro": {
+              "fr": "L’Hôtel Palladia est un hôtel 4 étoiles indépendant situé au 271 avenue de Grande-Bretagne, dans le quartier de Purpan. Il compte 90 chambres, dispose d’un parking gratuit de 250 places et se trouve à une minute à pied du tram.",
+              "en": "The Hôtel Palladia is an independent 4-star hotel at 271 avenue de Grande-Bretagne, in the Purpan district. It has 90 rooms, a free 250-space car park and is one minute’s walk from the tram.",
+              "es": "El Hôtel Palladia es un hotel independiente de 4 estrellas situado en el 271 de la avenue de Grande-Bretagne, en el barrio de Purpan. Cuenta con 90 habitaciones, un aparcamiento gratuito de 250 plazas y está a un minuto a pie del tranvía."
+            }
+          },
+          {
+            "titre": {
+              "fr": "L’hôtel est-il proche de l’hôpital Purpan ?",
+              "en": "Is the hotel close to Purpan hospital?",
+              "es": "¿Está el hotel cerca del hospital de Purpan?"
+            },
+            "intro": {
+              "fr": "Oui, l’hôtel se trouve dans le même quartier que le site hospitalier de Purpan du CHU de Toulouse. Pour le trajet exact vers un service, vérifiez l’itinéraire selon le bâtiment concerné.",
+              "en": "Yes, the hotel is in the same district as the Purpan site of Toulouse University Hospital. For the exact route to a department, check the way according to the building concerned.",
+              "es": "Sí, el hotel se encuentra en el mismo barrio que el centro hospitalario de Purpan del CHU de Toulouse. Para el trayecto exacto hasta un servicio, compruebe el itinerario según el edificio correspondiente."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Le parking de l’hôtel est-il payant ?",
+              "en": "Is the hotel car park chargeable?",
+              "es": "¿Es de pago el aparcamiento del hotel?"
+            },
+            "intro": {
+              "fr": "Non. Le parking de 250 places est gratuit et dispose d’emplacements équipés de bornes de recharge électrique.",
+              "en": "No. The 250-space car park is free and has spaces equipped with electric charging points.",
+              "es": "No. El aparcamiento de 250 plazas es gratuito y dispone de plazas equipadas con puntos de recarga eléctrica."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Peut-on dîner tard à l’hôtel ?",
+              "en": "Can you have dinner late at the hotel?",
+              "es": "¿Se puede cenar tarde en el hotel?"
+            },
+            "intro": {
+              "fr": "Oui. Le room service fonctionne 24 h/24, tous les jours, dimanche et jours fériés compris. Le restaurant, lui, est ouvert du lundi au vendredi midi et soir et le samedi soir.",
+              "en": "Yes. Room service runs 24 hours a day, every day, including Sundays and public holidays. The restaurant is open Monday to Friday for lunch and dinner, and on Saturday evenings.",
+              "es": "Sí. El servicio de habitaciones funciona las 24 horas, todos los días, domingos y festivos incluidos. El restaurante abre de lunes a viernes a mediodía y por la noche, y el sábado por la noche."
+            }
+          },
+          {
+            "titre": {
+              "fr": "L’hôtel est-il accessible aux personnes à mobilité réduite ?",
+              "en": "Is the hotel accessible for people with reduced mobility?",
+              "es": "¿Es el hotel accesible para personas con movilidad reducida?"
+            },
+            "intro": {
+              "fr": "Oui. Les toilettes et les ascenseurs sont accessibles en fauteuil roulant, et une chambre Prestige est entièrement adaptée, avec une salle de bain aménagée. Précisez votre besoin au moment de la réservation.",
+              "en": "Yes. Toilets and lifts are wheelchair accessible, and one Prestige room is fully adapted, with an accessible bathroom. Please mention your needs when booking.",
+              "es": "Sí. Los aseos y los ascensores son accesibles en silla de ruedas, y una habitación Prestige está totalmente adaptada, con baño acondicionado. Indique su necesidad en el momento de la reserva."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Comment rejoindre l’aéroport depuis Purpan ?",
+              "en": "How do you get to the airport from Purpan?",
+              "es": "¿Cómo llegar al aeropuerto desde Purpan?"
+            },
+            "intro": {
+              "fr": "L’aéroport de Toulouse-Blagnac est facilement accessible depuis l’hôtel. Une navette aéroport-hôtel est proposée sur réservation, sous réserve de disponibilité.",
+              "en": "Toulouse-Blagnac airport is easy to reach from the hotel. An airport-hotel shuttle is available on request, subject to availability.",
+              "es": "El aeropuerto de Toulouse-Blagnac es de fácil acceso desde el hotel. Se ofrece un traslado aeropuerto-hotel bajo reserva y según disponibilidad."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "centre": true,
+        "taille_titre": "moyen",
+        "titre": {
+          "fr": "Réserver votre séjour à Purpan",
+          "en": "Book your stay in Purpan",
+          "es": "Reserve su estancia en Purpan"
+        },
+        "paragraphes": [
+          {
+            "fr": "Réservez directement sur notre site pour bénéficier du meilleur tarif garanti, ou appelez la réception au 05 62 12 01 20.",
+            "en": "Book directly on our website for the best rate guaranteed, or call reception on +33 5 62 12 01 20.",
+            "es": "Reserve directamente en nuestra web para disfrutar de la mejor tarifa garantizada, o llame a recepción al +33 5 62 12 01 20."
+          }
+        ],
+        "boutons": [
+          {
+            "label": {
+              "fr": "Découvrir nos chambres",
+              "en": "Discover our rooms",
+              "es": "Descubrir nuestras habitaciones"
+            },
+            "href": "/chambres"
+          }
+        ]
+      }
+    }
+  ]
+}
