@@ -1,0 +1,378 @@
+{
+  "slug": "week-end-toulouse-hiver",
+  "datePublication": "2026-11-24",
+  "motCle": "week-end à toulouse en hiver",
+  "motsClesSecondaires": ["que visiter à toulouse en un week-end", "que faire à toulouse ce week-end", "activités à découvrir à toulouse", "visiter toulouse en 2 jours"],
+  "image_hero": "/images/blog/toulouse-garonne.jpg",
+  "image_vignette": "/images/blog/toulouse-garonne.jpg",
+  "titre": {
+    "fr": "Week-end à Toulouse en hiver : un programme sur deux jours",
+    "en": "A winter weekend in Toulouse: a two-day itinerary",
+    "es": "Fin de semana en Toulouse en invierno: un programa de dos días"
+  },
+  "chapo": {
+    "fr": "L’hiver, Toulouse se visite autrement : des musées où l’on prend son temps, des marchés couverts, des églises de brique à la lumière rasante et des soirées au chaud. Voici un programme de deux jours, du samedi matin au dimanche après-midi, pensé pour la saison froide.",
+    "en": "In winter, Toulouse is a different place to visit: museums where you can take your time, covered markets, brick churches in low-angled light and cosy evenings indoors. Here is a two-day plan, from Saturday morning to Sunday afternoon, designed for the colder season.",
+    "es": "En invierno, Toulouse se visita de otra manera: museos donde uno se toma su tiempo, mercados cubiertos, iglesias de ladrillo bajo una luz rasante y veladas a cubierto. Este es un programa de dos días, del sábado por la mañana al domingo por la tarde, pensado para la temporada fría."
+  },
+  "seo_title": {
+    "fr": "Week-end à Toulouse en hiver : programme sur deux jours",
+    "en": "Winter weekend in Toulouse: a two-day itinerary",
+    "es": "Fin de semana en Toulouse en invierno: programa de dos días"
+  },
+  "seo_description": {
+    "fr": "Capitole, Saint-Sernin, musées, marché couvert, spa et dîner : un programme de deux jours pour profiter de Toulouse en hiver, avec une nuit à Purpan.",
+    "en": "Capitole, Saint-Sernin, museums, covered market, spa and dinner: a two-day plan to enjoy Toulouse in winter, with a night in Purpan.",
+    "es": "Capitole, Saint-Sernin, museos, mercado cubierto, spa y cena: un programa de dos días para disfrutar de Toulouse en invierno, con una noche en Purpan."
+  },
+  "aRetenir": [
+    {
+      "fr": "Samedi : le centre historique, du Capitole à Saint-Sernin et aux Jacobins, puis les bords de Garonne en fin de journée.",
+      "en": "Saturday: the historic centre, from the Capitole to Saint-Sernin and the Jacobins, then the banks of the Garonne at the end of the day.",
+      "es": "Sábado: el centro histórico, del Capitole a Saint-Sernin y los Jacobinos, y después las orillas del Garona al final del día."
+    },
+    {
+      "fr": "Dimanche : l’aéronautique et l’espace, à Montaudran, à la Cité de l’Espace ou à Aeroscopia, près de Blagnac.",
+      "en": "Sunday: aviation and space, at Montaudran, the Cité de l’Espace or Aeroscopia, near Blagnac.",
+      "es": "Domingo: la aeronáutica y el espacio, en Montaudran, en la Cité de l’Espace o en Aeroscopia, cerca de Blagnac."
+    },
+    {
+      "fr": "Le soir : spa de 300 m², restaurant ouvert le samedi soir et room service 24 h/24 ; la piscine extérieure, elle, n’ouvre que de juin à fin septembre.",
+      "en": "In the evening: a 300 m² spa, the restaurant open on Saturday evenings and 24-hour room service; the outdoor pool only opens from June to the end of September.",
+      "es": "Por la noche: spa de 300 m², restaurante abierto el sábado por la noche y servicio de habitaciones 24 h; la piscina exterior solo abre de junio a finales de septiembre."
+    }
+  ],
+  "pilier": { "href": "/offres-hebergement-toulouse", "ancre": "nos offres d’hébergement" },
+  "blocs": [
+    {
+      "type": "texte",
+      "contenu": {
+        "centre": true,
+        "paragraphes": [
+          {
+            "fr": "Que faire à Toulouse le temps d’un week-end d’hiver ? Consacrer le samedi au centre historique, avec le Capitole, la basilique Saint-Sernin, le couvent des Jacobins et ses musées, puis le dimanche à l’aventure aéronautique et spatiale qui a fait la réputation de la ville. Entre les deux, une soirée au chaud et une nuit au calme.",
+            "en": "What can you do in Toulouse over a winter weekend? Spend Saturday in the historic centre, with the Capitole, the Basilica of Saint-Sernin, the Jacobins convent and its museums, then Sunday on the aviation and space adventure that made the city famous. In between, a cosy evening and a quiet night.",
+            "es": "¿Qué hacer en Toulouse durante un fin de semana de invierno? Dedicar el sábado al centro histórico, con el Capitole, la basílica de Saint-Sernin, el convento de los Jacobinos y sus museos, y el domingo a la aventura aeronáutica y espacial que ha dado fama a la ciudad. Entre ambos, una velada a cubierto y una noche tranquila."
+          },
+          {
+            "fr": "Ce programme part de l’Hôtel Palladia, dans le quartier de Purpan, mais il s’adapte à tous les rythmes. Nos [visites à Toulouse](/visites-toulouse) situent sur une carte l’ensemble des lieux cités, avec leurs adresses.",
+            "en": "This plan starts from the Hôtel Palladia, in the Purpan district, but it adapts to any pace. Our [Toulouse sightseeing](/visites-toulouse) page maps all the places mentioned, with their addresses.",
+            "es": "Este programa parte del Hôtel Palladia, en el barrio de Purpan, pero se adapta a todos los ritmos. Nuestras [visitas en Toulouse](/visites-toulouse) sitúan en un mapa todos los lugares citados, con sus direcciones."
+          }
+        ]
+      }
+    },
+    {
+      "type": "sections",
+      "contenu": {
+        "fond_gris": true,
+        "deux_colonnes": true,
+        "titre": {
+          "fr": "Le programme en un coup d’œil",
+          "en": "The itinerary at a glance",
+          "es": "El programa de un vistazo"
+        },
+        "sections": [
+          {
+            "titre": { "fr": "Samedi", "en": "Saturday", "es": "Sábado" },
+            "items": [
+              { "fr": "Matin : place du Capitole, basilique Saint-Sernin, musée Saint-Raymond", "en": "Morning: Place du Capitole, Basilica of Saint-Sernin, Musée Saint-Raymond", "es": "Mañana: plaza del Capitole, basílica de Saint-Sernin, museo Saint-Raymond" },
+              { "fr": "Midi : marché Victor Hugo", "en": "Lunch: Victor Hugo market", "es": "Mediodía: mercado Victor Hugo" },
+              { "fr": "Après-midi : couvent des Jacobins, hôtel d’Assézat, quai de la Daurade", "en": "Afternoon: Jacobins convent, Hôtel d’Assézat, Quai de la Daurade", "es": "Tarde: convento de los Jacobinos, hôtel d’Assézat, muelle de la Daurade" },
+              { "fr": "Soir : spa, dîner au restaurant ou spectacle", "en": "Evening: spa, dinner at the restaurant or a show", "es": "Noche: spa, cena en el restaurante o espectáculo" }
+            ]
+          },
+          {
+            "titre": { "fr": "Dimanche", "en": "Sunday", "es": "Domingo" },
+            "items": [
+              { "fr": "Matin : petit-déjeuner servi jusqu’à 11 h", "en": "Morning: breakfast served until 11 am", "es": "Mañana: desayuno servido hasta las 11:00" },
+              { "fr": "Journée : Montaudran, Cité de l’Espace ou Aeroscopia", "en": "Day: Montaudran, Cité de l’Espace or Aeroscopia", "es": "Día: Montaudran, Cité de l’Espace o Aeroscopia" },
+              { "fr": "Fin d’après-midi : Jardin japonais ou bords de Garonne avant le départ", "en": "Late afternoon: Japanese Garden or the banks of the Garonne before leaving", "es": "Final de la tarde: Jardín japonés u orillas del Garona antes de la salida" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "gauche",
+        "image": "/images/blog/toulouse-garonne.jpg",
+        "alt": {
+          "fr": "Dôme de la Grave au bord de la Garonne à Toulouse, sous un ciel bleu de fin d’automne",
+          "en": "The Dôme de la Grave on the banks of the Garonne in Toulouse, under a late-autumn blue sky",
+          "es": "Cúpula de La Grave a orillas del Garona en Toulouse, bajo un cielo azul de finales de otoño"
+        },
+        "titre": {
+          "fr": "Samedi matin : le cœur historique de la Ville Rose",
+          "en": "Saturday morning: the historic heart of the Pink City",
+          "es": "Sábado por la mañana: el corazón histórico de la Ciudad Rosa"
+        },
+        "paragraphes": [
+          {
+            "fr": "Commencez par la place du Capitole, cœur de la ville, entourée de cafés et de commerces. Remontez ensuite vers la basilique Saint-Sernin, grande église romane dont la construction remonte au XIe siècle, classée au patrimoine mondial de l’UNESCO.",
+            "en": "Start at Place du Capitole, the heart of the city, lined with cafés and shops. Then walk up to the Basilica of Saint-Sernin, a great Romanesque church dating back to the 11th century and a UNESCO World Heritage site.",
+            "es": "Empiece por la plaza del Capitole, corazón de la ciudad, rodeada de cafés y comercios. Suba después hacia la basílica de Saint-Sernin, gran iglesia románica cuya construcción se remonta al siglo XI, inscrita en el patrimonio mundial de la UNESCO."
+          },
+          {
+            "fr": "Juste à côté, le musée Saint-Raymond présente les sculptures et l’art antique de la Toulouse romaine, celle que l’on appelait Palladia Tolosa. Un musée de taille humaine, idéal pour une matinée froide.",
+            "en": "Right next door, the Musée Saint-Raymond displays the sculptures and ancient art of Roman Toulouse, the city once called Palladia Tolosa. A manageable museum, ideal for a cold morning.",
+            "es": "Justo al lado, el museo Saint-Raymond presenta las esculturas y el arte antiguo de la Toulouse romana, la que se llamaba Palladia Tolosa. Un museo de tamaño humano, ideal para una mañana fría."
+          },
+          {
+            "fr": "À l’heure du déjeuner, direction le marché Victor Hugo, grand marché couvert réputé pour ses produits frais : c’est l’endroit tout trouvé pour goûter la gastronomie du Sud-Ouest à l’abri.",
+            "en": "At lunchtime, head to the Victor Hugo market, a large covered market renowned for its fresh produce: the perfect place to taste South-West cuisine out of the cold.",
+            "es": "A la hora de comer, rumbo al mercado Victor Hugo, gran mercado cubierto conocido por sus productos frescos: el lugar ideal para probar la gastronomía del Suroeste a resguardo."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "titre": {
+          "fr": "Samedi après-midi : cloîtres, hôtels particuliers et Garonne",
+          "en": "Saturday afternoon: cloisters, mansions and the Garonne",
+          "es": "Sábado por la tarde: claustros, palacetes y el Garona"
+        },
+        "paragraphes": [
+          {
+            "fr": "Le couvent des Jacobins, chef-d’œuvre du gothique méridional, se visite pour sa grande église de brique et son cloître paisible, tout aussi beau sous un ciel d’hiver.",
+            "en": "The Jacobins convent, a masterpiece of southern Gothic architecture, is worth visiting for its great brick church and peaceful cloister, just as beautiful under a winter sky.",
+            "es": "El convento de los Jacobinos, obra maestra del gótico meridional, merece la visita por su gran iglesia de ladrillo y su claustro apacible, igual de bello bajo un cielo de invierno."
+          },
+          {
+            "fr": "À quelques rues, l’hôtel d’Assézat, magnifique hôtel particulier de la Renaissance, abrite la Fondation Bemberg et ses collections. Plus loin, le musée des Augustins expose ses beaux-arts dans un ancien couvent gothique.",
+            "en": "A few streets away, the Hôtel d’Assézat, a magnificent Renaissance mansion, houses the Fondation Bemberg and its collections. Further on, the Musée des Augustins displays its fine art in a former Gothic convent.",
+            "es": "A pocas calles, el hôtel d’Assézat, magnífico palacete renacentista, alberga la Fundación Bemberg y sus colecciones. Más allá, el museo de los Agustinos expone sus bellas artes en un antiguo convento gótico."
+          },
+          {
+            "fr": "Terminez par les quais : le quai de la Daurade et le Pont Neuf, pont de brique du XVIIe siècle, offrent l’une des plus belles vues sur la Garonne quand le soleil d’hiver descend sur la rive gauche.",
+            "en": "Finish on the riverside: the Quai de la Daurade and the Pont Neuf, a 17th-century brick bridge, offer one of the finest views of the Garonne as the winter sun sets over the left bank.",
+            "es": "Termine en los muelles: el muelle de la Daurade y el Pont Neuf, puente de ladrillo del siglo XVII, ofrecen una de las vistas más bellas del Garona cuando el sol de invierno cae sobre la orilla izquierda."
+          },
+          {
+            "fr": "Les horaires d’hiver et les éventuelles fermetures pour travaux varient d’un lieu à l’autre : vérifiez-les avant de partir sur le site de chaque lieu ou sur celui de l’[office de tourisme de Toulouse](https://www.toulouse-tourisme.com/).",
+            "en": "Winter opening hours and any closures for works vary from one place to another: check them before you set off on each venue’s website or on the [Toulouse tourist office](https://www.toulouse-tourisme.com/) website.",
+            "es": "Los horarios de invierno y los posibles cierres por obras varían de un lugar a otro: compruébelos antes de salir en la web de cada lugar o en la de la [oficina de turismo de Toulouse](https://www.toulouse-tourisme.com/)."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "droite",
+        "image": "/images/spa/vue-2.jpg",
+        "alt": {
+          "fr": "Jacuzzi du spa de l’Hôtel Palladia à Toulouse, devant une baie aux voilages blancs",
+          "en": "Jacuzzi in the Hôtel Palladia spa in Toulouse, in front of a bay window with white curtains",
+          "es": "Jacuzzi del spa del Hôtel Palladia en Toulouse, frente a un ventanal con visillos blancos"
+        },
+        "titre": {
+          "fr": "Samedi soir : se réchauffer au spa, puis dîner",
+          "en": "Saturday evening: warm up at the spa, then dinner",
+          "es": "Sábado por la noche: entrar en calor en el spa y después cenar"
+        },
+        "paragraphes": [
+          {
+            "fr": "Après une journée de marche dans le froid, le [spa de l’hôtel](/spa) est le meilleur moyen de se réchauffer : 300 m² avec jacuzzi, hammam, massages et soins du visage. Il est ouvert 7 jours sur 7, hors jours fériés ; pensez à réserver votre soin à l’avance et à consulter ses horaires. L’entrée est réservée aux plus de 16 ans.",
+            "en": "After a day of walking in the cold, the [hotel spa](/spa) is the best way to warm up: 300 m² with a jacuzzi, hammam, massages and facials. It is open 7 days a week, except public holidays; remember to book your treatment in advance and check its opening hours. Entry is for over-16s only.",
+            "es": "Después de un día caminando con frío, el [spa del hotel](/spa) es la mejor manera de entrar en calor: 300 m² con jacuzzi, hammam, masajes y tratamientos faciales. Abre los 7 días de la semana, salvo festivos; recuerde reservar su tratamiento con antelación y consultar sus horarios. La entrada está reservada a mayores de 16 años."
+          },
+          {
+            "fr": "Pour le dîner, le [restaurant de l’hôtel](/restaurant) est ouvert le samedi soir, avec une cuisine du Sud-Ouest de saison signée par le chef Jeremy Gabarrot. Le bar lounge, ouvert jusqu’à 23 h, prolonge la soirée autour d’un cocktail.",
+            "en": "For dinner, the [hotel restaurant](/restaurant) is open on Saturday evenings, serving seasonal South-West cuisine by chef Jeremy Gabarrot. The lounge bar, open until 11 pm, extends the evening over a cocktail.",
+            "es": "Para la cena, el [restaurante del hotel](/restaurant) abre el sábado por la noche, con una cocina de temporada del Suroeste firmada por el chef Jeremy Gabarrot. El bar lounge, abierto hasta las 23:00, prolonga la velada con un cóctel."
+          },
+          {
+            "fr": "Certains samedis, la soirée peut aussi se passer au spectacle : l’hôtel programme ses propres dîners-spectacles, et notre sélection des [spectacles de la saison à Toulouse](/sortir-a-toulouse-spectacles) recense les rendez-vous à venir.",
+            "en": "On some Saturdays, the evening can also be spent at a show: the hotel runs its own dinner shows, and our selection of [this season’s shows in Toulouse](/sortir-a-toulouse-spectacles) lists the upcoming events.",
+            "es": "Algunos sábados, la velada también puede pasarse en un espectáculo: el hotel programa sus propias cenas espectáculo, y nuestra selección de [espectáculos de la temporada en Toulouse](/sortir-a-toulouse-spectacles) recoge las próximas citas."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "fond_gris": true,
+        "titre": {
+          "fr": "Dimanche : l’aéronautique et l’espace",
+          "en": "Sunday: aviation and space",
+          "es": "Domingo: la aeronáutica y el espacio"
+        },
+        "paragraphes": [
+          {
+            "fr": "Le dimanche, le petit-déjeuner est servi en buffet jusqu’à 11 h : de quoi commencer la journée sans se presser. Toulouse est la ville de l’aviation et de l’espace, et c’est le meilleur thème pour une journée d’hiver, presque entièrement à l’intérieur. Trois options, selon vos envies :",
+            "en": "On Sundays, the breakfast buffet is served until 11 am, so there is no need to rush. Toulouse is the city of aviation and space, and that is the best theme for a winter day spent almost entirely indoors. Three options, depending on what you fancy:",
+            "es": "El domingo, el desayuno bufé se sirve hasta las 11:00: lo justo para empezar el día sin prisas. Toulouse es la ciudad de la aviación y del espacio, y es el mejor tema para un día de invierno pasado casi por completo a cubierto. Tres opciones, según sus preferencias:"
+          }
+        ],
+        "liste": [
+          {
+            "fr": "**Montaudran** : sur l’ancienne piste de l’Aéropostale, l’Envol des Pionniers retrace l’histoire de ses aviateurs, et la Halle de la Machine expose ses machines de spectacle géantes ;",
+            "en": "**Montaudran**: on the former Aéropostale airfield, L’Envol des Pionniers tells the story of its aviators, and the Halle de la Machine displays its giant performance machines;",
+            "es": "**Montaudran**: en la antigua pista de la Aéropostale, L’Envol des Pionniers recorre la historia de sus aviadores, y la Halle de la Machine expone sus gigantescas máquinas de espectáculo;"
+          },
+          {
+            "fr": "**La Cité de l’Espace** : un parc à thème scientifique dédié à l’espace et aux planètes, qui occupe facilement une journée entière ;",
+            "en": "**The Cité de l’Espace**: a science theme park devoted to space and the planets, which easily fills a whole day;",
+            "es": "**La Cité de l’Espace**: un parque temático científico dedicado al espacio y a los planetas, que ocupa fácilmente un día entero;"
+          },
+          {
+            "fr": "**Aeroscopia**, à Blagnac, au plus près de l’hôtel : un musée aéronautique où l’on visite un Concorde et des Airbus ; la visite des usines Airbus se réserve à part.",
+            "en": "**Aeroscopia**, in Blagnac, the closest to the hotel: an aviation museum where you can step aboard a Concorde and Airbus aircraft; tours of the Airbus factories are booked separately.",
+            "es": "**Aeroscopia**, en Blagnac, la opción más cercana al hotel: un museo aeronáutico donde se visitan un Concorde y varios Airbus; la visita a las fábricas de Airbus se reserva aparte."
+          }
+        ],
+        "note": {
+          "fr": "Avant de reprendre la route, une dernière halte au Jardin japonais du parc Compans-Caffarelli ou sur les bords de Garonne clôt le week-end en douceur.",
+          "en": "Before heading home, a final stop at the Japanese Garden in Compans-Caffarelli park or on the banks of the Garonne rounds off the weekend gently.",
+          "es": "Antes de volver a la carretera, una última parada en el Jardín japonés del parque Compans-Caffarelli o a orillas del Garona cierra el fin de semana con suavidad."
+        }
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "titre": {
+          "fr": "Se loger et se déplacer pendant le week-end",
+          "en": "Where to stay and how to get around",
+          "es": "Alojarse y desplazarse durante el fin de semana"
+        },
+        "paragraphes": [
+          {
+            "fr": "Loger à Purpan, hors de l’hypercentre, simplifie la logistique d’un week-end : le parking de l’hôtel est gratuit, le tram passe à une minute à pied pour rejoindre le centre sans chercher à se garer, et le centre historique est à une dizaine de minutes en voiture.",
+            "en": "Staying in Purpan, outside the very centre, makes weekend logistics easier: the hotel car park is free, the tram stops one minute’s walk away so you can reach the centre without looking for parking, and the historic centre is around ten minutes by car.",
+            "es": "Alojarse en Purpan, fuera del hipercentro, simplifica la logística de un fin de semana: el aparcamiento del hotel es gratuito, el tranvía pasa a un minuto a pie para llegar al centro sin buscar aparcamiento, y el centro histórico está a unos diez minutos en coche."
+          },
+          {
+            "fr": "L’hiver a ses avantages, mais il faut le dire franchement : la piscine extérieure de l’hôtel n’ouvre que de juin à fin septembre. En saison froide, c’est le spa qui prend le relais.",
+            "en": "Winter has its advantages, but it is only fair to say: the hotel’s outdoor pool is only open from June to the end of September. In the cold season, the spa takes over.",
+            "es": "El invierno tiene sus ventajas, pero hay que decirlo con franqueza: la piscina exterior del hotel solo abre de junio a finales de septiembre. En la temporada fría, el spa toma el relevo."
+          },
+          {
+            "fr": "L’hôtel propose régulièrement des formules de séjour, avec petit-déjeuner ou départ tardif selon la saison. Elles changent au fil de l’année : les conditions en cours sont toujours sur la page de [nos offres d’hébergement](/offres-hebergement-toulouse).",
+            "en": "The hotel regularly offers stay packages, with breakfast or late check-out depending on the season. They change throughout the year: current conditions are always on our [accommodation offers](/offres-hebergement-toulouse) page.",
+            "es": "El hotel propone con regularidad fórmulas de estancia, con desayuno o salida tardía según la temporada. Cambian a lo largo del año: las condiciones vigentes figuran siempre en la página de [nuestras ofertas de alojamiento](/offres-hebergement-toulouse)."
+          }
+        ]
+      }
+    },
+    {
+      "type": "sections",
+      "contenu": {
+        "faq": true,
+        "fond_gris": true,
+        "taille_titre": "moyen",
+        "titre": {
+          "fr": "Questions fréquentes sur un week-end à Toulouse en hiver",
+          "en": "Frequently asked questions about a winter weekend in Toulouse",
+          "es": "Preguntas frecuentes sobre un fin de semana en Toulouse en invierno"
+        },
+        "sections": [
+          {
+            "titre": {
+              "fr": "Que visiter à Toulouse en un week-end ?",
+              "en": "What should you see in Toulouse in a weekend?",
+              "es": "¿Qué visitar en Toulouse en un fin de semana?"
+            },
+            "intro": {
+              "fr": "Le samedi, le centre historique : place du Capitole, basilique Saint-Sernin, musée Saint-Raymond, couvent des Jacobins et bords de Garonne. Le dimanche, l’aéronautique et l’espace : Envol des Pionniers et Halle de la Machine à Montaudran, Cité de l’Espace, ou Aeroscopia à Blagnac.",
+              "en": "On Saturday, the historic centre: Place du Capitole, the Basilica of Saint-Sernin, the Musée Saint-Raymond, the Jacobins convent and the banks of the Garonne. On Sunday, aviation and space: L’Envol des Pionniers and the Halle de la Machine at Montaudran, the Cité de l’Espace, or Aeroscopia in Blagnac.",
+              "es": "El sábado, el centro histórico: plaza del Capitole, basílica de Saint-Sernin, museo Saint-Raymond, convento de los Jacobinos y orillas del Garona. El domingo, la aeronáutica y el espacio: L’Envol des Pionniers y la Halle de la Machine en Montaudran, la Cité de l’Espace, o Aeroscopia en Blagnac."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Toulouse vaut-elle le détour en hiver ?",
+              "en": "Is Toulouse worth visiting in winter?",
+              "es": "¿Merece la pena visitar Toulouse en invierno?"
+            },
+            "intro": {
+              "fr": "Oui. Ses grands sites se visitent à l’intérieur : basiliques, cloîtres, musées, marchés couverts et parcs consacrés à l’aéronautique et à l’espace. Vérifiez simplement les horaires d’hiver de chaque lieu avant de partir.",
+              "en": "Yes. Its main sights can be visited indoors: basilicas, cloisters, museums, covered markets and parks devoted to aviation and space. Just check each venue’s winter opening hours before you go.",
+              "es": "Sí. Sus grandes lugares se visitan a cubierto: basílicas, claustros, museos, mercados cubiertos y parques dedicados a la aeronáutica y al espacio. Basta con comprobar los horarios de invierno de cada lugar antes de salir."
+            }
+          },
+          {
+            "titre": {
+              "fr": "La piscine de l’Hôtel Palladia est-elle ouverte en hiver ?",
+              "en": "Is the Hôtel Palladia pool open in winter?",
+              "es": "¿Está abierta en invierno la piscina del Hôtel Palladia?"
+            },
+            "intro": {
+              "fr": "Non, la piscine extérieure est ouverte de juin à fin septembre. En hiver, le spa de 300 m² prend le relais, avec jacuzzi, hammam, massages et soins du visage, 7 jours sur 7 hors jours fériés.",
+              "en": "No, the outdoor pool is open from June to the end of September. In winter, the 300 m² spa takes over, with a jacuzzi, hammam, massages and facials, 7 days a week except public holidays.",
+              "es": "No, la piscina exterior abre de junio a finales de septiembre. En invierno, el spa de 300 m² toma el relevo, con jacuzzi, hammam, masajes y tratamientos faciales, los 7 días de la semana salvo festivos."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Peut-on dîner à l’hôtel le samedi soir ?",
+              "en": "Can you have dinner at the hotel on Saturday evening?",
+              "es": "¿Se puede cenar en el hotel el sábado por la noche?"
+            },
+            "intro": {
+              "fr": "Oui, le restaurant est ouvert le samedi soir. Le room service fonctionne par ailleurs 24 h/24, tous les jours, dimanche compris.",
+              "en": "Yes, the restaurant is open on Saturday evenings. Room service also runs 24 hours a day, every day, Sundays included.",
+              "es": "Sí, el restaurante abre el sábado por la noche. Además, el servicio de habitaciones funciona las 24 horas, todos los días, domingo incluido."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Où se garer pour visiter Toulouse le temps d’un week-end ?",
+              "en": "Where should you park when visiting Toulouse for a weekend?",
+              "es": "¿Dónde aparcar para visitar Toulouse durante un fin de semana?"
+            },
+            "intro": {
+              "fr": "À l’Hôtel Palladia, le parking de 250 places est gratuit. Le tram, à une minute à pied, permet ensuite de rejoindre le centre sans avoir à y stationner.",
+              "en": "At the Hôtel Palladia, the 250-space car park is free. The tram, one minute’s walk away, then takes you into the centre without having to park there.",
+              "es": "En el Hôtel Palladia, el aparcamiento de 250 plazas es gratuito. El tranvía, a un minuto a pie, permite después llegar al centro sin tener que aparcar allí."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Jusqu’à quelle heure le petit-déjeuner est-il servi le dimanche ?",
+              "en": "Until what time is breakfast served on Sundays?",
+              "es": "¿Hasta qué hora se sirve el desayuno el domingo?"
+            },
+            "intro": {
+              "fr": "Jusqu’à 11 h le dimanche et les jours fériés. Du lundi au samedi, le buffet est servi de 6 h 30 à 10 h.",
+              "en": "Until 11 am on Sundays and public holidays. From Monday to Saturday, the buffet is served from 6.30 am to 10 am.",
+              "es": "Hasta las 11:00 los domingos y festivos. De lunes a sábado, el bufé se sirve de 6:30 a 10:00."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "centre": true,
+        "taille_titre": "moyen",
+        "titre": {
+          "fr": "Préparer votre week-end à Toulouse",
+          "en": "Plan your weekend in Toulouse",
+          "es": "Prepare su fin de semana en Toulouse"
+        },
+        "paragraphes": [
+          {
+            "fr": "Réservez en direct pour bénéficier du meilleur tarif garanti, et consultez les formules de séjour en cours avant de choisir vos dates.",
+            "en": "Book direct for the best rate guaranteed, and check the current stay packages before choosing your dates.",
+            "es": "Reserve directamente para disfrutar de la mejor tarifa garantizada, y consulte las fórmulas de estancia vigentes antes de elegir sus fechas."
+          }
+        ],
+        "boutons": [
+          {
+            "label": { "fr": "Voir nos offres d’hébergement", "en": "See our accommodation offers", "es": "Ver nuestras ofertas de alojamiento" },
+            "href": "/offres-hebergement-toulouse"
+          }
+        ]
+      }
+    }
+  ]
+}
