@@ -37,6 +37,17 @@ const nextConfig: NextConfig = {
       },
 
       /**
+       * Ancienne page WordPress /mariage : elle n'existe plus ici (404) mais
+       * Google l'affiche encore. Son contenu vit dans l'article mariage.
+       */
+      { source: "/mariage", destination: "/mariage-hotel-palladia-toulouse", permanent: true },
+      {
+        source: "/:locale(en|es)/mariage",
+        destination: "/:locale/mariage-hotel-palladia-toulouse",
+        permanent: true,
+      },
+
+      /**
        * Carte du room service. Ces adresses sont celles des images servies par
        * WordPress ; elles ne sont plus joignables depuis que le domaine pointe
        * ici, et ce sont elles qu'imprime le QR code appose dans les chambres.
