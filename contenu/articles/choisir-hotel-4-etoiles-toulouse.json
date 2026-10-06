@@ -1,0 +1,426 @@
+{
+  "slug": "choisir-hotel-4-etoiles-toulouse",
+  "datePublication": "2026-11-10",
+  "motCle": "hôtel 4 étoiles toulouse",
+  "motsClesSecondaires": ["quel hôtel 4 étoiles choisir à toulouse", "hotel toulouse 4 étoiles", "hotels 4 etoiles toulouse", "hotel 4 etoile toulouse"],
+  "image_hero": "/images/hd/chambre-luxe.jpg",
+  "image_vignette": "/images/hd/chambre-luxe.jpg",
+  "titre": {
+    "fr": "Quel hôtel 4 étoiles choisir à Toulouse selon votre séjour ?",
+    "en": "Which 4-star hotel should you choose in Toulouse for your stay?",
+    "es": "¿Qué hotel de 4 estrellas elegir en Toulouse según su estancia?"
+  },
+  "chapo": {
+    "fr": "Les étoiles garantissent un niveau de confort et de service, pas un séjour adapté à vos besoins. Emplacement, stationnement, équipements, restauration : voici les critères qui départagent les hôtels 4 étoiles de Toulouse selon la raison de votre venue.",
+    "en": "Stars guarantee a level of comfort and service, not a stay suited to your needs. Location, parking, facilities, dining: here are the criteria that set Toulouse’s 4-star hotels apart, depending on why you are coming.",
+    "es": "Las estrellas garantizan un nivel de confort y de servicio, no una estancia adaptada a sus necesidades. Ubicación, aparcamiento, instalaciones, restauración: estos son los criterios que diferencian a los hoteles de 4 estrellas de Toulouse según el motivo de su visita."
+  },
+  "seo_title": {
+    "fr": "Quel hôtel 4 étoiles choisir à Toulouse ? Les vrais critères",
+    "en": "Which 4-star hotel to choose in Toulouse? The real criteria",
+    "es": "¿Qué hotel de 4 estrellas elegir en Toulouse? Los criterios"
+  },
+  "seo_description": {
+    "fr": "Affaires, famille, concert ou spa : les critères pour choisir un hôtel 4 étoiles à Toulouse, et ce que garantit vraiment le classement.",
+    "en": "Business, family, concert or spa: the criteria for choosing a 4-star hotel in Toulouse, and what the official rating really guarantees.",
+    "es": "Negocios, familia, concierto o spa: los criterios para elegir un hotel de 4 estrellas en Toulouse y lo que garantiza realmente la clasificación."
+  },
+  "aRetenir": [
+    {
+      "fr": "En France, les étoiles d’un hôtel sont attribuées par Atout France après une inspection ; elles ne disent rien de l’emplacement, du parking ni du spa.",
+      "en": "In France, hotel stars are awarded by Atout France after an inspection; they say nothing about location, parking or a spa.",
+      "es": "En Francia, las estrellas de un hotel las concede Atout France tras una inspección; no dicen nada de la ubicación, el aparcamiento ni el spa."
+    },
+    {
+      "fr": "Le bon 4 étoiles dépend du séjour : l’accès et le parking pour les affaires, l’espace pour une famille, la marche à pied pour un concert, un vrai spa pour une pause bien-être.",
+      "en": "The right 4-star hotel depends on the stay: access and parking for business, space for a family, walking distance for a concert, a proper spa for a wellness break.",
+      "es": "El hotel de 4 estrellas adecuado depende de la estancia: acceso y aparcamiento para los negocios, espacio para una familia, distancia a pie para un concierto, un verdadero spa para una pausa de bienestar."
+    },
+    {
+      "fr": "L’Hôtel Palladia, 4 étoiles indépendant à Purpan, réunit parking gratuit de 250 places, spa de 300 m², piscine extérieure en saison et la proximité du Zénith.",
+      "en": "The Hôtel Palladia, an independent 4-star hotel in Purpan, combines a free 250-space car park, a 300 m² spa, a seasonal outdoor pool and proximity to the Zénith.",
+      "es": "El Hôtel Palladia, hotel independiente de 4 estrellas en Purpan, reúne aparcamiento gratuito de 250 plazas, spa de 300 m², piscina exterior en temporada y la cercanía del Zénith."
+    }
+  ],
+  "pilier": { "href": "/", "ancre": "hôtel 4 étoiles à Toulouse" },
+  "blocs": [
+    {
+      "type": "texte",
+      "contenu": {
+        "centre": true,
+        "paragraphes": [
+          {
+            "fr": "Quel hôtel 4 étoiles choisir à Toulouse ? Celui qui correspond à la raison de votre séjour. Un déplacement professionnel, un week-end en famille, un concert ou une pause bien-être n’appellent pas le même hôtel : avant de comparer les étoiles, comparez l’emplacement, le stationnement et les services dont vous aurez réellement besoin.",
+            "en": "Which 4-star hotel should you choose in Toulouse? The one that matches the reason for your stay. A business trip, a family weekend, a concert or a wellness break do not call for the same hotel: before comparing stars, compare the location, the parking and the services you will actually need.",
+            "es": "¿Qué hotel de 4 estrellas elegir en Toulouse? El que corresponda al motivo de su estancia. Un viaje de trabajo, un fin de semana en familia, un concierto o una pausa de bienestar no requieren el mismo hotel: antes de comparar estrellas, compare la ubicación, el aparcamiento y los servicios que realmente va a necesitar."
+          },
+          {
+            "fr": "Ce guide passe en revue les critères qui font la différence, profil par profil, en prenant l’exemple de l’Hôtel Palladia, [hôtel 4 étoiles à Toulouse](/) installé dans le quartier de Purpan. Chaque profil a son hôtel idéal, et ce n’est pas toujours le même.",
+            "en": "This guide reviews the criteria that make the difference, profile by profile, taking the example of the Hôtel Palladia, a [4-star hotel in Toulouse](/) located in the Purpan district. Each profile has its ideal hotel, and it is not always the same one.",
+            "es": "Esta guía repasa los criterios que marcan la diferencia, perfil por perfil, tomando como ejemplo el Hôtel Palladia, [hotel de 4 estrellas en Toulouse](/) situado en el barrio de Purpan. Cada perfil tiene su hotel ideal, y no siempre es el mismo."
+          }
+        ]
+      }
+    },
+    {
+      "type": "sections",
+      "contenu": {
+        "fond_gris": true,
+        "deux_colonnes": true,
+        "titre": {
+          "fr": "Votre séjour, vos critères : la réponse en bref",
+          "en": "Your stay, your criteria: the short answer",
+          "es": "Su estancia, sus criterios: la respuesta en breve"
+        },
+        "sections": [
+          {
+            "titre": { "fr": "Déplacement professionnel", "en": "Business trip", "es": "Viaje de trabajo" },
+            "items": [
+              { "fr": "Accès à l’aéroport et aux grands axes", "en": "Access to the airport and main roads", "es": "Acceso al aeropuerto y a las grandes vías" },
+              { "fr": "Parking et wifi inclus", "en": "Parking and wifi included", "es": "Aparcamiento y wifi incluidos" },
+              { "fr": "Salles de réunion sur place", "en": "Meeting rooms on site", "es": "Salas de reuniones in situ" }
+            ]
+          },
+          {
+            "titre": { "fr": "Séjour en famille", "en": "Family stay", "es": "Estancia en familia" },
+            "items": [
+              { "fr": "Surface des chambres", "en": "Room size", "es": "Superficie de las habitaciones" },
+              { "fr": "Piscine ou espaces extérieurs", "en": "Pool or outdoor spaces", "es": "Piscina o espacios exteriores" },
+              { "fr": "Menu enfant et équipements bébé", "en": "Children’s menu and baby equipment", "es": "Menú infantil y equipamiento para bebés" }
+            ]
+          },
+          {
+            "titre": { "fr": "Concert ou spectacle", "en": "Concert or show", "es": "Concierto o espectáculo" },
+            "items": [
+              { "fr": "Distance à pied de la salle", "en": "Walking distance to the venue", "es": "Distancia a pie de la sala" },
+              { "fr": "Service en chambre à toute heure", "en": "Room service at any hour", "es": "Servicio de habitaciones a cualquier hora" },
+              { "fr": "Petit-déjeuner servi tard le dimanche", "en": "Late breakfast on Sundays", "es": "Desayuno servido tarde el domingo" }
+            ]
+          },
+          {
+            "titre": { "fr": "Pause bien-être", "en": "Wellness break", "es": "Pausa de bienestar" },
+            "items": [
+              { "fr": "Un vrai spa, pas un simple jacuzzi", "en": "A real spa, not just a jacuzzi", "es": "Un verdadero spa, no un simple jacuzzi" },
+              { "fr": "Soins réservables à l’avance", "en": "Treatments bookable in advance", "es": "Tratamientos reservables con antelación" },
+              { "fr": "Formules associant nuit et soins", "en": "Packages combining a night and treatments", "es": "Fórmulas que combinan noche y tratamientos" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "titre": {
+          "fr": "Ce que garantit vraiment le classement 4 étoiles",
+          "en": "What the 4-star rating really guarantees",
+          "es": "Lo que garantiza realmente la clasificación de 4 estrellas"
+        },
+        "paragraphes": [
+          {
+            "fr": "En France, le classement des hôtels, de 1 à 5 étoiles, est délivré par [Atout France](https://www.classement.atout-france.fr/), l’agence de développement touristique de l’État, après une visite d’inspection menée par un organisme accrédité. La démarche est volontaire et le classement est attribué pour cinq ans.",
+            "en": "In France, hotel ratings, from 1 to 5 stars, are issued by [Atout France](https://www.classement.atout-france.fr/), the national tourism development agency, after an inspection visit carried out by an accredited body. The process is voluntary and the rating is granted for five years.",
+            "es": "En Francia, la clasificación de los hoteles, de 1 a 5 estrellas, la otorga [Atout France](https://www.classement.atout-france.fr/), la agencia estatal de desarrollo turístico, tras una visita de inspección realizada por un organismo acreditado. El proceso es voluntario y la clasificación se concede por cinco años."
+          },
+          {
+            "fr": "La grille porte sur les équipements, le service rendu aux clients, l’accessibilité et le développement durable. Plus le nombre d’étoiles monte, plus les exigences augmentent sur la surface des chambres, l’accueil et l’étendue des services.",
+            "en": "The criteria cover facilities, guest service, accessibility and sustainable development. The higher the number of stars, the higher the requirements for room size, reception and the range of services.",
+            "es": "Los criterios abarcan las instalaciones, el servicio prestado a los clientes, la accesibilidad y el desarrollo sostenible. Cuantas más estrellas, más exigencias en cuanto a superficie de las habitaciones, recepción y amplitud de los servicios."
+          },
+          {
+            "fr": "Ce que le classement ne dit pas : où se trouve l’hôtel, s’il a un parking, une piscine, un spa ou des salles de réunion. Deux hôtels 4 étoiles peuvent proposer des séjours très différents. D’où l’intérêt de partir de votre séjour plutôt que des étoiles.",
+            "en": "What the rating does not tell you: where the hotel is, whether it has a car park, a pool, a spa or meeting rooms. Two 4-star hotels can offer very different stays. Hence the value of starting from your stay rather than from the stars.",
+            "es": "Lo que la clasificación no dice: dónde está el hotel, si tiene aparcamiento, piscina, spa o salas de reuniones. Dos hoteles de 4 estrellas pueden ofrecer estancias muy distintas. De ahí el interés de partir de su estancia y no de las estrellas."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "gauche",
+        "image": "/images/blog/salle-reunion-comite-direction-hotel-palladia.jpg",
+        "alt": {
+          "fr": "Salle de réunion lumineuse de l’Hôtel Palladia à Toulouse, avec table ovale, écran et vue sur le jardin",
+          "en": "Bright meeting room at the Hôtel Palladia in Toulouse, with an oval table, a screen and a view of the garden",
+          "es": "Sala de reuniones luminosa del Hôtel Palladia en Toulouse, con mesa ovalada, pantalla y vistas al jardín"
+        },
+        "titre": {
+          "fr": "Pour un déplacement professionnel : l’accès et le calme",
+          "en": "For a business trip: access and quiet",
+          "es": "Para un viaje de trabajo: acceso y tranquilidad"
+        },
+        "paragraphes": [
+          {
+            "fr": "Ce qui compte : rejoindre facilement l’aéroport et les axes routiers, se garer sans frais, travailler dans de bonnes conditions et dormir au calme.",
+            "en": "What matters: getting to the airport and main roads easily, parking at no cost, working in good conditions and sleeping somewhere quiet.",
+            "es": "Lo que importa: llegar fácilmente al aeropuerto y a las carreteras principales, aparcar sin coste, trabajar en buenas condiciones y dormir con tranquilidad."
+          },
+          {
+            "fr": "L’Hôtel Palladia est facilement accessible depuis l’aéroport de Toulouse-Blagnac, avec une navette sur réservation, sous réserve de disponibilité. Son parking de 250 places est gratuit, tout comme le wifi par fibre optique, et un business center met un ordinateur connecté à disposition.",
+            "en": "The Hôtel Palladia is easy to reach from Toulouse-Blagnac airport, with a shuttle available on request, subject to availability. Its 250-space car park is free, as is the fibre-optic wifi, and a business centre provides a connected computer.",
+            "es": "El Hôtel Palladia es de fácil acceso desde el aeropuerto de Toulouse-Blagnac, con un traslado bajo reserva y según disponibilidad. Su aparcamiento de 250 plazas es gratuito, al igual que el wifi por fibra óptica, y un business center pone a disposición un ordenador conectado."
+          },
+          {
+            "fr": "Si votre déplacement comprend une réunion, l’hôtel dispose d’un amphithéâtre de 285 places et de salles de réunion à la lumière du jour, présentés sur notre page [séminaires et événements professionnels](/seminaire-evenement-professionnel).",
+            "en": "If your trip includes a meeting, the hotel has a 285-seat amphitheatre and daylit meeting rooms, presented on our [seminars and business events](/seminaire-evenement-professionnel) page.",
+            "es": "Si su viaje incluye una reunión, el hotel dispone de un anfiteatro de 285 plazas y de salas de reuniones con luz natural, presentados en nuestra página de [seminarios y eventos profesionales](/seminaire-evenement-professionnel)."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "droite",
+        "image": "/images/blog/hotel-piscine-4-etoiles-toulouse.jpg",
+        "alt": {
+          "fr": "Piscine extérieure de l’Hôtel Palladia entourée de transats et de palmiers, à Toulouse",
+          "en": "Outdoor pool at the Hôtel Palladia surrounded by sun loungers and palm trees, in Toulouse",
+          "es": "Piscina exterior del Hôtel Palladia rodeada de tumbonas y palmeras, en Toulouse"
+        },
+        "titre": {
+          "fr": "En famille : l’espace et les à-côtés",
+          "en": "With the family: space and the extras",
+          "es": "En familia: el espacio y los extras"
+        },
+        "paragraphes": [
+          {
+            "fr": "Ce qui compte : des chambres où l’on ne s’entasse pas, de quoi occuper les enfants et un restaurant qui pense à eux.",
+            "en": "What matters: rooms where nobody is cramped, something to keep the children busy and a restaurant that thinks of them.",
+            "es": "Lo que importa: habitaciones donde nadie se amontona, algo para entretener a los niños y un restaurante que piense en ellos."
+          },
+          {
+            "fr": "Au Palladia, les chambres Confort et Prestige mesurent 27 m² et la Junior Suite 47 m². Des lits et chaises bébé sont prêtés sur demande, et le restaurant propose un menu enfant. De juin à fin septembre, la piscine extérieure change les fins d’après-midi.",
+            "en": "At the Palladia, the Comfort and Prestige rooms measure 27 m² and the Junior Suite 47 m². Cots and high chairs are available on request, and the restaurant offers a children’s menu. From June to the end of September, the outdoor pool transforms late afternoons.",
+            "es": "En el Palladia, las habitaciones Confort y Prestige miden 27 m² y la Junior Suite 47 m². Se prestan cunas y tronas a petición, y el restaurante ofrece un menú infantil. De junio a finales de septiembre, la piscina exterior cambia el final de la tarde."
+          },
+          {
+            "fr": "Nous avons consacré un article complet au [séjour en famille à Toulouse](/sejour-en-famille-a-toulouse-hotel-palladia), avec les visites qui plaisent aux enfants.",
+            "en": "We have devoted a full article to [family stays in Toulouse](/sejour-en-famille-a-toulouse-hotel-palladia), including the visits children enjoy.",
+            "es": "Hemos dedicado un artículo completo a la [estancia en familia en Toulouse](/sejour-en-famille-a-toulouse-hotel-palladia), con las visitas que gustan a los niños."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "fond_gris": true,
+        "titre": {
+          "fr": "Pour un concert ou un spectacle : la distance à pied",
+          "en": "For a concert or show: walking distance",
+          "es": "Para un concierto o un espectáculo: la distancia a pie"
+        },
+        "paragraphes": [
+          {
+            "fr": "Ce qui compte : pouvoir rentrer à pied après le dernier rappel, sans chercher de taxi ni reprendre le volant.",
+            "en": "What matters: being able to walk back after the last encore, without looking for a taxi or getting behind the wheel again.",
+            "es": "Lo que importa: poder volver a pie después del último bis, sin buscar taxi ni volver a ponerse al volante."
+          },
+          {
+            "fr": "L’hôtel se trouve sur la même avenue de Grande-Bretagne que le Zénith de Toulouse. Notre article sur [le Zénith et l’Hôtel Palladia](/zenith-de-toulouse-hotel-palladia) détaille cette soirée type. Au retour, le room service fonctionne 24 h/24, et le dimanche, le petit-déjeuner est servi jusqu’à 11 h.",
+            "en": "The hotel is on the same avenue de Grande-Bretagne as the Zénith de Toulouse. Our article on [the Zénith and the Hôtel Palladia](/zenith-de-toulouse-hotel-palladia) describes this kind of evening. When you get back, room service runs 24 hours a day, and on Sundays breakfast is served until 11 am.",
+            "es": "El hotel se encuentra en la misma avenue de Grande-Bretagne que el Zénith de Toulouse. Nuestro artículo sobre [el Zénith y el Hôtel Palladia](/zenith-de-toulouse-hotel-palladia) detalla este tipo de velada. A la vuelta, el servicio de habitaciones funciona las 24 horas, y el domingo el desayuno se sirve hasta las 11:00."
+          },
+          {
+            "fr": "Certains soirs, le spectacle a même lieu à l’hôtel, qui programme ses propres dîners-spectacles au fil de la saison.",
+            "en": "Some evenings, the show even takes place at the hotel, which runs its own dinner shows throughout the season.",
+            "es": "Algunas noches, el espectáculo tiene lugar incluso en el hotel, que programa sus propias cenas espectáculo a lo largo de la temporada."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte_image",
+      "contenu": {
+        "pleine_largeur": true,
+        "position": "gauche",
+        "image": "/images/spa/vue-1.jpg",
+        "alt": {
+          "fr": "Jacuzzi et transats de l’espace détente du spa de l’Hôtel Palladia à Toulouse",
+          "en": "Jacuzzi and loungers in the relaxation area of the Hôtel Palladia spa in Toulouse",
+          "es": "Jacuzzi y tumbonas en la zona de relajación del spa del Hôtel Palladia en Toulouse"
+        },
+        "titre": {
+          "fr": "Pour une pause bien-être : un vrai spa",
+          "en": "For a wellness break: a proper spa",
+          "es": "Para una pausa de bienestar: un verdadero spa"
+        },
+        "paragraphes": [
+          {
+            "fr": "Ce qui compte : un spa digne de ce nom, pas une simple salle équipée d’un jacuzzi, et la possibilité d’y réserver des soins.",
+            "en": "What matters: a spa worthy of the name, not just a room with a jacuzzi, and the option to book treatments.",
+            "es": "Lo que importa: un spa digno de ese nombre, no una simple sala con jacuzzi, y la posibilidad de reservar tratamientos."
+          },
+          {
+            "fr": "Le [spa de l’Hôtel Palladia](/spa) s’étend sur 300 m², avec jacuzzi, hammam, massages et soins du visage, réservables en ligne. Il est ouvert 7 jours sur 7, hors jours fériés, aux clients de l’hôtel comme aux visiteurs extérieurs, et réservé aux plus de 16 ans.",
+            "en": "The [Hôtel Palladia spa](/spa) covers 300 m², with a jacuzzi, hammam, massages and facials that can be booked online. It is open 7 days a week, except public holidays, to hotel guests and outside visitors alike, and is reserved for over-16s.",
+            "es": "El [spa del Hôtel Palladia](/spa) ocupa 300 m², con jacuzzi, hammam, masajes y tratamientos faciales reservables en línea. Abre los 7 días de la semana, salvo festivos, tanto para los clientes del hotel como para visitantes externos, y está reservado a mayores de 16 años."
+          },
+          {
+            "fr": "Des formules associent une nuit, un accès au spa et un massage : leur contenu et leurs conditions sont détaillés sur la page du spa.",
+            "en": "Packages combine a night, spa access and a massage: their content and conditions are set out on the spa page.",
+            "es": "Varias fórmulas combinan una noche, acceso al spa y un masaje: su contenido y sus condiciones se detallan en la página del spa."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "titre": {
+          "fr": "Centre historique ou quartier calme : quel emplacement ?",
+          "en": "Historic centre or quiet district: which location?",
+          "es": "Centro histórico o barrio tranquilo: ¿qué ubicación?"
+        },
+        "paragraphes": [
+          {
+            "fr": "Un hôtel 4 étoiles du centre historique met le Capitole à quelques pas, mais le stationnement y est plus compliqué et les rues plus animées le soir.",
+            "en": "A 4-star hotel in the historic centre puts the Capitole a few steps away, but parking is harder and the streets are livelier at night.",
+            "es": "Un hotel de 4 estrellas del centro histórico deja el Capitole a pocos pasos, pero el aparcamiento es más complicado y las calles más animadas por la noche."
+          },
+          {
+            "fr": "Un hôtel situé hors de l’hypercentre, comme le Palladia à Purpan, mise sur l’accès : parking gratuit, tram à une minute à pied, centre-ville à une dizaine de minutes en voiture, aéroport facilement accessible.",
+            "en": "A hotel outside the very centre, like the Palladia in Purpan, focuses on access: free parking, the tram one minute’s walk away, the city centre around ten minutes by car and the airport within easy reach.",
+            "es": "Un hotel situado fuera del hipercentro, como el Palladia en Purpan, apuesta por el acceso: aparcamiento gratuito, tranvía a un minuto a pie, centro a unos diez minutos en coche y aeropuerto de fácil acceso."
+          },
+          {
+            "fr": "Le bon choix dépend de votre mode de déplacement : à pied et sans voiture, le centre l’emporte souvent ; en voiture, ou avec un programme réparti dans toute l’agglomération, un hôtel bien desservi fait gagner du temps chaque jour.",
+            "en": "The right choice depends on how you get around: on foot and without a car, the centre often wins; by car, or with plans spread across the metropolitan area, a well-connected hotel saves time every day.",
+            "es": "La elección adecuada depende de cómo se desplace: a pie y sin coche, el centro suele ganar; en coche, o con un programa repartido por toda el área metropolitana, un hotel bien comunicado ahorra tiempo cada día."
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "fond_gris": true,
+        "titre": {
+          "fr": "Hôtel de chaîne ou hôtel indépendant ?",
+          "en": "Chain hotel or independent hotel?",
+          "es": "¿Hotel de cadena u hotel independiente?"
+        },
+        "paragraphes": [
+          {
+            "fr": "À Toulouse, les hôtels 4 étoiles se partagent entre établissements de chaînes et hôtels indépendants. Les premiers offrent des standards identiques d’une ville à l’autre ; les seconds ont chacun leur histoire et leur caractère.",
+            "en": "In Toulouse, 4-star hotels are split between chain properties and independent hotels. The former offer the same standards from one city to the next; the latter each have their own history and character.",
+            "es": "En Toulouse, los hoteles de 4 estrellas se reparten entre establecimientos de cadena y hoteles independientes. Los primeros ofrecen estándares idénticos de una ciudad a otra; los segundos tienen cada uno su historia y su carácter."
+          },
+          {
+            "fr": "L’Hôtel Palladia est indépendant. Fondé il y a plus de trente ans par Georges Miatto, il tire son nom de Palladia Tolosa, le nom antique de Toulouse, et n’appartient à aucune chaîne.",
+            "en": "The Hôtel Palladia is independent. Founded more than thirty years ago by Georges Miatto, it takes its name from Palladia Tolosa, the ancient name of Toulouse, and belongs to no chain.",
+            "es": "El Hôtel Palladia es independiente. Fundado hace más de treinta años por Georges Miatto, debe su nombre a Palladia Tolosa, el nombre antiguo de Toulouse, y no pertenece a ninguna cadena."
+          },
+          {
+            "fr": "Un dernier critère pèse de plus en plus dans le choix : l’engagement environnemental. L’hôtel est labellisé [Clef Verte](https://www.laclefverte.org/), un label environnemental international destiné aux hébergements touristiques.",
+            "en": "One last criterion is increasingly important: environmental commitment. The hotel holds the [Green Key](https://www.laclefverte.org/) (Clef Verte) label, an international environmental label for tourist accommodation.",
+            "es": "Un último criterio pesa cada vez más en la elección: el compromiso medioambiental. El hotel cuenta con la etiqueta [Clef Verte](https://www.laclefverte.org/) (Green Key), un distintivo medioambiental internacional destinado a los alojamientos turísticos."
+          }
+        ]
+      }
+    },
+    {
+      "type": "sections",
+      "contenu": {
+        "faq": true,
+        "taille_titre": "moyen",
+        "titre": {
+          "fr": "Questions fréquentes sur les hôtels 4 étoiles à Toulouse",
+          "en": "Frequently asked questions about 4-star hotels in Toulouse",
+          "es": "Preguntas frecuentes sobre los hoteles de 4 estrellas en Toulouse"
+        },
+        "sections": [
+          {
+            "titre": {
+              "fr": "Quel hôtel 4 étoiles choisir à Toulouse ?",
+              "en": "Which 4-star hotel should you choose in Toulouse?",
+              "es": "¿Qué hotel de 4 estrellas elegir en Toulouse?"
+            },
+            "intro": {
+              "fr": "Celui qui correspond à votre séjour : l’accès et le stationnement pour un déplacement professionnel, l’espace et la piscine en famille, la distance à pied pour un concert, un vrai spa pour une pause bien-être. L’Hôtel Palladia, 4 étoiles indépendant à Purpan, réunit parking gratuit, piscine extérieure en saison, spa de 300 m² et proximité du Zénith.",
+              "en": "The one that matches your stay: access and parking for a business trip, space and a pool for a family, walking distance for a concert, a proper spa for a wellness break. The Hôtel Palladia, an independent 4-star hotel in Purpan, combines free parking, a seasonal outdoor pool, a 300 m² spa and proximity to the Zénith.",
+              "es": "El que corresponda a su estancia: acceso y aparcamiento para un viaje de trabajo, espacio y piscina en familia, distancia a pie para un concierto, un verdadero spa para una pausa de bienestar. El Hôtel Palladia, hotel independiente de 4 estrellas en Purpan, reúne aparcamiento gratuito, piscina exterior en temporada, spa de 300 m² y la cercanía del Zénith."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Qui attribue les étoiles d’un hôtel en France ?",
+              "en": "Who awards hotel stars in France?",
+              "es": "¿Quién concede las estrellas de un hotel en Francia?"
+            },
+            "intro": {
+              "fr": "Atout France, l’agence de développement touristique de l’État, après une visite d’inspection réalisée par un organisme accrédité. Le classement va de 1 à 5 étoiles et il est attribué pour cinq ans.",
+              "en": "Atout France, the national tourism development agency, after an inspection visit by an accredited body. Ratings range from 1 to 5 stars and are granted for five years.",
+              "es": "Atout France, la agencia estatal de desarrollo turístico, tras una visita de inspección realizada por un organismo acreditado. La clasificación va de 1 a 5 estrellas y se concede por cinco años."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Un hôtel 4 étoiles a-t-il forcément un spa ou une piscine ?",
+              "en": "Does a 4-star hotel always have a spa or a pool?",
+              "es": "¿Tiene un hotel de 4 estrellas obligatoriamente spa o piscina?"
+            },
+            "intro": {
+              "fr": "Non. Le classement porte sur le confort, le service et l’accessibilité, pas sur ces équipements. Vérifiez-les hôtel par hôtel. À l’Hôtel Palladia, le spa de 300 m² est ouvert 7 jours sur 7 hors jours fériés, et la piscine extérieure de juin à fin septembre.",
+              "en": "No. The rating covers comfort, service and accessibility, not these facilities. Check them hotel by hotel. At the Hôtel Palladia, the 300 m² spa is open 7 days a week except public holidays, and the outdoor pool from June to the end of September.",
+              "es": "No. La clasificación se refiere al confort, el servicio y la accesibilidad, no a estas instalaciones. Compruébelas hotel por hotel. En el Hôtel Palladia, el spa de 300 m² abre los 7 días de la semana salvo festivos, y la piscina exterior de junio a finales de septiembre."
+            }
+          },
+          {
+            "titre": {
+              "fr": "L’Hôtel Palladia appartient-il à une chaîne ?",
+              "en": "Does the Hôtel Palladia belong to a chain?",
+              "es": "¿Pertenece el Hôtel Palladia a una cadena?"
+            },
+            "intro": {
+              "fr": "Non. C’est un hôtel 4 étoiles indépendant, fondé par Georges Miatto et exploité par la Société De Gestion Hôtelière Le Palladia, au 271 avenue de Grande-Bretagne à Toulouse.",
+              "en": "No. It is an independent 4-star hotel, founded by Georges Miatto and operated by the Société De Gestion Hôtelière Le Palladia, at 271 avenue de Grande-Bretagne in Toulouse.",
+              "es": "No. Es un hotel independiente de 4 estrellas, fundado por Georges Miatto y gestionado por la Société De Gestion Hôtelière Le Palladia, en el 271 de la avenue de Grande-Bretagne en Toulouse."
+            }
+          },
+          {
+            "titre": {
+              "fr": "Le parking est-il inclus ?",
+              "en": "Is parking included?",
+              "es": "¿Está incluido el aparcamiento?"
+            },
+            "intro": {
+              "fr": "À l’Hôtel Palladia, oui : le parking de 250 places est gratuit pour les clients, avec des emplacements équipés de bornes de recharge électrique.",
+              "en": "At the Hôtel Palladia, yes: the 250-space car park is free for guests, with spaces equipped with electric charging points.",
+              "es": "En el Hôtel Palladia, sí: el aparcamiento de 250 plazas es gratuito para los clientes, con plazas equipadas con puntos de recarga eléctrica."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "texte",
+      "contenu": {
+        "centre": true,
+        "taille_titre": "moyen",
+        "titre": {
+          "fr": "Choisir sa chambre au Palladia",
+          "en": "Choosing your room at the Palladia",
+          "es": "Elegir habitación en el Palladia"
+        },
+        "paragraphes": [
+          {
+            "fr": "De la chambre Confort à La Suite et sa terrasse privative, comparez les quatre catégories et réservez en direct pour bénéficier du meilleur tarif garanti.",
+            "en": "From the Comfort room to La Suite with its private terrace, compare the four categories and book direct for the best rate guaranteed.",
+            "es": "De la habitación Confort a La Suite con su terraza privada, compare las cuatro categorías y reserve directamente para disfrutar de la mejor tarifa garantizada."
+          }
+        ],
+        "boutons": [
+          {
+            "label": { "fr": "Comparer nos chambres", "en": "Compare our rooms", "es": "Comparar nuestras habitaciones" },
+            "href": "/chambres"
+          }
+        ]
+      }
+    }
+  ]
+}
