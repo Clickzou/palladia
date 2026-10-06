@@ -1,0 +1,102 @@
+[
+  {
+    "id": "2026-10-description-restaurant-horaires-bar",
+    "titre": "Corriger la description Google du restaurant, qui affiche les horaires du bar",
+    "probleme": "Constaté en ligne le 06/10/2026 : sous le lien du restaurant, Google affiche « Ouvert tous les jours de 10h00 à 23h00, fermé dimanche et jours fériés. Modes de paiement acceptés : Cartes de crédit, espèces... ». Ce sont les horaires du bar lounge. La page indique pour le restaurant : du lundi au vendredi de 12h à 14h et de 19h à 21h45, le samedi de 19h à 21h45. Un client peut croire le restaurant ouvert le samedi midi. La page restaurant a reçu 236 clics en 90 jours (Search Console).",
+    "correction": "Remplacer la description par une phrase fidèle à la page, en français, anglais et espagnol, par exemple : « Restaurant de l'Hôtel Palladia à Toulouse Purpan : cuisine du Sud-Ouest de saison, ouvert du lundi au vendredi midi et soir et le samedi soir. Réservation en ligne. » À valider par vous avant la mise en ligne (règle de fidélité au contenu d'origine).",
+    "type": "technique",
+    "qui": "vous",
+    "statut": "prevue",
+    "prevue_le": "2026-10-07",
+    "faite_le": null,
+    "verifiee_le": null,
+    "mesure": "description",
+    "questions": []
+  },
+  {
+    "id": "2026-10-schema-articles-relies-hotel",
+    "titre": "Relier les articles à la fiche de l'hôtel pour les moteurs",
+    "probleme": "Relevé du 05/10/2026 : 0 réponse sur 11 cite l'hôtel pour « Où dormir près de l'aéroport de Toulouse-Blagnac ? », « Qu'est-ce qu'un séminaire résidentiel ? », « Comment choisir le lieu d'un séminaire d'entreprise ? » et « Quel format choisir pour un événement professionnel ? », alors que le site a un article sur chacune. Constaté en ligne le 06/10/2026 : la fiche « Article » lue par les moteurs ne donne ni l'adresse de la page, ni le résumé, ni la langue, et son auteur n'est pas relié à la fiche de l'hôtel (adresse, 4 étoiles, 90 chambres) posée sur l'accueil.",
+    "correction": "Compléter la fiche « Article » de chaque article : adresse de la page, résumé (la description déjà rédigée), langue de la page, et auteur et éditeur reliés à la fiche de l'hôtel de l'accueil. Aucun texte visible ne change.",
+    "type": "technique",
+    "qui": "pulse",
+    "statut": "prevue",
+    "prevue_le": "2026-10-08",
+    "faite_le": null,
+    "verifiee_le": null,
+    "mesure": "citation",
+    "questions": [
+      "Où dormir près de l'aéroport de Toulouse-Blagnac ?",
+      "Qu'est-ce qu'un séminaire résidentiel ?",
+      "Comment choisir le lieu d'un séminaire d'entreprise ?",
+      "Quel format choisir pour un événement professionnel ?"
+    ]
+  },
+  {
+    "id": "2026-10-nombre-salles-reunion",
+    "titre": "Trancher le nombre de salles de réunion (16 ou 13)",
+    "probleme": "Constaté en ligne le 06/10/2026 : la page séminaire et sa description Google annoncent « 16 salles de réunion pouvant accueillir jusqu'à 400 personnes », alors que la fiche technique de la même page liste 13 salons ; d'anciens articles parlaient de 15. Relevé du 05/10/2026 : 3 réponses sur 11 seulement citent l'hôtel pour « Où organiser un séminaire d'entreprise à Toulouse ? ». Search Console : position moyenne 19,2 pour 9 962 affichages et 31 clics en 90 jours.",
+    "correction": "Nous indiquer le nombre exact de salles de réunion et la capacité maximale. Le chiffre retenu sera ensuite reporté partout où il apparaît (page séminaire, description Google), dans les trois langues.",
+    "type": "contenu",
+    "qui": "vous",
+    "statut": "prevue",
+    "prevue_le": "2026-10-14",
+    "faite_le": null,
+    "verifiee_le": null,
+    "mesure": "citation",
+    "questions": [
+      "Où organiser un séminaire d'entreprise à Toulouse ?"
+    ]
+  },
+  {
+    "id": "2026-10-fiche-presentation-ia",
+    "titre": "Publier une fiche de présentation de l'hôtel destinée aux IA",
+    "probleme": "Relevé du 05/10/2026 : l'hôtel n'est cité dans aucune réponse sur 11 pour l'aéroport, le week-end à Toulouse et le mariage, et dans 1 sur 11 pour le choix d'un hôtel 4 étoiles. Constaté en ligne le 06/10/2026 : le site n'a pas de fiche de présentation pour les IA (l'adresse /llms.txt répond « page introuvable »).",
+    "correction": "Publier à l'adresse /llms.txt une présentation courte et factuelle, en français, reprise uniquement des faits déjà publiés sur le site : nom, adresse à Purpan, 4 étoiles, 90 chambres, spa de 300 m² ouvert à tous, restaurant, salles de séminaire et amphithéâtre de 285 places, piscine, parking gratuit, navette aéroport sur réservation, Clef Verte 2026, et les liens vers les pages principales. Aucun chiffre non confirmé (nombre de salles, capacité mariage, prix).",
+    "type": "technique",
+    "qui": "pulse",
+    "statut": "prevue",
+    "prevue_le": "2026-10-15",
+    "faite_le": null,
+    "verifiee_le": null,
+    "mesure": "citation",
+    "questions": [
+      "Quel hôtel 4 étoiles choisir à Toulouse ?",
+      "Où dormir près de l'aéroport de Toulouse-Blagnac ?",
+      "Que visiter à Toulouse en un week-end ?"
+    ]
+  },
+  {
+    "id": "2026-10-page-mariage-informations",
+    "titre": "Fournir les informations pour enrichir la page mariage",
+    "probleme": "Relevé du 05/10/2026 : 0 réponse sur 10 cite l'hôtel pour « Quelle salle de réception pour un mariage à Toulouse avec hébergement sur place ? » ; la place est prise par des domaines (Gailhaguet, Montjoie, Launac). Constaté en ligne le 06/10/2026 : la page mariage compte environ 150 mots (un paragraphe, la salle de 500 m² en bord de piscine, les contacts) et aucune des pages principales du site n'y renvoie. Search Console : position moyenne 17,3.",
+    "correction": "Nous transmettre : nombre d'invités en repas assis et en cocktail, salles utilisées, existence d'un forfait mariage, possibilités d'hébergement des invités, heure de fin de soirée. Avec ces éléments et votre accord, la page sera enrichie dans les trois langues et reliée depuis les pages qui parlent d'événements.",
+    "type": "contenu",
+    "qui": "vous",
+    "statut": "prevue",
+    "prevue_le": "2026-10-21",
+    "faite_le": null,
+    "verifiee_le": null,
+    "mesure": "citation",
+    "questions": [
+      "Quelle salle de réception pour un mariage à Toulouse avec hébergement sur place ?"
+    ]
+  },
+  {
+    "id": "2026-10-schema-spa",
+    "titre": "Donner au spa sa propre fiche pour les moteurs",
+    "probleme": "Relevé du 05/10/2026 : 6 réponses sur 11 citent l'hôtel pour « Quel hôtel avec piscine et spa à Toulouse ? » et 6 sur 11 pour « Quel coffret cadeau hôtel, spa et restaurant offrir à Toulouse ? ». Constaté en ligne le 06/10/2026 : la page spa ne porte qu'un fil d'Ariane pour les moteurs ; seule la fiche de l'hôtel, sur l'accueil, mentionne « Spa : oui », sans surface, sans téléphone ni réservation.",
+    "correction": "Ajouter sur la page spa, dans les trois langues, une fiche « spa de jour » lisible par les moteurs, rattachée à la fiche de l'hôtel : nom, 300 m², ouvert à tous, adresse de l'hôtel, téléphone du spa (05 62 86 94 09), lien de réservation en ligne. Uniquement des informations déjà publiées sur la page ; aucun texte visible ne change.",
+    "type": "technique",
+    "qui": "pulse",
+    "statut": "prevue",
+    "prevue_le": "2026-10-22",
+    "faite_le": null,
+    "verifiee_le": null,
+    "mesure": "citation",
+    "questions": [
+      "Quel hôtel avec piscine et spa à Toulouse ?",
+      "Quel coffret cadeau hôtel, spa et restaurant offrir à Toulouse ?"
+    ]
+  }
+]
