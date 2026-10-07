@@ -1,5 +1,6 @@
 import { createClient } from "./supabase/server";
 import { supabaseConfigure } from "./blog";
+import type { ArticleComplet, BlocContenu } from "./supabase/types";
 
 export type Offre = {
   id: string;
@@ -39,4 +40,41 @@ export async function offresEnCours(): Promise<Offre[]> {
     return [];
   }
   return data ?? [];
+}
+
+/**
+ * Remplace le texte des blocs relies a une offre (`contenu.offre`) par le
+ * contenu de l'offre, tant qu'elle est en cours. Hors de sa fenetre, l'offre
+ * n'est pas renvoyee par `offres_en_cours` et le bloc garde son texte
+ * permanent : un tarif ne survit jamais a sa saison dans un article.
+ *
+ * A appeler AVANT traduireContenu, pour que les phrases de l'offre passent
+ * par le dictionnaire comme le reste de l'article.
+ */
+export async function appliquerOffres(article: ArticleComplet): Promise<ArticleComplet> {
+  const relies = article.blocs.some(
+    (b) => b.type === "texte" && (b.contenu as BlocContenu["texte"]).offre,
+  );
+  if (!relies) return article;
+
+  const offres = await offresEnCours();
+  return {
+    ...article,
+    blocs: article.blocs.map((b) => {
+      const c = b.contenu as BlocContenu["texte"];
+      if (b.type !== "texte" || !c.offre) return b;
+      const offre = offres.find((o) => o.slug === c.offre);
+      if (!offre) return b;
+      return {
+        ...b,
+        contenu: {
+          ...c,
+          titre: c.titre_offre ?? c.titre,
+          paragraphes: offre.paragraphes,
+          liste: offre.inclus.length > 0 ? offre.inclus : undefined,
+          note: offre.conditions ?? c.note,
+        },
+      };
+    }),
+  };
 }

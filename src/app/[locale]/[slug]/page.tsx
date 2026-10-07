@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import VueArticle from "@/components/blog/VueArticle";
 import { lireArticle } from "@/lib/blog";
+import { appliquerOffres } from "@/lib/offres";
 import { traduireContenu } from "@/i18n/contenu";
 import { ogLocale } from "@/data/seo";
 
@@ -50,8 +51,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticlePage({ params }: Props) {
   const { locale, slug } = await params;
-  const source = await lireArticle(slug, locale);
-  if (!source) notFound();
+  const lu = await lireArticle(slug, locale);
+  if (!lu) notFound();
+  // Les blocs relies a une offre prennent ses tarifs tant qu'elle est en cours.
+  const source = await appliquerOffres(lu);
 
   return <VueArticle article={traduireContenu(source, locale)} locale={locale} slug={slug} />;
 }

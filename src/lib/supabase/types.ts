@@ -59,6 +59,15 @@ export type BlocContenu = {
     /** Gabarit etendu (1880 px) plutot que la largeur de contenu (1140 px) */
     large?: boolean;
     boutons?: { label: string; href: string; externe?: boolean }[];
+    /**
+     * Slug d'une offre (table `offres`). Tant que l'offre est dans sa fenetre
+     * d'affichage, ses paragraphes, ce qu'elle inclut et ses conditions
+     * remplacent le texte du bloc ; ensuite le bloc retombe sur son texte.
+     * Les prix vivent ainsi dans une table qui expire, jamais dans l'article.
+     */
+    offre?: string;
+    /** Titre du bloc pendant que l'offre est affichee. */
+    titre_offre?: string;
   };
   texte_image: {
     titre?: string;
