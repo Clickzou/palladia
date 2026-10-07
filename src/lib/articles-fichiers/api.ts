@@ -2,7 +2,7 @@ import { seo } from "@/data/seo";
 import { supabaseConfigure } from "@/lib/blog";
 import { createClient } from "@/lib/supabase/server";
 import type { Article, ArticleComplet, Bloc } from "@/lib/supabase/types";
-import { type ArticleFichier, dateAtteinte, tousLesArticlesFichiers, versArticleComplet } from "./index";
+import { type ArticleFichier, estEnLigne, estReservePremium, tousLesArticlesFichiers, versArticleComplet } from "./index";
 import { MOTS_CLES_BASE } from "./mots-cles-base";
 import { cheminApercu } from "./tableau-de-bord";
 
@@ -26,6 +26,11 @@ export type ArticleClient = {
   chapo: string;
   essentiel: { reponse: string; points: string[] };
   pilier: { href: string; ancre: string };
+  /**
+   * Article rédigé mais réservé au pack Full SEO (premium.ts) : jamais publié,
+   * toujours « programme », sans aperçu. Contrat clickzou-v2 `reservePremium`.
+   */
+  reservePremium?: boolean;
   /** Hors contrat Clickzou, informatif : d'où vient l'article. */
   source: "base" | "fichier";
 };
@@ -89,13 +94,13 @@ function premierParagraphe(blocs: Bloc[]): string {
 
 function versClient(
   a: ArticleComplet,
-  extra: { statut: "publie" | "programme"; motCle: string; motsClesSecondaires: string[]; points?: string[]; pilier?: { href: string; ancre: string }; source: "base" | "fichier" },
+  extra: { statut: "publie" | "programme"; motCle: string; motsClesSecondaires: string[]; points?: string[]; pilier?: { href: string; ancre: string }; source: "base" | "fichier"; reservePremium?: boolean },
   origine: string,
 ): ArticleClient {
   const chemin = `/${a.slug}`;
   const chapo = brut(a.chapo ?? a.seo_description ?? premierParagraphe(a.blocs));
   const image = a.image_vignette ?? a.image_hero;
-  const apercu = extra.statut === "programme" ? cheminApercu(a.slug) : null;
+  const apercu = extra.statut === "programme" && !extra.reservePremium ? cheminApercu(a.slug) : null;
   return {
     slug: a.slug,
     titre: a.titre,
@@ -112,6 +117,7 @@ function versClient(
     chapo,
     essentiel: { reponse: chapo, points: extra.points ?? intertitres(a.blocs) },
     pilier: extra.pilier ?? pilierDepuisBlocs(a.blocs),
+    ...(extra.reservePremium ? { reservePremium: true } : {}),
     source: extra.source,
   };
 }
@@ -120,12 +126,13 @@ export function articleFichierVersClient(f: ArticleFichier, origine: string): Ar
   return versClient(
     versArticleComplet(f, "fr"),
     {
-      statut: dateAtteinte(f) ? "publie" : "programme",
+      statut: estEnLigne(f) ? "publie" : "programme",
       motCle: f.motCle,
       motsClesSecondaires: f.motsClesSecondaires ?? [],
       points: f.aRetenir ? f.aRetenir.map((p) => brut(p.fr)) : undefined,
       pilier: f.pilier,
       source: "fichier",
+      reservePremium: estReservePremium(f),
     },
     origine,
   );

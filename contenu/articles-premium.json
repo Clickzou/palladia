@@ -1,0 +1,5 @@
+{
+  "_note": "Articles fichiers (contenu/articles/*.json) réservés au pack Full SEO (décision de JC du 07/10/2026, « option A »). \"publier\": false = les articles dont la date de parution est APRÈS \"reservesApres\" ne paraissent pas (404, absents des actualités et du sitemap, pas d'aperçu signé) ; l'API du tableau de bord Clickzou les renvoie en « programme » avec reservePremium: true. Les articles déjà en ligne (base Supabase, et fichiers datés au plus tard de \"reservesApres\") ne changent pas. Pour publier : passer \"publier\" à true, commit + push ; chaque article paraît alors à sa date (tout de suite si elle est passée). Lu par src/lib/articles-fichiers/premium.ts.",
+  "publier": false,
+  "reservesApres": "2026-10-07"
+}

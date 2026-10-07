@@ -37,6 +37,23 @@ try {
   }
 }
 
+// Réservation au pack Full SEO (contenu/articles-premium.json, même règle que src/lib/articles-fichiers/premium.ts).
+let reglagePremium = { publier: true, reservesApres: "" };
+const fichierPremium = path.join(racine, "contenu", "articles-premium.json");
+if (existsSync(fichierPremium)) {
+  try {
+    reglagePremium = JSON.parse(readFileSync(fichierPremium, "utf8"));
+  } catch (e) {
+    console.error(`✗ contenu/articles-premium.json illisible : ${e.message}`);
+    process.exit(1);
+  }
+  if (typeof reglagePremium.publier !== "boolean" || !/^\d{4}-\d{2}-\d{2}$/.test(reglagePremium.reservesApres ?? "")) {
+    console.error("✗ contenu/articles-premium.json : \"publier\" (true/false) et \"reservesApres\" (AAAA-MM-JJ) sont obligatoires");
+    process.exit(1);
+  }
+}
+const reserve = (a) => reglagePremium.publier !== true && a.datePublication > reglagePremium.reservesApres;
+
 let erreursTotal = 0;
 const slugs = new Set();
 for (const nom of noms) {
@@ -54,7 +71,7 @@ for (const nom of noms) {
   if (corrections[article.slug]?.champs && Object.keys(corrections[article.slug].champs).length) {
     alertes.push("corrections du client en attente : les reporter dans le fichier (fr), retraduire en et es, puis retirer l'entrée de contenu/corrections-client.json");
   }
-  const etat = article.brouillon ? "brouillon" : article.datePublication;
+  const etat = article.brouillon ? "brouillon" : `${article.datePublication}${reserve(article) ? ", réservé au pack Full SEO : non publié" : ""}`;
   if (erreurs.length) {
     erreursTotal += erreurs.length;
     console.error(`✗ ${nom} (${etat})`);

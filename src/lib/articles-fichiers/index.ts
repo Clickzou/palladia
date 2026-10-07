@@ -3,6 +3,7 @@ import path from "node:path";
 import { seo } from "@/data/seo";
 import { dateDuJourAParis } from "@/lib/dates";
 import type { ArticleComplet, Bloc, BlocType } from "@/lib/supabase/types";
+import { estReservePremium } from "./premium";
 import { estTriplet, validerArticle } from "./valider.mjs";
 
 /**
@@ -158,10 +159,20 @@ export function dateAtteinte(a: ArticleFichier): boolean {
   return a.datePublication <= dateDuJourAParis();
 }
 
-/** Articles en ligne (ni brouillon, ni programmé), du plus récent au plus ancien. */
+export { estReservePremium };
+
+/**
+ * Vrai si l'article est visible sur le site : date atteinte ET non réservé au
+ * pack Full SEO (premium.ts, décision de JC du 07/10/2026).
+ */
+export function estEnLigne(a: ArticleFichier): boolean {
+  return dateAtteinte(a) && !estReservePremium(a);
+}
+
+/** Articles en ligne (ni brouillon, ni programmé, ni réservé), du plus récent au plus ancien. */
 export function articlesFichiersPublies(): ArticleFichier[] {
   return tousLesArticlesFichiers()
-    .filter((a) => !a.brouillon && dateAtteinte(a))
+    .filter((a) => !a.brouillon && estEnLigne(a))
     .sort((a, b) => b.datePublication.localeCompare(a.datePublication));
 }
 

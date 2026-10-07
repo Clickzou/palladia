@@ -1,6 +1,6 @@
 import { createClient } from "./supabase/server";
 import type { Article, ArticleComplet, Bloc } from "./supabase/types";
-import { articleFichier, articlesFichiersPublies, dateAtteinte, versArticleComplet } from "./articles-fichiers";
+import { articleFichier, articlesFichiersPublies, estEnLigne, versArticleComplet } from "./articles-fichiers";
 
 /**
  * Le blog réunit deux sources :
@@ -130,7 +130,8 @@ async function lireArticleEnBase(slug: string, locale: string): Promise<ArticleC
  * En base, faute de version traduite, on sert la version française plutôt
  * qu’une page introuvable : le contenu éditorial est traduit à l’affichage par
  * le dictionnaire. Un article fichier, lui, porte ses trois langues ; s’il est
- * programmé (date future), il reste introuvable : 404.
+ * programmé (date future) ou réservé au pack Full SEO (premium.ts), il reste
+ * introuvable : 404.
  */
 export async function lireArticle(
   slug: string,
@@ -139,7 +140,7 @@ export async function lireArticle(
   const enBase = await lireArticleEnBase(slug, locale);
   if (enBase) return enBase;
   const fichier = articleFichier(slug);
-  return fichier && dateAtteinte(fichier) ? versArticleComplet(fichier, locale) : null;
+  return fichier && estEnLigne(fichier) ? versArticleComplet(fichier, locale) : null;
 }
 
 /** Slugs publiés, pour la génération statique et le sitemap. */

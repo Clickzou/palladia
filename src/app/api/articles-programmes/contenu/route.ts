@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { articleFichier, dateAtteinte, FICHIER_CORRECTIONS } from "@/lib/articles-fichiers";
+import { articleFichier, estEnLigne, estReservePremium, FICHIER_CORRECTIONS } from "@/lib/articles-fichiers";
 import { articlesBaseComplets } from "@/lib/articles-fichiers/api";
 import { champsEditables } from "@/lib/articles-fichiers/edition";
 import { ENTETES_TABLEAU_DE_BORD, refusTableauDeBord } from "@/lib/articles-fichiers/tableau-de-bord";
@@ -32,7 +32,8 @@ export async function GET(requete: Request) {
         slug: fichier.slug,
         titre: fichier.titre.fr,
         datePublication: fichier.datePublication,
-        statut: dateAtteinte(fichier) ? "publie" : "programme",
+        statut: estEnLigne(fichier) ? "publie" : "programme",
+        ...(estReservePremium(fichier) ? { reservePremium: true } : {}),
         fichierCorrections: FICHIER_CORRECTIONS,
         lectureSeule: false,
         champs: champsEditables(fichier),

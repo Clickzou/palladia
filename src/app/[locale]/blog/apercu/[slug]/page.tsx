@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import VueArticle from "@/components/blog/VueArticle";
-import { articleFichier, dateAtteinte, versArticleComplet } from "@/lib/articles-fichiers";
+import { articleFichier, dateAtteinte, estReservePremium, versArticleComplet } from "@/lib/articles-fichiers";
 import { apercuValide } from "@/lib/articles-fichiers/tableau-de-bord";
 
 /**
@@ -40,6 +40,8 @@ export default async function ApercuArticle({
   const { sig } = await searchParams;
   const article = articleFichier(slug);
   if (!article || !apercuValide(article.slug, typeof sig === "string" ? sig : undefined)) notFound();
+  // Réservé au pack Full SEO (premium.ts) : ni publié, ni lisible par lien d'aperçu.
+  if (estReservePremium(article)) notFound();
 
   // Déjà en ligne : l'aperçu n'a plus lieu d'être, on renvoie vers la vraie page.
   if (dateAtteinte(article)) redirect(locale === "fr" ? `/${slug}` : `/${locale}/${slug}`);

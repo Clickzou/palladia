@@ -11,6 +11,10 @@ import { ENTETES_TABLEAU_DE_BORD, refusTableauDeBord } from "@/lib/articles-fich
  * articles fichiers de contenu/articles/ (publiés ou programmés ; un
  * programmé porte son lien d'aperçu signé). Les brouillons ne sortent pas.
  *
+ * Articles réservés au pack Full SEO (contenu/articles-premium.json, décision
+ * de JC du 07/10/2026) : « programme » même date passée, `reservePremium: true`,
+ * sans lien d'aperçu ; l'espace client les montre en vitrine verrouillée.
+ *
  * Bearer `TABLEAU_DE_BORD_CLE` : 503 si la clé n'est pas posée sur le
  * serveur, 401 si elle ne correspond pas.
  */
