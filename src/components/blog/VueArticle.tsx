@@ -105,10 +105,17 @@ export default function VueArticle({
               "@context": "https://schema.org",
               "@type": "Article",
               headline: article.titre,
+              description: article.seo_description ?? undefined,
+              url: `${prefixe}/${slug}`,
+              mainEntityOfPage: `${prefixe}/${slug}`,
+              inLanguage: locale,
               datePublished: article.date_publication,
               image: article.image_hero ?? undefined,
-              author: { "@type": "Organization", name: "Hôtel Palladia" },
-              publisher: { "@type": "Organization", name: "Hôtel Palladia" },
+              // Auteur et editeur renvoient a la fiche de l'hotel posee sur
+              // l'accueil (donnees-structurees.ts) : adresse, 4 etoiles,
+              // 90 chambres sont ainsi rattaches a chaque article.
+              author: { "@type": "Hotel", "@id": `${SITE}/#hotel`, name: "Hôtel Palladia" },
+              publisher: { "@type": "Hotel", "@id": `${SITE}/#hotel`, name: "Hôtel Palladia" },
             }),
           }}
         />
