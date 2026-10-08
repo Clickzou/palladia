@@ -1,4 +1,7 @@
 -- ---------------------------------------------------------------------------
+-- PERIME : annule par 0074_treize_salles_mariage.sql (l'hotel a confirme par
+-- ecrit 13 salles + l'amphitheatre le 08/10/2026). Ne pas rejouer seul.
+--
 -- Nombre de salles de reunion : 16.
 --
 -- Le site se contredit d'une page a l'autre — 13 dans la description SEO du

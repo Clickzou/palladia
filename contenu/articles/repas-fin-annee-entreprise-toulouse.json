@@ -243,9 +243,9 @@
             "es": "Una comida de fin de año lograda suele depender de un solo momento: aquel del que todo el mundo habla al día siguiente junto a la máquina de café."
           },
           {
-            "fr": "Selon votre projet, différentes animations peuvent s’intégrer à la soirée : soirée casino, blind test musical, quiz et défis entre équipes, soirée à thème ou DJ pour terminer sur la piste. Mieux vaut en choisir une seule et lui laisser de la place que d’en enchaîner trois.",
-            "en": "Depending on your plans, various kinds of entertainment can be built into the evening: a casino night, a music quiz, team quizzes and challenges, a themed evening or a DJ to finish on the dance floor. It is better to pick just one and give it room than to string three together.",
-            "es": "Según su proyecto, pueden integrarse distintas animaciones en la velada: noche de casino, blind test musical, concursos y retos entre equipos, velada temática o DJ para terminar en la pista. Más vale elegir una sola y darle espacio que encadenar tres."
+            "fr": "L’hôtel propose des animations sur mesure, construites avec vous selon votre projet : soirée casino, blind test musical, quiz et défis entre équipes, soirée à thème ou DJ pour terminer sur la piste. Mieux vaut en choisir une seule et lui laisser de la place que d’en enchaîner trois.",
+            "en": "The hotel offers tailor-made entertainment, designed with you around your plans: a casino night, a music quiz, team quizzes and challenges, a themed evening or a DJ to finish on the dance floor. It is better to pick just one and give it room than to string three together.",
+            "es": "El hotel propone animaciones a medida, diseñadas con usted según su proyecto: noche de casino, blind test musical, concursos y retos entre equipos, velada temática o DJ para terminar en la pista. Más vale elegir una sola y darle espacio que encadenar tres."
           },
           {
             "fr": "L’hôtel programme aussi ses propres dîners-spectacles au fil de la saison. Venir en équipe à l’une de ces soirées est une autre façon de marquer la fin d’année, sans rien avoir à organiser soi-même.",
@@ -394,9 +394,9 @@
               "es": "¿Se puede prever una animación durante la comida?"
             },
             "intro": {
-              "fr": "Oui, selon votre projet : soirée casino, blind test, quiz entre équipes, soirée à thème ou DJ. L’équipe commerciale vous aide à choisir celle qui convient à votre groupe.",
-              "en": "Yes, depending on your plans: casino night, music quiz, team quizzes, themed evening or DJ. The sales team will help you choose the one that suits your group.",
-              "es": "Sí, según su proyecto: noche de casino, blind test, concursos entre equipos, velada temática o DJ. El equipo comercial le ayuda a elegir la que mejor se adapte a su grupo."
+              "fr": "Oui, l’hôtel propose des animations sur mesure : soirée casino, blind test, quiz entre équipes, soirée à thème ou DJ. L’équipe commerciale vous aide à choisir celle qui convient à votre groupe.",
+              "en": "Yes, the hotel offers tailor-made entertainment: casino night, music quiz, team quizzes, themed evening or DJ. The sales team will help you choose the one that suits your group.",
+              "es": "Sí, el hotel propone animaciones a medida: noche de casino, blind test, concursos entre equipos, velada temática o DJ. El equipo comercial le ayuda a elegir la que mejor se adapte a su grupo."
             }
           },
           {
