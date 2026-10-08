@@ -162,10 +162,10 @@ const blocs = [
           paragraphes: [],
           liste: [
             "d’un amphithéâtre de 285 places ;",
-            "de 13 salles de réunion à la lumière du jour ;",
-            "d’espaces modulables pouvant accueillir jusqu’à 400 participants ;",
+            "de 12 salles de réunion à la lumière du jour ;",
+            "d’espaces modulables pouvant accueillir jusqu’à 350 participants ;",
             "d’une connexion internet haut débit ;",
-            "d’un parking gratuit de 300 places.",
+            "d’un parking gratuit de 250 places.",
           ],
         },
         {

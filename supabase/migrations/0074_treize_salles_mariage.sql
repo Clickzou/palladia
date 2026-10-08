@@ -1,4 +1,6 @@
 -- ---------------------------------------------------------------------------
+-- CORRIGE par 0075_douze_salles_mariage.sql : « 13 salles + amphi » voulait dire
+-- 12 salles plus l'amphitheatre (precision de l'hotel le 08/10/2026 apres-midi).
 -- Salles de reunion : 13, plus l'amphitheatre. Mariage : 250 assis, 300 cocktail.
 --
 -- Reponse ecrite de l'hotel du 08/10/2026 : « 13 salles + amphitheatre », ce
